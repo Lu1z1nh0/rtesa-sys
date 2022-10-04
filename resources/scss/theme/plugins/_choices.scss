@@ -1,0 +1,99 @@
+
+/* -------------------------------------------------------------------------- */
+/*                                   Choices                                  */
+/* -------------------------------------------------------------------------- */
+
+@use 'sass:math';
+
+.choices{
+  font-family: $font-family-sans-serif !important;
+  .choices__inner {
+    border-radius: 0.25rem;
+    min-height: calc(#{$input-line-height} + #{$input-padding-y*2} + #{$input-border-width});
+    line-height: 1.5rem !important;
+    font-size: 1rem;
+    background-color: var(--#{$variable-prefix}input-bg) !important;
+    background-size: $form-select-bg-size;
+    border: 1px solid $border-color;
+    font-family: $form-select-font-family;
+    padding:  math.div($form-select-padding-y, 1.2) ($form-select-padding-x + $form-select-indicator-padding)  math.div($form-select-padding-y, 1.2) $form-select-padding-x;
+    box-shadow: $input-box-shadow;
+  }
+  .choices__input--cloned {
+    padding: 0;
+    font-size: 1rem;
+    color: var(--#{$variable-prefix}-input-color);
+    background-color: var(--#{$variable-prefix}input-bg) !important;
+    margin-top: 5px !important;
+    vertical-align: top;
+    margin-bottom: 0;
+  }
+  .choices__list--dropdown{
+    border: 1px solid var(--#{$variable-prefix}200) !important;
+    box-shadow: var(--#{$variable-prefix}box-shadow) !important;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    // border-radius: $border-radius;
+    .choices__item--selectable {
+      padding: 2px $form-select-padding-x;
+      padding-right: 20px;
+      font-size: 1rem !important;
+      background-color: var(--#{$variable-prefix}200);
+      color: var(--#{$variable-prefix}body-color);
+      &.is-highlighted {
+        background-color: $primary;
+        color: var(--#{$variable-prefix}choices-item-selectable-highlighted-bg);
+      }
+    }
+  }
+  .choices__list{
+    margin-top: 0 !important;
+    .has-no-choices {
+      background-color: var(--#{$variable-prefix}choices-item-has-no-choices-bg);
+    }
+  }
+  .choices__list--multiple .choices__item{
+    padding: 0 8px !important;
+    font-size: 13px !important;
+    border: 0;
+    background-color: var(--#{$variable-prefix}200);
+    border-radius: 4px;
+    margin-bottom: 0 !important;
+    margin-top: 5px !important;
+    color: var(--#{$variable-prefix}body-color);
+  }
+  .choices__button {
+    background-color: red !important;
+    border-left: $black !important;
+  }
+  .choices__list--single{
+    padding: 0 !important;
+    margin-top: 5px !important; 
+    .choices__button{
+      background-color: transparent !important;
+    }
+  }
+}
+.choices[data-type*=select-multiple] .choices__button, .choices[data-type*=text] .choices__button{
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg==);
+  background-color: transparent !important;
+  padding-left: 5px !important;
+  width: 5px !important;
+  background-size: 6px !important;
+}
+.choices[data-type*=select-one] {
+  .choices__input {
+    padding-left: $form-select-padding-x;
+    padding-right: $form-select-padding-x;
+  }
+  .choices__inner{
+    padding-bottom: 5px !important;
+  }
+}
+.is-focused,
+.is-open{
+  .choices__inner{
+    border-radius: $border-radius !important;
+    border-color: $border-color !important;
+  }
+}

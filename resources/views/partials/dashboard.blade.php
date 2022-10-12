@@ -56,103 +56,103 @@
               <thead class="bg-light">
                 <tr class="text-900">
                   <th>Productos Mejor Vendidos</th>
-                  <th class="text-end">Revenue ($3333)</th>
-                  <th class="pe-card text-end" style="width: 8rem">Revenue (%)</th>
+                  <th class="text-end">Ingresos ($ 00.00)</th>
+                  <th class="pe-card text-end" style="width: 8rem">Ingresos (%)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="border-bottom border-200">
                   <td>
-                    <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="{{asset('img/products/12.png')}}" width="60" alt="" />
+                    <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="{{asset('img/products/producto-min-1.png')}}" width="60" alt="" />
                       <div class="flex-1 ms-3">
-                        <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Raven Pro</a></h6>
-                        <p class="fw-semi-bold mb-0 text-500">Landing</p>
+                        <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Faja Dist. 1</a></h6>
+                        <p class="fw-semi-bold mb-0 text-500">Fajas</p>
                       </div>
                     </div>
                   </td>
-                  <td class="align-middle text-end fw-semi-bold">$1311</td>
+                  <td class="align-middle text-end fw-semi-bold">$ 00.00</td>
                   <td class="align-middle pe-card">
                     <div class="d-flex align-items-center">
                       <div class="progress me-3 rounded-3 bg-200" style="height: 5px;width:80px">
                         <div class="progress-bar rounded-pill" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
-                      <div class="fw-semi-bold ms-2">39%</div>
+                      <div class="fw-semi-bold ms-2">0.0 %</div>
                     </div>
                   </td>
                 </tr>
                 <tr class="border-bottom border-200">
                   <td>
-                    <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="{{asset('img/products/10.png')}}" width="60" alt="" />
+                    <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="{{asset('img/products/producto-min-3.png')}}" width="60" alt="" />
                       <div class="flex-1 ms-3">
-                        <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Boots4</a></h6>
-                        <p class="fw-semi-bold mb-0 text-500">Portfolio</p>
+                        <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Silicón CTI 1</a></h6>
+                        <p class="fw-semi-bold mb-0 text-500">Silicones</p>
                       </div>
                     </div>
                   </td>
-                  <td class="align-middle text-end fw-semi-bold">$860</td>
+                  <td class="align-middle text-end fw-semi-bold">$ 00.00</td>
                   <td class="align-middle pe-card">
                     <div class="d-flex align-items-center">
                       <div class="progress me-3 rounded-3 bg-200" style="height: 5px;width:80px">
                         <div class="progress-bar rounded-pill" role="progressbar" style="width: 26%;" aria-valuenow="26" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
-                      <div class="fw-semi-bold ms-2">26%</div>
+                      <div class="fw-semi-bold ms-2">0.0 %</div>
                     </div>
                   </td>
                 </tr>
                 <tr class="border-bottom border-200">
                   <td>
-                    <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="{{asset('img/products/11.png')}}" width="60" alt="" />
+                    <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="{{asset('img/products/producto-min-4.png')}}" width="60" alt="" />
                       <div class="flex-1 ms-3">
-                        <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Falcon</a></h6>
-                        <p class="fw-semi-bold mb-0 text-500">Admin</p>
+                        <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Soporte HYU 1</a></h6>
+                        <p class="fw-semi-bold mb-0 text-500">Soportes</p>
                       </div>
                     </div>
                   </td>
-                  <td class="align-middle text-end fw-semi-bold">$539</td>
+                  <td class="align-middle text-end fw-semi-bold">$ 00.00</td>
                   <td class="align-middle pe-card">
                     <div class="d-flex align-items-center">
                       <div class="progress me-3 rounded-3 bg-200" style="height: 5px;width:80px">
                         <div class="progress-bar rounded-pill" role="progressbar" style="width: 16%;" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
-                      <div class="fw-semi-bold ms-2">16%</div>
+                      <div class="fw-semi-bold ms-2">0.0 %</div>
                     </div>
                   </td>
                 </tr>
                 <tr class="border-bottom border-200">
                   <td>
-                    <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="{{asset('img/products/14.png')}}" width="60" alt="" />
+                    <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="{{asset('img/products/producto-min-5.png')}}" width="60" alt="" />
                       <div class="flex-1 ms-3">
-                        <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Slick</a></h6>
-                        <p class="fw-semi-bold mb-0 text-500">Builder</p>
+                        <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Faja Acc. 2</a></h6>
+                        <p class="fw-semi-bold mb-0 text-500">Fajas</p>
                       </div>
                     </div>
                   </td>
-                  <td class="align-middle text-end fw-semi-bold">$343</td>
+                  <td class="align-middle text-end fw-semi-bold">$ 00.00</td>
                   <td class="align-middle pe-card">
                     <div class="d-flex align-items-center">
                       <div class="progress me-3 rounded-3 bg-200" style="height: 5px;width:80px">
                         <div class="progress-bar rounded-pill" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
-                      <div class="fw-semi-bold ms-2">10%</div>
+                      <div class="fw-semi-bold ms-2">0.0 %</div>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="{{asset('img/products/13.png')}}" width="60" alt="" />
+                    <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="{{asset('img/products/producto-min-2.png')}}" width="60" alt="" />
                       <div class="flex-1 ms-3">
-                        <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Reign Pro</a></h6>
-                        <p class="fw-semi-bold mb-0 text-500">Agency</p>
+                        <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Silicón CTI ATV</a></h6>
+                        <p class="fw-semi-bold mb-0 text-500">Silicones</p>
                       </div>
                     </div>
                   </td>
-                  <td class="align-middle text-end fw-semi-bold">$280</td>
+                  <td class="align-middle text-end fw-semi-bold">$ 00.00</td>
                   <td class="align-middle pe-card">
                     <div class="d-flex align-items-center">
                       <div class="progress me-3 rounded-3 bg-200" style="height: 5px;width:80px">
                         <div class="progress-bar rounded-pill" role="progressbar" style="width: 8%;" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
-                      <div class="fw-semi-bold ms-2">8%</div>
+                      <div class="fw-semi-bold ms-2">0.0 %</div>
                     </div>
                   </td>
                 </tr>
@@ -164,12 +164,12 @@
           <div class="row flex-between-center">
             <div class="col-auto">
               <select class="form-select form-select-sm">
-                <option>Last 7 days</option>
-                <option>Last Month</option>
-                <option>Last Year</option>
+                <option>Últimos 7 días</option>
+                <option>Último Mes</option>
+                <option>Último Año</option>
               </select>
             </div>
-            <div class="col-auto"><a class="btn btn-sm btn-falcon-default" href="#!">View All</a></div>
+            <div class="col-auto"><a class="btn btn-sm btn-falcon-default" href="#!">Ver Todo</a></div>
           </div>
         </div>
       </div>
@@ -180,27 +180,27 @@
         <div class="card-header">
           <div class="row flex-between-center">
             <div class="col-auto">
-              <h6 class="mb-0">Total Sales</h6>
+              <h6 class="mb-0">Ventas Totales</h6>
             </div>
             <div class="col-auto d-flex">
               <select class="form-select form-select-sm select-month me-2">
-                <option value="0">January</option>
-                <option value="1">February</option>
-                <option value="2">March</option>
-                <option value="3">April</option>
-                <option value="4">May</option>
-                <option value="5">Jun</option>
-                <option value="6">July</option>
-                <option value="7">August</option>
-                <option value="8">September</option>
-                <option value="9">October</option>
-                <option value="10">November</option>
-                <option value="11">December</option>
+                <option value="0">Enero</option>
+                <option value="1">Febrero</option>
+                <option value="2">Marzo</option>
+                <option value="3">Abril</option>
+                <option value="4">Mayo</option>
+                <option value="5">Junio</option>
+                <option value="6">Julio</option>
+                <option value="7">Agosto</option>
+                <option value="8">Septiembre</option>
+                <option value="9">Octubre</option>
+                <option value="10">Noviembre</option>
+                <option value="11">Diciembre</option>
               </select>
               <div class="dropdown font-sans-serif btn-reveal-trigger">
                 <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-total-sales" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
-                <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-total-sales"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                  <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-total-sales"><a class="dropdown-item" href="#!">Ver</a><a class="dropdown-item" href="#!">Exportar</a>
+                  <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remover</a>
                 </div>
               </div>
             </div>

@@ -66,7 +66,7 @@
                   </div>
 
                   <!-- parent pages-->
-                  <a class="nav-link" href="" role="button" data-bs-toggle="" aria-expanded="false">
+                  <a class="nav-link" href="{{url('/dashboard/categorias')}}" role="button" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center">
                       <span class="nav-link-icon"><span class="fas fa-list-ul"></span></span>
                       <span class="nav-link-text ps-1">Categorías</span>
@@ -74,7 +74,7 @@
                   </a>
 
                   <!-- parent pages-->
-                  <a class="nav-link" href="" role="button" data-bs-toggle="" aria-expanded="false">
+                  <a class="nav-link" href="{{url('/dashboard/productos')}}" role="button" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center">
                       <span class="nav-link-icon"><span class="fas fa-shopping-cart"></span></span>
                       <span class="nav-link-text ps-1">Productos</span>
@@ -82,10 +82,10 @@
                   </a>
 
                   <!-- parent pages-->
-                  <a class="nav-link" href="" role="button" aria-expanded="false">
+                  <a class="nav-link" href="{{url('/dashboard/stock')}}" role="button" aria-expanded="false">
                     <div class="d-flex align-items-center">
                       <span class="nav-link-icon"><span class="fas fa-box"></span></span>
-                      <span class="nav-link-text ps-1">Pedidos</span>
+                      <span class="nav-link-text ps-1">Stock</span>
                     </div>
                   </a>
                 </li>

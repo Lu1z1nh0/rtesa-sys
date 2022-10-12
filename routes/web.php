@@ -39,6 +39,15 @@ Route::view('/iniciar-sesion', 'login')->name('/iniciar-sesion')->middleware('gu
 //Administrador
 Route::view('/dashboard', 'admin')->middleware('auth');
 
+//Vista de categorias
+Route::view('/dashboard/categorias', 'categorias/index')->middleware('auth');
+
+//Vista de productos
+Route::view('/dashboard/productos', 'productos/index')->middleware('auth');
+
+//Vista de stock
+Route::view('/dashboard/stock', 'stock/index')->middleware('auth');
+
 //Iniciar Sesión
 Route::post('/iniciar-sesion', function () {
 

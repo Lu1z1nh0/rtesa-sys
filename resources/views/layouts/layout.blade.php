@@ -24,8 +24,8 @@
     <meta name="msapplication-TileImage" content="{{asset('img/favicons/mstile-150x150.png')}}">        
     <meta name="theme-color" content="#ffffff">
     <script src="{{asset('js/config.js')}}"></script>                                                   
-    <script src="assets/public/vendors/overlayscrollbars/OverlayScrollbars.min.js"></script>
-    <!--<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>-->
+    {{-- <script src="assets/public/vendors/overlayscrollbars/OverlayScrollbars.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
 
     <!-- ===============================================-->
     <!--    Stylesheets-->
@@ -95,7 +95,8 @@
     <script src="{{url('vendors/fontawesome/all.min.js')}}"></script> 
     <script src="{{url('vendors/lodash/lodash.min.js')}}"></script>  
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="{{url('vendors/list.js/list.min.js')}}"></script>  
+    {{-- <script src="{{url('vendors/list.js/list.min.js')}}"></script>   --}}
+    <script src="{{url('/vendors/overlayscrollbars/OverlayScrollbars.min.js')}}"></script>
     <script src="{{asset('js/theme.js')}}"></script> 
 
   </body>

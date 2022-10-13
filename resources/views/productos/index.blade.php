@@ -6,7 +6,7 @@
         <div class="bg-holder d-none d-lg-block bg-card"
             style="background-image:url(../../assets/img/icons/spot-illustrations/corner-4.png);">
         </div>
-        <div class="card-body position-relative">
+        <div class="card-body position-relative mt-4">
             <div class="row">
                 <div class="col-lg-8">
                     <h3>🏷️ Productos 🏷️</h3>
@@ -28,9 +28,7 @@
                 <div class="card-body position-relative">
                     <h6>Productos Activos</h6>
                     <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-warning"
-                        data-countup='{"endValue":58.386,"decimalPlaces":2,"suffix":"k"}'>45</div><a
-                        class="fw-semi-bold fs--1 text-nowrap" href="app/e-commerce/customers.html">See all<span
-                            class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                        data-countup='{"endValue":58.386,"decimalPlaces":2,"suffix":"k"}'>45</div>
                 </div>
             </div>
         </div>
@@ -43,86 +41,101 @@
                 <div class="card-body position-relative">
                     <h6>Producos Inactivos</h6>
                     <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info"
-                        data-countup='{"endValue":23.434,"decimalPlaces":2,"suffix":"k"}'>32</div><a
-                        class="fw-semi-bold fs--1 text-nowrap" href="app/e-commerce/orders/order-list.html">All orders<span
-                            class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                        data-countup='{"endValue":23.434,"decimalPlaces":2,"suffix":"k"}'>32</div>
                 </div>
             </div>
         </div>
     </div>
-    {{-- Tabla de categorias --}}
-    <div class="mb-3">
-        <button class="btn btn-primary me-1 mb-1" type="button">Agregar nuevo producto
-        </button>
+    {{-- Tabla de productos --}}
+    <div class="row justify-content-md-center">
+        <div class="col mb-5 mt-4">
+            <a href="{{url('/dashboard/productos/crear')}}">
+                <button class="btn btn-primary me-1 mb-1" type="button">Agregar nueva producto
+                </button>
+            </a>
+        </div>
+        <div class="col">
+            <label class="form-label" for="exampleFormControlInput1">Buscar producto, SKU y EOM</label>
+            <input class="form-control" type="text" placeholder="Alternador" />
+        </div>
     </div>
     <div class="card mb-3">
         <div class="card-header">
             <div class="row flex-between-end">
                 <div class="col-auto align-self-center">
-                    <h5 class="mb-0" data-anchor="data-anchor">Tabla de productos</h5>
+                    <h5 class="mb-0" data-anchor="data-anchor">Tabla de prodctos</h5>
                 </div>
             </div>
         </div>
         <div class="card-body pt-0">
-            <div class="tab-content">
-                <div class="tab-pane preview-tab-pane active" role="tabpanel"
-                    aria-labelledby="tab-dom-c5e8d192-4a51-4677-898b-d0c52e07fab1"
-                    id="dom-c5e8d192-4a51-4677-898b-d0c52e07fab1">
-                    <div id="tableExample" data-list='{"valueNames":["name","email","age"],"page":5,"pagination":true}'>
-                        <div class="table-responsive scrollbar">
-                            <table class="table table-bordered table-striped fs--1 mb-0">
-                                <thead class="bg-200 text-900">
-                                    <tr>
-                                        <th class="sort" data-sort="name">Nombre Producto</th>
-                                        <th class="sort" data-sort="email">Descripcion</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="list">
-                                    <tr>
-                                        <td class="name">Anna</td>
-                                        <td class="email">anna@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name">Homer</td>
-                                        <td class="email">homer@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name">Oscar</td>
-                                        <td class="email">oscar@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name">Emily</td>
-                                        <td class="email">emily@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name">Jara</td>
-                                        <td class="email">jara@example.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row align-items-center mt-3">
-                            <div class="pagination d-none"></div>
-                            <div class="col">
-                                <p class="mb-0 fs--1">
-                                    <span class="d-none d-sm-inline-block" data-list-info="data-list-info"></span>
-                                    <span class="d-none d-sm-inline-block"> &mdash; </span>
-                                    <a class="fw-semi-bold" href="#!" data-list-view="*">View all<span
-                                            class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a><a
-                                        class="fw-semi-bold d-none" href="#!" data-list-view="less">View Less<span
-                                            class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
-                                </p>
-                            </div>
-                            <div class="col-auto d-flex">
-                                <button class="btn btn-sm btn-primary" type="button"
-                                    data-list-pagination="prev"><span>Previous</span></button>
-                                <button class="btn btn-sm btn-primary px-4 ms-2" type="button"
-                                    data-list-pagination="next"><span>Next</span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="table-responsive scrollbar">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">SKU</th>
+                            <th scope="col">OEM</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Ref1</th>
+                            <th scope="col">Ref2</th>
+                            <th scope="col">Ref3</th>
+                            <th class="text-end" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Canister</td>
+                            <td>El canister es un sistema que almacena los vapores de la gasolina que se producen en el
+                                depósito de combustible mediante una serie de válvulas y tuberías. Estos vapores se acumulan
+                                en un depósito para ser quemados posteriormente tras la admisión.</td>
+                            <td>87.99$</td>
+                            <td>Toyoya</td>
+                            <td>KSFBW-01</td>
+                            <td>Nijapan</td>
+                            <td>Carro</td>
+                            <td>143545</td>
+                            <td>435345</td>
+                            <td>534535</td>
+                            <td class="text-end">
+                                <div>
+                                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Edit"><span class="text-500 fas fa-edit"></span></button>
+                                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Delete"><span
+                                            class="text-500 fas fa-trash-alt"></span></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Alternador</td>
+                            <td>elemento del circuito eléctrico del automóvil que tiene como misión transformar la energía
+                                mecánica en energía eléctrica, proporcionando así un suministro eléctrico durante la marcha
+                                del vehículo.</td>
+                            <td>90.99$</td>
+                            <td>BOSCH</td>
+                            <td>KSFBW-02</td>
+                            <td>BOSCH</td>
+                            <td>Carro</td>
+                            <td>999233</td>
+                            <td>434344</td>
+                            <td>136557</td>
+                            <td class="text-end">
+                                <div>
+                                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Edit"><span class="text-500 fas fa-edit"></span></button>
+                                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="Delete"><span
+                                            class="text-500 fas fa-trash-alt"></span></button>
+                                </div>
+                            </td>
+                        </tr>
 
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

@@ -39,11 +39,17 @@ Route::view('/iniciar-sesion', 'login')->name('/iniciar-sesion')->middleware('gu
 //Administrador
 Route::view('/dashboard', 'admin')->middleware('auth');
 
-//Vista de categorias
-Route::view('/dashboard/categorias', 'categorias/index')->middleware('auth');
-
 //Vista de productos
 Route::view('/dashboard/productos', 'productos/index')->middleware('auth');
+Route::view('/dashboard/productos/crear', 'productos/form')->middleware('auth');
+
+//Vista de categorias
+Route::view('/dashboard/categorias', 'categorias/index')->middleware('auth');
+Route::view('/dashboard/categorias/crear', 'categorias/form')->middleware('auth');
+
+//Vista de marcas
+Route::view('/dashboard/marcas', 'marcas/index')->middleware('auth');
+Route::view('/dashboard/marcas/crear', 'marcas/form')->middleware('auth');
 
 //Vista de stock
 Route::view('/dashboard/stock', 'stock/index')->middleware('auth');

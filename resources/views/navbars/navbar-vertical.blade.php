@@ -30,7 +30,7 @@
                 <li class="nav-item">
 
                   <!-- parent pages-->
-                  <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard">
+                  <a class="nav-link dropdown-indicator {{ 'dashboard' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard')}}" href="#dashboard" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Dashboard</span>
                     </div>
                   </a>
@@ -38,7 +38,7 @@
                   <ul class="nav collapse show" id="dashboard">
                     
                     <li class="nav-item">
-                      <a class="nav-link active" href="{{url('/dashboard')}}" data-bs-toggle="" aria-expanded="false">
+                      <a class="nav-link {{ 'dashboard' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center">
                           <span class="nav-link-text ps-1">Inicio</span>
                         </div>
@@ -64,17 +64,9 @@
                     <div class="col-auto navbar-vertical-label">Ventas</div>
                     <div class="col ps-0"><hr class="mb-0 navbar-vertical-divider" /></div>
                   </div>
-
+                  
                   <!-- parent pages-->
-                  <a class="nav-link" href="{{url('/dashboard/categorias')}}" role="button" data-bs-toggle="" aria-expanded="false">
-                    <div class="d-flex align-items-center">
-                      <span class="nav-link-icon"><span class="fas fa-list-ul"></span></span>
-                      <span class="nav-link-text ps-1">Categorías</span>
-                    </div>
-                  </a>
-
-                  <!-- parent pages-->
-                  <a class="nav-link" href="{{url('/dashboard/productos')}}" role="button" data-bs-toggle="" aria-expanded="false">
+                  <a class="nav-link {{ 'dashboard/productos' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/productos')}}" role="button" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center">
                       <span class="nav-link-icon"><span class="fas fa-shopping-cart"></span></span>
                       <span class="nav-link-text ps-1">Productos</span>
@@ -82,7 +74,23 @@
                   </a>
 
                   <!-- parent pages-->
-                  <a class="nav-link" href="{{url('/dashboard/stock')}}" role="button" aria-expanded="false">
+                  <a class="nav-link {{ 'dashboard/categorias' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/categorias')}}" role="button" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                      <span class="nav-link-icon"><span class="fas fa-list-ul"></span></span>
+                      <span class="nav-link-text ps-1">Categorías</span>
+                    </div>
+                  </a>
+
+                  <!-- parent pages-->
+                  <a class="nav-link {{ 'dashboard/marcas' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/marcas')}}" role="button" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                      <span class="nav-link-icon"><span class="far fa-copyright"></span></span>
+                      <span class="nav-link-text ps-1">Marcas</span>
+                    </div>
+                  </a>
+
+                  <!-- parent pages-->
+                  <a class="nav-link {{ 'dashboard/stock' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/stock')}}" role="button" aria-expanded="false">
                     <div class="d-flex align-items-center">
                       <span class="nav-link-icon"><span class="fas fa-box"></span></span>
                       <span class="nav-link-text ps-1">Stock</span>

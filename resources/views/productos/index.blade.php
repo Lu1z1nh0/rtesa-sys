@@ -47,16 +47,22 @@
         </div>
     </div>
     {{-- Tabla de productos --}}
-    <div class="row justify-content-md-center">
-        <div class="col mb-5 mt-4">
+    <div class="row mb-3 justify-content-md-center">
+        <div class="col">
             <a href="{{url('/dashboard/productos/crear')}}">
-                <button class="btn btn-primary me-1 mb-1" type="button">Agregar nueva producto
+                <button class="btn btn-primary me-1 mb-1" type="button"><i class="fas fa-plus"></i> Agregar nueva producto
                 </button>
             </a>
         </div>
-        <div class="col">
-            <label class="form-label" for="exampleFormControlInput1">Buscar producto, SKU y EOM</label>
+    </div>
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <label class="form-label" for="exampleFormControlInput1">Buscar Producto</label>
             <input class="form-control" type="text" placeholder="Alternador" />
+        </div>
+        <div class="col-lg-6 d-flex align-items-end">
+            <button class="btn btn-primary me-1 mb-1 mt-2" type="button"><i class="fas fa-search"></i> Buscar Producto
+            </button>
         </div>
     </div>
     <div class="card mb-3">

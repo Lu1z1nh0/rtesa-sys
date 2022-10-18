@@ -34,10 +34,15 @@ Route::get('/terminos-y-condiciones', function () {
     return view('terms');
 });
 
+
+
 //Iniciar Sesión
 Route::view('/iniciar-sesion', 'login')->name('/iniciar-sesion')->middleware('guest');
 //Administrador
 Route::view('/dashboard', 'admin')->middleware('auth');
+
+//Vista de aprobacion
+Route::view('/aprobacion', 'aprobacion')->middleware('auth');
 
 //Vista de productos
 Route::view('/dashboard/productos', 'productos/index')->middleware('auth');
@@ -53,6 +58,12 @@ Route::view('/dashboard/marcas/crear', 'marcas/form')->middleware('auth');
 
 //Vista de stock
 Route::view('/dashboard/stock', 'stock/index')->middleware('auth');
+
+//Vista de clientes
+Route::view('/dashboard/clientes', 'clientes/index')->middleware('auth');
+
+//Vista de clientes
+Route::view('/dashboard/aspirantes', 'aspirantes/index')->middleware('auth');
 
 //Iniciar Sesión
 Route::post('/iniciar-sesion', function () {

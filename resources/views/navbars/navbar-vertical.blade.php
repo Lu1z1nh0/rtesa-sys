@@ -107,7 +107,7 @@
                   </div>
 
                   <!-- parent pages-->
-                  <a class="nav-link" href="" role="button" data-bs-toggle="" aria-expanded="false">
+                  <a class="nav-link {{ 'dashboard/clientes' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/clientes')}}" role="button" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center">
                       <span class="nav-link-icon"><span class="fas fa-user"></span></span>
                       <span class="nav-link-text ps-1">Lista de Clientes</span>
@@ -115,7 +115,7 @@
                   </a>
 
                   <!-- parent pages-->
-                  <a class="nav-link" href="" role="button" data-bs-toggle="" aria-expanded="false">
+                  <a class="nav-link {{ 'dashboard/aspirantes' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/aspirantes')}}"" role="button" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center">
                       <span class="nav-link-icon"><span class="fas fa-user-clock"></span></span>
                       <span class="nav-link-text ps-1">Aspirantes</span>

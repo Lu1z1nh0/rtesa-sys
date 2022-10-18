@@ -48,9 +48,19 @@
     {{-- Tabla de categorias --}}
     <div class="mb-3">
         <a href="{{url('/dashboard/categorias/crear')}}">
-            <button class="btn btn-primary me-1 mb-1" type="button">Agregar nueva categoria
+            <button class="btn btn-primary me-1 mb-1" type="button"><i class="fas fa-plus"></i> Agregar nueva categoría
             </button>
         </a>
+    </div>
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <label class="form-label" for="exampleFormControlInput1">Buscar Categoría</label>
+            <input class="form-control" type="text" placeholder="Fajas" />
+        </div>
+        <div class="col-lg-6 d-flex align-items-end">
+            <button class="btn btn-primary me-1 mb-1 mt-2" type="button"><i class="fas fa-search"></i> Buscar Categoría
+            </button>
+        </div>
     </div>
     <div class="card mb-3">
         <div class="card-header">

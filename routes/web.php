@@ -47,6 +47,9 @@ Route::view('/aprobacion', 'aprobacion')->middleware('auth');
 //Vista de productos
 Route::view('/dashboard/productos', 'productos/index')->middleware('auth');
 Route::view('/dashboard/productos/crear', 'productos/form')->middleware('auth');
+Route::view('/dashboard/tienda', 'productos/productos-grid')->middleware('auth');
+Route::view('/dashboard/producto-detalle-test', 'productos/detalle-producto')->middleware('auth');
+
 
 //Vista de categorias
 Route::view('/dashboard/categorias', 'categorias/index')->middleware('auth');

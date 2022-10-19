@@ -58,6 +58,18 @@
 
                 <!-- Ventas -->
                 <li class="nav-item">
+                  <!-- label-->
+                  <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                    <div class="col-auto navbar-vertical-label">Productos</div>
+                    <div class="col ps-0"><hr class="mb-0 navbar-vertical-divider" /></div>
+                  </div>
+
+                  <a class="nav-link {{ 'dashboard/tienda' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/tienda')}}" role="button" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                      <span class="nav-link-icon"><i class="fas fa-shopping-basket"></i></span></span>
+                      <span class="nav-link-text ps-1">Tienda</span>
+                    </div>
+                  </a>
 
                   <!-- label-->
                   <div class="row navbar-vertical-label-wrapper mt-3 mb-2">

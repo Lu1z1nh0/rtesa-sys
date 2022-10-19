@@ -37,6 +37,7 @@
     <link href="{{asset('css/theme.css')}}" rel="stylesheet" id="style-default">
     <link href="{{asset('css/user-rtl.css')}}" rel="stylesheet" id="user-style-rtl"> 
     <link href="{{asset('css/user.css')}}" rel="stylesheet" id="user-style-default">
+    
     <script>
       var isRTL = JSON.parse(localStorage.getItem('isRTL'));
       if (isRTL) {
@@ -94,6 +95,8 @@
     <script src="{{url('vendors/echarts/echarts.min.js')}}"></script>
     <script src="{{url('vendors/fontawesome/all.min.js')}}"></script> 
     <script src="{{url('vendors/lodash/lodash.min.js')}}"></script>  
+    <link src="{{url('vendors/swiper/swiper-bundle.min.css')}}" rel="stylesheet" >
+    <script src="{{url('vendors/swiper/swiper-bundle.min.js')}}"></script>  
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     {{-- <script src="{{url('vendors/list.js/list.min.js')}}"></script>   --}}
     <script src="{{url('/vendors/overlayscrollbars/OverlayScrollbars.min.js')}}"></script>

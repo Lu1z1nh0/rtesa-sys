@@ -4,38 +4,14 @@
     <div class="card mb-3">
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="col-lg-6 mb-lg-0">
                     <div class="product-slider" id="galleryTop">
-                        {{-- <div class="swiper-container theme-slider position-lg-absolute all-0"
-                            data-swiper='{"autoHeight":true,"spaceBetween":5,"loop":true,"loopedSlides":5,"thumb":{"spaceBetween":5,"slidesPerView":5,"loop":true,"freeMode":true,"grabCursor":true,"loopedSlides":5,"centeredSlides":true,"slideToClickedSlide":true,"watchSlidesVisibility":true,"watchSlidesProgress":true,"parent":"#galleryTop"},"slideToClickedSlide":true}'>
-                            <div class="swiper-wrapper h-100">
-                                <div class="swiper-slide h-100"><img class="rounded-1 fit-cover h-100 w-100"
-                                        src="../../../assets/img/products/1.jpg" alt="" /></div>
-                                <div class="swiper-slide h-100"><img class="rounded-1 fit-cover h-100 w-100"
-                                        src="../../../assets/img/products/1-2.jpg" alt="" /></div>
-                                <div class="swiper-slide h-100"> <img class="rounded-1 fit-cover h-100 w-100"
-                                        src="../../../assets/img/products/1-3.jpg" alt="" /></div>
-                                <div class="swiper-slide h-100"> <img class="rounded-1 fit-cover h-100 w-100"
-                                        src="../../../assets/img/products/1-4.jpg" alt="" /></div>
-                                <div class="swiper-slide h-100"> <img class="rounded-1 fit-cover h-100 w-100"
-                                        src="../../../assets/img/products/1-5.jpg" alt="" /></div>
-                                <div class="swiper-slide h-100"> <img class="rounded-1 fit-cover h-100 w-100"
-                                        src="../../../assets/img/products/1-6.jpg" alt="" /></div>
-                            </div>
-                            <div class="swiper-nav">
-                                <div class="swiper-button-next swiper-button-white"></div>
-                                <div class="swiper-button-prev swiper-button-white"></div>
-                            </div>
-                        </div> --}}
+                        <div class="swiper-slide h-100"><img class="rounded-1 fit-cover h-100 w-100"
+                                src="../../../assets/img/products/default.webp" alt="" /></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h5>Canister</h5><a class="fs--1 mb-2 d-block" href="#!">Carro & Accesorios</a>
-                    <div class="fs--2 mb-3 d-inline-block text-decoration-none"><span
-                            class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span
-                            class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span
-                            class="fa fa-star-half-alt text-warning star-icon"></span><span class="ms-1 text-600">(8)</span>
-                    </div>
+                    <h5>Canister</h5><a class="fs--1 mb-2 d-block">Carro & Accesorios</a>
                     <p class="fs--1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                         has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                         galley of type and scrambled it to make a type specimen book. It has survived not only five
@@ -46,7 +22,7 @@
                     <h4 class="d-flex align-items-center"><span class="text-warning me-2">87.99$</span><span
                             class="me-1 fs--1 text-500">
                         </span></h4>
-                    <p class="fs--1">Stock: <strong class="text-success">Available</strong></p>
+                    <p class="fs--1">Stock: <strong class="text-success">Disponible</strong></p>
                     <div class="row">
                         <div class="col-auto pe-0">
                             <div class="input-group input-group-sm" data-quantity="data-quantity">
@@ -60,8 +36,8 @@
                             </div>
                         </div>
                         <div class="col-auto px-2 px-md-3"><a class="btn btn-sm btn-primary" href="#!"><span
-                                    class="fas fa-cart-plus me-sm-2"></span><span class="d-none d-sm-inline-block">Add To
-                                    Cart</span></a></div>
+                                    class="fas fa-cart-plus me-sm-2"></span><span class="d-none d-sm-inline-block">Agregar
+                                    al carrito</span></a></div>
                     </div>
                 </div>
             </div>
@@ -92,46 +68,16 @@
                             </div>
                             <div class="tab-pane fade" id="tab-specifications" role="tabpanel"
                                 aria-labelledby="specifications-tab">
-                                <table class="table fs--1 mt-3">
-                                    <tbody>
-                                        <tr>
-                                            <td class="bg-100" style="width: 30%;">Processor</td>
-                                            <td>2.3GHz quad-core Intel Core i5,</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="bg-100" style="width: 30%;">Memory</td>
-                                            <td>8GB of 2133MHz LPDDR3 onboard memory</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="bg-100" style="width: 30%;">Brand Name</td>
-                                            <td>Apple</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="bg-100" style="width: 30%;">Model</td>
-                                            <td>Mac Book Pro</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="bg-100" style="width: 30%;">Display</td>
-                                            <td>13.3-inch (diagonal) LED-backlit display with IPS technology</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="bg-100" style="width: 30%;">Storage</td>
-                                            <td>512GB SSD</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="bg-100" style="width: 30%;">Graphics</td>
-                                            <td>Intel Iris Plus Graphics 655</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="bg-100" style="width: 30%;">Weight</td>
-                                            <td>7.15 pounds</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="bg-100" style="width: 30%;">Finish</td>
-                                            <td>Silver, Space Gray</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="mt-3">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        It has survived not only five centuries, but also the leap into electronic
+                                        typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                        the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+                                        with desktop publishing software like Aldus PageMaker including versions of Lorem
+                                        Ipsum.</p>
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="tab-reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                 <div class="row mt-3">

@@ -41,7 +41,7 @@
                         <div class="overflow-hidden">
                             <div class="position-relative rounded-top overflow-hidden"><a class="d-block"
                                     href="/dashboard/producto-detalle-test"><img
-                                        class="img-fluid rounded-top" src="../../../assets/img/products/1.jpg"
+                                        class="img-fluid rounded-top" src="../../../assets/img/products/default.webp"
                                         alt="" /></a>
                             </div>
                             <div class="p-3">
@@ -75,7 +75,7 @@
                         <div class="overflow-hidden">
                             <div class="position-relative rounded-top overflow-hidden"><a class="d-block"
                                     href="/dashboard/producto-detalle-test"><img
-                                        class="img-fluid rounded-top" src="../../../assets/img/products/2.jpg"
+                                        class="img-fluid rounded-top" src="../../../assets/img/products/default.webp"
                                         alt="" /></a>
                             </div>
                             <div class="p-3">
@@ -109,7 +109,7 @@
                         <div class="overflow-hidden">
                             <div class="position-relative rounded-top overflow-hidden"><a class="d-block"
                                     href="/dashboard/producto-detalle-test"><img
-                                        class="img-fluid rounded-top" src="../../../assets/img/products/3.jpg"
+                                        class="img-fluid rounded-top" src="../../../assets/img/products/default.webp"
                                         alt="" /></a>
                             </div>
                             <div class="p-3">

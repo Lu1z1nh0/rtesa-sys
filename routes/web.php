@@ -44,6 +44,9 @@ Route::view('/dashboard', 'admin')->middleware('auth');
 //Vista de aprobacion
 Route::view('/aprobacion', 'aprobacion')->middleware('auth');
 
+//Vista de aspirantes para completar informacion
+Route::view('/aspirantes-completar', 'aspirante_info')->middleware('auth');
+
 //Vista de productos
 Route::view('/dashboard/productos', 'productos/index')->middleware('auth');
 Route::view('/dashboard/productos/crear', 'productos/form')->middleware('auth');

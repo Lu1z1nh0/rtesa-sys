@@ -21,7 +21,7 @@ return new class extends Migration
             //relacionar con la tabla rol
             $table->foreignId('rol_id')->constrained('rol');
             $table->string('estado', 50);
-            $table->timestamps('fecha_registro');
+            $table->date('fecha_registro');
             $table->string('imagen_perfil_src', 250);
             $table->timestamps();
         });

@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('estado', 50);
             $table->string('clasificacion', 50);
             $table->string('boletin', 100);
-            $table->timestamps('fecha_registro');
+            $table->date('fecha_registro');
             $table->string('imagen_perfil_src', 250)->nullable();
             $table->string('notas', 250)->nullable();
             $table->string('estatus', 50);

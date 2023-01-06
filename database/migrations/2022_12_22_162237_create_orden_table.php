@@ -14,14 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('orden', function (Blueprint $table) {
-            $table->id();
-            $table->date('fecha');
+            $table->increments('id');
+            $table->dateTime('fecha_registro');
             //relacionar con la tabla cliente
-            $table->foreignId('cliente_id')->constrained('cliente');
-            $table->string('estado', 50);
+            $table->integer('cliente_id')->unsigned();
+            $table->foreign('cliente_id')->references('id')->on('cliente');
+            $table->string('estado', 10);
             $table->date('fecha_envio');
             $table->date('fecha_entrega');
-            $table->string('total', 50);
+            $table->double('total', 7, 2);
             $table->timestamps();
         });
     }

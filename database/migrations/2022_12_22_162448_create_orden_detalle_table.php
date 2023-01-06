@@ -14,14 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('orden_detalle', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             //relacionar con la tabla orden
-            $table->foreignId('orden_id')->constrained('orden');
+            $table->integer('orden_id')->unsigned();
+            $table->foreign('orden_id')->references('id')->on('orden');
             //relacionar con la tabla producto
-            $table->foreignId('producto_id')->constrained('producto');
-            $table->string('cantidad', 50);
-            $table->string('precio', 50);
-            $table->string('descuento', 50);
+            $table->integer('producto_id')->unsigned();
+            $table->foreign('producto_id')->references('id')->on('producto');
+            $table->integer('cantidad')->unsigned();
+            $table->double('precio', 5, 2);
+            $table->double('descuento', 2, 2);
             $table->timestamps();
         });
     }

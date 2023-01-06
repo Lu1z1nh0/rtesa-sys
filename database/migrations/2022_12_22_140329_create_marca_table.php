@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('marca', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre', 50);
-            $table->string('estado', 50);
-            $table->string('logo_src', 50)->nullable();
+            $table->increments('id');
+            $table->string('nombre', 25)->unique();
+            $table->string('estado', 10);
+            $table->string('logo_src', 60)->nullable();
             $table->timestamps();
         });
     }

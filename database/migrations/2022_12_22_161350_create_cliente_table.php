@@ -14,28 +14,29 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cliente', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre', 100);
-            $table->string('correo', 100);
-            $table->string('direccion', 250);
-            $table->string('nombre_empresa', 100);
-            $table->string('municipio', 50);
-            $table->string('departamento', 50);
+            $table->increments('id');
+            $table->string('nombre', 35);
+            $table->string('correo', 30)->unique();
+            $table->string('direccion', 80);
+            $table->string('nombre_empresa', 35);
+            $table->string('municipio', 22);
+            $table->string('departamento', 15);
             $table->string('password', 100);
-            $table->string('telefono', 50);
-            $table->string('whatsapp', 50);
-            $table->string('website', 250);
-            $table->string('nit', 50);
-            $table->string('nrc', 100);
+            $table->string('telefono', 20);
+            $table->string('whatsapp', 20);
+            $table->string('website', 35);
+            $table->string('nit', 18)->unique();
+            $table->string('nrc', 10)->unique();
             //relacionar con la tabla rol
-            $table->foreignId('rol_id')->constrained('rol');
-            $table->string('estado', 50);
-            $table->string('clasificacion', 50);
-            $table->string('boletin', 100);
-            $table->timestamps('fecha_registro');
-            $table->string('imagen_perfil_src', 250)->nullable();
-            $table->string('notas', 250)->nullable();
-            $table->string('estatus', 50);
+            $table->integer('rol_id')->unsigned();
+            $table->foreign('rol_id')->references('id')->on('rol');
+            $table->string('estado', 10);
+            $table->string('clasificacion', 10);
+            $table->boolean('boletin');
+            $table->dateTime('fecha_registro');
+            $table->string('imagen_perfil_src', 60)->nullable();
+            $table->string('notas', 300)->nullable();
+            $table->string('estatus', 15);
             $table->timestamps();
         });
     }

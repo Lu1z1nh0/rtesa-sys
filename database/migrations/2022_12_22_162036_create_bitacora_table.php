@@ -18,12 +18,9 @@ return new class extends Migration
             //relacionar con la table envneto
             $table->integer('evento_id')->unsigned();
             $table->foreign('evento_id')->references('id')->on('evento');
-            //relacionar con la tabla adminitrador
-            $table->integer('administrador_id')->unsigned();
-            $table->foreign('administrador_id')->references('id')->on('administrador');
-            //relacionar con la tabla cliente
-            $table->integer('cliente_id')->unsigned();
-            $table->foreign('cliente_id')->references('id')->on('cliente');
+            //relacionar con la tabla usuario
+            $table->integer('usuario_id')->unsigned();
+            $table->foreign('usuario_id')->references('id')->on('usuario');
             //campo para guardar la fecha y hora de la bitacora
             $table->dateTime('hora_fecha');
             $table->timestamps();

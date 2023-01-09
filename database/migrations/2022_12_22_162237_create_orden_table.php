@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('orden', function (Blueprint $table) {
             $table->increments('id');
             $table->dateTime('fecha_registro');
-            //relacionar con la tabla cliente
-            $table->integer('cliente_id')->unsigned();
-            $table->foreign('cliente_id')->references('id')->on('cliente');
+            //relacionar con la tabla usuario
+            $table->integer('usuario_id')->unsigned();
+            $table->foreign('usuario_id')->references('id')->on('usuario');
             $table->string('estado', 10);
             $table->date('fecha_envio');
             $table->date('fecha_entrega');

@@ -19,9 +19,9 @@ return new class extends Migration
             $table->integer('producto_id')->unsigned();
             $table->foreign('producto_id')->references('id')->on('producto');
             $table->integer('cantidad')->unsigned();
-            //relacionar con la tabla cliente
-            $table->integer('cliente_id')->unsigned();
-            $table->foreign('cliente_id')->references('id')->on('cliente');
+            //relacionar con la tabla usuario
+            $table->integer('usuario_id')->unsigned();
+            $table->foreign('usuario_id')->references('id')->on('usuario');
             $table->timestamps();
         });
     }

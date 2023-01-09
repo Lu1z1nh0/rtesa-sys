@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Models\Cliente;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class Orden extends Model

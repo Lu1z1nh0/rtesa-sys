@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Orden;
+use App\Models\Producto;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model

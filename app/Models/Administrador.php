@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Models\Rol;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class Administrador extends Model

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('estado_producto', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('estado', 10);
+            $table->string('estado', 20);
             $table->timestamps();
         });
     }

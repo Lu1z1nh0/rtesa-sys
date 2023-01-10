@@ -28,8 +28,8 @@ return new class extends Migration
             $table->string('telefono', 20);
             $table->string('whatsapp', 20);
             $table->string('website', 35);
-            $table->string('nit', 18)->unique();
-            $table->string('nrc', 10)->unique();
+            $table->string('nit', 18)->nullable()->unique();
+            $table->string('nrc', 10)->nullable()->unique();
             //relacionar con la tabla rol
             $table->integer('rol_id')->unsigned();
             $table->foreign('rol_id')->references('id')->on('rol');
@@ -46,14 +46,14 @@ return new class extends Migration
         });
     }
 
-        /**
-         * Reverse the migrations.
-         *
-         * @return void
-         */
-        public function down()
-        {
-            Schema::dropIfExists('usuario');
-        }
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('usuario');
+    }
 
 };

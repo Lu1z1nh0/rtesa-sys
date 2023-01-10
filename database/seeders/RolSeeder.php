@@ -1,7 +1,8 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Rol;
+use App\Models\Rol;
 
 
 class RolSeeder extends Seeder
@@ -24,14 +25,14 @@ class RolSeeder extends Seeder
         Rol::create([
             'id' => 2,
             'nombre' => 'Cliente',
-            'descripcion' => 'Acceso a la tienda según aprobación del Administrador.'
+            'descripcion' => 'Acceso a la tienda según aprobación del Administrador.',
             'estado' => 'activo',
         ]);
 
         Rol::create([
             'id' => 3,
             'nombre' => 'SuperAdmin',
-            'descripcion' => 'Administrador del Sistema con permisos extendidos.'
+            'descripcion' => 'Administrador del Sistema con permisos extendidos.',
             'estado' => 'activo',
         ]);
 

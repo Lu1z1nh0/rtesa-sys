@@ -44,6 +44,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+    }
 
         /**
          * Reverse the migrations.
@@ -54,5 +55,5 @@ return new class extends Migration
         {
             Schema::dropIfExists('usuario');
         }
-    };
+
 }

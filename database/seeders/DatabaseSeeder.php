@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RolSeeder::class);
         $this->call(UsuarioSeeder::class);
+        /*
         $this->call(SustanciasSeeder::class);
         $this->call(ExperimentoSeeder::class);
         $this->call(SustanciaExperimentoSeeder::class);
@@ -28,5 +29,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ElementoElectronesSeeder::class);
         $this->call(MateriaSeeder::class);
         $this->call(LaboratorioSeeder::class);
+        */
     }
 }

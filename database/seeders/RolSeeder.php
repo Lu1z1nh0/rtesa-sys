@@ -15,21 +15,27 @@ class RolSeeder extends Seeder
     {
 
         Rol::create([
-            'id' => 3,
-            'nombre_rol' => 'Administrador',
-            'descripcion_rol' => 'Administrador de usuarios'
+            'id' => 1,
+            'nombre' => 'Administrador',
+            'descripcion' => 'Administrador del Sistema.',
+            'estado' => 'activo',
         ]);
+
         Rol::create([
             'id' => 2,
-            'nombre_rol' => 'Docente',
-            'descripcion_rol' => 'Administrador Web contenido, cargas de datos'
+            'nombre' => 'Cliente',
+            'descripcion' => 'Acceso a la tienda según aprobación del Administrador.'
+            'estado' => 'activo',
         ]);
+
         Rol::create([
-            'id' => 1,
-            'nombre_rol' => 'Alumno',
-            'descripcion_rol' => 'Acceso a reportes en general'
+            'id' => 3,
+            'nombre' => 'SuperAdmin',
+            'descripcion' => 'Administrador del Sistema con permisos extendidos.'
+            'estado' => 'activo',
         ]);
 
 
     }
 }
+

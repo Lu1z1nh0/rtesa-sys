@@ -14,15 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('administrador', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre', 50);
-            $table->string('correo', 100);
-            $table->string('contrasena', 100);
+            $table->increments('id');
+            $table->string('nombre', 35);
+            $table->string('correo', 30)->unique();
+            $table->string('password', 100);
             //relacionar con la tabla rol
-            $table->foreignId('rol_id')->constrained('rol');
-            $table->string('estado', 50);
-            $table->date('fecha_registro');
-            $table->string('imagen_perfil_src', 250);
+            $table->integer('rol_id')->unsigned();
+            $table->foreign('rol_id')->references('id')->on('rol');
+            $table->string('estado', 10);
+            $table->dateTime('fecha_registro');
+            $table->string('imagen_perfil_src', 100);
             $table->timestamps();
         });
     }
@@ -37,3 +38,5 @@ return new class extends Migration
         Schema::dropIfExists('administrador');
     }
 };
+
+

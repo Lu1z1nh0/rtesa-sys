@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('estado_producto', function (Blueprint $table) {
-            $table->id();
-            $table->string('estado', 50);
+            $table->increments('id');
+            $table->string('estado', 10);
             $table->timestamps();
         });
     }

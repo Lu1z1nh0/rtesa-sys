@@ -14,12 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('carrito', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             //relacionar con la tabla producto
-            $table->foreignId('producto_id')->constrained('producto');
-            $table->string('cantidad', 50);
-            //relacionar con la tabla cliente
-            $table->foreignId('cliente_id')->constrained('cliente');
+            $table->integer('producto_id')->unsigned();
+            $table->foreign('producto_id')->references('id')->on('producto');
+            $table->integer('cantidad')->unsigned();
+            //relacionar con la tabla usuario
+            $table->integer('usuario_id')->unsigned();
+            $table->foreign('usuario_id')->references('id')->on('usuario');
             $table->timestamps();
         });
     }

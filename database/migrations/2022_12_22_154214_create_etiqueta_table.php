@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('etiqueta', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre', 50);
+            $table->increments('id');
+            $table->string('nombre', 20);
             //relacionar con la tabla producto
-            $table->foreignId('producto_id')->constrained('producto');
+            $table->integer('producto_id')->unsigned();
+            $table->foreign('producto_id')->references('id')->on('producto');
             $table->timestamps();
         });
     }

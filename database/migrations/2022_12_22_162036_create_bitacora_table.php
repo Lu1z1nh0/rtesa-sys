@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('bitacora', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             //relacionar con la table envneto
-            $table->foreignId('evento_id')->constrained('evento');
-            //relacionar con la tabla adminitrador
-            $table->foreignId('administrador_id')->constrained('administrador');
-            //relacionar con la tabla cliente
-            $table->foreignId('cliente_id')->constrained('cliente');
+            $table->integer('evento_id')->unsigned();
+            $table->foreign('evento_id')->references('id')->on('evento');
+            //relacionar con la tabla usuario
+            $table->integer('usuario_id')->unsigned();
+            $table->foreign('usuario_id')->references('id')->on('usuario');
             //campo para guardar la fecha y hora de la bitacora
             $table->dateTime('hora_fecha');
             $table->timestamps();

@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('permiso', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre', 50);
-            $table->string('nivel', 50)->nullable();
-            $table->string('estado', 50);
+            $table->increments('id');
+            $table->string('nombre', 30);
+            $table->integer('nivel')->unsigned();
+            $table->string('estado', 10);
             //relacionar con la tabla rol
-            $table->foreignId('rol_id')->constrained('rol');
+            $table->integer('rol_id')->unsigned();
+            $table->foreign('rol_id')->references('id')->on('rol');
             $table->timestamps();
         });
     }

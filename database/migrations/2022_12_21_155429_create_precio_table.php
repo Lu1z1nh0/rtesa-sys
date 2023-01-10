@@ -14,9 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('precio', function (Blueprint $table) {
-            $table->id();
-            $table->string('precio_Tipo', 50);
-            $table->string('estado', 50);
+            $table->increments('id');
+            $table->string('precio_Tipo', 18);
+            $table->double('precio_Monto', 5, 2);
+            $table->string('estado', 10);
+
             $table->timestamps();
         });
     }

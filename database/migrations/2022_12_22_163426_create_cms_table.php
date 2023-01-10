@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cms', function (Blueprint $table) {
-            $table->id();
-            $table->string('variable', 250);
-            $table->string('parametro', 250);
+            $table->increments('id');
+            $table->string('variable', 80);
+            $table->string('parametro', 350);
             $table->timestamps();
         });
     }

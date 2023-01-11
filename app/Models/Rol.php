@@ -7,9 +7,5 @@ class Rol extends Model
 {
     protected $table='rol';
 
-    public function usuarios(){
-
-        return $this->hasMany('App\Models\User');
-
-    }
+    public function usuarios(){ return $this->hasMany('App\Models\User'); }
 }

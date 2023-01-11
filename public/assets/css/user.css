@@ -161,3 +161,11 @@ a:hover {
     line-height: 10px;
     vertical-align: initial;
 }
+
+li#iniMenu a.nav-link {
+    background-color: #fc1d2c;
+    color: #fff;
+    border-radius: 12px;
+    padding: 5px 10px;
+    border: solid 1px #fff;
+}

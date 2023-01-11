@@ -1,15 +1,18 @@
-"use strict";
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
 
-var _excluded = ["endValue"];
+/***/ "./resources/js/bulk-select.js":
+/*!*************************************!*\
+  !*** ./resources/js/bulk-select.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node */ "./resources/js/node.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -22,9 +25,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -32,412 +35,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-/* -------------------------------------------------------------------------- */
-
-/*                                    Utils                                   */
-
-/* -------------------------------------------------------------------------- */
-var docReady = function docReady(fn) {
-  // see if DOM is already available
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', fn);
-  } else {
-    setTimeout(fn, 1);
-  }
-};
-
-var resize = function resize(fn) {
-  return window.addEventListener('resize', fn);
-};
-
-var isIterableArray = function isIterableArray(array) {
-  return Array.isArray(array) && !!array.length;
-};
-
-var camelize = function camelize(str) {
-  var text = str.replace(/[-_\s.]+(.)?/g, function (_, c) {
-    return c ? c.toUpperCase() : '';
-  });
-  return "".concat(text.substr(0, 1).toLowerCase()).concat(text.substr(1));
-};
-
-var getData = function getData(el, data) {
-  try {
-    return JSON.parse(el.dataset[camelize(data)]);
-  } catch (e) {
-    return el.dataset[camelize(data)];
-  }
-};
-/* ----------------------------- Colors function ---------------------------- */
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
-var hexToRgb = function hexToRgb(hexValue) {
-  var hex;
-  hexValue.indexOf('#') === 0 ? hex = hexValue.substring(1) : hex = hexValue; // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-
-  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.replace(shorthandRegex, function (m, r, g, b) {
-    return r + r + g + g + b + b;
-  }));
-  return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
-};
-
-var rgbaColor = function rgbaColor() {
-  var color = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '#fff';
-  var alpha = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.5;
-  return "rgba(".concat(hexToRgb(color), ", ").concat(alpha, ")");
-};
-/* --------------------------------- Colors --------------------------------- */
-
-
-var getColor = function getColor(name) {
-  var dom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.documentElement;
-  return getComputedStyle(dom).getPropertyValue("--falcon-".concat(name)).trim();
-};
-
-var getColors = function getColors(dom) {
-  return {
-    primary: getColor('primary', dom),
-    secondary: getColor('secondary', dom),
-    success: getColor('success', dom),
-    info: getColor('info', dom),
-    warning: getColor('warning', dom),
-    danger: getColor('danger', dom),
-    light: getColor('light', dom),
-    dark: getColor('dark', dom)
-  };
-};
-
-var getSoftColors = function getSoftColors(dom) {
-  return {
-    primary: getColor('soft-primary', dom),
-    secondary: getColor('soft-secondary', dom),
-    success: getColor('soft-success', dom),
-    info: getColor('soft-info', dom),
-    warning: getColor('soft-warning', dom),
-    danger: getColor('soft-danger', dom),
-    light: getColor('soft-light', dom),
-    dark: getColor('soft-dark', dom)
-  };
-};
-
-var getGrays = function getGrays(dom) {
-  return {
-    white: getColor('white', dom),
-    100: getColor('100', dom),
-    200: getColor('200', dom),
-    300: getColor('300', dom),
-    400: getColor('400', dom),
-    500: getColor('500', dom),
-    600: getColor('600', dom),
-    700: getColor('700', dom),
-    800: getColor('800', dom),
-    900: getColor('900', dom),
-    1000: getColor('1000', dom),
-    1100: getColor('1100', dom),
-    black: getColor('black', dom)
-  };
-};
-
-var hasClass = function hasClass(el, className) {
-  !el && false;
-  return el.classList.value.includes(className);
-};
-
-var addClass = function addClass(el, className) {
-  el.classList.add(className);
-};
-
-var getOffset = function getOffset(el) {
-  var rect = el.getBoundingClientRect();
-  var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  return {
-    top: rect.top + scrollTop,
-    left: rect.left + scrollLeft
-  };
-};
-
-function isScrolledIntoView(el) {
-  var rect = el.getBoundingClientRect();
-  var windowHeight = window.innerHeight || document.documentElement.clientHeight;
-  var windowWidth = window.innerWidth || document.documentElement.clientWidth;
-  var vertInView = rect.top <= windowHeight && rect.top + rect.height >= 0;
-  var horInView = rect.left <= windowWidth && rect.left + rect.width >= 0;
-  return vertInView && horInView;
-}
-
-var breakpoints = {
-  xs: 0,
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1200,
-  xxl: 1540
-};
-
-var getBreakpoint = function getBreakpoint(el) {
-  var classes = el && el.classList.value;
-  var breakpoint;
-
-  if (classes) {
-    breakpoint = breakpoints[classes.split(' ').filter(function (cls) {
-      return cls.includes('navbar-expand-');
-    }).pop().split('-').pop()];
-  }
-
-  return breakpoint;
-};
-/* --------------------------------- Cookie --------------------------------- */
-
-
-var setCookie = function setCookie(name, value, expire) {
-  var expires = new Date();
-  expires.setTime(expires.getTime() + expire);
-  document.cookie = "".concat(name, "=").concat(value, ";expires=").concat(expires.toUTCString());
-};
-
-var getCookie = function getCookie(name) {
-  var keyValue = document.cookie.match("(^|;) ?".concat(name, "=([^;]*)(;|$)"));
-  return keyValue ? keyValue[2] : keyValue;
-};
-
-var settings = {
-  tinymce: {
-    theme: 'oxide'
-  },
-  chart: {
-    borderColor: 'rgba(255, 255, 255, 0.8)'
-  }
-};
-/* -------------------------- Chart Initialization -------------------------- */
-
-var newChart = function newChart(chart, config) {
-  var ctx = chart.getContext('2d');
-  return new window.Chart(ctx, config);
-};
-/* ---------------------------------- Store --------------------------------- */
-
-
-var getItemFromStore = function getItemFromStore(key, defaultValue) {
-  var store = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : localStorage;
-
-  try {
-    return JSON.parse(store.getItem(key)) || defaultValue;
-  } catch (_unused) {
-    return store.getItem(key) || defaultValue;
-  }
-};
-
-var setItemToStore = function setItemToStore(key, payload) {
-  var store = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : localStorage;
-  return store.setItem(key, payload);
-};
-
-var getStoreSpace = function getStoreSpace() {
-  var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : localStorage;
-  return parseFloat((escape(encodeURIComponent(JSON.stringify(store))).length / (1024 * 1024)).toFixed(2));
-};
-/* get Dates between */
-
-
-var getDates = function getDates(startDate, endDate) {
-  var interval = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1000 * 60 * 60 * 24;
-  var duration = endDate - startDate;
-  var steps = duration / interval;
-  return Array.from({
-    length: steps + 1
-  }, function (v, i) {
-    return new Date(startDate.valueOf() + interval * i);
-  });
-};
-
-var getPastDates = function getPastDates(duration) {
-  var days;
-
-  switch (duration) {
-    case 'week':
-      days = 7;
-      break;
-
-    case 'month':
-      days = 30;
-      break;
-
-    case 'year':
-      days = 365;
-      break;
-
-    default:
-      days = duration;
-  }
-
-  var date = new Date();
-  var endDate = date;
-  var startDate = new Date(new Date().setDate(date.getDate() - (days - 1)));
-  return getDates(startDate, endDate);
-};
-/* Get Random Number */
-
-
-var getRandomNumber = function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
-};
-
-var utils = {
-  docReady: docReady,
-  resize: resize,
-  isIterableArray: isIterableArray,
-  camelize: camelize,
-  getData: getData,
-  hasClass: hasClass,
-  addClass: addClass,
-  hexToRgb: hexToRgb,
-  rgbaColor: rgbaColor,
-  getColor: getColor,
-  getColors: getColors,
-  getSoftColors: getSoftColors,
-  getGrays: getGrays,
-  getOffset: getOffset,
-  isScrolledIntoView: isScrolledIntoView,
-  getBreakpoint: getBreakpoint,
-  setCookie: setCookie,
-  getCookie: getCookie,
-  newChart: newChart,
-  settings: settings,
-  getItemFromStore: getItemFromStore,
-  setItemToStore: setItemToStore,
-  getStoreSpace: getStoreSpace,
-  getDates: getDates,
-  getPastDates: getPastDates,
-  getRandomNumber: getRandomNumber
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                  Detector                                  */
-
-/* -------------------------------------------------------------------------- */
-
-var detectorInit = function detectorInit() {
-  var _window = window,
-      is = _window.is;
-  var html = document.querySelector('html');
-  is.opera() && addClass(html, 'opera');
-  is.mobile() && addClass(html, 'mobile');
-  is.firefox() && addClass(html, 'firefox');
-  is.safari() && addClass(html, 'safari');
-  is.ios() && addClass(html, 'ios');
-  is.iphone() && addClass(html, 'iphone');
-  is.ipad() && addClass(html, 'ipad');
-  is.ie() && addClass(html, 'ie');
-  is.edge() && addClass(html, 'edge');
-  is.chrome() && addClass(html, 'chrome');
-  is.mac() && addClass(html, 'osx');
-  is.windows() && addClass(html, 'windows');
-  navigator.userAgent.match('CriOS') && addClass(html, 'chrome');
-};
-/*-----------------------------------------------
-|   DomNode
------------------------------------------------*/
-
-
-var DomNode = /*#__PURE__*/function () {
-  function DomNode(node) {
-    _classCallCheck(this, DomNode);
-
-    this.node = node;
-  }
-
-  _createClass(DomNode, [{
-    key: "addClass",
-    value: function addClass(className) {
-      this.isValidNode() && this.node.classList.add(className);
-    }
-  }, {
-    key: "removeClass",
-    value: function removeClass(className) {
-      this.isValidNode() && this.node.classList.remove(className);
-    }
-  }, {
-    key: "toggleClass",
-    value: function toggleClass(className) {
-      this.isValidNode() && this.node.classList.toggle(className);
-    }
-  }, {
-    key: "hasClass",
-    value: function hasClass(className) {
-      this.isValidNode() && this.node.classList.contains(className);
-    }
-  }, {
-    key: "data",
-    value: function data(key) {
-      if (this.isValidNode()) {
-        try {
-          return JSON.parse(this.node.dataset[this.camelize(key)]);
-        } catch (e) {
-          return this.node.dataset[this.camelize(key)];
-        }
-      }
-
-      return null;
-    }
-  }, {
-    key: "attr",
-    value: function attr(name) {
-      return this.isValidNode() && this.node[name];
-    }
-  }, {
-    key: "setAttribute",
-    value: function setAttribute(name, value) {
-      this.isValidNode() && this.node.setAttribute(name, value);
-    }
-  }, {
-    key: "removeAttribute",
-    value: function removeAttribute(name) {
-      this.isValidNode() && this.node.removeAttribute(name);
-    }
-  }, {
-    key: "setProp",
-    value: function setProp(name, value) {
-      this.isValidNode() && (this.node[name] = value);
-    }
-  }, {
-    key: "on",
-    value: function on(event, cb) {
-      this.isValidNode() && this.node.addEventListener(event, cb);
-    }
-  }, {
-    key: "isValidNode",
-    value: function isValidNode() {
-      return !!this.node;
-    } // eslint-disable-next-line class-methods-use-this
-
-  }, {
-    key: "camelize",
-    value: function camelize(str) {
-      var text = str.replace(/[-_\s.]+(.)?/g, function (_, c) {
-        return c ? c.toUpperCase() : '';
-      });
-      return "".concat(text.substr(0, 1).toLowerCase()).concat(text.substr(1));
-    }
-  }]);
-
-  return DomNode;
-}();
-/* -------------------------------------------------------------------------- */
-
-/*                                  Anchor JS                                 */
-
-/* -------------------------------------------------------------------------- */
-
-
-var anchors = new window.AnchorJS();
-anchors.options = {
-  icon: '#'
-};
-anchors.add('[data-anchor]');
 /*-----------------------------------------------
 |   Bulk Select
 -----------------------------------------------*/
@@ -446,7 +46,7 @@ var BulkSelect = /*#__PURE__*/function () {
   function BulkSelect(element, option) {
     _classCallCheck(this, BulkSelect);
 
-    this.element = new DomNode(element);
+    this.element = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](element);
     this.option = _objectSpread({
       displayNoneClassName: 'd-none'
     }, option);
@@ -467,8 +67,8 @@ var BulkSelect = /*#__PURE__*/function () {
           actions = _this$element$data.actions,
           replacedElement = _this$element$data.replacedElement;
 
-      this.actions = new DomNode(document.getElementById(actions));
-      this.replacedElement = new DomNode(document.getElementById(replacedElement));
+      this.actions = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById(actions));
+      this.replacedElement = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById(replacedElement));
       this.bulkSelectRows = document.getElementById(body).querySelectorAll('[data-bulk-select-row]');
     }
   }, {
@@ -486,7 +86,7 @@ var BulkSelect = /*#__PURE__*/function () {
           _this.removeBulkCheck();
 
           _this.bulkSelectRows.forEach(function (el) {
-            var rowCheck = new DomNode(el);
+            var rowCheck = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](el);
             rowCheck.setProp('checked', false);
             rowCheck.setAttribute('checked', false);
           });
@@ -497,7 +97,7 @@ var BulkSelect = /*#__PURE__*/function () {
         _this.toggleDisplay();
 
         _this.bulkSelectRows.forEach(function (el) {
-          var rowCheck = new DomNode(el);
+          var rowCheck = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](el);
           rowCheck.setProp('checked', _this.element.attr('checked'));
           rowCheck.setAttribute('checked', _this.element.attr('checked'));
         });
@@ -510,7 +110,7 @@ var BulkSelect = /*#__PURE__*/function () {
 
       // Handle click event in checkbox of each row
       this.bulkSelectRows.forEach(function (el) {
-        var rowCheck = new DomNode(el);
+        var rowCheck = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](el);
         rowCheck.on('click', function () {
           if (_this2.element.attr('indeterminate') !== 'indeterminate') {
             _this2.element.setProp('indeterminate', true);
@@ -573,3995 +173,23 @@ function bulkSelectInit() {
     });
   }
 }
-/*-----------------------------------------------
-|   Chat
------------------------------------------------*/
 
-
-var chatInit = function chatInit() {
-  var Events = {
-    CLICK: 'click',
-    SHOWN_BS_TAB: 'shown.bs.tab',
-    KEYUP: 'keyup',
-    EMOJI: 'emoji'
-  };
-  var Selector = {
-    CHAT_SIDEBAR: '.chat-sidebar',
-    CHAT_CONTACT: '.chat-contact',
-    CHAT_CONTENT_SCROLL_AREA: '.chat-content-scroll-area',
-    CHAT_CONTENT_SCROLL_AREA_ACTIVE: '.card-chat-pane.active .chat-content-scroll-area',
-    CHAT_EMOJIAREA: '.chat-editor-area .emojiarea-editor',
-    BTN_SEND: '.btn-send',
-    EMOJIEAREA_EDITOR: '.emojiarea-editor',
-    BTN_INFO: '.btn-info',
-    CONVERSATION_INFO: '.conversation-info',
-    CONTACTS_LIST_SHOW: '.contacts-list-show'
-  };
-  var ClassName = {
-    UNREAD_MESSAGE: 'unread-message',
-    TEXT_PRIMARY: 'text-primary',
-    SHOW: 'show'
-  };
-  var DATA_KEY = {
-    INDEX: 'index'
-  };
-  var $chatSidebar = document.querySelector(Selector.CHAT_SIDEBAR);
-  var $chatContact = document.querySelectorAll(Selector.CHAT_CONTACT);
-  var $chatEmojiarea = document.querySelector(Selector.CHAT_EMOJIAREA);
-  var $btnSend = document.querySelector(Selector.BTN_SEND);
-  var $currentChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA); // Set scrollbar position
-
-  var setScrollbarPosition = function setScrollbarPosition($chatArea) {
-    if ($chatArea) {
-      var scrollArea = $chatArea;
-      scrollArea.scrollTop = $chatArea.scrollHeight;
-    }
-  };
-
-  setTimeout(function () {
-    setScrollbarPosition($currentChatArea);
-  }, 700);
-  document.querySelectorAll(Selector.CHAT_CONTACT).forEach(function (el) {
-    el.addEventListener(Events.CLICK, function (e) {
-      var $this = e.currentTarget;
-      $this.classList.add('active'); // Hide contact list sidebar on responsive
-
-      window.innerWidth < 768 && !e.target.classList.contains('hover-actions') && ($chatSidebar.style.left = '-100%'); // Remove unread-message class when read
-
-      $this.classList.contains(ClassName.UNREAD_MESSAGE) && $this.classList.remove(ClassName.UNREAD_MESSAGE);
-    });
-  });
-  $chatContact.forEach(function (el) {
-    el.addEventListener(Events.SHOWN_BS_TAB, function () {
-      $chatEmojiarea.innerHTML = '';
-      $btnSend.classList.remove(ClassName.TEXT_PRIMARY);
-      var TargetChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA_ACTIVE);
-      setScrollbarPosition(TargetChatArea);
-    });
-  }); // change send button color on
-
-  if ($chatEmojiarea) {
-    $chatEmojiarea.setAttribute('placeholder', 'Type your message');
-    $chatEmojiarea.addEventListener(Events.KEYUP, function (e) {
-      if (e.target.textContent.length <= 0) {
-        $btnSend.classList.remove(ClassName.TEXT_PRIMARY);
-
-        if (e.target.innerHTML === '<br>') {
-          e.target.innerHTML = '';
-        }
-      } else {
-        $btnSend.classList.add(ClassName.TEXT_PRIMARY);
-      }
-
-      var TargetChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA_ACTIVE);
-      setScrollbarPosition(TargetChatArea);
-    });
-  } // Open conversation info sidebar
-
-
-  $chatEmojiarea && document.querySelectorAll(Selector.BTN_INFO).forEach(function (el) {
-    el.addEventListener(Events.CLICK, function (e) {
-      var $this = e.currentTarget;
-      var dataIndex = utils.getData($this, DATA_KEY.INDEX);
-      var $info = document.querySelector("".concat(Selector.CONVERSATION_INFO, "[data-").concat(DATA_KEY.INDEX, "='").concat(dataIndex, "']"));
-      $info.classList.toggle(ClassName.SHOW);
-    });
-  }); // Show contact list sidebar on responsive
-
-  document.querySelectorAll(Selector.CONTACTS_LIST_SHOW).forEach(function (el) {
-    el.addEventListener(Events.CLICK, function () {
-      $chatSidebar.style.left = 0;
-    });
-  }); // Set scrollbar area height on resize
-
-  utils.resize(function () {
-    var TargetChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA_ACTIVE);
-    setScrollbarPosition(TargetChatArea);
-  }); // Emoji append in message text
-
-  $chatEmojiarea && window.picker.on(Events.EMOJI, function (selection) {
-    document.querySelector(Selector.EMOJIEAREA_EDITOR).innerHTML += selection.emoji;
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                   choices                                   */
-
-/* -------------------------------------------------------------------------- */
-
-
-var choicesInit = function choicesInit() {
-  if (window.Choices) {
-    var elements = document.querySelectorAll('.js-choice');
-    elements.forEach(function (item) {
-      var userOptions = utils.getData(item, 'options');
-      var choices = new window.Choices(item, _objectSpread({
-        itemSelectText: ''
-      }, userOptions));
-      var needsValidation = document.querySelectorAll('.needs-validation');
-      needsValidation.forEach(function (validationItem) {
-        var selectFormValidation = function selectFormValidation() {
-          validationItem.querySelectorAll('.choices').forEach(function (choicesItem) {
-            var singleSelect = choicesItem.querySelector('.choices__list--single');
-            var multipleSelect = choicesItem.querySelector('.choices__list--multiple');
-
-            if (choicesItem.querySelector('[required]')) {
-              if (singleSelect) {
-                var _singleSelect$querySe;
-
-                if (((_singleSelect$querySe = singleSelect.querySelector('.choices__item--selectable')) === null || _singleSelect$querySe === void 0 ? void 0 : _singleSelect$querySe.getAttribute('data-value')) !== '') {
-                  choicesItem.classList.remove('invalid');
-                  choicesItem.classList.add('valid');
-                } else {
-                  choicesItem.classList.remove('valid');
-                  choicesItem.classList.add('invalid');
-                }
-              } //----- for multiple select only ----------
-
-
-              if (multipleSelect) {
-                if (choicesItem.getElementsByTagName('option').length) {
-                  choicesItem.classList.remove('invalid');
-                  choicesItem.classList.add('valid');
-                } else {
-                  choicesItem.classList.remove('valid');
-                  choicesItem.classList.add('invalid');
-                }
-              } //------ select end ---------------
-
-            }
-          });
-        };
-
-        validationItem.addEventListener('submit', function () {
-          selectFormValidation();
-        });
-        item.addEventListener('change', function () {
-          selectFormValidation();
-        });
-      });
-      return choices;
-    });
-  }
-};
-/*-----------------------------------------------
-|   Cookie notice
------------------------------------------------*/
-
-
-var cookieNoticeInit = function cookieNoticeInit() {
-  var Selector = {
-    NOTICE: '.notice',
-    DATA_TOGGLE_Notice: '[data-bs-toggle="notice"]'
-  };
-  var Events = {
-    CLICK: 'click',
-    HIDDEN_BS_TOAST: 'hidden.bs.toast'
-  };
-  var DataKeys = {
-    OPTIONS: 'options'
-  };
-  var ClassNames = {
-    HIDE: 'hide'
-  };
-  var notices = document.querySelectorAll(Selector.NOTICE);
-  var showNotice = true;
-  notices.forEach(function (item) {
-    var notice = new window.bootstrap.Toast(item);
-
-    var options = _objectSpread({
-      autoShow: false,
-      autoShowDelay: 0,
-      showOnce: false,
-      cookieExpireTime: 3600000
-    }, utils.getData(item, DataKeys.OPTIONS));
-
-    var showOnce = options.showOnce,
-        autoShow = options.autoShow,
-        autoShowDelay = options.autoShowDelay;
-
-    if (showOnce) {
-      var hasNotice = utils.getCookie('notice');
-      showNotice = hasNotice === null;
-    }
-
-    if (autoShow && showNotice) {
-      setTimeout(function () {
-        notice.show();
-      }, autoShowDelay);
-    }
-
-    item.addEventListener(Events.HIDDEN_BS_TOAST, function (e) {
-      var el = e.currentTarget;
-
-      var toastOptions = _objectSpread({
-        cookieExpireTime: 3600000,
-        showOnce: false
-      }, utils.getData(el, DataKeys.OPTIONS));
-
-      toastOptions.showOnce && utils.setCookie('notice', false, toastOptions.cookieExpireTime);
-    });
-  });
-  var btnNoticeToggle = document.querySelector(Selector.DATA_TOGGLE_Notice);
-  btnNoticeToggle && btnNoticeToggle.addEventListener(Events.CLICK, function (_ref) {
-    var currentTarget = _ref.currentTarget;
-    var id = currentTarget.getAttribute('href');
-    var notice = new window.bootstrap.Toast(document.querySelector(id));
-    /*eslint-disable-next-line*/
-
-    var el = notice._element;
-    utils.hasClass(el, ClassNames.HIDE) ? notice.show() : notice.hide();
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                  Copy LinK                                 */
-
-/* -------------------------------------------------------------------------- */
-
-
-var copyLink = function copyLink() {
-  var copyLinkModal = document.getElementById('copyLinkModal');
-  copyLinkModal && copyLinkModal.addEventListener('shown.bs.modal', function () {
-    var invitationLink = document.querySelector('.invitation-link');
-    invitationLink.select();
-  });
-  var copyButtons = document.querySelectorAll('[data-copy]');
-  copyButtons && copyButtons.forEach(function (button) {
-    var tooltip = new window.bootstrap.Tooltip(button);
-    button.addEventListener('mouseover', function () {
-      return tooltip.show();
-    });
-    button.addEventListener('mouseleave', function () {
-      return tooltip.hide();
-    });
-    button.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var el = e.target;
-      el.setAttribute('data-original-title', 'Copied');
-      tooltip.show();
-      el.setAttribute('data-original-title', 'Copy to clipboard');
-      tooltip.update();
-      var inputID = utils.getData(el, 'copy');
-      var input = document.querySelector(inputID);
-      input.select();
-      document.execCommand('copy');
-    });
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                  Count Up                                  */
-
-/* -------------------------------------------------------------------------- */
-
-
-var countupInit = function countupInit() {
-  if (window.countUp) {
-    var countups = document.querySelectorAll('[data-countup]');
-    countups.forEach(function (node) {
-      var _utils$getData = utils.getData(node, 'countup'),
-          endValue = _utils$getData.endValue,
-          options = _objectWithoutProperties(_utils$getData, _excluded);
-
-      var countUp = new window.countUp.CountUp(node, endValue, _objectSpread({
-        duration: 5
-      }, options));
-
-      if (!countUp.error) {
-        countUp.start();
-      } else {
-        console.error(countUp.error);
-      }
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                  Draggable                                 */
-
-/* -------------------------------------------------------------------------- */
-
-
-var draggableInit = function draggableInit() {
-  var Selectors = {
-    BODY: 'body',
-    KANBAN_CONTAINER: '.kanban-container',
-    KABNBAN_COLUMN: '.kanban-column',
-    KANBAN_ITEMS_CONTAINER: '.kanban-items-container',
-    KANBAN_ITEM: '.kanban-item',
-    ADD_CARD_FORM: '.add-card-form'
-  };
-  var Events = {
-    DRAG_START: 'drag:start',
-    DRAG_STOP: 'drag:stop'
-  };
-  var ClassNames = {
-    FORM_ADDED: 'form-added'
-  };
-  var columns = document.querySelectorAll(Selectors.KABNBAN_COLUMN);
-  var columnContainers = document.querySelectorAll(Selectors.KANBAN_ITEMS_CONTAINER);
-  var container = document.querySelector(Selectors.KANBAN_CONTAINER);
-
-  if (columnContainers.length) {
-    // Initialize Sortable
-    var sortable = new window.Draggable.Sortable(columnContainers, {
-      draggable: Selectors.KANBAN_ITEM,
-      delay: 200,
-      mirror: {
-        appendTo: Selectors.BODY,
-        constrainDimensions: true
-      },
-      scrollable: {
-        draggable: Selectors.KANBAN_ITEM,
-        scrollableElements: [].concat(_toConsumableArray(columnContainers), [container])
-      }
-    }); // Hide form when drag start
-
-    sortable.on(Events.DRAG_START, function () {
-      columns.forEach(function (column) {
-        utils.hasClass(column, ClassNames.FORM_ADDED) && column.classList.remove(ClassNames.FORM_ADDED);
-      });
-    }); // Place forms and other contents bottom of the sortable container
-
-    sortable.on(Events.DRAG_STOP, function (_ref2) {
-      var el = _ref2.data.source;
-      var columnContainer = el.closest(Selectors.KANBAN_ITEMS_CONTAINER);
-      var form = columnContainer.querySelector(Selectors.ADD_CARD_FORM);
-      !el.nextElementSibling && columnContainer.appendChild(form);
-    });
-  }
-};
-/*-----------------------------------------------
-|   Dashboard Table dropdown
------------------------------------------------*/
-
-
-var dropdownMenuInit = function dropdownMenuInit() {
-  // Only for ios
-  if (window.is.ios()) {
-    var Event = {
-      SHOWN_BS_DROPDOWN: 'shown.bs.dropdown',
-      HIDDEN_BS_DROPDOWN: 'hidden.bs.dropdown'
-    };
-    var Selector = {
-      TABLE_RESPONSIVE: '.table-responsive',
-      DROPDOWN_MENU: '.dropdown-menu'
-    };
-    document.querySelectorAll(Selector.TABLE_RESPONSIVE).forEach(function (table) {
-      table.addEventListener(Event.SHOWN_BS_DROPDOWN, function (e) {
-        var t = e.currentTarget;
-
-        if (t.scrollWidth > t.clientWidth) {
-          t.style.paddingBottom = "".concat(e.target.nextElementSibling.clientHeight, "px");
-        }
-      });
-      table.addEventListener(Event.HIDDEN_BS_DROPDOWN, function (e) {
-        e.currentTarget.style.paddingBottom = '';
-      });
-    });
-  }
-}; // Reference
-// https://github.com/twbs/bootstrap/issues/11037#issuecomment-274870381
-
-/* -------------------------------------------------------------------------- */
-
-/*                           Open dropdown on hover                           */
-
-/* -------------------------------------------------------------------------- */
-
-
-var dropdownOnHover = function dropdownOnHover() {
-  var navbarArea = document.querySelector('[data-top-nav-dropdowns]');
-
-  if (navbarArea) {
-    navbarArea.addEventListener('mouseover', function (e) {
-      if (e.target.className.includes('dropdown-toggle') && window.innerWidth > 992) {
-        var dropdownInstance = new window.bootstrap.Dropdown(e.target);
-        /* eslint-disable no-underscore-dangle */
-
-        dropdownInstance._element.classList.add('show');
-
-        dropdownInstance._menu.classList.add('show');
-
-        dropdownInstance._menu.setAttribute('data-bs-popper', 'none');
-
-        e.target.parentNode.addEventListener('mouseleave', function () {
-          dropdownInstance.hide();
-        });
-      }
-    });
-  }
-};
-/* eslint-disable */
-
-/*-----------------------------------------------
-|   Dropzone
------------------------------------------------*/
-
-
-window.Dropzone ? window.Dropzone.autoDiscover = false : '';
-
-var dropzoneInit = function dropzoneInit() {
-  var merge = window._.merge;
-  var Selector = {
-    DROPZONE: '[data-dropzone]',
-    DZ_ERROR_MESSAGE: '.dz-error-message',
-    DZ_PREVIEW: '.dz-preview',
-    DZ_PROGRESS: '.dz-preview .dz-preview-cover .dz-progress',
-    DZ_PREVIEW_COVER: '.dz-preview .dz-preview-cover'
-  };
-  var ClassName = {
-    DZ_FILE_PROCESSING: 'dz-file-processing',
-    DZ_FILE_COMPLETE: 'dz-file-complete',
-    DZ_COMPLETE: 'dz-complete',
-    DZ_PROCESSING: 'dz-processing'
-  };
-  var DATA_KEY = {
-    OPTIONS: 'options'
-  };
-  var Events = {
-    ADDED_FILE: 'addedfile',
-    REMOVED_FILE: 'removedfile',
-    COMPLETE: 'complete'
-  };
-  var dropzones = document.querySelectorAll(Selector.DROPZONE);
-  !!dropzones.length && dropzones.forEach(function (item) {
-    var userOptions = utils.getData(item, DATA_KEY.OPTIONS);
-    userOptions = userOptions ? userOptions : {};
-    var data = userOptions.data ? userOptions.data : {};
-    var options = merge({
-      url: '/assets/php/',
-      addRemoveLinks: false,
-      previewsContainer: item.querySelector(Selector.DZ_PREVIEW),
-      previewTemplate: item.querySelector(Selector.DZ_PREVIEW).innerHTML,
-      thumbnailWidth: null,
-      thumbnailHeight: null,
-      maxFilesize: 20,
-      autoProcessQueue: false,
-      filesizeBase: 1000,
-      init: function init() {
-        var thisDropzone = this;
-
-        if (data.length) {
-          data.forEach(function (v) {
-            var mockFile = {
-              name: v.name,
-              size: v.size
-            };
-            thisDropzone.options.addedfile.call(thisDropzone, mockFile);
-            thisDropzone.options.thumbnail.call(thisDropzone, mockFile, "".concat(v.url, "/").concat(v.name));
-          });
-        }
-
-        thisDropzone.on(Events.ADDED_FILE, function addedfile() {
-          if ('maxFiles' in userOptions) {
-            if (userOptions.maxFiles === 1 && item.querySelectorAll(Selector.DZ_PREVIEW_COVER).length > 1) {
-              item.querySelector(Selector.DZ_PREVIEW_COVER).remove();
-            }
-
-            if (userOptions.maxFiles === 1 && this.files.length > 1) {
-              this.removeFile(this.files[0]);
-            }
-          }
-        });
-      },
-      error: function error(file, message) {
-        if (file.previewElement) {
-          file.previewElement.classList.add('dz-error');
-
-          if (typeof message !== 'string' && message.error) {
-            message = message.error;
-          }
-
-          var _iterator = _createForOfIteratorHelper(file.previewElement.querySelectorAll('[data-dz-errormessage]')),
-              _step;
-
-          try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var node = _step.value;
-              node.textContent = message;
-            }
-          } catch (err) {
-            _iterator.e(err);
-          } finally {
-            _iterator.f();
-          }
-        }
-      }
-    }, userOptions); // eslint-disable-next-line
-
-    item.querySelector(Selector.DZ_PREVIEW).innerHTML = '';
-    var dropzone = new window.Dropzone(item, options);
-    dropzone.on(Events.ADDED_FILE, function () {
-      if (item.querySelector(Selector.DZ_PREVIEW_COVER)) {
-        item.querySelector(Selector.DZ_PREVIEW_COVER).classList.remove(ClassName.DZ_FILE_COMPLETE);
-      }
-
-      item.classList.add(ClassName.DZ_FILE_PROCESSING);
-    });
-    dropzone.on(Events.REMOVED_FILE, function () {
-      if (item.querySelector(Selector.DZ_PREVIEW_COVER)) {
-        item.querySelector(Selector.DZ_PREVIEW_COVER).classList.remove(ClassName.DZ_PROCESSING);
-      }
-
-      item.classList.add(ClassName.DZ_FILE_COMPLETE);
-    });
-    dropzone.on(Events.COMPLETE, function () {
-      if (item.querySelector(Selector.DZ_PREVIEW_COVER)) {
-        item.querySelector(Selector.DZ_PREVIEW_COVER).classList.remove(ClassName.DZ_PROCESSING);
-      }
-
-      item.classList.add(ClassName.DZ_FILE_COMPLETE);
-    });
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                               from-validation                              */
-
-/* -------------------------------------------------------------------------- */
-
-
-var formValidationInit = function formValidationInit() {
-  // Example starter JavaScript for disabling form submissions if there are invalid fields
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation'); // Loop over them and prevent submission
-
-  Array.prototype.slice.call(forms).forEach(function (form) {
-    form.addEventListener('submit', function (event) {
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-
-      form.classList.add('was-validated');
-    }, false);
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                FullCalendar                                */
-
-/* -------------------------------------------------------------------------- */
-
-
-var merge = window._.merge;
-
-var renderCalendar = function renderCalendar(el, option) {
-  var _document$querySelect;
-
-  var options = merge({
-    initialView: 'dayGridMonth',
-    editable: true,
-    direction: document.querySelector('html').getAttribute('dir'),
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay'
-    },
-    buttonText: {
-      month: 'Month',
-      week: 'Week',
-      day: 'Day'
-    }
-  }, option);
-  var calendar = new window.FullCalendar.Calendar(el, options);
-  calendar.render();
-  (_document$querySelect = document.querySelector('.navbar-vertical-toggle')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('navbar.vertical.toggle', function () {
-    return calendar.updateSize();
-  });
-  return calendar;
-};
-
-var fullCalendarInit = function fullCalendarInit() {
-  var calendars = document.querySelectorAll('[data-calendar]');
-  calendars.forEach(function (item) {
-    var options = utils.getData(item, 'calendar');
-    renderCalendar(item, options);
-  });
-};
-
-var fullCalendar = {
-  renderCalendar: renderCalendar,
-  fullCalendarInit: fullCalendarInit
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                 Glightbox                                */
-
-/* -------------------------------------------------------------------------- */
-
-var glightboxInit = function glightboxInit() {
-  if (window.GLightbox) {
-    window.GLightbox({
-      selector: '[data-gallery]'
-    });
-  }
-};
-/*-----------------------------------------------
-|   Gooogle Map
------------------------------------------------*/
-
-
-function initMap() {
-  var themeController = document.body;
-  var $googlemaps = document.querySelectorAll('.googlemap');
-
-  if ($googlemaps.length && window.google) {
-    // Visit https://snazzymaps.com/ for more themes
-    var mapStyles = {
-      Default: [{
-        featureType: 'water',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#e9e9e9'
-        }, {
-          lightness: 17
-        }]
-      }, {
-        featureType: 'landscape',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#f5f5f5'
-        }, {
-          lightness: 20
-        }]
-      }, {
-        featureType: 'road.highway',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#ffffff'
-        }, {
-          lightness: 17
-        }]
-      }, {
-        featureType: 'road.highway',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#ffffff'
-        }, {
-          lightness: 29
-        }, {
-          weight: 0.2
-        }]
-      }, {
-        featureType: 'road.arterial',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#ffffff'
-        }, {
-          lightness: 18
-        }]
-      }, {
-        featureType: 'road.local',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#ffffff'
-        }, {
-          lightness: 16
-        }]
-      }, {
-        featureType: 'poi',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#f5f5f5'
-        }, {
-          lightness: 21
-        }]
-      }, {
-        featureType: 'poi.park',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#dedede'
-        }, {
-          lightness: 21
-        }]
-      }, {
-        elementType: 'labels.text.stroke',
-        stylers: [{
-          visibility: 'on'
-        }, {
-          color: '#ffffff'
-        }, {
-          lightness: 16
-        }]
-      }, {
-        elementType: 'labels.text.fill',
-        stylers: [{
-          saturation: 36
-        }, {
-          color: '#333333'
-        }, {
-          lightness: 40
-        }]
-      }, {
-        elementType: 'labels.icon',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'transit',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#f2f2f2'
-        }, {
-          lightness: 19
-        }]
-      }, {
-        featureType: 'administrative',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#fefefe'
-        }, {
-          lightness: 20
-        }]
-      }, {
-        featureType: 'administrative',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#fefefe'
-        }, {
-          lightness: 17
-        }, {
-          weight: 1.2
-        }]
-      }],
-      Gray: [{
-        featureType: 'all',
-        elementType: 'labels.text.fill',
-        stylers: [{
-          saturation: 36
-        }, {
-          color: '#000000'
-        }, {
-          lightness: 40
-        }]
-      }, {
-        featureType: 'all',
-        elementType: 'labels.text.stroke',
-        stylers: [{
-          visibility: 'on'
-        }, {
-          color: '#000000'
-        }, {
-          lightness: 16
-        }]
-      }, {
-        featureType: 'all',
-        elementType: 'labels.icon',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'administrative',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 20
-        }]
-      }, {
-        featureType: 'administrative',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 17
-        }, {
-          weight: 1.2
-        }]
-      }, {
-        featureType: 'landscape',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 20
-        }]
-      }, {
-        featureType: 'poi',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 21
-        }]
-      }, {
-        featureType: 'road.highway',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 17
-        }]
-      }, {
-        featureType: 'road.highway',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 29
-        }, {
-          weight: 0.2
-        }]
-      }, {
-        featureType: 'road.arterial',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 18
-        }]
-      }, {
-        featureType: 'road.local',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 16
-        }]
-      }, {
-        featureType: 'transit',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 19
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 17
-        }]
-      }],
-      Midnight: [{
-        featureType: 'all',
-        elementType: 'labels.text.fill',
-        stylers: [{
-          color: '#ffffff'
-        }]
-      }, {
-        featureType: 'all',
-        elementType: 'labels.text.stroke',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 13
-        }]
-      }, {
-        featureType: 'administrative',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#000000'
-        }]
-      }, {
-        featureType: 'administrative',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#144b53'
-        }, {
-          lightness: 14
-        }, {
-          weight: 1.4
-        }]
-      }, {
-        featureType: 'landscape',
-        elementType: 'all',
-        stylers: [{
-          color: '#08304b'
-        }]
-      }, {
-        featureType: 'poi',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#0c4152'
-        }, {
-          lightness: 5
-        }]
-      }, {
-        featureType: 'road.highway',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#000000'
-        }]
-      }, {
-        featureType: 'road.highway',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#0b434f'
-        }, {
-          lightness: 25
-        }]
-      }, {
-        featureType: 'road.arterial',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#000000'
-        }]
-      }, {
-        featureType: 'road.arterial',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#0b3d51'
-        }, {
-          lightness: 16
-        }]
-      }, {
-        featureType: 'road.local',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }]
-      }, {
-        featureType: 'transit',
-        elementType: 'all',
-        stylers: [{
-          color: '#146474'
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'all',
-        stylers: [{
-          color: '#021019'
-        }]
-      }],
-      Hopper: [{
-        featureType: 'water',
-        elementType: 'geometry',
-        stylers: [{
-          hue: '#165c64'
-        }, {
-          saturation: 34
-        }, {
-          lightness: -69
-        }, {
-          visibility: 'on'
-        }]
-      }, {
-        featureType: 'landscape',
-        elementType: 'geometry',
-        stylers: [{
-          hue: '#b7caaa'
-        }, {
-          saturation: -14
-        }, {
-          lightness: -18
-        }, {
-          visibility: 'on'
-        }]
-      }, {
-        featureType: 'landscape.man_made',
-        elementType: 'all',
-        stylers: [{
-          hue: '#cbdac1'
-        }, {
-          saturation: -6
-        }, {
-          lightness: -9
-        }, {
-          visibility: 'on'
-        }]
-      }, {
-        featureType: 'road',
-        elementType: 'geometry',
-        stylers: [{
-          hue: '#8d9b83'
-        }, {
-          saturation: -89
-        }, {
-          lightness: -12
-        }, {
-          visibility: 'on'
-        }]
-      }, {
-        featureType: 'road.highway',
-        elementType: 'geometry',
-        stylers: [{
-          hue: '#d4dad0'
-        }, {
-          saturation: -88
-        }, {
-          lightness: 54
-        }, {
-          visibility: 'simplified'
-        }]
-      }, {
-        featureType: 'road.arterial',
-        elementType: 'geometry',
-        stylers: [{
-          hue: '#bdc5b6'
-        }, {
-          saturation: -89
-        }, {
-          lightness: -3
-        }, {
-          visibility: 'simplified'
-        }]
-      }, {
-        featureType: 'road.local',
-        elementType: 'geometry',
-        stylers: [{
-          hue: '#bdc5b6'
-        }, {
-          saturation: -89
-        }, {
-          lightness: -26
-        }, {
-          visibility: 'on'
-        }]
-      }, {
-        featureType: 'poi',
-        elementType: 'geometry',
-        stylers: [{
-          hue: '#c17118'
-        }, {
-          saturation: 61
-        }, {
-          lightness: -45
-        }, {
-          visibility: 'on'
-        }]
-      }, {
-        featureType: 'poi.park',
-        elementType: 'all',
-        stylers: [{
-          hue: '#8ba975'
-        }, {
-          saturation: -46
-        }, {
-          lightness: -28
-        }, {
-          visibility: 'on'
-        }]
-      }, {
-        featureType: 'transit',
-        elementType: 'geometry',
-        stylers: [{
-          hue: '#a43218'
-        }, {
-          saturation: 74
-        }, {
-          lightness: -51
-        }, {
-          visibility: 'simplified'
-        }]
-      }, {
-        featureType: 'administrative.province',
-        elementType: 'all',
-        stylers: [{
-          hue: '#ffffff'
-        }, {
-          saturation: 0
-        }, {
-          lightness: 100
-        }, {
-          visibility: 'simplified'
-        }]
-      }, {
-        featureType: 'administrative.neighborhood',
-        elementType: 'all',
-        stylers: [{
-          hue: '#ffffff'
-        }, {
-          saturation: 0
-        }, {
-          lightness: 100
-        }, {
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'administrative.locality',
-        elementType: 'labels',
-        stylers: [{
-          hue: '#ffffff'
-        }, {
-          saturation: 0
-        }, {
-          lightness: 100
-        }, {
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'administrative.land_parcel',
-        elementType: 'all',
-        stylers: [{
-          hue: '#ffffff'
-        }, {
-          saturation: 0
-        }, {
-          lightness: 100
-        }, {
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'administrative',
-        elementType: 'all',
-        stylers: [{
-          hue: '#3a3935'
-        }, {
-          saturation: 5
-        }, {
-          lightness: -57
-        }, {
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'poi.medical',
-        elementType: 'geometry',
-        stylers: [{
-          hue: '#cba923'
-        }, {
-          saturation: 50
-        }, {
-          lightness: -46
-        }, {
-          visibility: 'on'
-        }]
-      }],
-      Beard: [{
-        featureType: 'poi.business',
-        elementType: 'labels.text',
-        stylers: [{
-          visibility: 'on'
-        }, {
-          color: '#333333'
-        }]
-      }],
-      AssassianCreed: [{
-        featureType: 'all',
-        elementType: 'all',
-        stylers: [{
-          visibility: 'on'
-        }]
-      }, {
-        featureType: 'all',
-        elementType: 'labels',
-        stylers: [{
-          visibility: 'off'
-        }, {
-          saturation: '-100'
-        }]
-      }, {
-        featureType: 'all',
-        elementType: 'labels.text.fill',
-        stylers: [{
-          saturation: 36
-        }, {
-          color: '#000000'
-        }, {
-          lightness: 40
-        }, {
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'all',
-        elementType: 'labels.text.stroke',
-        stylers: [{
-          visibility: 'off'
-        }, {
-          color: '#000000'
-        }, {
-          lightness: 16
-        }]
-      }, {
-        featureType: 'all',
-        elementType: 'labels.icon',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'administrative',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 20
-        }]
-      }, {
-        featureType: 'administrative',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 17
-        }, {
-          weight: 1.2
-        }]
-      }, {
-        featureType: 'landscape',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 20
-        }]
-      }, {
-        featureType: 'landscape',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#4d6059'
-        }]
-      }, {
-        featureType: 'landscape',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#4d6059'
-        }]
-      }, {
-        featureType: 'landscape.natural',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#4d6059'
-        }]
-      }, {
-        featureType: 'poi',
-        elementType: 'geometry',
-        stylers: [{
-          lightness: 21
-        }]
-      }, {
-        featureType: 'poi',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#4d6059'
-        }]
-      }, {
-        featureType: 'poi',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#4d6059'
-        }]
-      }, {
-        featureType: 'road',
-        elementType: 'geometry',
-        stylers: [{
-          visibility: 'on'
-        }, {
-          color: '#7f8d89'
-        }]
-      }, {
-        featureType: 'road',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#7f8d89'
-        }]
-      }, {
-        featureType: 'road.highway',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#7f8d89'
-        }, {
-          lightness: 17
-        }]
-      }, {
-        featureType: 'road.highway',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#7f8d89'
-        }, {
-          lightness: 29
-        }, {
-          weight: 0.2
-        }]
-      }, {
-        featureType: 'road.arterial',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 18
-        }]
-      }, {
-        featureType: 'road.arterial',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#7f8d89'
-        }]
-      }, {
-        featureType: 'road.arterial',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#7f8d89'
-        }]
-      }, {
-        featureType: 'road.local',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 16
-        }]
-      }, {
-        featureType: 'road.local',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#7f8d89'
-        }]
-      }, {
-        featureType: 'road.local',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#7f8d89'
-        }]
-      }, {
-        featureType: 'transit',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#000000'
-        }, {
-          lightness: 19
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'all',
-        stylers: [{
-          color: '#2b3638'
-        }, {
-          visibility: 'on'
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'geometry',
-        stylers: [{
-          color: '#2b3638'
-        }, {
-          lightness: 17
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'geometry.fill',
-        stylers: [{
-          color: '#24282b'
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'geometry.stroke',
-        stylers: [{
-          color: '#24282b'
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'labels',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'labels.text',
-        stylers: [{
-          visibility: 'off '
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'labels.text.fill',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'labels.text.stroke',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'labels.icon',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }],
-      SubtleGray: [{
-        featureType: 'administrative',
-        elementType: 'all',
-        stylers: [{
-          saturation: '-100'
-        }]
-      }, {
-        featureType: 'administrative.province',
-        elementType: 'all',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'landscape',
-        elementType: 'all',
-        stylers: [{
-          saturation: -100
-        }, {
-          lightness: 65
-        }, {
-          visibility: 'on'
-        }]
-      }, {
-        featureType: 'poi',
-        elementType: 'all',
-        stylers: [{
-          saturation: -100
-        }, {
-          lightness: '50'
-        }, {
-          visibility: 'simplified'
-        }]
-      }, {
-        featureType: 'road',
-        elementType: 'all',
-        stylers: [{
-          saturation: -100
-        }]
-      }, {
-        featureType: 'road.highway',
-        elementType: 'all',
-        stylers: [{
-          visibility: 'simplified'
-        }]
-      }, {
-        featureType: 'road.arterial',
-        elementType: 'all',
-        stylers: [{
-          lightness: '30'
-        }]
-      }, {
-        featureType: 'road.local',
-        elementType: 'all',
-        stylers: [{
-          lightness: '40'
-        }]
-      }, {
-        featureType: 'transit',
-        elementType: 'all',
-        stylers: [{
-          saturation: -100
-        }, {
-          visibility: 'simplified'
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'geometry',
-        stylers: [{
-          hue: '#ffff00'
-        }, {
-          lightness: -25
-        }, {
-          saturation: -97
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'labels',
-        stylers: [{
-          lightness: -25
-        }, {
-          saturation: -100
-        }]
-      }],
-      Tripitty: [{
-        featureType: 'all',
-        elementType: 'labels',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'administrative',
-        elementType: 'all',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'landscape',
-        elementType: 'all',
-        stylers: [{
-          color: '#2c5ca5'
-        }]
-      }, {
-        featureType: 'poi',
-        elementType: 'all',
-        stylers: [{
-          color: '#2c5ca5'
-        }]
-      }, {
-        featureType: 'road',
-        elementType: 'all',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'transit',
-        elementType: 'all',
-        stylers: [{
-          visibility: 'off'
-        }]
-      }, {
-        featureType: 'water',
-        elementType: 'all',
-        stylers: [{
-          color: '#193a70'
-        }, {
-          visibility: 'on'
-        }]
-      }],
-      Cobalt: [{
-        featureType: 'all',
-        elementType: 'all',
-        stylers: [{
-          invert_lightness: true
-        }, {
-          saturation: 10
-        }, {
-          lightness: 30
-        }, {
-          gamma: 0.5
-        }, {
-          hue: '#435158'
-        }]
-      }]
-    };
-    $googlemaps.forEach(function (itm) {
-      var latLng = utils.getData(itm, 'latlng').split(',');
-      var markerPopup = itm.innerHTML;
-      var icon = utils.getData(itm, 'icon') ? utils.getData(itm, 'icon') : 'https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png';
-      var zoom = utils.getData(itm, 'zoom');
-      var mapElement = itm;
-      var mapStyle = utils.getData(itm, 'theme');
-
-      if (utils.getData(itm, 'theme') === 'streetview') {
-        var pov = utils.getData(itm, 'pov');
-        var _mapOptions = {
-          position: {
-            lat: Number(latLng[0]),
-            lng: Number(latLng[1])
-          },
-          pov: pov,
-          zoom: zoom,
-          gestureHandling: 'none',
-          scrollwheel: false
-        };
-        return new window.google.maps.StreetViewPanorama(mapElement, _mapOptions);
-      }
-
-      var mapOptions = {
-        zoom: zoom,
-        scrollwheel: utils.getData(itm, 'scrollwheel'),
-        center: new window.google.maps.LatLng(latLng[0], latLng[1]),
-        styles: localStorage.getItem('theme') === 'dark' ? mapStyles.Cobalt : mapStyles[mapStyle]
-      };
-      var map = new window.google.maps.Map(mapElement, mapOptions);
-      var infowindow = new window.google.maps.InfoWindow({
-        content: markerPopup
-      });
-      var marker = new window.google.maps.Marker({
-        position: new window.google.maps.LatLng(latLng[0], latLng[1]),
-        icon: icon,
-        map: map
-      });
-      marker.addListener('click', function () {
-        infowindow.open(map, marker);
-      });
-      themeController && themeController.addEventListener('clickControl', function (_ref3) {
-        var _ref3$detail = _ref3.detail,
-            control = _ref3$detail.control,
-            value = _ref3$detail.value;
-
-        if (control === 'theme') {
-          map.set('styles', value === 'dark' ? mapStyles.Cobalt : mapStyles[mapStyle]);
-        }
-      });
-      return null;
-    });
-  }
-}
-/* -------------------------------------------------------------------------- */
-
-/*                           Icon copy to clipboard                           */
-
-/* -------------------------------------------------------------------------- */
-
-
-var iconCopiedInit = function iconCopiedInit() {
-  var iconList = document.getElementById('icon-list');
-  var iconCopiedToast = document.getElementById('icon-copied-toast');
-  var iconCopiedToastInstance = new window.bootstrap.Toast(iconCopiedToast);
-
-  if (iconList) {
-    iconList.addEventListener('click', function (e) {
-      var el = e.target;
-
-      if (el.tagName === 'INPUT') {
-        el.select();
-        el.setSelectionRange(0, 99999);
-        document.execCommand('copy');
-        iconCopiedToast.querySelector('.toast-body').innerHTML = "<span class=\"fw-black\">Copied:</span> <code>".concat(el.value, "</code>");
-        iconCopiedToastInstance.show();
-      }
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                   Kanbah                                   */
-
-/* -------------------------------------------------------------------------- */
-
-
-var kanbanInit = function kanbanInit() {
-  var Selectors = {
-    KANBAN_COLUMN: '.kanban-column',
-    KANBAN_ITEMS_CONTAINER: '.kanban-items-container',
-    BTN_ADD_CARD: '.btn-add-card',
-    COLLAPSE: '.collapse',
-    ADD_LIST_FORM: '#addListForm',
-    BTN_COLLAPSE_DISMISS: '[data-dismiss="collapse"]',
-    BTN_FORM_HIDE: '[data-btn-form="hide"]',
-    INPUT_ADD_CARD: '[data-input="add-card"]',
-    INPUT_ADD_LIST: '[data-input="add-list"]'
-  };
-  var ClassNames = {
-    FORM_ADDED: 'form-added',
-    D_NONE: 'd-none'
-  };
-  var Events = {
-    CLICK: 'click',
-    SHOW_BS_COLLAPSE: 'show.bs.collapse',
-    SHOWN_BS_COLLAPSE: 'shown.bs.collapse'
-  };
-  var addCardButtons = document.querySelectorAll(Selectors.BTN_ADD_CARD);
-  var formHideButtons = document.querySelectorAll(Selectors.BTN_FORM_HIDE);
-  var addListForm = document.querySelector(Selectors.ADD_LIST_FORM);
-  var collapseDismissButtons = document.querySelectorAll(Selectors.BTN_COLLAPSE_DISMISS); // Show add card form and place scrollbar bottom of the list
-
-  addCardButtons && addCardButtons.forEach(function (button) {
-    button.addEventListener(Events.CLICK, function (_ref4) {
-      var el = _ref4.currentTarget;
-      var column = el.closest(Selectors.KANBAN_COLUMN);
-      var container = column.querySelector(Selectors.KANBAN_ITEMS_CONTAINER);
-      var scrollHeight = container.scrollHeight;
-      column.classList.add(ClassNames.FORM_ADDED);
-      container.querySelector(Selectors.INPUT_ADD_CARD).focus();
-      container.scrollTo({
-        top: scrollHeight
-      });
-    });
-  }); // Remove add card form
-
-  formHideButtons.forEach(function (button) {
-    button.addEventListener(Events.CLICK, function (_ref5) {
-      var el = _ref5.currentTarget;
-      el.closest(Selectors.KANBAN_COLUMN).classList.remove(ClassNames.FORM_ADDED);
-    });
-  });
-
-  if (addListForm) {
-    // Hide add list button when the form is going to show
-    addListForm.addEventListener(Events.SHOW_BS_COLLAPSE, function (_ref6) {
-      var el = _ref6.currentTarget;
-      var nextElement = el.nextElementSibling;
-      nextElement && nextElement.classList.add(ClassNames.D_NONE);
-    }); // Focus input field when the form is shown
-
-    addListForm.addEventListener(Events.SHOWN_BS_COLLAPSE, function (_ref7) {
-      var el = _ref7.currentTarget;
-      el.querySelector(Selectors.INPUT_ADD_LIST).focus();
-    });
-  } // Hide add list form when the dismiss button is clicked
-
-
-  collapseDismissButtons.forEach(function (button) {
-    button.addEventListener(Events.CLICK, function (_ref8) {
-      var el = _ref8.currentTarget;
-      var collapseElement = el.closest(Selectors.COLLAPSE);
-      var collapse = window.bootstrap.Collapse.getInstance(collapseElement);
-      utils.hasClass(collapseElement.nextElementSibling, ClassNames.D_NONE) && collapseElement.nextElementSibling.classList.remove(ClassNames.D_NONE);
-      collapse.hide();
-    });
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                   leaflet                                  */
-
-/* -------------------------------------------------------------------------- */
-
-
-var leafletActiveUserInit = function leafletActiveUserInit() {
-  var points = [{
-    lat: 53.958332,
-    "long": -1.080278,
-    name: 'Diana Meyer',
-    street: 'Slude Strand 27',
-    location: '1130 Kobenhavn'
-  }, {
-    lat: 52.958332,
-    "long": -1.080278,
-    name: 'Diana Meyer',
-    street: 'Slude Strand 27',
-    location: '1130 Kobenhavn'
-  }, {
-    lat: 51.958332,
-    "long": -1.080278,
-    name: 'Diana Meyer',
-    street: 'Slude Strand 27',
-    location: '1130 Kobenhavn'
-  }, {
-    lat: 53.958332,
-    "long": -1.080278,
-    name: 'Diana Meyer',
-    street: 'Slude Strand 27',
-    location: '1130 Kobenhavn'
-  }, {
-    lat: 54.958332,
-    "long": -1.080278,
-    name: 'Diana Meyer',
-    street: 'Slude Strand 27',
-    location: '1130 Kobenhavn'
-  }, {
-    lat: 55.958332,
-    "long": -1.080278,
-    name: 'Diana Meyer',
-    street: 'Slude Strand 27',
-    location: '1130 Kobenhavn'
-  }, {
-    lat: 53.908332,
-    "long": -1.080278,
-    name: 'Diana Meyer',
-    street: 'Slude Strand 27',
-    location: '1130 Kobenhavn'
-  }, {
-    lat: 53.008332,
-    "long": -1.080278,
-    name: 'Diana Meyer',
-    street: 'Slude Strand 27',
-    location: '1130 Kobenhavn'
-  }, {
-    lat: 53.158332,
-    "long": -1.080278,
-    name: 'Diana Meyer',
-    street: 'Slude Strand 27',
-    location: '1130 Kobenhavn'
-  }, {
-    lat: 53.000032,
-    "long": -1.080278,
-    name: 'Diana Meyer',
-    street: 'Slude Strand 27',
-    location: '1130 Kobenhavn'
-  }, {
-    lat: 52.292001,
-    "long": -2.22,
-    name: 'Anke Schroder',
-    street: 'Industrivej 54',
-    location: '4140 Borup'
-  }, {
-    lat: 52.392001,
-    "long": -2.22,
-    name: 'Anke Schroder',
-    street: 'Industrivej 54',
-    location: '4140 Borup'
-  }, {
-    lat: 51.492001,
-    "long": -2.22,
-    name: 'Anke Schroder',
-    street: 'Industrivej 54',
-    location: '4140 Borup'
-  }, {
-    lat: 51.192001,
-    "long": -2.22,
-    name: 'Anke Schroder',
-    street: 'Industrivej 54',
-    location: '4140 Borup'
-  }, {
-    lat: 52.292001,
-    "long": -2.22,
-    name: 'Anke Schroder',
-    street: 'Industrivej 54',
-    location: '4140 Borup'
-  }, {
-    lat: 54.392001,
-    "long": -2.22,
-    name: 'Anke Schroder',
-    street: 'Industrivej 54',
-    location: '4140 Borup'
-  }, {
-    lat: 51.292001,
-    "long": -2.22,
-    name: 'Anke Schroder',
-    street: 'Industrivej 54',
-    location: '4140 Borup'
-  }, {
-    lat: 52.102001,
-    "long": -2.22,
-    name: 'Anke Schroder',
-    street: 'Industrivej 54',
-    location: '4140 Borup'
-  }, {
-    lat: 52.202001,
-    "long": -2.22,
-    name: 'Anke Schroder',
-    street: 'Industrivej 54',
-    location: '4140 Borup'
-  }, {
-    lat: 51.063202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.363202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.463202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.563202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.763202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.863202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.963202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.000202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.000202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.163202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 52.263202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 53.463202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 55.163202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 56.263202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 56.463202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 56.563202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 56.663202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 56.763202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 56.863202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 56.963202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 57.973202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 57.163202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.163202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.263202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.363202,
-    "long": -1.308,
-    name: 'Tobias Vogel',
-    street: 'Mollebakken 33',
-    location: '3650 Olstykke'
-  }, {
-    lat: 51.409,
-    "long": -2.647,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.68,
-    "long": -1.49,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 50.259998,
-    "long": -5.051,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 54.906101,
-    "long": -1.38113,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.383331,
-    "long": -1.466667,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.483002,
-    "long": -2.2931,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 51.509865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 51.109865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 51.209865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 51.309865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 51.409865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 51.609865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 51.709865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 51.809865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 51.909865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.109865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.209865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.309865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.409865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.509865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.609865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.709865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.809865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.909865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.519865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.529865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.539865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.549865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 52.549865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.109865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.209865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.319865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.329865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.409865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.559865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.619865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.629865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.639865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.649865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.669865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.669865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.719865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.739865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.749865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.759865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.769865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.769865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.819865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.829865,
-    "long": -0.118092,
-    name: 'Richard Hendricks',
-    street: '37 Seafield Place',
-    location: 'London'
-  }, {
-    lat: 53.483959,
-    "long": -2.244644,
-    name: 'Ethel B. Brooks',
-    street: '2576 Sun Valley Road'
-  }, {
-    lat: 40.737,
-    "long": -73.923,
-    name: 'Marshall D. Lewis',
-    street: '1489 Michigan Avenue',
-    location: 'Michigan'
-  }, {
-    lat: 39.737,
-    "long": -73.923,
-    name: 'Marshall D. Lewis',
-    street: '1489 Michigan Avenue',
-    location: 'Michigan'
-  }, {
-    lat: 38.737,
-    "long": -73.923,
-    name: 'Marshall D. Lewis',
-    street: '1489 Michigan Avenue',
-    location: 'Michigan'
-  }, {
-    lat: 37.737,
-    "long": -73.923,
-    name: 'Marshall D. Lewis',
-    street: '1489 Michigan Avenue',
-    location: 'Michigan'
-  }, {
-    lat: 40.737,
-    "long": -73.923,
-    name: 'Marshall D. Lewis',
-    street: '1489 Michigan Avenue',
-    location: 'Michigan'
-  }, {
-    lat: 41.737,
-    "long": -73.923,
-    name: 'Marshall D. Lewis',
-    street: '1489 Michigan Avenue',
-    location: 'Michigan'
-  }, {
-    lat: 42.737,
-    "long": -73.923,
-    name: 'Marshall D. Lewis',
-    street: '1489 Michigan Avenue',
-    location: 'Michigan'
-  }, {
-    lat: 43.737,
-    "long": -73.923,
-    name: 'Marshall D. Lewis',
-    street: '1489 Michigan Avenue',
-    location: 'Michigan'
-  }, {
-    lat: 44.737,
-    "long": -73.923,
-    name: 'Marshall D. Lewis',
-    street: '1489 Michigan Avenue',
-    location: 'Michigan'
-  }, {
-    lat: 45.737,
-    "long": -73.923,
-    name: 'Marshall D. Lewis',
-    street: '1489 Michigan Avenue',
-    location: 'Michigan'
-  }, {
-    lat: 46.7128,
-    "long": 74.006,
-    name: 'Elizabeth C. Lyons',
-    street: '4553 Kenwood Place',
-    location: 'Fort Lauderdale'
-  }, {
-    lat: 40.7128,
-    "long": 74.1181,
-    name: 'Elizabeth C. Lyons',
-    street: '4553 Kenwood Place',
-    location: 'Fort Lauderdale'
-  }, {
-    lat: 14.235,
-    "long": 51.9253,
-    name: 'Ralph D. Wylie',
-    street: '3186 Levy Court',
-    location: 'North Reading'
-  }, {
-    lat: 15.235,
-    "long": 51.9253,
-    name: 'Ralph D. Wylie',
-    street: '3186 Levy Court',
-    location: 'North Reading'
-  }, {
-    lat: 16.235,
-    "long": 51.9253,
-    name: 'Ralph D. Wylie',
-    street: '3186 Levy Court',
-    location: 'North Reading'
-  }, {
-    lat: 14.235,
-    "long": 51.9253,
-    name: 'Ralph D. Wylie',
-    street: '3186 Levy Court',
-    location: 'North Reading'
-  }, {
-    lat: 15.8267,
-    "long": 47.9218,
-    name: 'Hope A. Atkins',
-    street: '3715 Hillcrest Drive',
-    location: 'Seattle'
-  }, {
-    lat: 15.9267,
-    "long": 47.9218,
-    name: 'Hope A. Atkins',
-    street: '3715 Hillcrest Drive',
-    location: 'Seattle'
-  }, {
-    lat: 23.4425,
-    "long": 58.4438,
-    name: 'Samuel R. Bailey',
-    street: '2883 Raoul Wallenberg Place',
-    location: 'Cheshire'
-  }, {
-    lat: 23.5425,
-    "long": 58.3438,
-    name: 'Samuel R. Bailey',
-    street: '2883 Raoul Wallenberg Place',
-    location: 'Cheshire'
-  }, {
-    lat: -37.8927369333,
-    "long": 175.4087452333,
-    name: 'Samuel R. Bailey',
-    street: '3228 Glory Road',
-    location: 'Nashville'
-  }, {
-    lat: -38.9064188833,
-    "long": 175.4441556833,
-    name: 'Samuel R. Bailey',
-    street: '3228 Glory Road',
-    location: 'Nashville'
-  }, {
-    lat: -12.409874,
-    "long": -65.596832,
-    name: 'Ann J. Perdue',
-    street: '921 Ella Street',
-    location: 'Dublin'
-  }, {
-    lat: -22.090887,
-    "long": -57.411827,
-    name: 'Jorge C. Woods',
-    street: '4800 North Bend River Road',
-    location: 'Allen'
-  }, {
-    lat: -19.019585,
-    "long": -65.261963,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: -16.500093,
-    "long": -68.214684,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: -17.413977,
-    "long": -66.165321,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: -16.489689,
-    "long": -68.119293,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: 54.766323,
-    "long": 3.08603729,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: 54.866323,
-    "long": 3.08603729,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: 49.537685,
-    "long": 3.08603729,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: 54.715424,
-    "long": 0.509207,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: 44.891666,
-    "long": 10.136665,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: 48.078335,
-    "long": 14.535004,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: -26.358055,
-    "long": 27.398056,
-    name: 'Russ E. Panek',
-    street: '4068 Hartland Avenue',
-    location: 'Appleton'
-  }, {
-    lat: -29.1,
-    "long": 26.2167,
-    name: 'Wilbur J. Dry',
-    street: '2043 Jadewood Drive',
-    location: 'Northbrook'
-  }, {
-    lat: -29.883333,
-    "long": 31.049999,
-    name: 'Wilbur J. Dry',
-    street: '2043 Jadewood Drive',
-    location: 'Northbrook'
-  }, {
-    lat: -26.266111,
-    "long": 27.865833,
-    name: 'Wilbur J. Dry',
-    street: '2043 Jadewood Drive',
-    location: 'Northbrook'
-  }, {
-    lat: -29.087217,
-    "long": 26.154898,
-    name: 'Wilbur J. Dry',
-    street: '2043 Jadewood Drive',
-    location: 'Northbrook'
-  }, {
-    lat: -33.958252,
-    "long": 25.619022,
-    name: 'Wilbur J. Dry',
-    street: '2043 Jadewood Drive',
-    location: 'Northbrook'
-  }, {
-    lat: -33.977074,
-    "long": 22.457581,
-    name: 'Wilbur J. Dry',
-    street: '2043 Jadewood Drive',
-    location: 'Northbrook'
-  }, {
-    lat: -26.563404,
-    "long": 27.844164,
-    name: 'Wilbur J. Dry',
-    street: '2043 Jadewood Drive',
-    location: 'Northbrook'
-  }, {
-    lat: 51.21389,
-    "long": -102.462776,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 52.321945,
-    "long": -106.584167,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 50.288055,
-    "long": -107.793892,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 52.7575,
-    "long": -108.28611,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 50.393333,
-    "long": -105.551941,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 50.930557,
-    "long": -102.807777,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 52.856388,
-    "long": -104.610001,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 52.289722,
-    "long": -106.666664,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 52.201942,
-    "long": -105.123055,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 53.278046,
-    "long": -110.00547,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 49.13673,
-    "long": -102.990959,
-    name: 'Joseph B. Poole',
-    street: '3364 Lunetta Street',
-    location: 'Wichita Falls'
-  }, {
-    lat: 45.484531,
-    "long": -73.597023,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 45.266666,
-    "long": -71.900002,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 45.349998,
-    "long": -72.51667,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 47.333332,
-    "long": -79.433334,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 45.400002,
-    "long": -74.033333,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 45.683334,
-    "long": -73.433334,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 48.099998,
-    "long": -77.783333,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 45.5,
-    "long": -72.316666,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 46.349998,
-    "long": -72.550003,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 48.119999,
-    "long": -69.18,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 45.599998,
-    "long": -75.25,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 46.099998,
-    "long": -71.300003,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 45.700001,
-    "long": -73.633331,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 47.68,
-    "long": -68.879997,
-    name: 'Claudette D. Nowakowski',
-    street: '3742 Farland Avenue',
-    location: 'San Antonio'
-  }, {
-    lat: 46.716667,
-    "long": -79.099998,
-    name: '299'
-  }, {
-    lat: 45.016666,
-    "long": -72.099998,
-    name: '299'
-  }];
-  var _window2 = window,
-      L = _window2.L;
-  var mapContainer = document.getElementById('map');
-
-  if (L && mapContainer) {
-    var getFilterColor = function getFilterColor() {
-      return localStorage.getItem('theme') === 'dark' ? ['invert:98%', 'grayscale:69%', 'bright:89%', 'contrast:111%', 'hue:205deg', 'saturate:1000%'] : ['bright:101%', 'contrast:101%', 'hue:23deg', 'saturate:225%'];
-    };
-
-    var tileLayerTheme = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
-    var tiles = L.tileLayer.colorFilter(tileLayerTheme, {
-      attribution: null,
-      transparent: true,
-      filter: getFilterColor()
-    });
-    var map = L.map('map', {
-      center: L.latLng(10.737, 0),
-      zoom: 0,
-      layers: [tiles],
-      minZoom: 1.3,
-      zoomSnap: 0.5,
-      dragging: !L.Browser.mobile,
-      tap: !L.Browser.mobile
-    });
-    var mcg = L.markerClusterGroup({
-      chunkedLoading: false,
-      spiderfyOnMaxZoom: false
-    });
-    points.map(function (point) {
-      var name = point.name,
-          location = point.location,
-          street = point.street;
-      var icon = L.icon({
-        iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAApCAYAAADAk4LOAAAACXBIWXMAAAFgAAABYAEg2RPaAAADpElEQVRYCZ1XS1LbQBBtybIdiMEJKSpUqihgEW/xDdARyAnirOIl3MBH8NK7mBvkBpFv4Gy9IRSpFIQiRPyNfqkeZkY9HwmFt7Lm06+7p/vN2MmyDIrQ6QebALAHAD4AbFuWfQeAAACGs5H/w5jlsJJw4wMA+GhMFuMA99jIDJJOP+ihZwDQFmNuowWO1wS3viDXpdEdZPEc0odruj0EgN5s5H8tJOEEX8R3rbkMtcU34NTqhe5nSQTJ7Tkk80s6/Gk28scGiULguFBffgdufdEwWoQ0uoXo8hdAlooVH0REjISfwZSlyHGh0V5n6aHAtKTxXI5g6nQnMH0P4bEgwtR18Yw8Pj8QZ4ARUAI0Hl+fQZZGisGEBVwHr7XKzox57DXZ/ij8Cdwe2u057z9/wygOxRl4S2vSUHx1oucaMQGAHTrgtdag9mK5aN+Wx/uAAQ9Zenp/SRce4TpaNbQK4+sTcGqeTB/aIXv3XN5oj2VKqii++U0JunpZ8urxee4hvjqVc2hHpBDXuKKT9XMgVYJ1/1fPGSeaikzgmWWkMIi9bVf8UhotXxzORn5gWFchI8QyttlzjS0qpsaIGY2MMsujV/AUSdcY0dDpB6/EiOPYzclR1CI5mOez3ekHvrFLxa7cR5pTscfrXjk0Vhm5V2PqLUWnH3R5GbPGpMVD7E1ckXesKBQ7AS/vmQ1c0+kHuxpBj98lTCm8pbc5QRJRdZ6qHb/wGryXq3Lxszv+5gySuwvxueXySwYvHEjuQ9ofTGKYlrmK1EsCHMd5SoD7mZ1HHFCBHLNbMEshvrugqWLn01hpVVJhFgVGkDvK7hR6n2B+d9C7xsqWsbkqHv4cCsWezEb+o2SR+SFweUBxfA5wH7kShjKt2vWL57Px3GhIFEezkb8pxvUWHYhotAfCk2AtkEcxoOttrxUWDR5svb1emSQKj0WXK1HYIgFREbiBqmoZcB2RkbE+byMZiosorVgAZF1ID7yQhEs38wa7nUqNDezdlavC2HbBGSQkGgZ8uJVBmzeiKCRRpEa9ilWghORVeGB7BxeSKF5xqbFBkxBrFKUk/JHA7ppENQaCnCjthK+3opCEYyANztXmZN858cDYWSUSHk3A311GAZDvo6deNKUk1EsqnJoQlkYBNlmxQZeaMgmxoUokICoHDce351RCCiuKoirJWEgNOYvQplM2VCLhUqF7jf94rW9kHVUjQeheV4riv0i4ZOzzz/2y/+0KAOAfr4EE4HpCFhwAAAAASUVORK5CYII=\n        "
-      });
-      var marker = L.marker(new L.LatLng(point.lat, point["long"]), {
-        icon: icon
-      }, {
-        name: name,
-        location: location
-      });
-      var popupContent = "\n        <h6 class=\"mb-1\">".concat(name, "</h6>\n        <p class=\"m-0 text-500\">").concat(street, ", ").concat(location, "</p>\n      ");
-      var popup = L.popup({
-        minWidth: 180
-      }).setContent(popupContent);
-      marker.bindPopup(popup);
-      mcg.addLayer(marker);
-      return true;
-    });
-    map.addLayer(mcg);
-    var themeController = document.body;
-    themeController.addEventListener('clickControl', function (_ref9) {
-      var _ref9$detail = _ref9.detail,
-          control = _ref9$detail.control,
-          value = _ref9$detail.value;
-
-      if (control === 'theme') {
-        tiles.updateFilter(value === 'dark' ? ['invert:98%', 'grayscale:69%', 'bright:89%', 'contrast:111%', 'hue:205deg', 'saturate:1000%'] : ['bright:101%', 'contrast:101%', 'hue:23deg', 'saturate:225%']);
-      }
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                 Data Table                                 */
-
-/* -------------------------------------------------------------------------- */
-
-/* eslint-disable no-param-reassign */
-
-
-var togglePaginationButtonDisable = function togglePaginationButtonDisable(button, disabled) {
-  button.disabled = disabled;
-  button.classList[disabled ? 'add' : 'remove']('disabled');
-};
-
-var listInit = function listInit() {
-  if (window.List) {
-    var lists = document.querySelectorAll('[data-list]');
-
-    if (lists.length) {
-      lists.forEach(function (el) {
-        var options = utils.getData(el, 'list');
-
-        if (options.pagination) {
-          options = _objectSpread(_objectSpread({}, options), {}, {
-            pagination: _objectSpread({
-              item: '<li><button class=\'page\' type=\'button\'></button></li>'
-            }, options.pagination)
-          });
-        }
-
-        var paginationButtonNext = el.querySelector('[data-list-pagination="next"]');
-        var paginationButtonPrev = el.querySelector('[data-list-pagination="prev"]');
-        var viewAll = el.querySelector('[data-list-view="*"]');
-        var viewLess = el.querySelector('[data-list-view="less"]');
-        var listInfo = el.querySelector('[data-list-info]');
-        var listFilter = document.querySelector('[data-list-filter]');
-        var list = new window.List(el, options); //-------fallback-----------
-
-        list.on('updated', function (item) {
-          var fallback = el.querySelector('.fallback') || document.getElementById(options.fallback);
-
-          if (fallback) {
-            if (item.matchingItems.length === 0) {
-              fallback.classList.remove('d-none');
-            } else {
-              fallback.classList.add('d-none');
-            }
-          }
-        }); // ---------------------------------------
-
-        var totalItem = list.items.length;
-        var itemsPerPage = list.page;
-        var btnDropdownClose = list.listContainer.querySelector('.btn-close');
-        var pageQuantity = Math.ceil(totalItem / itemsPerPage);
-        var numberOfcurrentItems = list.visibleItems.length;
-        var pageCount = 1;
-        btnDropdownClose && btnDropdownClose.addEventListener('search.close', function () {
-          list.fuzzySearch('');
-        });
-
-        var updateListControls = function updateListControls() {
-          listInfo && (listInfo.innerHTML = "".concat(list.i, " to ").concat(numberOfcurrentItems, " of ").concat(totalItem));
-          paginationButtonPrev && togglePaginationButtonDisable(paginationButtonPrev, pageCount === 1);
-          paginationButtonNext && togglePaginationButtonDisable(paginationButtonNext, pageCount === pageQuantity);
-
-          if (pageCount > 1 && pageCount < pageQuantity) {
-            togglePaginationButtonDisable(paginationButtonNext, false);
-            togglePaginationButtonDisable(paginationButtonPrev, false);
-          }
-        }; // List info
-
-
-        updateListControls();
-
-        if (paginationButtonNext) {
-          paginationButtonNext.addEventListener('click', function (e) {
-            e.preventDefault();
-            pageCount += 1;
-            var nextInitialIndex = list.i + itemsPerPage;
-            nextInitialIndex <= list.size() && list.show(nextInitialIndex, itemsPerPage);
-            numberOfcurrentItems += list.visibleItems.length;
-            updateListControls();
-          });
-        }
-
-        if (paginationButtonPrev) {
-          paginationButtonPrev.addEventListener('click', function (e) {
-            e.preventDefault();
-            pageCount -= 1;
-            numberOfcurrentItems -= list.visibleItems.length;
-            var prevItem = list.i - itemsPerPage;
-            prevItem > 0 && list.show(prevItem, itemsPerPage);
-            updateListControls();
-          });
-        }
-
-        var toggleViewBtn = function toggleViewBtn() {
-          viewLess.classList.toggle('d-none');
-          viewAll.classList.toggle('d-none');
-        };
-
-        if (viewAll) {
-          viewAll.addEventListener('click', function () {
-            list.show(1, totalItem);
-            pageQuantity = 1;
-            pageCount = 1;
-            numberOfcurrentItems = totalItem;
-            updateListControls();
-            toggleViewBtn();
-          });
-        }
-
-        if (viewLess) {
-          viewLess.addEventListener('click', function () {
-            list.show(1, itemsPerPage);
-            pageQuantity = Math.ceil(totalItem / itemsPerPage);
-            pageCount = 1;
-            numberOfcurrentItems = list.visibleItems.length;
-            updateListControls();
-            toggleViewBtn();
-          });
-        } // numbering pagination
-
-
-        if (options.pagination) {
-          el.querySelector('.pagination').addEventListener('click', function (e) {
-            if (e.target.classList[0] === 'page') {
-              pageCount = Number(e.target.innerText);
-              updateListControls();
-            }
-          });
-        }
-
-        if (options.filter) {
-          listFilter.addEventListener('change', function (e) {
-            list.filter(function (item) {
-              if (e.target.value === '') {
-                return true;
-              }
-
-              return item.values().payment.toLowerCase().includes(e.target.value.toLowerCase());
-            });
-          });
-        }
-      });
-    }
-  }
-};
-
-var lottieInit = function lottieInit() {
-  var lotties = document.querySelectorAll('.lottie');
-
-  if (lotties.length) {
-    lotties.forEach(function (item) {
-      var options = utils.getData(item, 'options');
-      window.bodymovin.loadAnimation(_objectSpread({
-        container: item,
-        path: '../img/animated-icons/warning-light.json',
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        name: 'Hello World'
-      }, options));
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                             Navbar Combo Layout                            */
-
-/* -------------------------------------------------------------------------- */
-
-
-var navbarComboInit = function navbarComboInit() {
-  var Selector = {
-    NAVBAR_VERTICAL: '.navbar-vertical',
-    NAVBAR_TOP_COMBO: '[data-navbar-top="combo"]',
-    COLLAPSE: '.collapse',
-    DATA_MOVE_CONTAINER: '[data-move-container]',
-    NAVBAR_NAV: '.navbar-nav',
-    NAVBAR_VERTICAL_DIVIDER: '.navbar-vertical-divider'
-  };
-  var ClassName = {
-    FLEX_COLUMN: 'flex-column'
-  };
-  var navbarVertical = document.querySelector(Selector.NAVBAR_VERTICAL);
-  var navbarTopCombo = document.querySelector(Selector.NAVBAR_TOP_COMBO);
-
-  var moveNavContent = function moveNavContent(windowWidth) {
-    var navbarVerticalBreakpoint = utils.getBreakpoint(navbarVertical);
-    var navbarTopBreakpoint = utils.getBreakpoint(navbarTopCombo);
-
-    if (windowWidth < navbarTopBreakpoint) {
-      var navbarCollapse = navbarTopCombo.querySelector(Selector.COLLAPSE);
-      var navbarTopContent = navbarCollapse.innerHTML;
-
-      if (navbarTopContent) {
-        var targetID = utils.getData(navbarTopCombo, 'move-target');
-        var targetElement = document.querySelector(targetID);
-        navbarCollapse.innerHTML = '';
-        targetElement.insertAdjacentHTML('afterend', "\n            <div data-move-container>\n              <div class='navbar-vertical-divider'>\n                <hr class='navbar-vertical-hr' />\n              </div>\n              ".concat(navbarTopContent, "\n            </div>\n          "));
-
-        if (navbarVerticalBreakpoint < navbarTopBreakpoint) {
-          var navbarNav = document.querySelector(Selector.DATA_MOVE_CONTAINER).querySelector(Selector.NAVBAR_NAV);
-          utils.addClass(navbarNav, ClassName.FLEX_COLUMN);
-        }
-      }
-    } else {
-      var moveableContainer = document.querySelector(Selector.DATA_MOVE_CONTAINER);
-
-      if (moveableContainer) {
-        var _navbarNav = moveableContainer.querySelector(Selector.NAVBAR_NAV);
-
-        utils.hasClass(_navbarNav, ClassName.FLEX_COLUMN) && _navbarNav.classList.remove(ClassName.FLEX_COLUMN);
-        moveableContainer.querySelector(Selector.NAVBAR_VERTICAL_DIVIDER).remove();
-        navbarTopCombo.querySelector(Selector.COLLAPSE).innerHTML = moveableContainer.innerHTML;
-        moveableContainer.remove();
-      }
-    }
-  };
-
-  moveNavContent(window.innerWidth);
-  utils.resize(function () {
-    return moveNavContent(window.innerWidth);
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                         Navbar Darken on scroll                        */
-
-/* -------------------------------------------------------------------------- */
-
-
-var navbarDarkenOnScroll = function navbarDarkenOnScroll() {
-  var Selector = {
-    NAVBAR: '[data-navbar-darken-on-scroll]',
-    NAVBAR_COLLAPSE: '.navbar-collapse',
-    NAVBAR_TOGGLER: '.navbar-toggler'
-  };
-  var ClassNames = {
-    COLLAPSED: 'collapsed'
-  };
-  var Events = {
-    SCROLL: 'scroll',
-    SHOW_BS_COLLAPSE: 'show.bs.collapse',
-    HIDE_BS_COLLAPSE: 'hide.bs.collapse',
-    HIDDEN_BS_COLLAPSE: 'hidden.bs.collapse'
-  };
-  var DataKey = {
-    NAVBAR_DARKEN_ON_SCROLL: 'navbar-darken-on-scroll'
-  };
-  var navbar = document.querySelector(Selector.NAVBAR);
-
-  function removeNavbarBgClass() {
-    navbar.classList.remove('bg-dark');
-    navbar.classList.remove('bg-100');
-  }
-
-  var toggleThemeClass = function toggleThemeClass(theme) {
-    if (theme === 'dark') {
-      navbar.classList.remove('navbar-dark');
-      navbar.classList.add('navbar-light');
-    } else {
-      navbar.classList.remove('navbar-light');
-      navbar.classList.add('navbar-dark');
-    }
-  };
-
-  function getBgClassName(name, defaultColorName) {
-    var parent = document.documentElement;
-
-    var allColors = _objectSpread(_objectSpread({}, utils.getColors(parent)), utils.getGrays(parent));
-
-    var colorName = Object.keys(allColors).includes(name) ? name : defaultColorName;
-    var color = allColors[colorName];
-    var bgClassName = "bg-".concat(colorName);
-    return {
-      color: color,
-      bgClassName: bgClassName
-    };
-  }
-
-  if (navbar) {
-    var theme = localStorage.getItem('theme');
-    var defaultColorName = theme === 'dark' ? '100' : 'dark';
-    var name = utils.getData(navbar, DataKey.NAVBAR_DARKEN_ON_SCROLL);
-    toggleThemeClass(theme);
-    var themeController = document.body;
-    themeController.addEventListener('clickControl', function (_ref10) {
-      var _ref10$detail = _ref10.detail,
-          control = _ref10$detail.control,
-          value = _ref10$detail.value;
-
-      if (control === 'theme') {
-        toggleThemeClass(value);
-        defaultColorName = value === 'dark' ? '100' : 'dark';
-
-        if (navbar.classList.contains('bg-dark') || navbar.classList.contains('bg-100')) {
-          removeNavbarBgClass();
-          navbar.classList.add(getBgClassName(name, defaultColorName).bgClassName);
-        }
-      }
-    });
-    var windowHeight = window.innerHeight;
-    var html = document.documentElement;
-    var navbarCollapse = navbar.querySelector(Selector.NAVBAR_COLLAPSE);
-    var colorRgb = utils.hexToRgb(getBgClassName(name, defaultColorName).color);
-
-    var _window$getComputedSt = window.getComputedStyle(navbar),
-        backgroundImage = _window$getComputedSt.backgroundImage;
-
-    var transition = 'background-color 0.35s ease';
-    navbar.style.backgroundImage = 'none'; // Change navbar background color on scroll
-
-    window.addEventListener(Events.SCROLL, function () {
-      var scrollTop = html.scrollTop;
-      var alpha = scrollTop / windowHeight * 2;
-      alpha >= 1 && (alpha = 1);
-      navbar.style.backgroundColor = "rgba(".concat(colorRgb[0], ", ").concat(colorRgb[1], ", ").concat(colorRgb[2], ", ").concat(alpha, ")");
-      navbar.style.backgroundImage = alpha > 0 || utils.hasClass(navbarCollapse, 'show') ? backgroundImage : 'none';
-    }); // Toggle bg class on window resize
-
-    utils.resize(function () {
-      var breakPoint = utils.getBreakpoint(navbar);
-
-      if (window.innerWidth > breakPoint) {
-        removeNavbarBgClass();
-        navbar.style.backgroundImage = html.scrollTop ? backgroundImage : 'none';
-        navbar.style.transition = 'none';
-      } else if (!utils.hasClass(navbar.querySelector(Selector.NAVBAR_TOGGLER), ClassNames.COLLAPSED)) {
-        removeNavbarBgClass();
-        navbar.style.backgroundImage = backgroundImage;
-      }
-
-      if (window.innerWidth <= breakPoint) {
-        navbar.style.transition = utils.hasClass(navbarCollapse, 'show') ? transition : 'none';
-      }
-    });
-    navbarCollapse.addEventListener(Events.SHOW_BS_COLLAPSE, function () {
-      navbar.classList.add(getBgClassName(name, defaultColorName).bgClassName);
-      navbar.style.backgroundImage = backgroundImage;
-      navbar.style.transition = transition;
-    });
-    navbarCollapse.addEventListener(Events.HIDE_BS_COLLAPSE, function () {
-      removeNavbarBgClass();
-      !html.scrollTop && (navbar.style.backgroundImage = 'none');
-    });
-    navbarCollapse.addEventListener(Events.HIDDEN_BS_COLLAPSE, function () {
-      navbar.style.transition = 'none';
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                 Navbar Top                                 */
-
-/* -------------------------------------------------------------------------- */
-
-
-var navbarTopDropShadow = function navbarTopDropShadow() {
-  var Selector = {
-    NAVBAR: '.navbar:not(.navbar-vertical)',
-    NAVBAR_VERTICAL: '.navbar-vertical',
-    NAVBAR_VERTICAL_CONTENT: '.navbar-vertical-content',
-    NAVBAR_VERTICAL_COLLAPSE: 'navbarVerticalCollapse'
-  };
-  var ClassNames = {
-    NAVBAR_GLASS_SHADOW: 'navbar-glass-shadow',
-    SHOW: 'show'
-  };
-  var Events = {
-    SCROLL: 'scroll',
-    SHOW_BS_COLLAPSE: 'show.bs.collapse',
-    HIDDEN_BS_COLLAPSE: 'hidden.bs.collapse'
-  };
-  var navDropShadowFlag = true;
-  var $navbar = document.querySelector(Selector.NAVBAR);
-  var $navbarVertical = document.querySelector(Selector.NAVBAR_VERTICAL);
-  var $navbarVerticalContent = document.querySelector(Selector.NAVBAR_VERTICAL_CONTENT);
-  var $navbarVerticalCollapse = document.getElementById(Selector.NAVBAR_VERTICAL_COLLAPSE);
-  var html = document.documentElement;
-  var breakPoint = utils.getBreakpoint($navbarVertical);
-
-  var setDropShadow = function setDropShadow($elem) {
-    if ($elem.scrollTop > 0 && navDropShadowFlag) {
-      $navbar && $navbar.classList.add(ClassNames.NAVBAR_GLASS_SHADOW);
-    } else {
-      $navbar && $navbar.classList.remove(ClassNames.NAVBAR_GLASS_SHADOW);
-    }
-  };
-
-  window.addEventListener(Events.SCROLL, function () {
-    setDropShadow(html);
-  });
-
-  if ($navbarVerticalContent) {
-    $navbarVerticalContent.addEventListener(Events.SCROLL, function () {
-      if (window.outerWidth < breakPoint) {
-        navDropShadowFlag = true;
-        setDropShadow($navbarVerticalContent);
-      }
-    });
-  }
-
-  if ($navbarVerticalCollapse) {
-    $navbarVerticalCollapse.addEventListener(Events.SHOW_BS_COLLAPSE, function () {
-      if (window.outerWidth < breakPoint) {
-        navDropShadowFlag = false;
-        setDropShadow(html);
-      }
-    });
-  }
-
-  if ($navbarVerticalCollapse) {
-    $navbarVerticalCollapse.addEventListener(Events.HIDDEN_BS_COLLAPSE, function () {
-      if (utils.hasClass($navbarVerticalCollapse, ClassNames.SHOW) && window.outerWidth < breakPoint) {
-        navDropShadowFlag = false;
-      } else {
-        navDropShadowFlag = true;
-      }
-
-      setDropShadow(html);
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                               Navbar Vertical                              */
-
-/* -------------------------------------------------------------------------- */
-
-
-var handleNavbarVerticalCollapsed = function handleNavbarVerticalCollapsed() {
-  var Selector = {
-    HTML: 'html',
-    NAVBAR_VERTICAL_TOGGLE: '.navbar-vertical-toggle',
-    NAVBAR_VERTICAL_COLLAPSE: '.navbar-vertical .navbar-collapse',
-    ECHART_RESPONSIVE: '[data-echart-responsive]'
-  };
-  var Events = {
-    CLICK: 'click',
-    MOUSE_OVER: 'mouseover',
-    MOUSE_LEAVE: 'mouseleave',
-    NAVBAR_VERTICAL_TOGGLE: 'navbar.vertical.toggle'
-  };
-  var ClassNames = {
-    NAVBAR_VERTICAL_COLLAPSED: 'navbar-vertical-collapsed',
-    NAVBAR_VERTICAL_COLLAPSED_HOVER: 'navbar-vertical-collapsed-hover'
-  };
-  var navbarVerticalToggle = document.querySelector(Selector.NAVBAR_VERTICAL_TOGGLE);
-  var html = document.querySelector(Selector.HTML);
-  var navbarVerticalCollapse = document.querySelector(Selector.NAVBAR_VERTICAL_COLLAPSE);
-
-  if (navbarVerticalToggle) {
-    navbarVerticalToggle.addEventListener(Events.CLICK, function (e) {
-      navbarVerticalToggle.blur();
-      html.classList.toggle(ClassNames.NAVBAR_VERTICAL_COLLAPSED); // Set collapse state on localStorage
-
-      var isNavbarVerticalCollapsed = utils.getItemFromStore('isNavbarVerticalCollapsed');
-      utils.setItemToStore('isNavbarVerticalCollapsed', !isNavbarVerticalCollapsed);
-      var event = new CustomEvent(Events.NAVBAR_VERTICAL_TOGGLE);
-      e.currentTarget.dispatchEvent(event);
-    });
-  }
-
-  if (navbarVerticalCollapse) {
-    navbarVerticalCollapse.addEventListener(Events.MOUSE_OVER, function () {
-      if (utils.hasClass(html, ClassNames.NAVBAR_VERTICAL_COLLAPSED)) {
-        html.classList.add(ClassNames.NAVBAR_VERTICAL_COLLAPSED_HOVER);
-      }
-    });
-    navbarVerticalCollapse.addEventListener(Events.MOUSE_LEAVE, function () {
-      if (utils.hasClass(html, ClassNames.NAVBAR_VERTICAL_COLLAPSED_HOVER)) {
-        html.classList.remove(ClassNames.NAVBAR_VERTICAL_COLLAPSED_HOVER);
-      }
-    });
-  }
-};
-/*-----------------------------------------------
-|   Inline Player [plyr]
------------------------------------------------*/
-
-
-var plyrInit = function plyrInit() {
-  if (window.Plyr) {
-    var plyrs = document.querySelectorAll('.player');
-    plyrs.forEach(function (plyr) {
-      var userOptions = utils.getData(plyr, 'options');
-      var defaultOptions = {
-        captions: {
-          active: true
-        }
-      };
-
-      var options = window._.merge(defaultOptions, userOptions);
-
-      return new window.Plyr(plyr, options);
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                   Popover                                  */
-
-/* -------------------------------------------------------------------------- */
-
-
-var popoverInit = function popoverInit() {
-  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-  popoverTriggerList.map(function (popoverTriggerEl) {
-    return new window.bootstrap.Popover(popoverTriggerEl);
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                         Bootstrap Animated Progress                        */
-
-/* -------------------------------------------------------------------------- */
-
-
-var progressAnimationToggle = function progressAnimationToggle() {
-  var animatedProgress = document.querySelectorAll('[data-progress-animation]');
-  animatedProgress.forEach(function (progress) {
-    progress.addEventListener('click', function (e) {
-      var progressID = utils.getData(e.currentTarget, 'progressAnimation');
-      var $progress = document.getElementById(progressID);
-      $progress.classList.toggle('progress-bar-animated');
-    });
-  });
-};
-/*-----------------------------------------------
-|  Quantity
------------------------------------------------*/
-
-
-var quantityInit = function quantityInit() {
-  var Selector = {
-    DATA_QUANTITY_BTN: '[data-quantity] [data-type]',
-    DATA_QUANTITY: '[data-quantity]',
-    DATA_QUANTITY_INPUT: '[data-quantity] input[type="number"]'
-  };
-  var Events = {
-    CLICK: 'click'
-  };
-  var Attributes = {
-    MIN: 'min'
-  };
-  var DataKey = {
-    TYPE: 'type'
-  };
-  var quantities = document.querySelectorAll(Selector.DATA_QUANTITY_BTN);
-  quantities.forEach(function (quantity) {
-    quantity.addEventListener(Events.CLICK, function (e) {
-      var el = e.currentTarget;
-      var type = utils.getData(el, DataKey.TYPE);
-      var numberInput = el.closest(Selector.DATA_QUANTITY).querySelector(Selector.DATA_QUANTITY_INPUT);
-      var min = numberInput.getAttribute(Attributes.MIN);
-      var value = parseInt(numberInput.value, 10);
-
-      if (type === 'plus') {
-        value += 1;
-      } else {
-        value = value > min ? value -= 1 : value;
-      }
-
-      numberInput.value = value;
-    });
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                               Ratings                               */
-
-/* -------------------------------------------------------------------------- */
-
-
-var ratingInit = function ratingInit() {
-  var raters = document.querySelectorAll('[data-rater]');
-  raters.forEach(function (rater) {
-    var options = _objectSpread({
-      reverse: utils.getItemFromStore('isRTL'),
-      starSize: 32,
-      step: 0.5,
-      element: rater,
-      rateCallback: function rateCallback(rating, done) {
-        this.setRating(rating);
-        done();
-      }
-    }, utils.getData(rater, 'rater'));
-
-    return window.raterJs(options);
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                Scroll To Top                               */
-
-/* -------------------------------------------------------------------------- */
-
-
-var scrollToTop = function scrollToTop() {
-  document.querySelectorAll('[data-anchor] > a, [data-scroll-to]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      var _utils$getData2;
-
-      e.preventDefault();
-      var el = e.target;
-      var id = utils.getData(el, 'scroll-to') || el.getAttribute('href');
-      window.scroll({
-        top: (_utils$getData2 = utils.getData(el, 'offset-top')) !== null && _utils$getData2 !== void 0 ? _utils$getData2 : utils.getOffset(document.querySelector(id)).top - 100,
-        left: 0,
-        behavior: 'smooth'
-      });
-      window.location.hash = id;
-    });
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                 Scrollbars                                 */
-
-/* -------------------------------------------------------------------------- */
-// import utils from './utils';
-
-
-var scrollInit = function scrollInit() {
-  var dropdownElements = Array.from(document.querySelectorAll('[data-hide-on-body-scroll]'));
-
-  if (window.innerWidth < 1200) {
-    window.addEventListener('scroll', function () {
-      dropdownElements.forEach(function (dropdownElement) {
-        var instanceEl = window.bootstrap.Dropdown.getInstance(dropdownElement);
-        instanceEl && instanceEl.hide();
-      });
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                 Scrollbars                                 */
-
-/* -------------------------------------------------------------------------- */
-
-
-var scrollbarInit = function scrollbarInit() {
-  Array.prototype.forEach.call(document.querySelectorAll('.scrollbar-overlay'), function (el) {
-    return new window.OverlayScrollbars(el, {
-      scrollbars: {
-        autoHide: 'leave',
-        autoHideDelay: 200
-      }
-    });
-  });
-};
-
-var searchInit = function searchInit() {
-  var Selectors = {
-    SEARCH_DISMISS: '[data-bs-dismiss="search"]',
-    DROPDOWN_TOGGLE: '[data-bs-toggle="dropdown"]',
-    DROPDOWN_MENU: '.dropdown-menu',
-    SEARCH_BOX: '.search-box',
-    SEARCH_INPUT: '.search-input',
-    SEARCH_TOGGLE: '[data-bs-toggle="search"]'
-  };
-  var ClassName = {
-    SHOW: 'show'
-  };
-  var Attribute = {
-    ARIA_EXPANDED: 'aria-expanded'
-  };
-  var Events = {
-    CLICK: 'click',
-    FOCUS: 'focus',
-    SHOW_BS_DROPDOWN: 'show.bs.dropdown',
-    SEARCH_CLOSE: 'search.close'
-  };
-
-  var hideSearchSuggestion = function hideSearchSuggestion(searchArea) {
-    var el = searchArea.querySelector(Selectors.SEARCH_TOGGLE);
-    var dropdownMenu = searchArea.querySelector(Selectors.DROPDOWN_MENU);
-    el.setAttribute(Attribute.ARIA_EXPANDED, 'false');
-    el.classList.remove(ClassName.SHOW);
-    dropdownMenu.classList.remove(ClassName.SHOW);
-  };
-
-  var searchAreas = document.querySelectorAll(Selectors.SEARCH_BOX);
-
-  var hideAllSearchAreas = function hideAllSearchAreas() {
-    searchAreas.forEach(hideSearchSuggestion);
-  };
-
-  searchAreas.forEach(function (searchArea) {
-    var input = searchArea.querySelector(Selectors.SEARCH_INPUT);
-    var btnDropdownClose = searchArea.querySelector(Selectors.SEARCH_DISMISS);
-    var dropdownMenu = searchArea.querySelector(Selectors.DROPDOWN_MENU);
-
-    if (input) {
-      input.addEventListener(Events.FOCUS, function () {
-        hideAllSearchAreas();
-        var el = searchArea.querySelector(Selectors.SEARCH_TOGGLE);
-        el.setAttribute(Attribute.ARIA_EXPANDED, 'true');
-        el.classList.add(ClassName.SHOW);
-        dropdownMenu.classList.add(ClassName.SHOW);
-      });
-    }
-
-    document.addEventListener(Events.CLICK, function (_ref11) {
-      var target = _ref11.target;
-      !searchArea.contains(target) && hideSearchSuggestion(searchArea);
-    });
-    btnDropdownClose && btnDropdownClose.addEventListener(Events.CLICK, function (e) {
-      hideSearchSuggestion(searchArea);
-      input.value = '';
-      var event = new CustomEvent(Events.SEARCH_CLOSE);
-      e.currentTarget.dispatchEvent(event);
-    });
-  });
-  document.querySelectorAll(Selectors.DROPDOWN_TOGGLE).forEach(function (dropdown) {
-    dropdown.addEventListener(Events.SHOW_BS_DROPDOWN, function () {
-      hideAllSearchAreas();
-    });
-  });
-};
-/*-----------------------------------------------
-|  Swiper
------------------------------------------------*/
-
-
-var swiperInit = function swiperInit() {
-  var swipers = document.querySelectorAll('[data-swiper]');
-  var navbarVerticalToggle = document.querySelector('.navbar-vertical-toggle');
-  swipers.forEach(function (swiper) {
-    var options = utils.getData(swiper, 'swiper');
-    var thumbsOptions = options.thumb;
-    var thumbsInit;
-
-    if (thumbsOptions) {
-      var thumbImages = swiper.querySelectorAll('img');
-      var slides = '';
-      thumbImages.forEach(function (img) {
-        slides += "\n          <div class='swiper-slide '>\n            <img class='img-fluid rounded mt-1' src=".concat(img.src, " alt=''/>\n          </div>\n        ");
-      });
-      var thumbs = document.createElement('div');
-      thumbs.setAttribute('class', 'swiper-container thumb');
-      thumbs.innerHTML = "<div class='swiper-wrapper'>".concat(slides, "</div>");
-
-      if (thumbsOptions.parent) {
-        var parent = document.querySelector(thumbsOptions.parent);
-        parent.parentNode.appendChild(thumbs);
-      } else {
-        swiper.parentNode.appendChild(thumbs);
-      }
-
-      thumbsInit = new window.Swiper(thumbs, thumbsOptions);
-    }
-
-    var swiperNav = swiper.querySelector('.swiper-nav');
-    var newSwiper = new window.Swiper(swiper, _objectSpread(_objectSpread({}, options), {}, {
-      navigation: {
-        nextEl: swiperNav === null || swiperNav === void 0 ? void 0 : swiperNav.querySelector('.swiper-button-next'),
-        prevEl: swiperNav === null || swiperNav === void 0 ? void 0 : swiperNav.querySelector('.swiper-button-prev')
-      },
-      thumbs: {
-        swiper: thumbsInit
-      }
-    }));
-
-    if (navbarVerticalToggle) {
-      navbarVerticalToggle.addEventListener('navbar.vertical.toggle', function () {
-        newSwiper.update();
-      });
-    }
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                Theme Control                               */
-
-/* -------------------------------------------------------------------------- */
-
-/* eslint-disable no-param-reassign */
-
-/* eslint-disable */
-
-
-var initialDomSetup = function initialDomSetup(element) {
-  if (!element) return;
-  var dataUrlDom = element.querySelector('[data-theme-control = "navbarPosition"]');
-  var hasDataUrl = dataUrlDom ? getData(dataUrlDom, 'page-url') : null;
-  element.querySelectorAll('[data-theme-control]').forEach(function (el) {
-    var inputDataAttributeValue = getData(el, 'theme-control');
-    var localStorageValue = getItemFromStore(inputDataAttributeValue);
-
-    if (inputDataAttributeValue === 'navbarStyle' && !hasDataUrl && getItemFromStore('navbarPosition') === 'top') {
-      el.setAttribute('disabled', true);
-    }
-
-    if (el.type === 'checkbox') {
-      if (inputDataAttributeValue === 'theme') {
-        localStorageValue === 'dark' && el.setAttribute('checked', true);
-      } else {
-        localStorageValue && el.setAttribute('checked', true);
-      }
-    } else {
-      var isChecked = localStorageValue === el.value;
-      isChecked && el.setAttribute('checked', true);
-    }
-  });
-};
-
-var changeTheme = function changeTheme(element) {
-  element.querySelectorAll('[data-theme-control = "theme"]').forEach(function (el) {
-    var inputDataAttributeValue = getData(el, 'theme-control');
-    var localStorageValue = getItemFromStore(inputDataAttributeValue);
-
-    if (el.type === 'checkbox') {
-      localStorageValue === 'dark' ? el.checked = true : el.checked = false;
-    } else {
-      localStorageValue === el.value ? el.checked = true : el.checked = false;
-    }
-  });
-};
-
-var themeControl = function themeControl() {
-  var themeController = new DomNode(document.body);
-  var navbarVertical = document.querySelector('.navbar-vertical');
-  initialDomSetup(themeController.node);
-  themeController.on('click', function (e) {
-    var target = new DomNode(e.target);
-
-    if (target.data('theme-control')) {
-      var control = target.data('theme-control');
-      var value = e.target[e.target.type === 'radio' ? 'value' : 'checked'];
-
-      if (control === 'theme') {
-        typeof value === 'boolean' && (value = value ? 'dark' : 'light');
-      }
-
-      setItemToStore(control, value);
-
-      switch (control) {
-        case 'theme':
-          {
-            document.documentElement.classList[value === 'dark' ? 'add' : 'remove']('dark');
-            var clickControl = new CustomEvent('clickControl', {
-              detail: {
-                control: control,
-                value: value
-              }
-            });
-            e.currentTarget.dispatchEvent(clickControl);
-            changeTheme(themeController.node);
-            break;
-          }
-
-        case 'navbarStyle':
-          {
-            navbarVertical.classList.remove('navbar-card');
-            navbarVertical.classList.remove('navbar-inverted');
-            navbarVertical.classList.remove('navbar-vibrant');
-
-            if (value !== 'transparent') {
-              navbarVertical.classList.add("navbar-".concat(value));
-            }
-
-            break;
-          }
-
-        case 'navbarPosition':
-          {
-            var pageUrl = getData(target.node, 'page-url');
-            !!pageUrl ? window.location.replace(pageUrl) : window.location.reload();
-            break;
-          }
-
-        case 'reset':
-          {
-            Object.keys(CONFIG).forEach(function (key) {
-              localStorage.setItem(key, CONFIG[key]);
-            });
-            window.location.reload();
-            break;
-          }
-
-        default:
-          window.location.reload();
-      }
-    }
-  });
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                   Tinymce                                  */
-
-/* -------------------------------------------------------------------------- */
-
-
-var tinymceInit = function tinymceInit() {
-  if (window.tinymce) {
-    var tinymces = document.querySelectorAll('.tinymce');
-
-    if (tinymces.length) {
-      window.tinymce.init({
-        selector: '.tinymce',
-        height: '50vh',
-        menubar: false,
-        skin: utils.settings.tinymce.theme,
-        content_style: ".mce-content-body { color: ".concat(utils.getGrays().black, " }"),
-        mobile: {
-          theme: 'mobile',
-          toolbar: ['undo', 'bold']
-        },
-        statusbar: false,
-        plugins: 'link,image,lists,table,media',
-        toolbar: 'styleselect | bold italic link bullist numlist image blockquote table media undo redo',
-        directionality: utils.getItemFromStore('isRTL') ? 'rtl' : 'ltr',
-        theme_advanced_toolbar_align: 'center'
-      });
-    }
-
-    var themeController = document.body;
-    themeController && themeController.addEventListener('clickControl', function (_ref12) {
-      var control = _ref12.detail.control;
-
-      if (control === 'theme') {
-        window.tinyMCE.editors.forEach(function (el) {
-          el.dom.addStyle(".mce-content-body{color: ".concat(utils.getGrays().black, " !important;}"));
-        });
-      }
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                    Toast                                   */
-
-/* -------------------------------------------------------------------------- */
-
-
-var toastInit = function toastInit() {
-  var toastElList = [].slice.call(document.querySelectorAll('.toast'));
-  toastElList.map(function (toastEl) {
-    return new window.bootstrap.Toast(toastEl);
-  });
-  var liveToastBtn = document.getElementById('liveToastBtn');
-
-  if (liveToastBtn) {
-    var liveToast = new window.bootstrap.Toast(document.getElementById('liveToast'));
-    liveToastBtn.addEventListener('click', function () {
-      liveToast && liveToast.show();
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                   Tooltip                                  */
-
-/* -------------------------------------------------------------------------- */
-
-
-var tooltipInit = function tooltipInit() {
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-  tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new window.bootstrap.Tooltip(tooltipTriggerEl, {
-      trigger: 'hover'
-    });
-  });
-};
-/* eslint-disable no-param-reassign */
-
-/* -------------------------------------------------------------------------- */
-
-/*                                   Treeview                                   */
-
-/* -------------------------------------------------------------------------- */
-
-
-var treeviewInit = function treeviewInit() {
-  var Events = {
-    CHANGE: 'change',
-    SHOW_BS_COLLAPSE: 'show.bs.collapse',
-    HIDE_BS_COLLAPSE: 'hide.bs.collapse'
-  };
-  var Selector = {
-    TREEVIEW_ROW: '.treeview > li > .treeview-row,.treeview-list.collapse-show > li > .treeview-row',
-    TREEVIEW: '.treeview',
-    TREEVIEW_LIST: '.treeview-list',
-    TOGGLE_ELEMENT: "[data-bs-toggle='collapse']",
-    INPUT: 'input',
-    TREEVIEW_LIST_ITEM: '.treeview-list-item',
-    CHILD_SELECTOR: ':scope > li > .collapse.collapse-show'
-  };
-  var ClassName = {
-    TREEVIEW: 'treeview',
-    TREEVIEW_LIST: 'treeview-list',
-    TREEVIEW_BORDER: 'treeview-border',
-    TREEVIEW_BORDER_TRANSPARENT: 'treeview-border-transparent',
-    COLLAPSE_SHOW: 'collapse-show',
-    COLLAPSE_HIDDEN: 'collapse-hidden',
-    TREEVIEW_ROW: 'treeview-row',
-    TREEVIEW_ROW_ODD: 'treeview-row-odd',
-    TREEVIEW_ROW_EVEN: 'treeview-row-even'
-  };
-  var treeviews = document.querySelectorAll(Selector.TREEVIEW);
-
-  var makeStriped = function makeStriped(treeview) {
-    var tags = Array.from(treeview.querySelectorAll(Selector.TREEVIEW_ROW));
-    var uTags = tags.filter(function (tag) {
-      var result = true;
-
-      while (tag.parentElement) {
-        if (tag.parentElement.classList.contains(ClassName.COLLAPSE_HIDDEN)) {
-          result = false;
-          break;
-        }
-
-        tag = tag.parentElement;
-      }
-
-      return result;
-    });
-    uTags.forEach(function (tag, index) {
-      if (index % 2 === 0) {
-        tag.classList.add(ClassName.TREEVIEW_ROW_EVEN);
-        tag.classList.remove(ClassName.TREEVIEW_ROW_ODD);
-      } else {
-        tag.classList.add(ClassName.TREEVIEW_ROW_ODD);
-        tag.classList.remove(ClassName.TREEVIEW_ROW_EVEN);
-      }
-    });
-  };
-
-  if (treeviews.length) {
-    treeviews.forEach(function (treeview) {
-      var options = utils.getData(treeview, 'options');
-      var striped = options === null || options === void 0 ? void 0 : options.striped;
-      var select = options === null || options === void 0 ? void 0 : options.select;
-
-      if (striped) {
-        makeStriped(treeview);
-      }
-
-      var collapseElementList = Array.from(treeview.querySelectorAll(Selector.TREEVIEW_LIST));
-      var collapseListItem = Array.from(treeview.querySelectorAll(Selector.TREEVIEW_LIST_ITEM));
-      collapseListItem.forEach(function (item) {
-        var wholeRow = document.createElement('div');
-        wholeRow.setAttribute('class', ClassName.TREEVIEW_ROW);
-        item.prepend(wholeRow);
-      });
-      collapseElementList.forEach(function (collapse) {
-        var collapseId = collapse.id;
-
-        if (!striped) {
-          collapse.classList.add(ClassName.TREEVIEW_BORDER);
-        }
-
-        collapse.addEventListener(Events.SHOW_BS_COLLAPSE, function (e) {
-          e.target.classList.remove(ClassName.COLLAPSE_HIDDEN);
-          e.target.classList.add(ClassName.COLLAPSE_SHOW);
-
-          if (striped) {
-            makeStriped(treeview);
-          } else {
-            e.path[2].classList.add(ClassName.TREEVIEW_BORDER_TRANSPARENT);
-          }
-        });
-        collapse.addEventListener(Events.HIDE_BS_COLLAPSE, function (e) {
-          e.target.classList.add(ClassName.COLLAPSE_HIDDEN);
-          e.target.classList.remove(ClassName.COLLAPSE_SHOW);
-
-          if (striped) {
-            makeStriped(treeview);
-          } else {
-            var childs = e.path[2].querySelectorAll(Selector.CHILD_SELECTOR);
-
-            if (!e.path[2].classList.contains(ClassName.TREEVIEW) && childs.length === 0) {
-              e.path[2].classList.remove(ClassName.TREEVIEW_BORDER_TRANSPARENT);
-            }
-          }
-        });
-
-        if (collapse.dataset.show === 'true') {
-          var parents = [collapse];
-
-          while (collapse.parentElement) {
-            if (collapse.parentElement.classList.contains(ClassName.TREEVIEW_LIST)) {
-              parents.unshift(collapse.parentElement);
-            }
-
-            collapse = collapse.parentElement;
-          }
-
-          parents.forEach(function (collapseEl) {
-            // eslint-disable-next-line no-new
-            new window.bootstrap.Collapse(collapseEl, {
-              show: true
-            });
-          });
-        }
-
-        if (select) {
-          var inputElement = treeview.querySelector("input[data-target='#".concat(collapseId, "']"));
-          inputElement.addEventListener(Events.CHANGE, function (e) {
-            var childInputElements = Array.from(treeview.querySelector("#".concat(collapseId)).querySelectorAll(Selector.INPUT));
-            childInputElements.forEach(function (input) {
-              input.checked = e.target.checked;
-            });
-          });
-        }
-      });
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                 Typed Text                                 */
-
-/* -------------------------------------------------------------------------- */
-
-
-var typedTextInit = function typedTextInit() {
-  var typedTexts = document.querySelectorAll('.typed-text');
-
-  if (typedTexts.length && window.Typed) {
-    typedTexts.forEach(function (typedText) {
-      return new window.Typed(typedText, {
-        strings: utils.getData(typedText, 'typedText'),
-        typeSpeed: 100,
-        loop: true,
-        backDelay: 1500
-      });
-    });
-  }
-};
-/* -------------------------------------------------------------------------- */
-
-/*                                 step wizard                                */
-
-/* -------------------------------------------------------------------------- */
-
-
-var wizardInit = function wizardInit() {
-  var wizards = document.querySelectorAll('.theme-wizard');
-  var tabPillEl = document.querySelectorAll('#pill-tab2 [data-bs-toggle="pill"]');
-  var tabProgressBar = document.querySelector('.theme-wizard .progress');
-  wizards.forEach(function (wizard) {
-    var tabToggleButtonEl = wizard.querySelectorAll('[data-wizard-step]');
-    var inputEmail = wizard.querySelector('[data-wizard-validate-email]');
-    var emailPattern = inputEmail.getAttribute('pattern');
-    var inputPassword = wizard.querySelector('[data-wizard-validate-password]');
-    var inputConfirmPassword = wizard.querySelector('[data-wizard-validate-confirm-password]');
-    var form = wizard.querySelector('[novalidate]');
-    var nextButton = wizard.querySelector('.next button');
-    var prevButton = wizard.querySelector('.previous button');
-    var cardFooter = wizard.querySelector('.theme-wizard .card-footer');
-    var count = 0;
-
-    var validatePattern = function validatePattern(pattern, value) {
-      var regexPattern = new RegExp(pattern);
-      return regexPattern.test(String(value).toLowerCase());
-    };
-
-    prevButton.classList.add('d-none'); // on button click tab change
-
-    nextButton.addEventListener('click', function () {
-      if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
-        form.classList.add('was-validated');
-      } else {
-        count += 1;
-        var tab = new window.bootstrap.Tab(tabToggleButtonEl[count]);
-        tab.show();
-      }
-    });
-    prevButton.addEventListener('click', function () {
-      count -= 1;
-      var tab = new window.bootstrap.Tab(tabToggleButtonEl[count]);
-      tab.show();
-    });
-
-    if (tabToggleButtonEl.length) {
-      tabToggleButtonEl.forEach(function (item, index) {
-        /* eslint-disable */
-        item.addEventListener('show.bs.tab', function (e) {
-          if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
-            e.preventDefault();
-            form.classList.add('was-validated');
-            return null;
-            /* eslint-enable */
-          }
-
-          count = index; // can't go back tab
-
-          if (count === tabToggleButtonEl.length - 1) {
-            tabToggleButtonEl.forEach(function (tab) {
-              tab.setAttribute('data-bs-toggle', 'modal');
-              tab.setAttribute('data-bs-target', '#error-modal');
-            });
-          } //add done class
-
-
-          for (var i = 0; i < count; i += 1) {
-            tabToggleButtonEl[i].classList.add('done');
-          } //remove done class
-
-
-          for (var j = count; j < tabToggleButtonEl.length; j += 1) {
-            tabToggleButtonEl[j].classList.remove('done');
-          } // card footer remove at last step
-
-
-          if (count > tabToggleButtonEl.length - 2) {
-            item.classList.add('done');
-            cardFooter.classList.add('d-none');
-          } else {
-            cardFooter.classList.remove('d-none');
-          } // prev-button removing
-
-
-          if (count > 0) {
-            prevButton.classList.remove('d-none');
-          } else {
-            prevButton.classList.add('d-none');
-          }
-        });
-      });
-    }
-  }); // control wizard progressbar
-
-  if (tabPillEl.length) {
-    var dividedProgressbar = 100 / tabPillEl.length;
-    tabProgressBar.querySelector('.progress-bar').style.width = "".concat(dividedProgressbar, "%");
-    tabPillEl.forEach(function (item, index) {
-      item.addEventListener('show.bs.tab', function () {
-        tabProgressBar.querySelector('.progress-bar').style.width = "".concat(dividedProgressbar * (index + 1), "%");
-      });
-    });
-  }
-};
-
-var _window3 = window,
-    dayjs = _window3.dayjs;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (bulkSelectInit);
+
+/***/ }),
+
+/***/ "./resources/js/calendar/events.js":
+/*!*****************************************!*\
+  !*** ./resources/js/calendar/events.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var _window = window,
+    dayjs = _window.dayjs;
 var currentDay = dayjs && dayjs().format('DD');
 var currentMonth = dayjs && dayjs().format('MM');
 var prevMonth = dayjs && dayjs().subtract(1, 'month').format('MM');
@@ -4576,7 +204,7 @@ var events = [{
   location: 'Boston Harborwalk, Christopher Columbus Park, </br> Boston, MA 02109, United States',
   organizer: 'Boston Harbor Now'
 }, {
-  title: 'Crain\'s New York Business ',
+  title: "Crain's New York Business ",
   start: "".concat(currentYear, "-").concat(currentMonth, "-11"),
   description: "Crain's 2020 Hall of Fame. Sponsored Content By Crain's Content Studio. Crain's Content Studio Presents: New Jersey: Perfect for Business. Crain's Business Forum: Letitia James, New York State Attorney General. Crain's NYC Summit: Examining racial disparities during the pandemic",
   className: 'bg-soft-primary'
@@ -4644,6 +272,30 @@ var events = [{
   description: 'Applications are open for the New Media Writing Prize 2020. The New Media Writing Prize (NMWP) showcases exciting and inventive stories and poetry that integrate a variety of formats, platforms, and digital media.',
   className: 'bg-soft-primary'
 }];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (events);
+
+/***/ }),
+
+/***/ "./resources/js/calendar/index.js":
+/*!****************************************!*\
+  !*** ./resources/js/calendar/index.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./resources/js/utils.js");
+/* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events */ "./resources/js/calendar/events.js");
+/* harmony import */ var _template__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./template */ "./resources/js/calendar/template.js");
+/* harmony import */ var _fullcalendar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../fullcalendar */ "./resources/js/fullcalendar.js");
+
+
+
+
+
+
 /*-----------------------------------------------
 |   Calendar
 -----------------------------------------------*/
@@ -4675,7 +327,7 @@ var appCalendarInit = function appCalendarInit() {
   var ClassNames = {
     ACTIVE: 'active'
   };
-  var eventList = events.reduce(function (acc, val) {
+  var eventList = _events__WEBPACK_IMPORTED_MODULE_1__["default"].reduce(function (acc, val) {
     return val.schedules ? acc.concat(val.schedules.concat(val)) : acc.concat(val);
   }, []);
 
@@ -4689,7 +341,7 @@ var appCalendarInit = function appCalendarInit() {
   var eventDetailsModal = document.querySelector(Selectors.EVENT_DETAILS_MODAL);
 
   if (appCalendar) {
-    var calendar = renderCalendar(appCalendar, {
+    var calendar = (0,_fullcalendar__WEBPACK_IMPORTED_MODULE_3__.renderCalendar)(appCalendar, {
       headerToolbar: false,
       dayMaxEvents: 2,
       height: 800,
@@ -4711,7 +363,7 @@ var appCalendarInit = function appCalendarInit() {
           window.open(info.event.url, '_blank');
           info.jsEvent.preventDefault();
         } else {
-          var template = getTemplate(info.event);
+          var template = (0,_template__WEBPACK_IMPORTED_MODULE_2__["default"])(info.event);
           document.querySelector(Selectors.EVENT_DETAILS_MODAL_CONTENT).innerHTML = template;
           var modal = new window.bootstrap.Modal(eventDetailsModal);
           modal.show();
@@ -4731,7 +383,7 @@ var appCalendarInit = function appCalendarInit() {
     document.querySelectorAll(Selectors.DATA_EVENT).forEach(function (button) {
       button.addEventListener(Events.CLICK, function (e) {
         var el = e.currentTarget;
-        var type = utils.getData(el, DataKeys.EVENT);
+        var type = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, DataKeys.EVENT);
 
         switch (type) {
           case 'prev':
@@ -4764,7 +416,7 @@ var appCalendarInit = function appCalendarInit() {
         el.parentElement.querySelector(Selectors.ACTIVE).classList.remove(ClassNames.ACTIVE);
         el.classList.add(ClassNames.ACTIVE);
         document.querySelector(Selectors.DATA_VIEW_TITLE).textContent = text;
-        calendar.changeView(utils.getData(el, DataKeys.FC_VIEW));
+        calendar.changeView(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, DataKeys.FC_VIEW));
         updateTitle(calendar.currentData.viewTitle);
       });
     });
@@ -4790,15 +442,39 @@ var appCalendarInit = function appCalendarInit() {
     });
   }
 
-  addEventModal && addEventModal.addEventListener(Events.SHOWN_BS_MODAL, function (_ref13) {
-    var currentTarget = _ref13.currentTarget;
+  addEventModal && addEventModal.addEventListener(Events.SHOWN_BS_MODAL, function (_ref) {
+    var currentTarget = _ref.currentTarget;
     currentTarget.querySelector(Selectors.INPUT_TITLE).focus();
   });
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (appCalendarInit);
+
+/***/ }),
+
+/***/ "./resources/js/calendar/management-calendar.js":
+/*!******************************************************!*\
+  !*** ./resources/js/calendar/management-calendar.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./resources/js/utils.js");
+/* harmony import */ var _management_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./management-events */ "./resources/js/calendar/management-events.js");
+/* harmony import */ var _fullcalendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../fullcalendar */ "./resources/js/fullcalendar.js");
+/* harmony import */ var _template__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./template */ "./resources/js/calendar/template.js");
+
+
+
+
+
+
 /*-----------------------------------------------
 |   Project Management Calendar
 -----------------------------------------------*/
-
 
 var managementCalendarInit = function managementCalendarInit() {
   var Selectors = {
@@ -4823,7 +499,7 @@ var managementCalendarInit = function managementCalendarInit() {
   var managementCalendar = document.querySelector(Selectors.CALENDAR);
 
   if (managementCalendar) {
-    var calendarData = utils.getData(managementCalendar, 'calendar-option');
+    var calendarData = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(managementCalendar, 'calendar-option');
     var managementCalendarEvents = document.getElementById(calendarData === null || calendarData === void 0 ? void 0 : calendarData.events);
     var addEventForm = document.querySelector(Selectors.ADD_EVENT_FORM);
     var addEventModal = document.querySelector(Selectors.ADD_EVENT_MODAL);
@@ -4846,8 +522,8 @@ var managementCalendarInit = function managementCalendarInit() {
       }
     };
 
-    if (managementEvents) {
-      managementEvents.forEach(function (e) {
+    if (_management_events__WEBPACK_IMPORTED_MODULE_1__["default"]) {
+      _management_events__WEBPACK_IMPORTED_MODULE_1__["default"].forEach(function (e) {
         managementEventList.push({
           start: e.start,
           end: e.end,
@@ -4858,7 +534,7 @@ var managementCalendarInit = function managementCalendarInit() {
     }
 
     if (managementCalendarEvents) {
-      managementEvents.forEach(function (e) {
+      _management_events__WEBPACK_IMPORTED_MODULE_1__["default"].forEach(function (e) {
         managementCalendarEvents.innerHTML += "\n          <li class= 'border-top pt-3 mb-3 pb-1 cursor-pointer' data-calendar-events>\n            <div class= 'border-start border-3 border-".concat(e.classNames, " ps-3 mt-1'>\n              <h6 class=\"mb-1 fw-semi-bold text-700\">").concat(e.title, "</h6>\n              <p class= 'fs--2 text-600 mb-0'>").concat(e.startTime || '', " ").concat(e.endTime ? '-' : '', " ").concat(e.endTime || '', "</p>\n            </div>\n          </li> ");
       });
     }
@@ -4868,8 +544,8 @@ var managementCalendarInit = function managementCalendarInit() {
     if (eventManagementInfo) {
       eventManagementInfo.forEach(function (li, index) {
         li.addEventListener(Events.CLICK, function () {
-          var event = managementEvents[index];
-          var template = getTemplate(event);
+          var event = _management_events__WEBPACK_IMPORTED_MODULE_1__["default"][index];
+          var template = (0,_template__WEBPACK_IMPORTED_MODULE_3__["default"])(event);
           document.querySelector(Selectors.EVENT_DETAILS_MODAL_CONTENT).innerHTML = template;
           var modal = new window.bootstrap.Modal(eventDetailsModal);
           modal.show();
@@ -4878,7 +554,7 @@ var managementCalendarInit = function managementCalendarInit() {
     }
 
     if (managementCalendar) {
-      var calendar = renderCalendar(managementCalendar, {
+      var calendar = (0,_fullcalendar__WEBPACK_IMPORTED_MODULE_2__.renderCalendar)(managementCalendar, {
         headerToolbar: false,
         dayMaxEvents: 2,
         height: 360,
@@ -4899,7 +575,7 @@ var managementCalendarInit = function managementCalendarInit() {
       document.querySelectorAll(Selectors.DATA_EVENT).forEach(function (button) {
         button.addEventListener(Events.CLICK, function (e) {
           var el = e.currentTarget;
-          var type = utils.getData(el, DataKeys.EVENT);
+          var type = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, DataKeys.EVENT);
 
           switch (type) {
             case 'prev':
@@ -4936,6 +612,20 @@ var managementCalendarInit = function managementCalendarInit() {
   }
 };
 
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (managementCalendarInit);
+
+/***/ }),
+
+/***/ "./resources/js/calendar/management-events.js":
+/*!****************************************************!*\
+  !*** ./resources/js/calendar/management-events.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 var thisDay = window.dayjs && window.dayjs().format('DD');
 var plus2Day = window.dayjs && window.dayjs().add(2, 'day').format('DD');
 var thisMonthNumber = window.dayjs && window.dayjs().format('MM');
@@ -4944,7 +634,7 @@ var upcomingMonthNumber = window.dayjs && window.dayjs().add(1, 'month').format(
 var upcomingMonthName = window.dayjs && window.dayjs().format('MMM');
 var thisYear = window.dayjs && window.dayjs().format('YYYY');
 var managementEvents = [{
-  title: 'Monthly team meeting for Falcon React Project',
+  title: "Monthly team meeting for Falcon React Project",
   start: "".concat(thisYear, "-").concat(thisMonthNumber, "-07"),
   end: "".concat(thisYear, "-").concat(thisMonthNumber, "-09"),
   startTime: "07 ".concat(thisMonthName, ", ").concat(thisYear),
@@ -4956,7 +646,7 @@ var managementEvents = [{
     organizer: 'Boston Harbor Now'
   }
 }, {
-  title: 'Newmarket Nights',
+  title: "Newmarket Nights",
   start: "".concat(thisYear, "-").concat(thisMonthNumber, "-16"),
   end: "".concat(thisYear, "-").concat(thisMonthNumber, "-18"),
   startTime: "16 ".concat(thisMonthName, ", ").concat(thisYear),
@@ -4979,7 +669,7 @@ var managementEvents = [{
     organizer: 'Boston Harbor Now'
   }
 }, {
-  title: 'Film Festival',
+  title: "Film Festival",
   start: "".concat(thisYear, "-").concat(upcomingMonthNumber, "-").concat(thisDay),
   end: "".concat(thisYear, "-").concat(upcomingMonthNumber, "-").concat(plus2Day),
   startTime: "07 ".concat(upcomingMonthName, ", ").concat(thisYear),
@@ -5001,22 +691,53 @@ var managementEvents = [{
     organizer: 'Boston Harbor Now'
   }
 }];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (managementEvents);
 
+/***/ }),
+
+/***/ "./resources/js/calendar/template.js":
+/*!*******************************************!*\
+  !*** ./resources/js/calendar/template.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 var getStackIcon = function getStackIcon(icon, transform) {
   return "\n  <span class=\"fa-stack ms-n1 me-3\">\n    <i class=\"fas fa-circle fa-stack-2x text-200\"></i>\n    <i class=\"".concat(icon, " fa-stack-1x text-primary\" data-fa-transform=").concat(transform, "></i>\n  </span>\n");
 };
 
 var getTemplate = function getTemplate(event) {
-  return "\n<div class=\"modal-header bg-light ps-card pe-5 border-bottom-0\">\n  <div>\n    <h5 class=\"modal-title mb-0\">".concat(event.title, "</h5>\n    ").concat(event.extendedProps.organizer ? "<p class=\"mb-0 fs--1 mt-1\">\n        by <a href=\"#!\">".concat(event.extendedProps.organizer, "</a>\n      </p>") : '', "\n  </div>\n  <button type=\"button\" class=\"btn-close position-absolute end-0 top-0 mt-3 me-3\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\n</div>\n<div class=\"modal-body px-card pb-card pt-1 fs--1\">\n  ").concat(event.extendedProps.description ? "\n      <div class=\"d-flex mt-3\">\n        ".concat(getStackIcon('fas fa-align-left'), "\n        <div class=\"flex-1\">\n          <h6>Description</h6>\n          <p class=\"mb-0\">\n            \n          ").concat(event.extendedProps.description.split(' ').slice(0, 30).join(' '), "\n          </p>\n        </div>\n      </div>\n    ") : '', " \n  <div class=\"d-flex mt-3\">\n    ").concat(getStackIcon('fas fa-calendar-check'), "\n    <div class=\"flex-1\">\n        <h6>Date and Time</h6>\n        <p class=\"mb-1\">\n          ").concat(window.dayjs && window.dayjs(event.start).format('dddd, MMMM D, YYYY, h:mm A'), " \n          ").concat(event.end ? "\u2013 <br/>".concat(window.dayjs && window.dayjs(event.end).subtract(1, 'day').format('dddd, MMMM D, YYYY, h:mm A')) : '', "\n        </p>\n    </div>\n  </div>\n  ").concat(event.extendedProps.location ? "\n        <div class=\"d-flex mt-3\">\n          ".concat(getStackIcon('fas fa-map-marker-alt'), "\n          <div class=\"flex-1\">\n              <h6>Location</h6>\n              <p class=\"mb-0\">").concat(event.extendedProps.location, "</p>\n          </div>\n        </div>\n      ") : '', "\n  ").concat(event.schedules ? "\n        <div class=\"d-flex mt-3\">\n        ".concat(getStackIcon('fas fa-clock'), "\n        <div class=\"flex-1\">\n            <h6>Schedule</h6>\n            \n            <ul class=\"list-unstyled timeline mb-0\">\n              ").concat(event.schedules.map(function (schedule) {
+  return "\n<div class=\"modal-header bg-light ps-card pe-5 border-bottom-0\">\n  <div>\n    <h5 class=\"modal-title mb-0\">".concat(event.title, "</h5>\n    ").concat(!!event.extendedProps.organizer ? "<p class=\"mb-0 fs--1 mt-1\">\n        by <a href=\"#!\">".concat(event.extendedProps.organizer, "</a>\n      </p>") : '', "\n  </div>\n  <button type=\"button\" class=\"btn-close position-absolute end-0 top-0 mt-3 me-3\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\n</div>\n<div class=\"modal-body px-card pb-card pt-1 fs--1\">\n  ").concat(event.extendedProps.description ? "\n      <div class=\"d-flex mt-3\">\n        ".concat(getStackIcon('fas fa-align-left'), "\n        <div class=\"flex-1\">\n          <h6>Description</h6>\n          <p class=\"mb-0\">\n            \n          ").concat(event.extendedProps.description.split(' ').slice(0, 30).join(' '), "\n          </p>\n        </div>\n      </div>\n    ") : '', " \n  <div class=\"d-flex mt-3\">\n    ").concat(getStackIcon('fas fa-calendar-check'), "\n    <div class=\"flex-1\">\n        <h6>Date and Time</h6>\n        <p class=\"mb-1\">\n          ").concat(window.dayjs && window.dayjs(event.start).format('dddd, MMMM D, YYYY, h:mm A'), " \n          ").concat(event.end ? "\u2013 <br/>".concat(window.dayjs && window.dayjs(event.end).subtract(1, 'day').format('dddd, MMMM D, YYYY, h:mm A')) : '', "\n        </p>\n    </div>\n  </div>\n  ").concat(event.extendedProps.location ? "\n        <div class=\"d-flex mt-3\">\n          ".concat(getStackIcon('fas fa-map-marker-alt'), "\n          <div class=\"flex-1\">\n              <h6>Location</h6>\n              <p class=\"mb-0\">").concat(event.extendedProps.location, "</p>\n          </div>\n        </div>\n      ") : '', "\n  ").concat(event.schedules ? "\n        <div class=\"d-flex mt-3\">\n        ".concat(getStackIcon('fas fa-clock'), "\n        <div class=\"flex-1\">\n            <h6>Schedule</h6>\n            \n            <ul class=\"list-unstyled timeline mb-0\">\n              ").concat(event.schedules.map(function (schedule) {
     return "<li>".concat(schedule.title, "</li>");
   }).join(''), "\n            </ul>\n        </div>\n      ") : '', "\n  </div>\n</div>\n<div class=\"modal-footer d-flex justify-content-end bg-light px-card border-top-0\">\n  <a href=\"").concat(document.location.href.split('/').slice(0, 5).join('/'), "/app/events/create-an-event.html\" class=\"btn btn-falcon-default btn-sm\">\n    <span class=\"fas fa-pencil-alt fs--2 mr-2\"></span> Edit\n  </a>\n  <a href='").concat(document.location.href.split('/').slice(0, 5).join('/'), "/app/events/event-detail.html' class=\"btn btn-falcon-primary btn-sm\">\n    See more details\n    <span class=\"fas fa-angle-right fs--2 ml-1\"></span>\n  </a>\n</div>\n");
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getTemplate);
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/chart-bar.js":
+/*!**************************************************!*\
+  !*** ./resources/js/charts/chartjs/chart-bar.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                  bar-chart                                 */
 
 /* -------------------------------------------------------------------------- */
-
 
 var barChartInit = function barChartInit() {
   var barChartElement = document.getElementById('chartjs-bar-chart');
@@ -5029,24 +750,24 @@ var barChartInit = function barChartInit() {
         datasets: [{
           label: '# of Votes',
           data: [12, 19, 3, 5, 6, 3],
-          backgroundColor: [utils.rgbaColor(utils.getColor('secondary'), 0.2), utils.rgbaColor(utils.getColor('warning'), 0.2), utils.rgbaColor(utils.getColor('info'), 0.2), utils.rgbaColor(utils.getColor('success'), 0.2), utils.rgbaColor(utils.getColor('info'), 0.2), utils.rgbaColor(utils.getColor('primary'), 0.2)],
-          borderColor: [utils.getColor('secondary'), utils.getColor('warning'), utils.getColor('info'), utils.getColor('success'), utils.getColor('info'), utils.getColor('primary')],
+          backgroundColor: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('secondary'), 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'), 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('info'), 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('success'), 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('info'), 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), 0.2)],
+          borderColor: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('secondary'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('info'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('success'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('info'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary')],
           borderWidth: 1
         }]
       },
       options: {
         plugins: {
-          tooltip: chartJsDefaultTooltip()
+          tooltip: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsDefaultTooltip)()
         },
         scales: {
           x: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays().black, 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           },
           y: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays().black, 0.1),
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1),
               drawBorder: true
             }
           }
@@ -5055,16 +776,33 @@ var barChartInit = function barChartInit() {
     };
   };
 
-  chartJsInit(barChartElement, getOptions);
+  (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(barChartElement, getOptions);
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (barChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/chart-bubble.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/charts/chartjs/chart-bubble.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
 /* eslint-disable */
+
 
 /* -------------------------------------------------------------------------- */
 
 /*                            Chart Bubble                                    */
 
 /* -------------------------------------------------------------------------- */
-
 
 var chartBubble = function chartBubble() {
   var pie = document.getElementById('chartjs-bubble-chart');
@@ -5075,19 +813,19 @@ var chartBubble = function chartBubble() {
       data: {
         datasets: [{
           label: 'Dataset 1',
-          data: getBubbleDataset(5, 5, 15, 0, 100),
-          backgroundColor: utils.getSoftColors()['primary'],
-          hoverBackgroundColor: utils.getColors()['primary']
+          data: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.getBubbleDataset)(5, 5, 15, 0, 100),
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getSoftColors()['primary'],
+          hoverBackgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors()['primary']
         }, {
           label: 'Dataset 2',
-          data: getBubbleDataset(5, 5, 15, 0, 100),
-          backgroundColor: utils.getSoftColors()['success'],
-          hoverBackgroundColor: utils.getColors()['success']
+          data: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.getBubbleDataset)(5, 5, 15, 0, 100),
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getSoftColors()['success'],
+          hoverBackgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors()['success']
         }, {
           label: 'Dataset 3',
-          data: getBubbleDataset(5, 5, 15, 0, 100),
-          backgroundColor: utils.getSoftColors()['danger'],
-          hoverBackgroundColor: utils.getColors()['danger']
+          data: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.getBubbleDataset)(5, 5, 15, 0, 100),
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getSoftColors()['danger'],
+          hoverBackgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors()['danger']
         }]
       },
       options: {
@@ -5095,17 +833,17 @@ var chartBubble = function chartBubble() {
           legend: {
             position: 'top'
           },
-          tooltip: chartJsDefaultTooltip()
+          tooltip: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsDefaultTooltip)()
         },
         scales: {
           x: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays()['black'], 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           },
           y: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays()['black'], 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           }
         }
@@ -5113,14 +851,32 @@ var chartBubble = function chartBubble() {
     };
   };
 
-  chartJsInit(pie, getOptions);
+  (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(pie, getOptions);
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartBubble);
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/chart-combo.js":
+/*!****************************************************!*\
+  !*** ./resources/js/charts/chartjs/chart-combo.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                            Chart Combo                                  */
 
 /* -------------------------------------------------------------------------- */
-
 
 var chartCombo = function chartCombo() {
   var combo = document.getElementById('chartjs-combo-chart');
@@ -5133,20 +889,20 @@ var chartCombo = function chartCombo() {
         datasets: [{
           type: 'line',
           label: 'Dataset 1',
-          borderColor: utils.getColor('primary'),
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'),
           borderWidth: 2,
           fill: false,
           data: [55, 80, -60, -22, -50, 40, 90]
         }, {
           type: 'bar',
           label: 'Dataset 2',
-          backgroundColor: utils.getSoftColors().danger,
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getSoftColors()['danger'],
           data: [4, -80, 90, -22, 70, 35, -50],
           borderWidth: 1
         }, {
           type: 'bar',
           label: 'Dataset 3',
-          backgroundColor: utils.getSoftColors().primary,
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getSoftColors()['primary'],
           data: [-30, 30, -18, 100, -45, -25, -50],
           borderWidth: 1
         }]
@@ -5154,17 +910,17 @@ var chartCombo = function chartCombo() {
       options: {
         maintainAspectRatio: false,
         plugins: {
-          tooltip: chartJsDefaultTooltip()
+          tooltip: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsDefaultTooltip)()
         },
         scales: {
           x: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays().black, 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           },
           y: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays().black, 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           }
         }
@@ -5172,14 +928,32 @@ var chartCombo = function chartCombo() {
     };
   };
 
-  chartJsInit(combo, getOptions);
+  (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(combo, getOptions);
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartCombo);
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/chart-doughnut.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/charts/chartjs/chart-doughnut.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                            Chart Doughnut                                  */
 
 /* -------------------------------------------------------------------------- */
-
 
 var chartDoughnut = function chartDoughnut() {
   var doughnut = document.getElementById('chartjs-doughnut-chart');
@@ -5190,29 +964,47 @@ var chartDoughnut = function chartDoughnut() {
       data: {
         datasets: [{
           data: [5, 3, 2, 1, 1],
-          backgroundColor: [utils.rgbaColor(utils.getColor('facebook'), 0.2), utils.rgbaColor(utils.getColor('youtube'), 0.2), utils.rgbaColor(utils.getColor('twitter'), 0.2), utils.rgbaColor(utils.getColor('linkedin'), 0.2), utils.rgbaColor(utils.getColor('github'), 0.2)],
+          backgroundColor: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('facebook'), 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('youtube'), 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('twitter'), 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('linkedin'), 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('github'), 0.2)],
           borderWidth: 1,
-          borderColor: [utils.getColor('facebook'), utils.getColor('youtube'), utils.getColor('twitter'), utils.getColor('linkedin'), utils.getColor('github')]
+          borderColor: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('facebook'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('youtube'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('twitter'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('linkedin'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('github')]
         }],
         labels: ['Facebook', 'Youtube', 'Twitter', 'Linkedin', 'GitHub']
       },
       options: {
         plugins: {
-          tooltip: chartJsDefaultTooltip()
+          tooltip: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsDefaultTooltip)()
         },
         maintainAspectRatio: false
       }
     };
   };
 
-  chartJsInit(doughnut, getOptions);
+  (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(doughnut, getOptions);
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartDoughnut);
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/chart-line.js":
+/*!***************************************************!*\
+  !*** ./resources/js/charts/chartjs/chart-line.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                            Chart Line                                  */
 
 /* -------------------------------------------------------------------------- */
-
 
 var chartLine = function chartLine() {
   var line = document.getElementById('chartjs-line-chart');
@@ -5225,7 +1017,7 @@ var chartLine = function chartLine() {
         datasets: [{
           type: 'line',
           label: 'Dataset 1',
-          borderColor: utils.getColor('primary'),
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'),
           borderWidth: 2,
           fill: false,
           data: [55, 80, 60, 22, 50, 40, 90],
@@ -5234,17 +1026,17 @@ var chartLine = function chartLine() {
       },
       options: {
         plugins: {
-          tooltip: chartJsDefaultTooltip()
+          tooltip: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsDefaultTooltip)()
         },
         scales: {
           x: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays().black, 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           },
           y: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays().black, 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           }
         }
@@ -5252,14 +1044,32 @@ var chartLine = function chartLine() {
     };
   };
 
-  chartJsInit(line, getOptions);
+  (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(line, getOptions);
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartLine);
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/chart-pie.js":
+/*!**************************************************!*\
+  !*** ./resources/js/charts/chartjs/chart-pie.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                            Chart Pie                                  */
 
 /* -------------------------------------------------------------------------- */
-
 
 var chartPie = function chartPie() {
   var pie = document.getElementById('chartjs-pie-chart');
@@ -5270,29 +1080,47 @@ var chartPie = function chartPie() {
       data: {
         datasets: [{
           data: [5, 3, 2, 1, 1],
-          backgroundColor: [utils.rgbaColor(utils.getColor('facebook'), 0.75), utils.rgbaColor(utils.getColor('youtube'), 0.75), utils.rgbaColor(utils.getColor('twitter'), 0.75), utils.rgbaColor(utils.getColor('linkedin'), 0.75), utils.rgbaColor(utils.getColor('github'), 0.75)],
+          backgroundColor: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('facebook'), 0.75), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('youtube'), 0.75), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('twitter'), 0.75), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('linkedin'), 0.75), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('github'), 0.75)],
           borderWidth: 1,
-          borderColor: utils.getGrays()['100']
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100']
         }],
         labels: ['Facebook', 'Youtube', 'Twitter', 'Linkedin', 'GitHub']
       },
       options: {
         plugins: {
-          tooltip: chartJsDefaultTooltip()
+          tooltip: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsDefaultTooltip)()
         },
         maintainAspectRatio: false
       }
     };
   };
 
-  chartJsInit(pie, getOptions);
+  (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(pie, getOptions);
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartPie);
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/chart-polar.js":
+/*!****************************************************!*\
+  !*** ./resources/js/charts/chartjs/chart-polar.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                            Chart Polar                                  */
 
 /* -------------------------------------------------------------------------- */
-
 
 var chartPolar = function chartPolar() {
   var polar = document.getElementById('chartjs-polar-chart');
@@ -5303,21 +1131,21 @@ var chartPolar = function chartPolar() {
       data: {
         datasets: [{
           data: [10, 20, 50, 40, 30],
-          backgroundColor: [utils.rgbaColor(utils.getColor('facebook'), 0.5), utils.rgbaColor(utils.getColor('youtube'), 0.5), utils.rgbaColor(utils.getColor('twitter'), 0.5), utils.rgbaColor(utils.getColor('linkedin'), 0.5), utils.rgbaColor(utils.getColor('success'), 0.5)],
+          backgroundColor: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('facebook'), 0.5), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('youtube'), 0.5), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('twitter'), 0.5), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('linkedin'), 0.5), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('success'), 0.5)],
           borderWidth: 1,
-          borderColor: utils.getGrays()['400']
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400']
         }],
         labels: ['Facebook', 'Youtube', 'Twitter', 'Linkedin', 'Medium']
       },
       options: {
         plugins: {
-          tooltip: chartJsDefaultTooltip()
+          tooltip: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsDefaultTooltip)()
         },
         maintainAspectRatio: false,
         scales: {
           r: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays().black, 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           }
         }
@@ -5325,14 +1153,32 @@ var chartPolar = function chartPolar() {
     };
   };
 
-  chartJsInit(polar, getOptions);
+  (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(polar, getOptions);
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartPolar);
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/chart-radar.js":
+/*!****************************************************!*\
+  !*** ./resources/js/charts/chartjs/chart-radar.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                            Chart Radar                                  */
 
 /* -------------------------------------------------------------------------- */
-
 
 var chartRadar = function chartRadar() {
   var radar = document.getElementById('chartjs-radar-chart');
@@ -5344,25 +1190,25 @@ var chartRadar = function chartRadar() {
         labels: ['English', 'Maths', 'Physics', 'Chemistry', 'Biology', 'History'],
         datasets: [{
           label: 'Student A',
-          backgroundColor: utils.rgbaColor(utils.getColor('success'), 0.5),
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('success'), 0.5),
           data: [65, 75, 70, 80, 60, 80],
           borderWidth: 1
         }, {
           label: 'Student B',
-          backgroundColor: utils.rgbaColor(utils.getColor('primary'), 0.5),
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), 0.5),
           data: [54, 65, 60, 70, 70, 75],
           borderWidth: 1
         }]
       },
       options: {
         plugins: {
-          tooltip: chartJsDefaultTooltip()
+          tooltip: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsDefaultTooltip)()
         },
         maintainAspectRatio: false,
         scales: {
           r: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays().black, 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           }
         }
@@ -5370,14 +1216,32 @@ var chartRadar = function chartRadar() {
     };
   };
 
-  chartJsInit(radar, getOptions);
+  (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(radar, getOptions);
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartRadar);
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/chart-scatter.js":
+/*!******************************************************!*\
+  !*** ./resources/js/charts/chartjs/chart-scatter.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                            Chart Scatter                                   */
 
 /* -------------------------------------------------------------------------- */
-
 
 var chartScatter = function chartScatter() {
   var scatter = document.getElementById('chartjs-scatter-chart');
@@ -5422,8 +1286,8 @@ var chartScatter = function chartScatter() {
             x: 93,
             y: 12
           }],
-          pointBackgroundColor: utils.getColor('primary'),
-          borderColor: utils.getColor('primary'),
+          pointBackgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'),
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'),
           borderWidth: 1
         }, {
           label: 'Dataset Two',
@@ -5461,25 +1325,25 @@ var chartScatter = function chartScatter() {
             x: 33,
             y: -57
           }],
-          pointBackgroundColor: utils.getColor('warning'),
-          borderColor: utils.getColor('warning'),
+          pointBackgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'),
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'),
           borderWidth: 1,
           borderRadius: '50%'
         }]
       },
       options: {
         plugins: {
-          tooltip: chartJsDefaultTooltip()
+          tooltip: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsDefaultTooltip)()
         },
         scales: {
           x: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays().black, 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           },
           y: {
             grid: {
-              color: utils.rgbaColor(utils.getGrays().black, 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.1)
             }
           }
         },
@@ -5490,22 +1354,38 @@ var chartScatter = function chartScatter() {
     };
   };
 
-  chartJsInit(scatter, getOptions);
+  (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(scatter, getOptions);
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartScatter);
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/chartjs-utils.js":
+/*!******************************************************!*\
+  !*** ./resources/js/charts/chartjs/chartjs-utils.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+
 /* -------------------------------------------------------------------------- */
 
 /*                            ChartJs Initialization                          */
 
 /* -------------------------------------------------------------------------- */
 
-
 var chartJsInit = function chartJsInit(chartEl, config) {
   if (!chartEl) return;
   var ctx = chartEl.getContext('2d');
   var chart = new window.Chart(ctx, config());
   var themeController = document.body;
-  themeController.addEventListener('clickControl', function (_ref14) {
-    var control = _ref14.detail.control;
+  themeController.addEventListener('clickControl', function (_ref) {
+    var control = _ref.detail.control;
 
     if (control === 'theme') {
       chart.destroy();
@@ -5518,13 +1398,13 @@ var chartJsInit = function chartJsInit(chartEl, config) {
 
 var chartJsDefaultTooltip = function chartJsDefaultTooltip() {
   return {
-    backgroundColor: utils.getGrays()['100'],
-    borderColor: utils.getGrays()['300'],
+    backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+    borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
     borderWidth: 1,
-    titleColor: utils.getGrays().black,
+    titleColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'],
     callbacks: {
       labelTextColor: function labelTextColor() {
-        return utils.getGrays().black;
+        return _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'];
       }
     }
   };
@@ -5534,20 +1414,41 @@ var getBubbleDataset = function getBubbleDataset(count, rmin, rmax, min, max) {
   var arr = Array.from(Array(count).keys());
   return arr.map(function () {
     return {
-      x: utils.getRandomNumber(min, max),
-      y: utils.getRandomNumber(min, max),
-      r: utils.getRandomNumber(rmin, rmax)
+      x: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getRandomNumber(min, max),
+      y: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getRandomNumber(min, max),
+      r: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getRandomNumber(rmin, rmax)
     };
   });
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  chartJsDefaultTooltip: chartJsDefaultTooltip,
+  chartJsInit: chartJsInit,
+  getBubbleDataset: getBubbleDataset
+});
+
+/***/ }),
+
+/***/ "./resources/js/charts/chartjs/product-share-doughnut.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/charts/chartjs/product-share-doughnut.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
 /* eslint-disable */
+
 
 /* -------------------------------------------------------------------------- */
 
 /*                            Chart Scatter                                   */
 
 /* -------------------------------------------------------------------------- */
-
 
 var productShareDoughnutInit = function productShareDoughnutInit() {
   var marketShareDoughnutElement = document.getElementById('marketShareDoughnut');
@@ -5559,12 +1460,12 @@ var productShareDoughnutInit = function productShareDoughnutInit() {
         labels: ['Flacon', 'Sparrow'],
         datasets: [{
           data: [50, 88],
-          backgroundColor: [utils.getColor('primary'), utils.getColor('300')],
-          borderColor: [utils.getColor('primary'), utils.getColor('300')]
+          backgroundColor: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('300')],
+          borderColor: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('300')]
         }]
       },
       options: {
-        tooltips: chartJsDefaultTooltip(),
+        tooltips: (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsDefaultTooltip)(),
         rotation: -90,
         circumference: '180',
         cutout: '80%',
@@ -5577,54 +1478,72 @@ var productShareDoughnutInit = function productShareDoughnutInit() {
     };
   };
 
-  chartJsInit(marketShareDoughnutElement, getOptions);
+  (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(marketShareDoughnutElement, getOptions);
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (productShareDoughnutInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/active-users-report.js":
+/*!************************************************************!*\
+  !*** ./resources/js/charts/echarts/active-users-report.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                             Echarts Active Users                           */
 
 /* -------------------------------------------------------------------------- */
 
-
 var activeUsersChartReportInit = function activeUsersChartReportInit() {
   var $echartsActiveUsersChart = document.querySelector('.echart-active-users-report');
 
   if ($echartsActiveUsersChart) {
-    var userOptions = utils.getData($echartsActiveUsersChart, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsActiveUsersChart, 'options');
     var chart = window.echarts.init($echartsActiveUsersChart);
 
-    var _tooltipFormatter = function _tooltipFormatter(params) {
+    var tooltipFormatter = function tooltipFormatter(params) {
       return "\n      <div>\n        <p class='mb-2 text-600'>".concat(window.dayjs(params[0].axisValue).format('MMM DD, YYYY'), "</p>\n        <div class='ms-1'>\n          <h6 class=\"fs--1 text-700\"><span class=\"fas fa-circle text-primary me-2\"></span>").concat(params[0].value, "</h6>\n          <h6 class=\"fs--1 text-700\"><span class=\"fas fa-circle text-success me-2\"></span>").concat(params[1].value, "</h6>\n          <h6 class=\"fs--1 text-700\"><span class=\"fas fa-circle text-info me-2\"></span>").concat(params[2].value, "</h6>\n        </div>\n      </div>\n      ");
     };
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [utils.getColor('primary'), utils.getColor('success'), utils.getColor('info')],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('success'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('info')],
         tooltip: {
           trigger: 'axis',
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           },
-          formatter: _tooltipFormatter
+          formatter: tooltipFormatter
         },
         xAxis: {
           type: 'category',
-          data: utils.getPastDates(30).map(function (date) {
+          data: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getPastDates(30).map(function (date) {
             return window.dayjs(date).format('DD MMM, YYYY');
           }),
           boundaryGap: false,
           silent: true,
           axisPointer: {
             lineStyle: {
-              color: utils.getGrays()['300']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300']
             }
           },
           splitLine: {
@@ -5632,19 +1551,19 @@ var activeUsersChartReportInit = function activeUsersChartReportInit() {
           },
           axisLine: {
             lineStyle: {
-              color: utils.getGrays()['300']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300']
             }
           },
           axisTick: {
             show: true,
             length: 20,
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             },
             interval: 5
           },
           axisLabel: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             formatter: function formatter(value) {
               return window.dayjs(value).format('MMM DD');
             },
@@ -5662,12 +1581,12 @@ var activeUsersChartReportInit = function activeUsersChartReportInit() {
           },
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           },
           axisLabel: {
             show: true,
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             formatter: function formatter(value) {
               return "".concat(Math.round(value / 1000 * 10) / 10, "k");
             }
@@ -5685,11 +1604,11 @@ var activeUsersChartReportInit = function activeUsersChartReportInit() {
           showSymbol: false,
           symbol: 'circle',
           itemStyle: {
-            borderColor: utils.getColors().primary,
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
             borderWidth: 2
           },
           lineStyle: {
-            color: utils.getColor('primary')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary')
           },
           symbolSize: 2
         }, {
@@ -5698,11 +1617,11 @@ var activeUsersChartReportInit = function activeUsersChartReportInit() {
           showSymbol: false,
           symbol: 'circle',
           itemStyle: {
-            borderColor: utils.getColors().success,
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().success,
             borderWidth: 2
           },
           lineStyle: {
-            color: utils.getColor('success')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('success')
           },
           symbolSize: 2
         }, {
@@ -5711,11 +1630,11 @@ var activeUsersChartReportInit = function activeUsersChartReportInit() {
           showSymbol: false,
           symbol: 'circle',
           itemStyle: {
-            borderColor: utils.getColors().info,
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info,
             borderWidth: 2
           },
           lineStyle: {
-            color: utils.getColor('info')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('info')
           },
           symbolSize: 2
         }],
@@ -5728,19 +1647,37 @@ var activeUsersChartReportInit = function activeUsersChartReportInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (activeUsersChartReportInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/audience.js":
+/*!*************************************************!*\
+  !*** ./resources/js/charts/echarts/audience.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Audience Chart                              */
 
 /* -------------------------------------------------------------------------- */
 
-
 var audienceChartInit = function audienceChartInit() {
   var data = {
-    dates: utils.getPastDates(7),
+    dates: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getPastDates(7),
     dataset: {
       users: [[504, 333, 400, 606, 451, 685, 404], [237, 229, 707, 575, 420, 536, 258]],
       sessions: [[322, 694, 235, 537, 791, 292, 806], [584, 661, 214, 286, 526, 707, 627]],
@@ -5760,19 +1697,19 @@ var audienceChartInit = function audienceChartInit() {
   var getDefaultOptions = function getDefaultOptions(data1, data2) {
     return function () {
       return {
-        color: utils.getGrays().white,
+        color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays().white,
         tooltip: {
           trigger: 'axis',
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           },
           axisPointer: {
             type: 'none'
@@ -5783,7 +1720,7 @@ var audienceChartInit = function audienceChartInit() {
           type: 'category',
           data: data.dates,
           axisLabel: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             formatter: function formatter(value) {
               return window.dayjs(value).format('MMM DD');
             },
@@ -5794,14 +1731,14 @@ var audienceChartInit = function audienceChartInit() {
           },
           axisLine: {
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           },
           axisTick: {
             show: true,
             length: 20,
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           },
           boundaryGap: false
@@ -5814,14 +1751,14 @@ var audienceChartInit = function audienceChartInit() {
           axisTick: 'none',
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           },
           axisLine: {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['600']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600']
           }
         },
         series: [{
@@ -5830,11 +1767,11 @@ var audienceChartInit = function audienceChartInit() {
           showSymbol: false,
           symbol: 'circle',
           itemStyle: {
-            borderColor: utils.getColors().primary,
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
             borderWidth: 2
           },
           lineStyle: {
-            color: utils.getColor('primary')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary')
           },
           areaStyle: {
             color: {
@@ -5845,10 +1782,10 @@ var audienceChartInit = function audienceChartInit() {
               y2: 1,
               colorStops: [{
                 offset: 0,
-                color: utils.rgbaColor(utils.getColors().primary, 0.2)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.2)
               }, {
                 offset: 1,
-                color: utils.rgbaColor(utils.getColors().primary, 0)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0)
               }]
             }
           }
@@ -5859,7 +1796,7 @@ var audienceChartInit = function audienceChartInit() {
           lineStyle: {
             type: 'dashed',
             width: 1,
-            color: utils.getColor('info')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('info')
           }
         }],
         grid: {
@@ -5873,9 +1810,9 @@ var audienceChartInit = function audienceChartInit() {
   };
 
   var initChart = function initChart(el, options) {
-    var userOptions = utils.getData(el, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, 'options');
     var chart = window.echarts.init(el);
-    echartSetOption(chart, userOptions, options);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, options);
   };
 
   var tab = document.querySelector('#audience-chart-tab');
@@ -5892,18 +1829,36 @@ var audienceChartInit = function audienceChartInit() {
     });
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (audienceChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/bandwidth-saved.js":
+/*!********************************************************!*\
+  !*** ./resources/js/charts/echarts/bandwidth-saved.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                            Bandwidth Saved                                 */
 
 /* -------------------------------------------------------------------------- */
 
-
 var bandwidthSavedInit = function bandwidthSavedInit() {
   var $echartsBandwidthSaved = document.querySelector('.echart-bandwidth-saved');
 
   if ($echartsBandwidthSaved) {
-    var userOptions = utils.getData($echartsBandwidthSaved, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsBandwidthSaved, 'options');
     var chart = window.echarts.init($echartsBandwidthSaved);
 
     var getDefaultOptions = function getDefaultOptions() {
@@ -5941,7 +1896,7 @@ var bandwidthSavedInit = function bandwidthSavedInit() {
           axisLine: {
             lineStyle: {
               width: 8,
-              color: [[1, utils.getColor('200')]]
+              color: [[1, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('200')]]
             }
           },
           splitLine: {
@@ -5965,7 +1920,7 @@ var bandwidthSavedInit = function bandwidthSavedInit() {
             fontSize: 28,
             fontWeight: 500,
             fontFamily: 'poppins',
-            color: utils.getColor('500'),
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('500'),
             formatter: '{value}%',
             valueAnimation: true
           },
@@ -5975,8 +1930,8 @@ var bandwidthSavedInit = function bandwidthSavedInit() {
     };
 
     var initChart = function initChart() {
-      if (utils.isScrolledIntoView($echartsBandwidthSaved)) {
-        echartSetOption(chart, userOptions, getDefaultOptions);
+      if (_utils__WEBPACK_IMPORTED_MODULE_0__["default"].isScrolledIntoView($echartsBandwidthSaved)) {
+        (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
         window.removeEventListener('scroll', initChart);
       }
     };
@@ -5984,37 +1939,55 @@ var bandwidthSavedInit = function bandwidthSavedInit() {
     window.addEventListener('scroll', initChart);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (bandwidthSavedInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/basic-echarts.js":
+/*!******************************************************!*\
+  !*** ./resources/js/charts/echarts/basic-echarts.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                     Echart Bar Member info                                 */
 
 /* -------------------------------------------------------------------------- */
 
-
 var basicEchartsInit = function basicEchartsInit() {
   var $echartBasicCharts = document.querySelectorAll('[data-echarts]');
   $echartBasicCharts.forEach(function ($echartBasicChart) {
-    var userOptions = utils.getData($echartBasicChart, 'echarts');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartBasicChart, 'echarts');
     var chart = window.echarts.init($echartBasicChart);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: utils.getColors().primary,
+        color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
         tooltip: {
           trigger: 'item',
           axisPointer: {
             type: 'none'
           },
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           }
         },
         xAxis: {
@@ -6039,10 +2012,10 @@ var basicEchartsInit = function basicEchartsInit() {
               y2: 1,
               colorStops: [{
                 offset: 0,
-                color: utils.rgbaColor(utils.getColor('primary'), 0.25)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), 0.25)
               }, {
                 offset: 1,
-                color: utils.rgbaColor(utils.getColor('primary'), 0)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), 0)
               }]
             }
           }
@@ -6056,15 +2029,33 @@ var basicEchartsInit = function basicEchartsInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   });
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (basicEchartsInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/bounce-rate.js":
+/*!****************************************************!*\
+  !*** ./resources/js/charts/echarts/bounce-rate.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                             Echarts Bounce Rate                            */
 
 /* -------------------------------------------------------------------------- */
-
 
 var bounceRateChartInit = function bounceRateChartInit() {
   var $echartsBounceRateChart = document.querySelector('.echart-bounce-rate');
@@ -6079,17 +2070,17 @@ var bounceRateChartInit = function bounceRateChartInit() {
   };
 
   if ($echartsBounceRateChart) {
-    var userOptions = utils.getData($echartsBounceRateChart, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsBounceRateChart, 'options');
     var chart = window.echarts.init($echartsBounceRateChart);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: utils.getGrays().white,
+        color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays().white,
         title: {
           text: 'Bounce Rate',
           padding: [5, 0, 0, 0],
           textStyle: {
-            color: utils.getGrays()['900'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['900'],
             fontSize: 13,
             fontWeight: 600
           }
@@ -6100,26 +2091,26 @@ var bounceRateChartInit = function bounceRateChartInit() {
             type: 'none'
           },
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           },
           formatter: tooltipFormatter
         },
         xAxis: {
           type: 'category',
-          data: utils.getPastDates(30).map(function (date) {
+          data: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getPastDates(30).map(function (date) {
             return window.dayjs(date).format('DD MMM, YYYY');
           }),
           axisPointer: {
             lineStyle: {
-              color: utils.getGrays()['300']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300']
             }
           },
           splitLine: {
@@ -6127,14 +2118,14 @@ var bounceRateChartInit = function bounceRateChartInit() {
           },
           axisLine: {
             lineStyle: {
-              color: utils.getGrays()['400']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400']
             }
           },
           axisTick: {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             formatter: function formatter(value) {
               return window.dayjs(value).format('MMM DD');
             },
@@ -6148,12 +2139,12 @@ var bounceRateChartInit = function bounceRateChartInit() {
           },
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           },
           axisLabel: {
             show: true,
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             formatter: function formatter(value) {
               return "".concat(value, "%");
             },
@@ -6172,11 +2163,11 @@ var bounceRateChartInit = function bounceRateChartInit() {
           showSymbol: false,
           symbol: 'circle',
           itemStyle: {
-            borderColor: utils.getColors().primary,
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
             borderWidth: 2
           },
           lineStyle: {
-            color: utils.getColor('primary')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary')
           },
           symbolSize: 2
         }],
@@ -6189,7 +2180,7 @@ var bounceRateChartInit = function bounceRateChartInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     var selectMenu = document.querySelector("[data-target='.echart-bounce-rate']");
 
     if (selectMenu) {
@@ -6197,7 +2188,7 @@ var bounceRateChartInit = function bounceRateChartInit() {
         var value = e.currentTarget.value;
         chart.setOption({
           xAxis: {
-            data: utils.getPastDates(value).map(function (date) {
+            data: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getPastDates(value).map(function (date) {
               return window.dayjs(date).format('DD MMM, YYYY');
             })
           },
@@ -6209,30 +2200,44 @@ var bounceRateChartInit = function bounceRateChartInit() {
     }
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (bounceRateChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/candle-chart.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/charts/echarts/candle-chart.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                             Echarts Candle Chart                           */
 
 /* -------------------------------------------------------------------------- */
 
-
 var candleChartInit = function candleChartInit() {
-  var ECHART_CANDLE_CHART = '.echart-candle-chart';
+  var ECHART_CANDLE_CHART = ".echart-candle-chart";
   var ECHART_ZOOM_IN = "[data-zoom='in']";
   var ECHART_ZOOM_OUT = "[data-zoom='out']";
   var $echartsCandleChart = document.querySelector(ECHART_CANDLE_CHART);
 
   if ($echartsCandleChart) {
-    var userOptions = utils.getData($echartsCandleChart, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsCandleChart, "options");
     var chart = window.echarts.init($echartsCandleChart);
     var $echartsZoomIn = document.getElementById($echartsCandleChart.dataset.actionTarget).querySelector(ECHART_ZOOM_IN);
     var $echartsZoomOut = document.getElementById($echartsCandleChart.dataset.actionTarget).querySelector(ECHART_ZOOM_OUT);
-
-    var _utils$getColors = utils.getColors(),
-        warning = _utils$getColors.warning;
-
-    var _utils$getColors2 = utils.getColors(),
-        primary = _utils$getColors2.primary;
+    var warning = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors()["warning"];
+    var primary = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors()["primary"];
 
     var splitData = function splitData(rawData) {
       var categoryData = [];
@@ -6247,60 +2252,60 @@ var candleChartInit = function candleChartInit() {
       };
     };
 
-    var data = splitData([['2013/1/24', 2320.26, 2320.26, 2287.3, 2362.94], ['2013/1/25', 2300, 2291.3, 2288.26, 2308.38], ['2013/1/28', 2295.35, 2346.5, 2295.35, 2346.92], ['2013/1/29', 2347.22, 2358.98, 2337.35, 2363.8], ['2013/1/30', 2360.75, 2382.48, 2347.89, 2383.76], ['2013/1/31', 2383.43, 2385.42, 2371.23, 2391.82], ['2013/2/1', 2377.41, 2419.02, 2369.57, 2421.15], ['2013/2/4', 2425.92, 2428.15, 2417.58, 2440.38], ['2013/2/5', 2411, 2433.13, 2403.3, 2437.42], ['2013/2/6', 2432.68, 2434.48, 2427.7, 2441.73], ['2013/2/7', 2430.69, 2418.53, 2394.22, 2433.89], ['2013/2/8', 2416.62, 2432.4, 2414.4, 2443.03], ['2013/2/18', 2441.91, 2421.56, 2415.43, 2444.8], ['2013/2/19', 2420.26, 2382.91, 2373.53, 2427.07], ['2013/2/20', 2383.49, 2397.18, 2370.61, 2397.94], ['2013/2/21', 2378.82, 2325.95, 2309.17, 2378.82], ['2013/2/22', 2322.94, 2314.16, 2308.76, 2330.88], ['2013/2/25', 2320.62, 2325.82, 2315.01, 2338.78], ['2013/2/26', 2313.74, 2293.34, 2289.89, 2340.71], ['2013/2/27', 2297.77, 2313.22, 2292.03, 2324.63], ['2013/2/28', 2322.32, 2365.59, 2308.92, 2366.16], ['2013/3/1', 2364.54, 2359.51, 2330.86, 2369.65], ['2013/3/4', 2332.08, 2273.4, 2259.25, 2333.54], ['2013/3/5', 2274.81, 2326.31, 2270.1, 2328.14], ['2013/3/6', 2333.61, 2347.18, 2321.6, 2351.44], ['2013/3/7', 2340.44, 2324.29, 2304.27, 2352.02], ['2013/3/8', 2326.42, 2318.61, 2314.59, 2333.67], ['2013/3/11', 2314.68, 2310.59, 2296.58, 2320.96], ['2013/3/12', 2309.16, 2286.6, 2264.83, 2333.29], ['2013/3/13', 2282.17, 2263.97, 2253.25, 2286.33], ['2013/3/14', 2255.77, 2270.28, 2253.31, 2276.22], ['2013/3/15', 2269.31, 2278.4, 2250, 2312.08], ['2013/3/18', 2267.29, 2240.02, 2239.21, 2276.05], ['2013/3/19', 2244.26, 2257.43, 2232.02, 2261.31], ['2013/3/20', 2257.74, 2317.37, 2257.42, 2317.86], ['2013/3/21', 2318.21, 2324.24, 2311.6, 2330.81], ['2013/3/22', 2321.4, 2328.28, 2314.97, 2332], ['2013/3/25', 2334.74, 2326.72, 2319.91, 2344.89], ['2013/3/26', 2318.58, 2297.67, 2281.12, 2319.99], ['2013/3/27', 2299.38, 2301.26, 2289, 2323.48], ['2013/3/28', 2273.55, 2236.3, 2232.91, 2273.55], ['2013/3/29', 2238.49, 2236.62, 2228.81, 2246.87], ['2013/4/1', 2229.46, 2234.4, 2227.31, 2243.95], ['2013/4/2', 2234.9, 2227.74, 2220.44, 2253.42], ['2013/4/3', 2232.69, 2225.29, 2217.25, 2241.34], ['2013/4/8', 2196.24, 2211.59, 2180.67, 2212.59], ['2013/4/9', 2215.47, 2225.77, 2215.47, 2234.73], ['2013/4/10', 2224.93, 2226.13, 2212.56, 2233.04], ['2013/4/11', 2236.98, 2219.55, 2217.26, 2242.48], ['2013/4/12', 2218.09, 2206.78, 2204.44, 2226.26]]);
+    var data = splitData([["2013/1/24", 2320.26, 2320.26, 2287.3, 2362.94], ["2013/1/25", 2300, 2291.3, 2288.26, 2308.38], ["2013/1/28", 2295.35, 2346.5, 2295.35, 2346.92], ["2013/1/29", 2347.22, 2358.98, 2337.35, 2363.8], ["2013/1/30", 2360.75, 2382.48, 2347.89, 2383.76], ["2013/1/31", 2383.43, 2385.42, 2371.23, 2391.82], ["2013/2/1", 2377.41, 2419.02, 2369.57, 2421.15], ["2013/2/4", 2425.92, 2428.15, 2417.58, 2440.38], ["2013/2/5", 2411, 2433.13, 2403.3, 2437.42], ["2013/2/6", 2432.68, 2434.48, 2427.7, 2441.73], ["2013/2/7", 2430.69, 2418.53, 2394.22, 2433.89], ["2013/2/8", 2416.62, 2432.4, 2414.4, 2443.03], ["2013/2/18", 2441.91, 2421.56, 2415.43, 2444.8], ["2013/2/19", 2420.26, 2382.91, 2373.53, 2427.07], ["2013/2/20", 2383.49, 2397.18, 2370.61, 2397.94], ["2013/2/21", 2378.82, 2325.95, 2309.17, 2378.82], ["2013/2/22", 2322.94, 2314.16, 2308.76, 2330.88], ["2013/2/25", 2320.62, 2325.82, 2315.01, 2338.78], ["2013/2/26", 2313.74, 2293.34, 2289.89, 2340.71], ["2013/2/27", 2297.77, 2313.22, 2292.03, 2324.63], ["2013/2/28", 2322.32, 2365.59, 2308.92, 2366.16], ["2013/3/1", 2364.54, 2359.51, 2330.86, 2369.65], ["2013/3/4", 2332.08, 2273.4, 2259.25, 2333.54], ["2013/3/5", 2274.81, 2326.31, 2270.1, 2328.14], ["2013/3/6", 2333.61, 2347.18, 2321.6, 2351.44], ["2013/3/7", 2340.44, 2324.29, 2304.27, 2352.02], ["2013/3/8", 2326.42, 2318.61, 2314.59, 2333.67], ["2013/3/11", 2314.68, 2310.59, 2296.58, 2320.96], ["2013/3/12", 2309.16, 2286.6, 2264.83, 2333.29], ["2013/3/13", 2282.17, 2263.97, 2253.25, 2286.33], ["2013/3/14", 2255.77, 2270.28, 2253.31, 2276.22], ["2013/3/15", 2269.31, 2278.4, 2250, 2312.08], ["2013/3/18", 2267.29, 2240.02, 2239.21, 2276.05], ["2013/3/19", 2244.26, 2257.43, 2232.02, 2261.31], ["2013/3/20", 2257.74, 2317.37, 2257.42, 2317.86], ["2013/3/21", 2318.21, 2324.24, 2311.6, 2330.81], ["2013/3/22", 2321.4, 2328.28, 2314.97, 2332], ["2013/3/25", 2334.74, 2326.72, 2319.91, 2344.89], ["2013/3/26", 2318.58, 2297.67, 2281.12, 2319.99], ["2013/3/27", 2299.38, 2301.26, 2289, 2323.48], ["2013/3/28", 2273.55, 2236.3, 2232.91, 2273.55], ["2013/3/29", 2238.49, 2236.62, 2228.81, 2246.87], ["2013/4/1", 2229.46, 2234.4, 2227.31, 2243.95], ["2013/4/2", 2234.9, 2227.74, 2220.44, 2253.42], ["2013/4/3", 2232.69, 2225.29, 2217.25, 2241.34], ["2013/4/8", 2196.24, 2211.59, 2180.67, 2212.59], ["2013/4/9", 2215.47, 2225.77, 2215.47, 2234.73], ["2013/4/10", 2224.93, 2226.13, 2212.56, 2233.04], ["2013/4/11", 2236.98, 2219.55, 2217.26, 2242.48], ["2013/4/12", 2218.09, 2206.78, 2204.44, 2226.26]]);
     var zoomStart = 0;
     var zoomEnd = 70;
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
         tooltip: {
-          trigger: 'axis',
+          trigger: "axis",
           // axisPointer: {
           //   type: "cross",
           // },
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["100"],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           }
         },
         xAxis: {
-          type: 'category',
+          type: "category",
           data: data.categoryData,
           scale: true,
           splitLine: {
             show: false
           },
           splitNumber: 10,
-          min: 'dataMin',
-          max: 'dataMax',
+          min: "dataMin",
+          max: "dataMax",
           boundaryGap: true,
           axisPointer: {
             lineStyle: {
-              color: utils.getGrays()['300'],
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
+              type: "dashed"
             }
           },
           axisLine: {
             lineStyle: {
-              color: utils.getGrays()['300'],
-              type: 'solid'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
+              type: "solid"
             }
           },
           axisTick: {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["600"],
             formatter: function formatter(value) {
-              return new Date(value).toLocaleString('en-US', {
-                month: 'short',
-                day: 'numeric'
+              return new Date(value).toLocaleString("en-US", {
+                month: "short",
+                day: "numeric"
               });
             },
             margin: 15,
@@ -6309,20 +2314,20 @@ var candleChartInit = function candleChartInit() {
         },
         yAxis: {
           scale: true,
-          position: 'right',
+          position: "right",
           axisPointer: {
             show: false
           },
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['200'],
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["200"],
+              type: "dashed"
             }
           },
           boundaryGap: false,
           axisLabel: {
             show: true,
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["600"],
             margin: 15,
             fontWeight: 500
           },
@@ -6334,13 +2339,13 @@ var candleChartInit = function candleChartInit() {
           }
         },
         dataZoom: [{
-          type: 'inside',
+          type: "inside",
           start: zoomStart,
           end: zoomEnd
         }],
         series: [{
-          name: 'candlestick',
-          type: 'candlestick',
+          name: "candlestick",
+          type: "candlestick",
           data: data.values,
           itemStyle: {
             color: warning,
@@ -6350,25 +2355,25 @@ var candleChartInit = function candleChartInit() {
           }
         }],
         grid: {
-          right: '70px',
-          left: '20px',
-          bottom: '15%',
-          top: '20px'
+          right: "70px",
+          left: "20px",
+          bottom: "15%",
+          top: "20px"
         }
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
 
     var dispatchZoomAction = function dispatchZoomAction() {
       chart.dispatchAction({
-        type: 'dataZoom',
+        type: "dataZoom",
         start: zoomStart,
         end: zoomEnd
       });
     };
 
-    $echartsZoomIn.addEventListener('click', function () {
+    $echartsZoomIn.addEventListener("click", function () {
       if (zoomEnd > 10) {
         zoomEnd -= 10;
       }
@@ -6382,7 +2387,7 @@ var candleChartInit = function candleChartInit() {
         dispatchZoomAction();
       }
     });
-    $echartsZoomOut.addEventListener('click', function () {
+    $echartsZoomOut.addEventListener("click", function () {
       if (zoomEnd < 100) {
         zoomEnd += 10;
       }
@@ -6396,7 +2401,7 @@ var candleChartInit = function candleChartInit() {
         dispatchZoomAction();
       }
     });
-    chart.on('dataZoom', function (params) {
+    chart.on("dataZoom", function (params) {
       if (params.batch) {
         zoomStart = params.batch[0].start;
         zoomEnd = params.batch[0].end;
@@ -6404,12 +2409,30 @@ var candleChartInit = function candleChartInit() {
     });
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (candleChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/closed-vs-goal.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/charts/echarts/closed-vs-goal.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                             Echarts Total Sales                            */
 
 /* -------------------------------------------------------------------------- */
-
 
 var closedVsGoalInit = function closedVsGoalInit() {
   var ECHART_LINE_TOTAL_SALES = '.echart-closed-vs-goal';
@@ -6418,25 +2441,25 @@ var closedVsGoalInit = function closedVsGoalInit() {
 
   if ($echartsLineTotalSales) {
     // Get options from data attribute
-    var userOptions = utils.getData($echartsLineTotalSales, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsLineTotalSales, 'options');
     var chart = window.echarts.init($echartsLineTotalSales);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [utils.getColors().primary, utils.getColors().warning],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning],
         tooltip: {
           trigger: 'axis',
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
-          formatter: tooltipFormatter,
+          formatter: _echarts_utils__WEBPACK_IMPORTED_MODULE_1__.tooltipFormatter,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           }
         },
         legend: {
@@ -6446,9 +2469,9 @@ var closedVsGoalInit = function closedVsGoalInit() {
           itemHeight: 10,
           borderRadius: 0,
           icon: 'circle',
-          inactiveColor: utils.getGrays()['400'],
+          inactiveColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400'],
           textStyle: {
-            color: utils.getGrays()['700']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['700']
           },
           itemGap: 20
         },
@@ -6459,13 +2482,13 @@ var closedVsGoalInit = function closedVsGoalInit() {
           nameLocation: 'center',
           offset: 0,
           nameTextStyle: {
-            color: utils.getGrays()['700']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['700']
           },
           data: ['2019-06-15', '2019-06-22', '2019-06-29', '2019-07-06', '2019-07-13', '2019-07-20', '2019-07-27', '2019-07-12', '2019-07-03'],
           boundaryGap: false,
           axisPointer: {
             lineStyle: {
-              color: utils.getGrays()['300'],
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
               type: 'dashed'
             }
           },
@@ -6474,7 +2497,7 @@ var closedVsGoalInit = function closedVsGoalInit() {
           },
           axisLine: {
             lineStyle: {
-              color: utils.rgbaColor('#000', 0.01),
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor('#000', 0.01),
               type: 'dashed'
             }
           },
@@ -6482,7 +2505,7 @@ var closedVsGoalInit = function closedVsGoalInit() {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['400'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400'],
             formatter: function formatter(value) {
               var date = new Date(value);
               return "".concat(date.getDate(), " ").concat(months[date.getMonth()], " , 21");
@@ -6496,7 +2519,7 @@ var closedVsGoalInit = function closedVsGoalInit() {
           nameGap: 85,
           nameLocation: 'middle',
           nameTextStyle: {
-            color: utils.getGrays()['700']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['700']
           },
           splitNumber: 3,
           axisPointer: {
@@ -6504,13 +2527,13 @@ var closedVsGoalInit = function closedVsGoalInit() {
           },
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           },
           boundaryGap: false,
           axisLabel: {
             show: true,
-            color: utils.getGrays()['400'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400'],
             formatter: function formatter(value) {
               return "$".concat(value);
             },
@@ -6532,10 +2555,10 @@ var closedVsGoalInit = function closedVsGoalInit() {
           smooth: false,
           hoverAnimation: true,
           lineStyle: {
-            color: utils.rgbaColor(utils.getColor('primary'))
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'))
           },
           itemStyle: {
-            borderColor: utils.rgbaColor(utils.getColor('primary'), 0.6),
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), 0.6),
             borderWidth: 2
           }
         }, {
@@ -6547,10 +2570,10 @@ var closedVsGoalInit = function closedVsGoalInit() {
           smooth: false,
           hoverAnimation: true,
           lineStyle: {
-            color: utils.rgbaColor(utils.getColor('warning'))
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'))
           },
           itemStyle: {
-            borderColor: utils.rgbaColor(utils.getColor('warning'), 0.6),
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'), 0.6),
             borderWidth: 2
           }
         }],
@@ -6563,19 +2586,37 @@ var closedVsGoalInit = function closedVsGoalInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (closedVsGoalInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/crm-revenue.js":
+/*!****************************************************!*\
+  !*** ./resources/js/charts/echarts/crm-revenue.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Audience Chart                              */
 
 /* -------------------------------------------------------------------------- */
 
-
 var revenueChartInit = function revenueChartInit() {
   var data = {
-    dates: utils.getDates(new Date('5-6-2019'), new Date('5-6-2021'), 1000 * 60 * 60 * 24 * 30),
+    dates: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getDates(new Date('5-6-2019'), new Date('5-6-2021'), 1000 * 60 * 60 * 24 * 30),
     dataset: {
       revenue: [[645, 500, 550, 550, 473, 405, 286, 601, 743, 450, 604, 815, 855, 722, 700, 896, 866, 952, 719, 558, 737, 885, 972, 650, 600], [440, 250, 270, 400, 175, 180, 200, 400, 600, 380, 340, 550, 650, 450, 400, 688, 650, 721, 500, 300, 445, 680, 568, 400, 371]],
       users: [[545, 500, 650, 727, 773, 705, 686, 501, 643, 580, 604, 615, 755, 722, 727, 816, 836, 952, 719, 758, 937, 785, 872, 850, 800], [340, 360, 230, 250, 410, 430, 450, 200, 220, 540, 500, 250, 355, 320, 500, 630, 680, 500, 520, 550, 750, 720, 700, 780, 750]],
@@ -6591,7 +2632,7 @@ var revenueChartInit = function revenueChartInit() {
   var getDefaultOptions = function getDefaultOptions(data1, data2) {
     return function () {
       return {
-        color: utils.getGrays().white,
+        color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays().white,
         tooltip: {
           trigger: 'axis',
           padding: 0,
@@ -6599,7 +2640,7 @@ var revenueChartInit = function revenueChartInit() {
           borderWidth: 0,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           },
           axisPointer: {
             type: 'none'
@@ -6608,11 +2649,11 @@ var revenueChartInit = function revenueChartInit() {
         },
         xAxis: {
           type: 'category',
-          data: utils.getPastDates(25).map(function (date) {
+          data: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getPastDates(25).map(function (date) {
             return window.dayjs(date).format('DD MMM, YYYY');
           }),
           axisLabel: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             formatter: function formatter(value) {
               return window.dayjs(value).format('MMM DD');
             },
@@ -6650,17 +2691,17 @@ var revenueChartInit = function revenueChartInit() {
           name: 'Revenue',
           data: data1,
           lineStyle: {
-            color: utils.getColor('primary')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary')
           },
           itemStyle: {
             barBorderRadius: [4, 4, 0, 0],
-            color: utils.getGrays()['100'],
-            borderColor: utils.getGrays()['300'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
             borderWidth: 1
           },
           emphasis: {
             itemStyle: {
-              color: utils.getColor('primary')
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary')
             }
           }
         }, {
@@ -6671,12 +2712,12 @@ var revenueChartInit = function revenueChartInit() {
           symbolSize: 6,
           animation: false,
           itemStyle: {
-            color: utils.getColor('warning')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning')
           },
           lineStyle: {
             type: 'dashed',
             width: 2,
-            color: utils.getColor('warning')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning')
           }
         }],
         grid: {
@@ -6690,9 +2731,9 @@ var revenueChartInit = function revenueChartInit() {
   };
 
   var initChart = function initChart(el, options) {
-    var userOptions = utils.getData(el, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, 'options');
     var chart = window.echarts.init(el);
-    echartSetOption(chart, userOptions, options);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, options);
   };
 
   var chartKeys = ['revenue', 'users', 'deals', 'profit'];
@@ -6701,18 +2742,36 @@ var revenueChartInit = function revenueChartInit() {
     el && initChart(el, getDefaultOptions(data.dataset[key][0], data.dataset[key][1]));
   });
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (revenueChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/deal-storage-funnel.js":
+/*!************************************************************!*\
+  !*** ./resources/js/charts/echarts/deal-storage-funnel.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                             Echarts Bounce Rate                            */
 
 /* -------------------------------------------------------------------------- */
 
-
 var dealStorageFunnelInit = function dealStorageFunnelInit() {
   var $echartDealStorageFunnel = document.querySelector('.echart-deal-storage-funnel');
 
   if ($echartDealStorageFunnel) {
-    var userOptions = utils.getData($echartDealStorageFunnel, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartDealStorageFunnel, 'options');
     var data = userOptions.data,
         dataAxis1 = userOptions.dataAxis1,
         dataAxis2 = userOptions.dataAxis2;
@@ -6725,7 +2784,7 @@ var dealStorageFunnelInit = function dealStorageFunnelInit() {
           axisLabel: {
             inside: true,
             textStyle: {
-              color: utils.getGrays()['700'],
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['700'],
               fontWeight: 500,
               fontSize: 11,
               fontFamily: 'poppins'
@@ -6743,13 +2802,13 @@ var dealStorageFunnelInit = function dealStorageFunnelInit() {
           axisLabel: {
             inside: false,
             textStyle: {
-              color: utils.getColors().primary,
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
               fontWeight: 500,
               fontSize: 11,
               fontFamily: 'poppins'
             },
             borderRadius: 5,
-            backgroundColor: utils.getSoftColors().primary,
+            backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getSoftColors().primary,
             padding: [6, 16, 6, 16],
             width: 115
           },
@@ -6789,11 +2848,11 @@ var dealStorageFunnelInit = function dealStorageFunnelInit() {
             position: 'insideLeft'
           },
           backgroundStyle: {
-            color: utils.getGrays()['200'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200'],
             borderRadius: 5
           },
           itemStyle: {
-            color: utils.getColors().primary,
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
             borderRadius: 5
           },
           data: data
@@ -6807,12 +2866,27 @@ var dealStorageFunnelInit = function dealStorageFunnelInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dealStorageFunnelInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/echarts-utils.js":
+/*!******************************************************!*\
+  !*** ./resources/js/charts/echarts/echarts-utils.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
 /* eslint-disable */
-
-
 var getPosition = function getPosition(pos, params, dom, rect, size) {
   return {
     top: pos[1] - size.contentSize[1] - 10,
@@ -6824,8 +2898,8 @@ var echartSetOption = function echartSetOption(chart, userOptions, getDefaultOpt
   var themeController = document.body; // Merge user options with lodash
 
   chart.setOption(window._.merge(getDefaultOptions(), userOptions));
-  themeController.addEventListener('clickControl', function (_ref15) {
-    var control = _ref15.detail.control;
+  themeController.addEventListener('clickControl', function (_ref) {
+    var control = _ref.detail.control;
 
     if (control === 'theme') {
       chart.setOption(window._.merge(getDefaultOptions(), userOptions));
@@ -6841,38 +2915,28 @@ var tooltipFormatter = function tooltipFormatter(params) {
   return "<div>\n            <p class='mb-2 text-600'>\n              ".concat(window.dayjs(params[0].axisValue).isValid() ? window.dayjs(params[0].axisValue).format('MMMM DD') : params[0].axisValue, "\n            </p>\n            ").concat(tooltipItem, "\n          </div>");
 };
 
-var resizeEcharts = function resizeEcharts() {
-  var $echarts = document.querySelectorAll('[data-echart-responsive]');
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  getPosition: getPosition,
+  echartSetOption: echartSetOption,
+  tooltipFormatter: tooltipFormatter
+});
 
-  if ($echarts.length) {
-    $echarts.forEach(function (item) {
-      if (utils.getData(item, 'echart-responsive')) {
-        if (!(item.closest('.tab-pane') && window.getComputedStyle(item.closest('.tab-pane')).display === 'none')) {
-          window.echarts.init(item).resize();
-        }
-      }
-    });
-  }
-};
+/***/ }),
 
-utils.resize(function () {
-  return resizeEcharts();
-});
-var navbarVerticalToggle = document.querySelector('.navbar-vertical-toggle');
-navbarVerticalToggle && navbarVerticalToggle.addEventListener('navbar.vertical.toggle', function () {
-  return resizeEcharts();
-});
-var echartTabs = document.querySelectorAll('[data-tab-has-echarts]');
-echartTabs && echartTabs.forEach(function (tab) {
-  tab.addEventListener('shown.bs.tab', function (e) {
-    var el = e.target;
-    var hash = el.hash;
-    var id = hash || el.dataset.bsTarget;
-    var content = document.getElementById(id.substring(1));
-    var chart = content === null || content === void 0 ? void 0 : content.querySelector('[data-echart-tab]');
-    chart && window.echarts.init(chart).resize();
-  });
-});
+/***/ "./resources/js/charts/echarts/gross-revenue.js":
+/*!******************************************************!*\
+  !*** ./resources/js/charts/echarts/gross-revenue.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                             Echarts Gross Revenue                          */
@@ -6886,7 +2950,7 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
 
   if ($echartsGrossRevenue) {
     // Get options from data attribute
-    var userOptions = utils.getData($echartsGrossRevenue, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsGrossRevenue, 'options');
     var chart = window.echarts.init($echartsGrossRevenue);
     var SELECT_MONTH = "#".concat(userOptions.monthSelect);
     var LEGEND_MONTH_TARGET = userOptions.target;
@@ -6896,16 +2960,16 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
     var $legendPrevMonth = document.getElementById(LEGEND_MONTH_TARGET).querySelector(LEGEND_PREV_MONTH);
 
     var dates = function dates(month) {
-      return utils.getDates(window.dayjs().month(month).date(1), window.dayjs().month(Number(month) + 1).date(0), 1000 * 60 * 60 * 24 * 3);
+      return _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getDates(window.dayjs().month(month).date(1), window.dayjs().month(Number(month) + 1).date(0), 1000 * 60 * 60 * 24 * 3);
     };
 
     var monthsnumber = [[20, 40, 20, 80, 50, 80, 120, 80, 50, 120, 110, 110], [60, 80, 60, 80, 65, 130, 120, 100, 30, 40, 30, 70], [100, 70, 80, 50, 120, 100, 130, 140, 90, 100, 40, 50], [80, 50, 60, 40, 60, 120, 100, 130, 60, 80, 50, 60], [70, 80, 100, 70, 90, 60, 80, 130, 40, 60, 50, 80], [90, 40, 80, 80, 100, 140, 100, 130, 90, 60, 70, 50], [80, 60, 80, 60, 40, 100, 120, 100, 30, 40, 30, 70], [20, 40, 20, 50, 70, 60, 110, 80, 90, 30, 50, 50], [60, 70, 30, 40, 80, 140, 80, 140, 120, 130, 100, 110], [90, 90, 40, 60, 40, 110, 90, 110, 60, 80, 60, 70], [50, 80, 50, 80, 50, 80, 120, 80, 50, 120, 110, 110], [60, 90, 60, 70, 40, 70, 100, 140, 30, 40, 30, 70], [20, 40, 20, 50, 30, 80, 120, 100, 30, 40, 30, 70]];
 
-    var _tooltipFormatter2 = function _tooltipFormatter2(params) {
+    var tooltipFormatter = function tooltipFormatter(params) {
       var currentDate = window.dayjs(params[0].axisValue);
-      var tooltipItem = '';
+      var tooltipItem = "";
       params.forEach(function (el) {
-        tooltipItem += "<h6 class=\"fs--1 text-700\"><span class=\"fas fa-circle me-2\" style=\"color:".concat(el.borderColor, "\"></span>\n        ").concat(currentDate.format('MMM DD'), " : ").concat(el.value, "\n      </h6>");
+        tooltipItem = tooltipItem + "<h6 class=\"fs--1 text-700\"><span class=\"fas fa-circle me-2\" style=\"color:".concat(el.borderColor, "\"></span>\n        ").concat(currentDate.format('MMM DD'), " : ").concat(el.value, "\n      </h6>");
       });
       return "<div class='ms-1'>\n                ".concat(tooltipItem, "\n              </div>");
     };
@@ -6924,20 +2988,20 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
           show: false,
           data: ['currentMonth', 'prevMonth']
         },
-        color: utils.getGrays().white,
+        color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays().white,
         tooltip: {
           trigger: 'axis',
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
-          formatter: _tooltipFormatter2,
+          formatter: tooltipFormatter,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           }
         },
         xAxis: {
@@ -6946,13 +3010,13 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
           boundaryGap: false,
           axisPointer: {
             lineStyle: {
-              color: utils.getGrays()['300'],
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
               type: 'dashed'
             }
           },
           axisLine: {
             lineStyle: {
-              color: utils.getGrays()['300'],
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
               type: 'solid'
             }
           },
@@ -6960,7 +3024,7 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['400'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400'],
             formatter: function formatter(value) {
               var date = new Date(value);
               return "".concat(months[date.getMonth()].substring(0, 3), " ").concat(date.getDate());
@@ -6970,7 +3034,7 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
           splitLine: {
             show: true,
             lineStyle: {
-              color: utils.getGrays()['300'],
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
               type: 'dashed'
             }
           }
@@ -6982,13 +3046,13 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
           },
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['300']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300']
             }
           },
           boundaryGap: false,
           axisLabel: {
             show: true,
-            color: utils.getGrays()['400'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400'],
             margin: 15
           },
           axisTick: {
@@ -7003,10 +3067,10 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
           type: 'line',
           data: monthsnumber[0],
           lineStyle: {
-            color: utils.getGrays()['300']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300']
           },
           itemStyle: {
-            borderColor: utils.getGrays()['300'],
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
             borderWidth: 2
           },
           symbol: 'none',
@@ -7017,10 +3081,10 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
           type: 'line',
           data: monthsnumber[1],
           lineStyle: {
-            color: utils.getColors().primary
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary
           },
           itemStyle: {
-            borderColor: utils.getColors().primary,
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
             borderWidth: 2
           },
           symbol: 'none',
@@ -7036,7 +3100,7 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions); // Change chart options accordiong to the selected month
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions); // Change chart options accordiong to the selected month
 
     var monthSelect = document.querySelector(SELECT_MONTH);
     var month = 0;
@@ -7075,30 +3139,48 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
     });
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (grossRevenueChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/lead-conversion.js":
+/*!********************************************************!*\
+  !*** ./resources/js/charts/echarts/lead-conversion.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Traffic Channels                           */
 
 /* -------------------------------------------------------------------------- */
 
-
 var leadConversionInit = function leadConversionInit() {
   var $leadConversion = document.querySelector('.echart-lead-conversion');
 
   if ($leadConversion) {
-    var userOptions = utils.getData($leadConversion, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($leadConversion, 'options');
     var chart = window.echarts.init($leadConversion);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [utils.rgbaColor(utils.getColors().primary, 0.7), utils.rgbaColor(utils.getColors().info, 0.6), utils.rgbaColor(utils.getColors().secondary, 0.2), utils.rgbaColor(utils.getColors().warning, 0.6)],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.7), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info, 0.6), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().secondary, 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning, 0.6)],
         legend: {
           data: ['Campaigns', 'Lead', 'Opportunity', 'Deal'],
           left: '0%',
           icon: 'circle',
-          inactiveColor: utils.getGrays()['400'],
+          inactiveColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400'],
           textStyle: {
-            color: utils.getGrays()['700']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['700']
           },
           itemGap: 10
         },
@@ -7111,21 +3193,21 @@ var leadConversionInit = function leadConversionInit() {
           boundaryGap: false,
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           },
           axisTick: {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['600']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600']
           }
         },
         xAxis: {
           type: 'value',
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           },
           axisLine: {
@@ -7144,17 +3226,17 @@ var leadConversionInit = function leadConversionInit() {
           axisPointer: {
             type: 'none'
           },
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           },
-          formatter: tooltipFormatter
+          formatter: _echarts_utils__WEBPACK_IMPORTED_MODULE_1__.tooltipFormatter
         },
         series: [{
           name: 'Campaigns',
@@ -7191,15 +3273,33 @@ var leadConversionInit = function leadConversionInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (leadConversionInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/line-payment.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/charts/echarts/line-payment.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                             Echarts Line Payment                           */
 
 /* -------------------------------------------------------------------------- */
-
 
 var linePaymentChartInit = function linePaymentChartInit() {
   var $echartsLinePaymentChart = document.querySelector('.echart-line-payment');
@@ -7211,7 +3311,7 @@ var linePaymentChartInit = function linePaymentChartInit() {
   var labels = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM'];
 
   if ($echartsLinePaymentChart) {
-    var userOptions = utils.getData($echartsLinePaymentChart, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsLinePaymentChart, 'options');
     var chart = window.echarts.init($echartsLinePaymentChart);
 
     var getDefaultOptions = function getDefaultOptions() {
@@ -7222,8 +3322,8 @@ var linePaymentChartInit = function linePaymentChartInit() {
             type: 'none'
           },
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           borderWidth: 1,
           transitionDuration: 0,
           formatter: function formatter(params) {
@@ -7232,7 +3332,7 @@ var linePaymentChartInit = function linePaymentChartInit() {
           textStyle: {
             fontWeight: 500,
             fontSize: 12,
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           }
         },
         xAxis: {
@@ -7241,24 +3341,24 @@ var linePaymentChartInit = function linePaymentChartInit() {
           splitLine: {
             show: true,
             lineStyle: {
-              color: utils.rgbaColor('#fff', 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor('#fff', 0.1)
             },
             interval: 0
           },
           axisLine: {
             lineStyle: {
-              color: utils.rgbaColor('#fff', 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor('#fff', 0.1)
             }
           },
           axisTick: {
             show: true,
             length: 10,
             lineStyle: {
-              color: utils.rgbaColor('#fff', 0.1)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor('#fff', 0.1)
             }
           },
           axisLabel: {
-            color: utils.getGrays()['400'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400'],
             fontWeight: 600,
             formatter: function formatter(value) {
               return value.substring(0, value.length - 3);
@@ -7295,10 +3395,10 @@ var linePaymentChartInit = function linePaymentChartInit() {
           }),
           symbol: 'emptyCircle',
           itemStyle: {
-            color: localStorage.getItem('theme') === 'light' ? utils.getGrays().white : utils.getColors().primary
+            color: localStorage.getItem('theme') === 'light' ? _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['white'] : _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary
           },
           lineStyle: {
-            color: localStorage.getItem('theme') === 'light' ? utils.rgbaColor(utils.getGrays().white, 0.8) : utils.getColors().primary
+            color: localStorage.getItem('theme') === 'light' ? _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['white'], 0.8) : _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary
           },
           areaStyle: {
             color: {
@@ -7309,10 +3409,10 @@ var linePaymentChartInit = function linePaymentChartInit() {
               y2: 1,
               colorStops: [{
                 offset: 0,
-                color: localStorage.getItem('theme') === 'light' ? 'rgba(255, 255, 255, 0.5)' : utils.rgbaColor(utils.getColors().primary, 0.5)
+                color: localStorage.getItem('theme') === 'light' ? 'rgba(255, 255, 255, 0.5)' : _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.5)
               }, {
                 offset: 1,
-                color: localStorage.getItem('theme') === 'light' ? 'rgba(255, 255, 255, 0)' : utils.rgbaColor(utils.getColors().primary, 0)
+                color: localStorage.getItem('theme') === 'light' ? 'rgba(255, 255, 255, 0)' : _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0)
               }]
             }
           },
@@ -7331,8 +3431,8 @@ var linePaymentChartInit = function linePaymentChartInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
-    utils.resize(function () {
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
+    _utils__WEBPACK_IMPORTED_MODULE_0__["default"].resize(function () {
       if (window.innerWidth < 768) {
         chart.setOption({
           xAxis: {
@@ -7359,12 +3459,30 @@ var linePaymentChartInit = function linePaymentChartInit() {
     }
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (linePaymentChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/location-by-session-crm.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/charts/echarts/location-by-session-crm.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Session By Country Map                      */
 
 /* -------------------------------------------------------------------------- */
-
 
 var locationBySessionInit = function locationBySessionInit() {
   var $locationBySessionMap = document.querySelector('.echart-location-by-session-map');
@@ -7908,9 +4026,9 @@ var locationBySessionInit = function locationBySessionInit() {
   var minZoomLevel = 1;
 
   if ($locationBySessionMap) {
-    var _document$querySelect2, _document$querySelect3, _document$querySelect4;
+    var _document$querySelect, _document$querySelect2, _document$querySelect3;
 
-    var userOptions = utils.getData($locationBySessionMap, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($locationBySessionMap, 'options');
     var chart = window.echarts.init($locationBySessionMap);
 
     var getDefaultOptions = function getDefaultOptions() {
@@ -7918,10 +4036,10 @@ var locationBySessionInit = function locationBySessionInit() {
         tooltip: {
           trigger: 'item',
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
@@ -7936,7 +4054,7 @@ var locationBySessionInit = function locationBySessionInit() {
           min: 800,
           max: 50000,
           inRange: {
-            color: [utils.getColors().primary, utils.rgbaColor(utils.getColors().primary, 0.8), utils.rgbaColor(utils.getColors().primary, 0.6), utils.rgbaColor(utils.getColors().primary, 0.4), utils.rgbaColor(utils.getColors().primary, 0.2)].reverse()
+            color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.8), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.6), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.4), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.2)].reverse()
           }
         },
         series: [{
@@ -7954,23 +4072,23 @@ var locationBySessionInit = function locationBySessionInit() {
             show: false
           },
           itemStyle: {
-            borderColor: utils.getGrays()['300']
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300']
           },
           emphasis: {
             label: {
               show: false
             },
             itemStyle: {
-              areaColor: utils.getColor('warning')
+              areaColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning')
             }
           }
         }]
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     var zoomLevel = 1;
-    (_document$querySelect2 = document.querySelector('.location-by-session-map-reset')) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.addEventListener('click', function () {
+    (_document$querySelect = document.querySelector('.location-by-session-map-reset')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('click', function () {
       zoomLevel = 1;
       chart.dispatchAction({
         type: 'restore'
@@ -7981,9 +4099,9 @@ var locationBySessionInit = function locationBySessionInit() {
         }
       });
     });
-    (_document$querySelect3 = document.querySelector('.location-by-session-map-zoom')) === null || _document$querySelect3 === void 0 ? void 0 : _document$querySelect3.addEventListener('click', function () {
+    (_document$querySelect2 = document.querySelector('.location-by-session-map-zoom')) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.addEventListener('click', function () {
       if (zoomLevel < maxZoomLevel) {
-        zoomLevel += 1;
+        zoomLevel = zoomLevel + 1;
       }
 
       chart.setOption({
@@ -7992,9 +4110,9 @@ var locationBySessionInit = function locationBySessionInit() {
         }
       });
     });
-    (_document$querySelect4 = document.querySelector('.location-by-session-map-zoomOut')) === null || _document$querySelect4 === void 0 ? void 0 : _document$querySelect4.addEventListener('click', function () {
+    (_document$querySelect3 = document.querySelector('.location-by-session-map-zoomOut')) === null || _document$querySelect3 === void 0 ? void 0 : _document$querySelect3.addEventListener('click', function () {
       if (zoomLevel > minZoomLevel) {
-        zoomLevel -= 1;
+        zoomLevel = zoomLevel - 1;
       }
 
       chart.setOption({
@@ -8005,31 +4123,49 @@ var locationBySessionInit = function locationBySessionInit() {
     });
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (locationBySessionInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/market-share-ecommerce.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/charts/echarts/market-share-ecommerce.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Product Share                               */
 
 /* -------------------------------------------------------------------------- */
 
-
 var marketShareEcommerceInit = function marketShareEcommerceInit() {
-  var ECHART_PRODUCT_SHARE = '.echart-product-share';
+  var ECHART_PRODUCT_SHARE = ".echart-product-share";
   var $echartProductShare = document.querySelector(ECHART_PRODUCT_SHARE);
 
   if ($echartProductShare) {
-    var userOptions = utils.getData($echartProductShare, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartProductShare, "options");
     var chart = window.echarts.init($echartProductShare);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [utils.getColors().primary, utils.getColors().info, utils.getColors().warning],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning],
         tooltip: {
-          trigger: 'item',
+          trigger: "item",
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
@@ -8038,28 +4174,28 @@ var marketShareEcommerceInit = function marketShareEcommerceInit() {
           }
         },
         position: function position(pos, params, dom, rect, size) {
-          return getPosition(pos, params, dom, rect, size);
+          return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
         },
         legend: {
           show: false
         },
         series: [{
-          type: 'pie',
-          radius: ['100%', '80%'],
+          type: "pie",
+          radius: ["100%", "80%"],
           avoidLabelOverlap: false,
           hoverAnimation: false,
           itemStyle: {
             borderWidth: 2,
-            borderColor: utils.getColor('card-bg')
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('card-bg')
           },
           label: {
             normal: {
               show: false,
-              position: 'center',
+              position: "center",
               textStyle: {
-                fontSize: '20',
-                fontWeight: '500',
-                color: utils.getGrays()['700']
+                fontSize: "20",
+                fontWeight: "500",
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["700"]
               }
             },
             emphasis: {
@@ -8073,46 +4209,64 @@ var marketShareEcommerceInit = function marketShareEcommerceInit() {
           },
           data: [{
             value: 5300000,
-            name: 'Falcon'
+            name: "Falcon"
           }, {
             value: 1900000,
-            name: 'Sparrow'
+            name: "Sparrow"
           }, {
             value: 2000000,
-            name: 'Phoenix'
+            name: "Phoenix"
           }]
         }]
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (marketShareEcommerceInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/market-share.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/charts/echarts/market-share.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Market Share                                */
 
 /* -------------------------------------------------------------------------- */
 
-
 var marketShareInit = function marketShareInit() {
-  var ECHART_MARKET_SHARE = '.echart-market-share';
+  var ECHART_MARKET_SHARE = ".echart-market-share";
   var $echartMarketShare = document.querySelector(ECHART_MARKET_SHARE);
 
   if ($echartMarketShare) {
-    var userOptions = utils.getData($echartMarketShare, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartMarketShare, "options");
     var chart = window.echarts.init($echartMarketShare);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [utils.getColors().primary, utils.getColors().info, utils.getGrays()[300]],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()[300]],
         tooltip: {
-          trigger: 'item',
+          trigger: "item",
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
@@ -8121,28 +4275,28 @@ var marketShareInit = function marketShareInit() {
           }
         },
         position: function position(pos, params, dom, rect, size) {
-          return getPosition(pos, params, dom, rect, size);
+          return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
         },
         legend: {
           show: false
         },
         series: [{
-          type: 'pie',
-          radius: ['100%', '87%'],
+          type: "pie",
+          radius: ["100%", "87%"],
           avoidLabelOverlap: false,
           hoverAnimation: false,
           itemStyle: {
             borderWidth: 2,
-            borderColor: utils.getColor('card-bg')
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('card-bg')
           },
           label: {
             normal: {
               show: false,
-              position: 'center',
+              position: "center",
               textStyle: {
-                fontSize: '20',
-                fontWeight: '500',
-                color: utils.getGrays()['700']
+                fontSize: "20",
+                fontWeight: "500",
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["700"]
               }
             },
             emphasis: {
@@ -8156,47 +4310,65 @@ var marketShareInit = function marketShareInit() {
           },
           data: [{
             value: 5300000,
-            name: 'Samsung'
+            name: "Samsung"
           }, {
             value: 1900000,
-            name: 'Huawei'
+            name: "Huawei"
           }, {
             value: 2000000,
-            name: 'Apple'
+            name: "Apple"
           }]
         }]
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (marketShareInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/most-leads.js":
+/*!***************************************************!*\
+  !*** ./resources/js/charts/echarts/most-leads.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Market Share                                */
 
 /* -------------------------------------------------------------------------- */
 
-
 var mostLeadsInit = function mostLeadsInit() {
-  var ECHART_MOST_LEADS = '.echart-most-leads';
+  var ECHART_MOST_LEADS = ".echart-most-leads";
   var $echartMostLeads = document.querySelector(ECHART_MOST_LEADS);
 
   if ($echartMostLeads) {
-    var userOptions = utils.getData($echartMostLeads, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartMostLeads, "options");
     var chart = window.echarts.init($echartMostLeads);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [utils.getColors().primary, utils.getColors().info, utils.getColors().warning, utils.getColors().info // utils.getGrays()[300],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info // utils.getGrays()[300],
         ],
         tooltip: {
-          trigger: 'item',
+          trigger: "item",
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
@@ -8205,28 +4377,28 @@ var mostLeadsInit = function mostLeadsInit() {
           }
         },
         position: function position(pos, params, dom, rect, size) {
-          return getPosition(pos, params, dom, rect, size);
+          return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
         },
         legend: {
           show: false
         },
         series: [{
-          type: 'pie',
-          radius: ['100%', '67%'],
+          type: "pie",
+          radius: ["100%", "67%"],
           avoidLabelOverlap: false,
           hoverAnimation: false,
           itemStyle: {
             borderWidth: 2,
-            borderColor: utils.getColor('card-bg')
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('card-bg')
           },
           label: {
             normal: {
               show: false,
-              position: 'center',
+              position: "center",
               textStyle: {
-                fontSize: '20',
-                fontWeight: '500',
-                color: utils.getGrays()['700']
+                fontSize: "20",
+                fontWeight: "500",
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["700"]
               }
             },
             emphasis: {
@@ -8240,41 +4412,59 @@ var mostLeadsInit = function mostLeadsInit() {
           },
           data: [{
             value: 60,
-            name: 'Email'
+            name: "Email"
           }, {
             value: 30,
-            name: 'Social'
+            name: "Social"
           }, {
             value: 10,
-            name: 'Call'
+            name: "Call"
           }, {
             value: 120,
-            name: 'Other'
+            name: "Other"
           }]
         }]
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (mostLeadsInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/real-time-users.js":
+/*!********************************************************!*\
+  !*** ./resources/js/charts/echarts/real-time-users.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                             Echarts Real Time Users                        */
 
 /* -------------------------------------------------------------------------- */
 
-
 var realTimeUsersChartInit = function realTimeUsersChartInit() {
   var $echartsRealTimeUsers = document.querySelector('.echart-real-time-users');
 
   if ($echartsRealTimeUsers) {
-    var userOptions = utils.getData($echartsRealTimeUsers, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsRealTimeUsers, 'options');
     var chart = window.echarts.init($echartsRealTimeUsers);
     var data = [921, 950, 916, 913, 909, 962, 926, 936, 977, 976, 999, 981, 998, 1000, 900, 906, 973, 911, 994, 982, 917, 972, 952, 963, 991];
     var axisData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
-    var _tooltipFormatter3 = function _tooltipFormatter3(params) {
+    var tooltipFormatter = function tooltipFormatter(params) {
       return "\n      <div>\n          <h6 class=\"fs--1 text-700 mb-0\"><span class=\"fas fa-circle me-1 text-info\"></span>\n            Users : ".concat(params[0].value, "\n          </h6>\n      </div>\n      ");
     };
 
@@ -8286,17 +4476,17 @@ var realTimeUsersChartInit = function realTimeUsersChartInit() {
           axisPointer: {
             type: 'none'
           },
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           },
-          formatter: _tooltipFormatter3
+          formatter: tooltipFormatter
         },
         xAxis: {
           type: 'category',
@@ -8330,7 +4520,7 @@ var realTimeUsersChartInit = function realTimeUsersChartInit() {
           barCategoryGap: '12%',
           data: data,
           itemStyle: {
-            color: utils.rgbaColor('#fff', 0.3)
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor('#fff', 0.3)
           }
         }],
         grid: {
@@ -8342,14 +4532,14 @@ var realTimeUsersChartInit = function realTimeUsersChartInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     var userCounterDom = document.querySelector('.real-time-user');
     setInterval(function () {
-      var rndData = utils.getRandomNumber(900, 1000);
+      var rndData = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getRandomNumber(900, 1000);
       data.shift();
       data.push(rndData);
       axisData.shift();
-      axisData.push(utils.getRandomNumber(100, 500));
+      axisData.push(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getRandomNumber(100, 500));
       userCounterDom.innerHTML = rndData;
       chart.setOption({
         xAxis: {
@@ -8362,43 +4552,61 @@ var realTimeUsersChartInit = function realTimeUsersChartInit() {
     }, 2000);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (realTimeUsersChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/report-for-this-week.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/charts/echarts/report-for-this-week.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                     Echart Bar Report For This Week                        */
 
 /* -------------------------------------------------------------------------- */
 
-
 var reportForThisWeekInit = function reportForThisWeekInit() {
-  var ECHART_BAR_REPORT_FOR_THIS_WEEK = '.echart-bar-report-for-this-week';
+  var ECHART_BAR_REPORT_FOR_THIS_WEEK = ".echart-bar-report-for-this-week";
   var $echartBarReportForThisWeek = document.querySelector(ECHART_BAR_REPORT_FOR_THIS_WEEK);
 
   if ($echartBarReportForThisWeek) {
-    var selectChart = utils.getData($echartBarReportForThisWeek, 'chart');
+    var selectChart = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartBarReportForThisWeek, "chart");
     var legendLastWeek = document.getElementById(selectChart === null || selectChart === void 0 ? void 0 : selectChart.option1);
     var legendThisWeek = document.getElementById(selectChart === null || selectChart === void 0 ? void 0 : selectChart.option2);
-    var data = [['product', 'This Week', 'Last Week'], ['Sun', 43, 85], ['Mon', 83, 73], ['Tue', 86, 62], ['Wed', 72, 53], ['Thu', 80, 50], ['Fri', 50, 70], ['Sat', 80, 90]];
-    var userOptions = utils.getData($echartBarReportForThisWeek, 'options');
+    var data = [["product", "This Week", "Last Week"], ["Sun", 43, 85], ["Mon", 83, 73], ["Tue", 86, 62], ["Wed", 72, 53], ["Thu", 80, 50], ["Fri", 50, 70], ["Sat", 80, 90]];
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartBarReportForThisWeek, "options");
     var chart = window.echarts.init($echartBarReportForThisWeek);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [utils.getColors().primary, utils.getGrays()['300']],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"]],
         dataset: {
           source: data
         },
         tooltip: {
-          trigger: 'item',
+          trigger: "item",
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["100"],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           },
           formatter: function formatter(params) {
             return "<div class=\"font-weight-semi-bold\">".concat(params.seriesName, "</div><div class=\"fs--1 text-600\"><strong>").concat(params.name, ":</strong> ").concat(params.value[params.componentIndex + 1], "</div>");
@@ -8408,14 +4616,14 @@ var reportForThisWeekInit = function reportForThisWeekInit() {
           show: false
         },
         xAxis: {
-          type: 'category',
+          type: "category",
           axisLabel: {
-            color: utils.getGrays()['400']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["400"]
           },
           axisLine: {
             lineStyle: {
-              color: utils.getGrays()['300'],
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
+              type: "dashed"
             }
           },
           axisTick: false,
@@ -8423,30 +4631,30 @@ var reportForThisWeekInit = function reportForThisWeekInit() {
         },
         yAxis: {
           axisPointer: {
-            type: 'none'
+            type: "none"
           },
-          axisTick: 'none',
+          axisTick: "none",
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['300'],
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
+              type: "dashed"
             }
           },
           axisLine: {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['400'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["400"],
             formatter: function formatter(value) {
               return "".concat(value, " hr");
             }
           }
         },
         series: [{
-          type: 'bar',
-          name: '',
-          barWidth: '12%',
-          barGap: '30%',
+          type: "bar",
+          name: "",
+          barWidth: "12%",
+          barGap: "30%",
           label: {
             normal: {
               show: false
@@ -8456,13 +4664,13 @@ var reportForThisWeekInit = function reportForThisWeekInit() {
           itemStyle: {
             normal: {
               barBorderRadius: [10, 10, 0, 0],
-              color: utils.getColors().primary
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary
             }
           }
         }, {
-          type: 'bar',
-          barWidth: '12%',
-          barGap: '30%',
+          type: "bar",
+          barWidth: "12%",
+          barGap: "30%",
           label: {
             normal: {
               show: false
@@ -8471,42 +4679,60 @@ var reportForThisWeekInit = function reportForThisWeekInit() {
           itemStyle: {
             normal: {
               barBorderRadius: [4, 4, 0, 0],
-              color: utils.getGrays()[300]
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()[300]
             }
           }
         }],
         grid: {
-          right: '0',
-          left: '40px',
-          bottom: '10%',
-          top: '15%'
+          right: "0",
+          left: "40px",
+          bottom: "10%",
+          top: "15%"
         }
       };
     };
 
-    legendLastWeek && legendLastWeek.addEventListener('click', function () {
-      legendLastWeek.classList.toggle('opacity-50');
+    legendLastWeek && legendLastWeek.addEventListener("click", function () {
+      legendLastWeek.classList.toggle("opacity-50");
       chart.dispatchAction({
-        type: 'legendToggleSelect',
-        name: 'Last Week'
+        type: "legendToggleSelect",
+        name: "Last Week"
       });
     });
-    legendThisWeek && legendThisWeek.addEventListener('click', function () {
-      legendThisWeek.classList.toggle('opacity-50');
+    legendThisWeek && legendThisWeek.addEventListener("click", function () {
+      legendThisWeek.classList.toggle("opacity-50");
       chart.dispatchAction({
-        type: 'legendToggleSelect',
-        name: 'This Week'
+        type: "legendToggleSelect",
+        name: "This Week"
       });
     });
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (reportForThisWeekInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/returning-customer-rate.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/charts/echarts/returning-customer-rate.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                     Echarts Line Returing Customer Rate                    */
 
 /* -------------------------------------------------------------------------- */
-
 
 var returningCustomerRateInit = function returningCustomerRateInit() {
   var ECHART_LINE_RETURNING_CUSTOMER_RATE = '.echart-line-returning-customer-rate';
@@ -8515,7 +4741,7 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
 
   if ($echartsLineReturningCustomerRate) {
     // Get options from data attribute
-    var userOptions = utils.getData($echartsLineReturningCustomerRate, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsLineReturningCustomerRate, 'options');
     var LEGEND_MONTH_TARGET = userOptions.target;
     var SELECT_MONTH = "#".concat(userOptions.monthSelect);
     var LEGEND_NEW_MONTH = "#".concat(userOptions.optionOne);
@@ -8526,7 +4752,7 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
     var monthNumbers = [[20, 40, 20, 80, 50, 80, 120, 80, 50, 120, 110, 110], [60, 80, 60, 80, 65, 130, 120, 100, 30, 40, 30, 70], [100, 70, 80, 50, 120, 100, 130, 140, 90, 100, 40, 50], [80, 50, 60, 40, 60, 120, 100, 130, 60, 80, 50, 60], [70, 80, 100, 70, 90, 60, 80, 130, 40, 60, 50, 80], [90, 40, 80, 80, 100, 140, 100, 130, 90, 60, 70, 50], [80, 60, 80, 60, 40, 100, 120, 100, 30, 40, 30, 70], [20, 40, 20, 50, 70, 60, 110, 80, 90, 30, 50, 50], [60, 70, 30, 40, 80, 140, 80, 140, 120, 130, 100, 110], [90, 90, 40, 60, 40, 110, 90, 110, 60, 80, 60, 70], [50, 80, 50, 80, 50, 80, 120, 80, 50, 120, 110, 110], [60, 90, 60, 70, 40, 70, 100, 140, 30, 40, 30, 70], [20, 40, 20, 50, 30, 80, 120, 100, 30, 40, 30, 70]];
 
     var dates = function dates(month) {
-      return utils.getDates(window.dayjs().month(month).date(1), window.dayjs().month(Number(month) + 1).date(0), 1000 * 60 * 60 * 24 * 3);
+      return _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getDates(window.dayjs().month(month).date(1), window.dayjs().month(Number(month) + 1).date(0), 1000 * 60 * 60 * 24 * 3);
     };
 
     var getDefaultOptions = function getDefaultOptions() {
@@ -8537,7 +4763,7 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
             fontWeight: 500,
             fontSize: 13,
             fontFamily: 'poppins',
-            color: utils.getColor('900')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('900')
           }
         },
         legend: {
@@ -8547,17 +4773,17 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
         tooltip: {
           trigger: 'axis',
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           },
-          formatter: tooltipFormatter
+          formatter: _echarts_utils__WEBPACK_IMPORTED_MODULE_1__.tooltipFormatter
         },
         xAxis: {
           type: 'category',
@@ -8565,13 +4791,13 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
           boundaryGap: false,
           axisPointer: {
             lineStyle: {
-              color: utils.getColor('300'),
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('300'),
               type: 'dashed'
             }
           },
           axisLine: {
             lineStyle: {
-              color: utils.getColor('300'),
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('300'),
               type: 'solid'
             }
           },
@@ -8579,7 +4805,7 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
             show: false
           },
           axisLabel: {
-            color: utils.getColor('400'),
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('400'),
             formatter: function formatter(value) {
               var date = new Date(value);
 
@@ -8594,7 +4820,7 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
           splitLine: {
             show: true,
             lineStyle: {
-              color: utils.getGrays()['300'],
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
               type: 'dashed'
             }
           }
@@ -8606,13 +4832,13 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
           },
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['300']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300']
             }
           },
           boundaryGap: false,
           axisLabel: {
             show: true,
-            color: utils.getGrays()['400'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400'],
             margin: 15
           },
           axisTick: {
@@ -8627,10 +4853,10 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
           type: 'line',
           data: monthNumbers[1],
           lineStyle: {
-            color: utils.getColors().primary
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary
           },
           itemStyle: {
-            borderColor: utils.getColors().primary,
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
             borderWidth: 2
           },
           areaStyle: {
@@ -8642,10 +4868,10 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
               y2: 1,
               colorStops: [{
                 offset: 0,
-                color: utils.rgbaColor(utils.getColor('primary'), 0.2)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), 0.2)
               }, {
                 offset: 1,
-                color: utils.rgbaColor(utils.getColor('primary'), 0.01)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), 0.01)
               }]
             }
           },
@@ -8657,10 +4883,10 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
           type: 'line',
           data: monthNumbers[0],
           lineStyle: {
-            color: utils.getColor('warning')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning')
           },
           itemStyle: {
-            borderColor: utils.getColor('warning'),
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'),
             borderWidth: 2
           },
           areaStyle: {
@@ -8672,10 +4898,10 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
               y2: 1,
               colorStops: [{
                 offset: 0,
-                color: utils.rgbaColor(utils.getColor('warning'), 0.2)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'), 0.2)
               }, {
                 offset: 1,
-                color: utils.rgbaColor(utils.getColor('warning'), 0.01)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'), 0.01)
               }]
             }
           },
@@ -8692,7 +4918,7 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions); // Change chart options accordiong to the selected month
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions); // Change chart options accordiong to the selected month
 
     var monthSelect = document.querySelector(SELECT_MONTH);
     monthSelect.addEventListener('change', function (e) {
@@ -8726,12 +4952,30 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
     });
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (returningCustomerRateInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/sales-by-pos-location.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/charts/echarts/sales-by-pos-location.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                          Echarts Sales Pos Location                        */
 
 /* -------------------------------------------------------------------------- */
-
 
 var salesByPosLocationInit = function salesByPosLocationInit() {
   var ECHART_RADAR_SALES_BY_POS_LOCATION = '.echart-radar-sales-by-pos-location';
@@ -8744,7 +4988,7 @@ var salesByPosLocationInit = function salesByPosLocationInit() {
 
   if ($echartsRadarSalesByPosLocation) {
     // Get options from data attribute
-    var userOptions = utils.getData($echartsRadarSalesByPosLocation, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsRadarSalesByPosLocation, 'options');
     var chart = window.echarts.init($echartsRadarSalesByPosLocation);
 
     var getDefaultOptions = function getDefaultOptions() {
@@ -8752,10 +4996,10 @@ var salesByPosLocationInit = function salesByPosLocationInit() {
         tooltip: {
           trigger: 'item',
           padding: [7, 10],
-          backgroundColor: utils.getColor('100'),
-          borderColor: utils.getColor('300'),
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('100'),
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('300'),
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
@@ -8776,10 +5020,10 @@ var salesByPosLocationInit = function salesByPosLocationInit() {
                 r: 0.5,
                 colorStops: [{
                   offset: 0.7,
-                  color: utils.getColor('100')
+                  color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('100')
                 }, {
                   offset: 1,
-                  color: utils.getColor('400')
+                  color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('400')
                 }]
               }
             }
@@ -8789,12 +5033,12 @@ var salesByPosLocationInit = function salesByPosLocationInit() {
           },
           splitLine: {
             lineStyle: {
-              color: utils.getColor('300')
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('300')
             }
           },
           name: {
             textStyle: {
-              color: utils.getColor('600'),
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('600'),
               fontWeight: 500
             }
           },
@@ -8826,10 +5070,10 @@ var salesByPosLocationInit = function salesByPosLocationInit() {
             value: [20, 50, 60, 50, 60, 60],
             name: 'Budget',
             itemStyle: {
-              color: utils.rgbaColor(utils.getColors().warning, 0.5)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning, 0.5)
             },
             areaStyle: {
-              color: utils.rgbaColor(utils.getColors().warning, 0.24)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning, 0.24)
             },
             symbol: 'circle',
             symbolSize: 8
@@ -8837,12 +5081,12 @@ var salesByPosLocationInit = function salesByPosLocationInit() {
             value: [40, 60, 30, 15, 60, 35],
             name: 'Spending',
             areaStyle: {
-              color: [utils.rgbaColor(utils.getColors().primary, 0.24)]
+              color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.24)]
             },
             symbol: 'circle',
             symbolSize: 8,
             itemStyle: {
-              color: utils.rgbaColor(utils.getColors().primary)
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary)
             }
           }]
         }],
@@ -8853,21 +5097,39 @@ var salesByPosLocationInit = function salesByPosLocationInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (salesByPosLocationInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/session-by-browser.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/charts/echarts/session-by-browser.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Session By Device                           */
 
 /* -------------------------------------------------------------------------- */
 
-
 var sessionByBrowserChartInit = function sessionByBrowserChartInit() {
   var $sessionByBroswser = document.querySelector('.echart-session-by-browser');
 
   if ($sessionByBroswser) {
-    var userOptions = utils.getData($sessionByBroswser, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($sessionByBroswser, 'options');
     var chart = window.echarts.init($sessionByBroswser);
     var dataset = {
       week: [{
@@ -8904,14 +5166,14 @@ var sessionByBrowserChartInit = function sessionByBrowserChartInit() {
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [utils.getColors().primary, utils.getColors().success, utils.getColors().info],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().success, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info],
         tooltip: {
           trigger: 'item',
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
@@ -8919,7 +5181,7 @@ var sessionByBrowserChartInit = function sessionByBrowserChartInit() {
             return "<strong>".concat(params.data.name, ":</strong> ").concat(params.data.value, "%");
           },
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           }
         },
         legend: {
@@ -8932,7 +5194,7 @@ var sessionByBrowserChartInit = function sessionByBrowserChartInit() {
           hoverAnimation: false,
           itemStyle: {
             borderWidth: 2,
-            borderColor: utils.getColor('card-bg')
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('card-bg')
           },
           label: {
             normal: {
@@ -8952,7 +5214,7 @@ var sessionByBrowserChartInit = function sessionByBrowserChartInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     var selectMenu = document.querySelector("[data-target='.echart-session-by-browser']");
 
     if (selectMenu) {
@@ -8967,12 +5229,30 @@ var sessionByBrowserChartInit = function sessionByBrowserChartInit() {
     }
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sessionByBrowserChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/session-by-country-map.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/charts/echarts/session-by-country-map.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Session By Country Map                      */
 
 /* -------------------------------------------------------------------------- */
-
 
 var sessionByCountryMapInit = function sessionByCountryMapInit() {
   var $sessionByCountryMap = document.querySelector('.echart-session-by-country-map');
@@ -9514,9 +5794,9 @@ var sessionByCountryMapInit = function sessionByCountryMapInit() {
   var total = 6961500;
 
   if ($sessionByCountryMap) {
-    var _document$querySelect5;
+    var _document$querySelect;
 
-    var userOptions = utils.getData($sessionByCountryMap, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($sessionByCountryMap, 'options');
     var chart = window.echarts.init($sessionByCountryMap);
 
     var getDefaultOptions = function getDefaultOptions() {
@@ -9524,17 +5804,17 @@ var sessionByCountryMapInit = function sessionByCountryMapInit() {
         tooltip: {
           trigger: 'item',
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           formatter: function formatter(params) {
-            var _params$data3, _params$data4;
+            var _params$data, _params$data2;
 
-            return "<strong>".concat((_params$data3 = params.data) === null || _params$data3 === void 0 ? void 0 : _params$data3.name, " :</strong> ").concat((((_params$data4 = params.data) === null || _params$data4 === void 0 ? void 0 : _params$data4.value) / total * 100).toFixed(2), "%");
+            return "<strong>".concat((_params$data = params.data) === null || _params$data === void 0 ? void 0 : _params$data.name, " :</strong> ").concat((((_params$data2 = params.data) === null || _params$data2 === void 0 ? void 0 : _params$data2.value) / total * 100).toFixed(2), "%");
           }
         },
         toolbox: {
@@ -9548,7 +5828,7 @@ var sessionByCountryMapInit = function sessionByCountryMapInit() {
           min: 800,
           max: 50000,
           inRange: {
-            color: [utils.getColors().primary, utils.rgbaColor(utils.getColors().primary, 0.8), utils.rgbaColor(utils.getColors().primary, 0.6), utils.rgbaColor(utils.getColors().primary, 0.4), utils.rgbaColor(utils.getColors().primary, 0.2)].reverse()
+            color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.8), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.6), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.4), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.2)].reverse()
           }
         },
         series: [{
@@ -9566,41 +5846,59 @@ var sessionByCountryMapInit = function sessionByCountryMapInit() {
             show: false
           },
           itemStyle: {
-            borderColor: utils.getGrays()['300']
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300']
           },
           emphasis: {
             label: {
               show: false
             },
             itemStyle: {
-              areaColor: utils.getColor('warning')
+              areaColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning')
             }
           }
         }]
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
-    (_document$querySelect5 = document.querySelector('.session-by-country-map-reset')) === null || _document$querySelect5 === void 0 ? void 0 : _document$querySelect5.addEventListener('click', function () {
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
+    (_document$querySelect = document.querySelector('.session-by-country-map-reset')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('click', function () {
       chart.dispatchAction({
         type: 'restore'
       });
     });
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sessionByCountryMapInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/session-by-country.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/charts/echarts/session-by-country.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Session By Country                          */
 
 /* -------------------------------------------------------------------------- */
 
-
 var sessionByCountryChartInit = function sessionByCountryChartInit() {
   var $sessionByCountry = document.querySelector('.echart-session-by-country');
   var data = [['CHINA', 'INDIA', 'USA', 'IRAN', 'BRAZIL', 'PAKISTAN'], [19.53, 17.32, 4.49, 3.46, 2.8, 1.7]];
 
   if ($sessionByCountry) {
-    var userOptions = utils.getData($sessionByCountry, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($sessionByCountry, 'options');
     var chart = window.echarts.init($sessionByCountry);
 
     var getDefaultOptions = function getDefaultOptions() {
@@ -9611,15 +5909,15 @@ var sessionByCountryChartInit = function sessionByCountryChartInit() {
           axisPointer: {
             type: 'none'
           },
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           } // formatter: tooltipFormatter
 
         },
@@ -9627,14 +5925,14 @@ var sessionByCountryChartInit = function sessionByCountryChartInit() {
           type: 'category',
           data: data[0],
           axisLabel: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             formatter: function formatter(value) {
               return value.substring(0, 3);
             }
           },
           axisLine: {
             lineStyle: {
-              color: utils.getGrays()['400']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400']
             }
           },
           axisTick: {
@@ -9642,7 +5940,7 @@ var sessionByCountryChartInit = function sessionByCountryChartInit() {
             // length: 8,
             alignWithLabel: true,
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           }
         },
@@ -9654,12 +5952,12 @@ var sessionByCountryChartInit = function sessionByCountryChartInit() {
           },
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['300'],
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
               type: 'dashed'
             }
           },
           axisLabel: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             formatter: function formatter(value) {
               return "".concat(value, "%");
             },
@@ -9676,7 +5974,7 @@ var sessionByCountryChartInit = function sessionByCountryChartInit() {
           data: data[1],
           itemStyle: {
             barBorderRadius: [3, 3, 0, 0],
-            color: utils.getColors().primary
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary
           },
           barWidth: 15
         }],
@@ -9689,69 +5987,87 @@ var sessionByCountryChartInit = function sessionByCountryChartInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sessionByCountryChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/top-products.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/charts/echarts/top-products.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Top Products                                */
 
 /* -------------------------------------------------------------------------- */
 
-
 var topProductsInit = function topProductsInit() {
-  var ECHART_BAR_TOP_PRODUCTS = '.echart-bar-top-products';
+  var ECHART_BAR_TOP_PRODUCTS = ".echart-bar-top-products";
   var $echartBarTopProducts = document.querySelector(ECHART_BAR_TOP_PRODUCTS);
 
   if ($echartBarTopProducts) {
-    var data = [['producto', '2022', '2021'], ['Faja DGh1', 49, 92], ['Soporte OE1', 62, 83], ['CTI Silicon 200mg', 86, 62], ['Faja Dist HYU', 60, 81], ['Soporte AMT2', 47, 92], ['Faja Min45', 70, 85], ['Sili HJ9', 60, 87]];
-    var userOptions = utils.getData($echartBarTopProducts, 'options');
+    var data = [["product", "2019", "2018"], ["Boots4", 43, 85], ["Reign Pro", 83, 73], ["Slick", 86, 62], ["Falcon", 72, 53], ["Sparrow", 80, 50], ["Hideway", 50, 70], ["Freya", 80, 90]];
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartBarTopProducts, "options");
     var chart = window.echarts.init($echartBarTopProducts);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [utils.getColors().primary, utils.getGrays()['300']],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"]],
         dataset: {
           source: data
         },
         tooltip: {
-          trigger: 'item',
+          trigger: "item",
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           },
           formatter: function formatter(params) {
             return "<div class=\"font-weight-semi-bold\">".concat(params.seriesName, "</div><div class=\"fs--1 text-600\"><strong>").concat(params.name, ":</strong> ").concat(params.value[params.componentIndex + 1], "</div>");
           }
         },
         legend: {
-          data: ['2022', '2021'],
-          left: 'left',
+          data: ["2019", "2018"],
+          left: "left",
           itemWidth: 10,
           itemHeight: 10,
           borderRadius: 0,
-          icon: 'circle',
-          inactiveColor: utils.getGrays()['400'],
+          icon: "circle",
+          inactiveColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["400"],
           textStyle: {
-            color: utils.getGrays()['700']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["700"]
           }
         },
         xAxis: {
-          type: 'category',
+          type: "category",
           axisLabel: {
-            color: utils.getGrays()['400']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["400"]
           },
           axisLine: {
             lineStyle: {
-              color: utils.getGrays()['300'],
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
+              type: "dashed"
             }
           },
           axisTick: false,
@@ -9759,26 +6075,26 @@ var topProductsInit = function topProductsInit() {
         },
         yAxis: {
           axisPointer: {
-            type: 'none'
+            type: "none"
           },
-          axisTick: 'none',
+          axisTick: "none",
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['300'],
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
+              type: "dashed"
             }
           },
           axisLine: {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['400']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["400"]
           }
         },
         series: [{
-          type: 'bar',
-          barWidth: '10px',
-          barGap: '30%',
+          type: "bar",
+          barWidth: "10px",
+          barGap: "30%",
           label: {
             normal: {
               show: false
@@ -9788,13 +6104,13 @@ var topProductsInit = function topProductsInit() {
           itemStyle: {
             normal: {
               barBorderRadius: [10, 10, 0, 0],
-              color: utils.getColors().primary
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary
             }
           }
         }, {
-          type: 'bar',
-          barWidth: '10px',
-          barGap: '30%',
+          type: "bar",
+          barWidth: "10px",
+          barGap: "30%",
           label: {
             normal: {
               show: false
@@ -9803,28 +6119,46 @@ var topProductsInit = function topProductsInit() {
           itemStyle: {
             normal: {
               barBorderRadius: [4, 4, 0, 0],
-              color: utils.getGrays()[300]
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()[300]
             }
           }
         }],
         grid: {
-          right: '0',
-          left: '30px',
-          bottom: '10%',
-          top: '20%'
+          right: "0",
+          left: "30px",
+          bottom: "10%",
+          top: "20%"
         }
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (topProductsInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/total-order.js":
+/*!****************************************************!*\
+  !*** ./resources/js/charts/echarts/total-order.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Total Order                                 */
 
 /* -------------------------------------------------------------------------- */
-
 
 var totalOrderInit = function totalOrderInit() {
   var ECHART_LINE_TOTAL_ORDER = '.echart-line-total-order'; //
@@ -9835,7 +6169,7 @@ var totalOrderInit = function totalOrderInit() {
 
   if ($echartLineTotalOrder) {
     // Get options from data attribute
-    var userOptions = utils.getData($echartLineTotalOrder, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartLineTotalOrder, 'options');
     var chart = window.echarts.init($echartLineTotalOrder); // Default options
 
     var getDefaultOptions = function getDefaultOptions() {
@@ -9845,15 +6179,15 @@ var totalOrderInit = function totalOrderInit() {
           trigger: 'axis',
           padding: [7, 10],
           formatter: '{b0}: {c0}',
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           }
         },
         xAxis: {
@@ -9866,7 +6200,7 @@ var totalOrderInit = function totalOrderInit() {
           axisLine: {
             show: false,
             lineStyle: {
-              color: utils.getGrays()['300'],
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
               type: 'dashed'
             }
           },
@@ -9901,12 +6235,12 @@ var totalOrderInit = function totalOrderInit() {
         series: [{
           type: 'line',
           lineStyle: {
-            color: utils.getColors().primary,
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
             width: 3
           },
           itemStyle: {
-            color: utils.getGrays().white,
-            borderColor: utils.getColors().primary,
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays().white,
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
             borderWidth: 2
           },
           hoverAnimation: true,
@@ -9926,10 +6260,10 @@ var totalOrderInit = function totalOrderInit() {
               y2: 1,
               colorStops: [{
                 offset: 0,
-                color: utils.rgbaColor(utils.getColors().primary, 0.25)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.25)
               }, {
                 offset: 1,
-                color: utils.rgbaColor(utils.getColors().primary, 0)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0)
               }]
             }
           }
@@ -9943,32 +6277,50 @@ var totalOrderInit = function totalOrderInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (totalOrderInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/total-sales-ecommerce.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/charts/echarts/total-sales-ecommerce.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                      Echarts Total Sales E-commerce                        */
 
 /* -------------------------------------------------------------------------- */
 
-
 var totalSalesEcommerce = function totalSalesEcommerce() {
-  var ECHART_LINE_TOTAL_SALES_ECOMM = '.echart-line-total-sales-ecommerce';
+  var ECHART_LINE_TOTAL_SALES_ECOMM = ".echart-line-total-sales-ecommerce";
   var $echartsLineTotalSalesEcomm = document.querySelector(ECHART_LINE_TOTAL_SALES_ECOMM);
-  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   function getFormatter(params) {
-    return params.map(function (_ref16, index) {
-      var value = _ref16.value,
-          borderColor = _ref16.borderColor;
+    return params.map(function (_ref, index) {
+      var value = _ref.value,
+          borderColor = _ref.borderColor;
       return "<span class= \"fas fa-circle\" style=\"color: ".concat(borderColor, "\"></span>\n    <span class='text-600'>").concat(index === 0 ? 'Last Month' : 'Previous Year', ": ").concat(value, "</span>");
     }).join('<br/>');
   }
 
   if ($echartsLineTotalSalesEcomm) {
     // Get options from data attribute
-    var userOptions = utils.getData($echartsLineTotalSalesEcomm, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsLineTotalSalesEcomm, "options");
     var TOTAL_SALES_LAST_MONTH = "#".concat(userOptions.optionOne);
     var TOTAL_SALES_PREVIOUS_YEAR = "#".concat(userOptions.optionTwo);
     var totalSalesLastMonth = document.querySelector(TOTAL_SALES_LAST_MONTH);
@@ -9977,14 +6329,14 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: utils.getGrays()['100'],
+        color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
         tooltip: {
-          trigger: 'axis',
+          trigger: "axis",
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           formatter: function formatter(params) {
@@ -9992,7 +6344,7 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
           },
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           }
         },
         legend: {
@@ -10000,13 +6352,13 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
           show: false
         },
         xAxis: {
-          type: 'category',
-          data: ['2019-01-05', '2019-01-06', '2019-01-07', '2019-01-08', '2019-01-09', '2019-01-10', '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-15', '2019-01-16'],
+          type: "category",
+          data: ["2019-01-05", "2019-01-06", "2019-01-07", "2019-01-08", "2019-01-09", "2019-01-10", "2019-01-11", "2019-01-12", "2019-01-13", "2019-01-14", "2019-01-15", "2019-01-16"],
           boundaryGap: false,
           axisPointer: {
             lineStyle: {
-              color: utils.getColor('300'),
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('300'),
+              type: "dashed"
             }
           },
           splitLine: {
@@ -10015,15 +6367,15 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
           axisLine: {
             lineStyle: {
               // color: utils.getGrays()['300'],
-              color: utils.rgbaColor('#000', 0.01),
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor("#000", 0.01),
+              type: "dashed"
             }
           },
           axisTick: {
             show: false
           },
           axisLabel: {
-            color: utils.getColor('400'),
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('400'),
             formatter: function formatter(value) {
               var date = new Date(value);
               return "".concat(months[date.getMonth()], " ").concat(date.getDate());
@@ -10033,20 +6385,20 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
           }
         },
         yAxis: {
-          type: 'value',
+          type: "value",
           axisPointer: {
             show: false
           },
           splitLine: {
             lineStyle: {
-              color: utils.getColor('300'),
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('300'),
+              type: "dashed"
             }
           },
           boundaryGap: false,
           axisLabel: {
             show: true,
-            color: utils.getColor('400'),
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('400'),
             margin: 15
           },
           axisTick: {
@@ -10057,67 +6409,67 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
           }
         },
         series: [{
-          name: 'lastMonth',
-          type: 'line',
+          name: "lastMonth",
+          type: "line",
           data: [50, 80, 60, 80, 65, 90, 130, 90, 30, 40, 30, 70],
           lineStyle: {
-            color: utils.getColor('primary')
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary')
           },
           itemStyle: {
-            borderColor: utils.getColor('primary'),
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'),
             borderWidth: 2
           },
-          symbol: 'circle',
+          symbol: "circle",
           symbolSize: 10,
           hoverAnimation: true,
           areaStyle: {
             color: {
-              type: 'linear',
+              type: "linear",
               x: 0,
               y: 0,
               x2: 0,
               y2: 1,
               colorStops: [{
                 offset: 0,
-                color: utils.rgbaColor(utils.getColor('primary'), 0.2)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), 0.2)
               }, {
                 offset: 1,
-                color: utils.rgbaColor(utils.getColor('primary'), 0)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), 0)
               }]
             }
           }
         }, {
-          name: 'previousYear',
-          type: 'line',
+          name: "previousYear",
+          type: "line",
           data: [110, 30, 40, 50, 80, 70, 50, 40, 110, 90, 60, 60],
           lineStyle: {
-            color: utils.rgbaColor(utils.getColor('warning'), 0.3)
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'), 0.3)
           },
           itemStyle: {
-            borderColor: utils.rgbaColor(utils.getColor('warning'), 0.6),
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('warning'), 0.6),
             borderWidth: 2
           },
-          symbol: 'circle',
+          symbol: "circle",
           symbolSize: 10,
           hoverAnimation: true
         }],
         grid: {
-          right: '18px',
-          left: '40px',
-          bottom: '15%',
-          top: '5%'
+          right: "18px",
+          left: "40px",
+          bottom: "15%",
+          top: "5%"
         }
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
-    totalSalesLastMonth.addEventListener('click', function () {
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
+    totalSalesLastMonth.addEventListener("click", function () {
       chart.dispatchAction({
         type: 'legendToggleSelect',
         name: 'lastMonth'
       });
     });
-    totalSalesPreviousYear.addEventListener('click', function () {
+    totalSalesPreviousYear.addEventListener("click", function () {
       chart.dispatchAction({
         type: 'legendToggleSelect',
         name: 'previousYear'
@@ -10125,18 +6477,36 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
     });
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (totalSalesEcommerce);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/total-sales.js":
+/*!****************************************************!*\
+  !*** ./resources/js/charts/echarts/total-sales.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                             Echarts Total Sales                            */
 
 /* -------------------------------------------------------------------------- */
 
-
 var totalSalesInit = function totalSalesInit() {
-  var ECHART_LINE_TOTAL_SALES = '.echart-line-total-sales';
-  var SELECT_MONTH = '.select-month';
+  var ECHART_LINE_TOTAL_SALES = ".echart-line-total-sales";
+  var SELECT_MONTH = ".select-month";
   var $echartsLineTotalSales = document.querySelector(ECHART_LINE_TOTAL_SALES);
-  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
   function getFormatter(params) {
     var _params$ = params[0],
@@ -10148,20 +6518,20 @@ var totalSalesInit = function totalSalesInit() {
 
   if ($echartsLineTotalSales) {
     // Get options from data attribute
-    var userOptions = utils.getData($echartsLineTotalSales, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsLineTotalSales, "options");
     var chart = window.echarts.init($echartsLineTotalSales);
     var monthsnumber = [[60, 80, 60, 80, 65, 130, 120, 100, 30, 40, 30, 70], [100, 70, 80, 50, 120, 100, 130, 140, 90, 100, 40, 50], [80, 50, 60, 40, 60, 120, 100, 130, 60, 80, 50, 60], [70, 80, 100, 70, 90, 60, 80, 130, 40, 60, 50, 80], [90, 40, 80, 80, 100, 140, 100, 130, 90, 60, 70, 50], [80, 60, 80, 60, 40, 100, 120, 100, 30, 40, 30, 70], [20, 40, 20, 50, 70, 60, 110, 80, 90, 30, 50, 50], [60, 70, 30, 40, 80, 140, 80, 140, 120, 130, 100, 110], [90, 90, 40, 60, 40, 110, 90, 110, 60, 80, 60, 70], [50, 80, 50, 80, 50, 80, 120, 80, 50, 120, 110, 110], [60, 90, 60, 70, 40, 70, 100, 140, 30, 40, 30, 70], [20, 40, 20, 50, 30, 80, 120, 100, 30, 40, 30, 70]];
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: utils.getGrays()['100'],
+        color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
         tooltip: {
-          trigger: 'axis',
+          trigger: "axis",
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           formatter: function formatter(params) {
@@ -10169,17 +6539,17 @@ var totalSalesInit = function totalSalesInit() {
           },
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           }
         },
         xAxis: {
-          type: 'category',
-          data: ['2019-01-05', '2019-01-06', '2019-01-07', '2019-01-08', '2019-01-09', '2019-01-10', '2019-01-11', '2019-01-12', '2019-01-13', '2019-01-14', '2019-01-15', '2019-01-16'],
+          type: "category",
+          data: ["2019-01-05", "2019-01-06", "2019-01-07", "2019-01-08", "2019-01-09", "2019-01-10", "2019-01-11", "2019-01-12", "2019-01-13", "2019-01-14", "2019-01-15", "2019-01-16"],
           boundaryGap: false,
           axisPointer: {
             lineStyle: {
-              color: utils.getGrays()['300'],
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
+              type: "dashed"
             }
           },
           splitLine: {
@@ -10188,15 +6558,15 @@ var totalSalesInit = function totalSalesInit() {
           axisLine: {
             lineStyle: {
               // color: utils.getGrays()['300'],
-              color: utils.rgbaColor('#000', 0.01),
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor("#000", 0.01),
+              type: "dashed"
             }
           },
           axisTick: {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['400'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["400"],
             formatter: function formatter(value) {
               var date = new Date(value);
               return "".concat(months[date.getMonth()], " ").concat(date.getDate());
@@ -10205,20 +6575,20 @@ var totalSalesInit = function totalSalesInit() {
           }
         },
         yAxis: {
-          type: 'value',
+          type: "value",
           axisPointer: {
             show: false
           },
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['300'],
-              type: 'dashed'
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"],
+              type: "dashed"
             }
           },
           boundaryGap: false,
           axisLabel: {
             show: true,
-            color: utils.getGrays()['400'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["400"],
             margin: 15
           },
           axisTick: {
@@ -10229,51 +6599,51 @@ var totalSalesInit = function totalSalesInit() {
           }
         },
         series: [{
-          type: 'line',
+          type: "line",
           data: monthsnumber[0],
           lineStyle: {
-            color: utils.getColors().primary
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary
           },
           itemStyle: {
-            borderColor: utils.getColors().primary,
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
             borderWidth: 2
           },
-          symbol: 'circle',
+          symbol: "circle",
           symbolSize: 10,
           smooth: false,
           hoverAnimation: true,
           areaStyle: {
             color: {
-              type: 'linear',
+              type: "linear",
               x: 0,
               y: 0,
               x2: 0,
               y2: 1,
               colorStops: [{
                 offset: 0,
-                color: utils.rgbaColor(utils.getColors().primary, 0.2)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.2)
               }, {
                 offset: 1,
-                color: utils.rgbaColor(utils.getColors().primary, 0)
+                color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0)
               }]
             }
           }
         }],
         grid: {
-          right: '28px',
-          left: '40px',
-          bottom: '15%',
-          top: '5%'
+          right: "28px",
+          left: "40px",
+          bottom: "15%",
+          top: "5%"
         }
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions); // Change chart options accordiong to the selected month
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions); // Change chart options accordiong to the selected month
 
     var monthSelect = document.querySelector(SELECT_MONTH);
 
     if (monthSelect) {
-      monthSelect.addEventListener('change', function (e) {
+      monthSelect.addEventListener("change", function (e) {
         var month = e.currentTarget.value;
         var data = monthsnumber[month];
         chart.setOption({
@@ -10303,23 +6673,41 @@ var totalSalesInit = function totalSalesInit() {
     }
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (totalSalesInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/traffic-channels.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/charts/echarts/traffic-channels.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                                Traffic Channels                           */
 
 /* -------------------------------------------------------------------------- */
 
-
 var trafficChannelChartInit = function trafficChannelChartInit() {
   var $trafficChannels = document.querySelector('.echart-traffic-channels');
 
   if ($trafficChannels) {
-    var userOptions = utils.getData($trafficChannels, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($trafficChannels, 'options');
     var chart = window.echarts.init($trafficChannels);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [utils.getColors().primary, utils.rgbaColor(utils.getColors().primary, 0.8), utils.rgbaColor(utils.getColors().primary, 0.6), utils.rgbaColor(utils.getColors().primary, 0.4), utils.rgbaColor(utils.getColors().primary, 0.2)],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.8), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.6), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.4), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.2)],
         legend: {
           data: ['Display', 'Direct', 'Organic Search', 'Paid Search', 'Other'],
           left: 5,
@@ -10328,15 +6716,15 @@ var trafficChannelChartInit = function trafficChannelChartInit() {
           itemHeight: 10,
           borderRadius: 0,
           icon: 'circle',
-          inactiveColor: utils.getGrays()['400'],
+          inactiveColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400'],
           textStyle: {
-            color: utils.getGrays()['700']
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['700']
           },
           itemGap: 20
         },
         xAxis: {
           type: 'category',
-          data: utils.getPastDates(7).map(function (date) {
+          data: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getPastDates(7).map(function (date) {
             return window.dayjs(date).format('DD MMM, YYYY');
           }),
           axisLine: {
@@ -10344,14 +6732,14 @@ var trafficChannelChartInit = function trafficChannelChartInit() {
           },
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           },
           axisTick: {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             formatter: function formatter(value) {
               return window.dayjs(value).format('ddd');
             }
@@ -10362,7 +6750,7 @@ var trafficChannelChartInit = function trafficChannelChartInit() {
           position: 'right',
           splitLine: {
             lineStyle: {
-              color: utils.getGrays()['200']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['200']
             }
           },
           axisLine: {
@@ -10373,7 +6761,7 @@ var trafficChannelChartInit = function trafficChannelChartInit() {
           },
           axisLabel: {
             show: true,
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             margin: 15
           }
         },
@@ -10383,17 +6771,17 @@ var trafficChannelChartInit = function trafficChannelChartInit() {
           axisPointer: {
             type: 'none'
           },
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           transitionDuration: 0,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           },
-          formatter: tooltipFormatter
+          formatter: _echarts_utils__WEBPACK_IMPORTED_MODULE_1__.tooltipFormatter
         },
         series: [{
           name: 'Display',
@@ -10433,15 +6821,33 @@ var trafficChannelChartInit = function trafficChannelChartInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (trafficChannelChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/users-by-time.js":
+/*!******************************************************!*\
+  !*** ./resources/js/charts/echarts/users-by-time.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                             Echarts Users By Time                          */
 
 /* -------------------------------------------------------------------------- */
-
 
 var usersByTimeChartInit = function usersByTimeChartInit() {
   var $echartUsersByTimeChart = document.querySelector('.echart-users-by-time');
@@ -10450,7 +6856,7 @@ var usersByTimeChartInit = function usersByTimeChartInit() {
 
   for (var i = 0; i < 24; i += 1) {
     for (var j = 0; j < 7; j += 1) {
-      data.push([j, i, utils.getRandomNumber(20, 300)]);
+      data.push([j, i, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getRandomNumber(20, 300)]);
     }
   }
 
@@ -10459,26 +6865,26 @@ var usersByTimeChartInit = function usersByTimeChartInit() {
   };
 
   if ($echartUsersByTimeChart) {
-    var userOptions = utils.getData($echartUsersByTimeChart, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartUsersByTimeChart, 'options');
     var chart = window.echarts.init($echartUsersByTimeChart);
 
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        gradientColor: [utils.getColor('info'), utils.getColor('primary')],
+        gradientColor: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('info'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary')],
         tooltip: {
           position: 'top',
           padding: [7, 10],
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           formatter: tooltipFormatter
         },
         xAxis: {
           type: 'category',
-          data: utils.getPastDates(7),
+          data: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getPastDates(7),
           splitArea: {
             show: true
           },
@@ -10486,14 +6892,14 @@ var usersByTimeChartInit = function usersByTimeChartInit() {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             formatter: function formatter(value) {
               return window.dayjs(value).format('ddd');
             }
           },
           axisLine: {
             lineStyle: {
-              color: utils.getGrays()['400']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400']
             }
           }
         },
@@ -10509,13 +6915,13 @@ var usersByTimeChartInit = function usersByTimeChartInit() {
             show: false
           },
           axisLabel: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             margin: 20,
             padding: [10, 0, 0, 0]
           },
           axisLine: {
             lineStyle: {
-              color: utils.getGrays()['400']
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['400']
             }
           }
         },
@@ -10532,7 +6938,7 @@ var usersByTimeChartInit = function usersByTimeChartInit() {
           splitNumber: 4,
           textGap: 5,
           textStyle: {
-            color: utils.getGrays()['600'],
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['600'],
             fontWeight: 500
           }
         },
@@ -10544,13 +6950,13 @@ var usersByTimeChartInit = function usersByTimeChartInit() {
             show: false
           },
           itemStyle: {
-            borderColor: utils.getColor('white'),
+            borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('white'),
             borderWidth: 3
           },
           emphasis: {
             itemStyle: {
               shadowBlur: 3,
-              shadowColor: utils.rgbaColor(utils.getGrays().black, 0.5)
+              shadowColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['black'], 0.5)
             }
           }
         }],
@@ -10563,10 +6969,28 @@ var usersByTimeChartInit = function usersByTimeChartInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (usersByTimeChartInit);
+
+/***/ }),
+
+/***/ "./resources/js/charts/echarts/weekly-sales.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/charts/echarts/weekly-sales.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
+/* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 /* eslint-disable */
+
 
 /* -------------------------------------------------------------------------- */
 
@@ -10574,14 +6998,13 @@ var usersByTimeChartInit = function usersByTimeChartInit() {
 
 /* -------------------------------------------------------------------------- */
 
-
 var weeklySalesInit = function weeklySalesInit() {
   var ECHART_BAR_WEEKLY_SALES = '.echart-bar-weekly-sales';
   var $echartBarWeeklySales = document.querySelector(ECHART_BAR_WEEKLY_SALES);
 
   if ($echartBarWeeklySales) {
     // Get options from data attribute
-    var userOptions = utils.getData($echartBarWeeklySales, 'options');
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartBarWeeklySales, 'options');
     var data = [120, 200, 150, 80, 70, 110, 120]; // Max value of data
 
     var yMax = Math.max.apply(Math, data); // const dataBackground = data.map(() => yMax);
@@ -10595,14 +7018,14 @@ var weeklySalesInit = function weeklySalesInit() {
           padding: [7, 10],
           formatter: '{b0} : {c0}',
           transitionDuration: 0,
-          backgroundColor: utils.getGrays()['100'],
-          borderColor: utils.getGrays()['300'],
+          backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
+          borderColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['300'],
           textStyle: {
-            color: utils.getColors().dark
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().dark
           },
           borderWidth: 1,
           position: function position(pos, params, dom, rect, size) {
-            return getPosition(pos, params, dom, rect, size);
+            return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           }
         },
         xAxis: {
@@ -10649,13 +7072,13 @@ var weeklySalesInit = function weeklySalesInit() {
           barWidth: '5px',
           itemStyle: {
             barBorderRadius: 10,
-            color: utils.getColors().primary
+            color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary
           },
           data: data,
           z: 10,
           emphasis: {
             itemStyle: {
-              color: utils.getColors().primary
+              color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary
             }
           }
         }],
@@ -10668,97 +7091,5464 @@ var weeklySalesInit = function weeklySalesInit() {
       };
     };
 
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (weeklySalesInit);
+
+/***/ }),
+
+/***/ "./resources/js/chat.js":
+/*!******************************!*\
+  !*** ./resources/js/chat.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/*-----------------------------------------------
+|   Chat
+-----------------------------------------------*/
+
+var chatInit = function chatInit() {
+  var Events = {
+    CLICK: 'click',
+    SHOWN_BS_TAB: 'shown.bs.tab',
+    KEYUP: 'keyup',
+    EMOJI: 'emoji'
+  };
+  var Selector = {
+    CHAT_SIDEBAR: '.chat-sidebar',
+    CHAT_CONTACT: '.chat-contact',
+    CHAT_CONTENT_SCROLL_AREA: '.chat-content-scroll-area',
+    CHAT_CONTENT_SCROLL_AREA_ACTIVE: '.card-chat-pane.active .chat-content-scroll-area',
+    CHAT_EMOJIAREA: '.chat-editor-area .emojiarea-editor',
+    BTN_SEND: '.btn-send',
+    EMOJIEAREA_EDITOR: '.emojiarea-editor',
+    BTN_INFO: '.btn-info',
+    CONVERSATION_INFO: '.conversation-info',
+    CONTACTS_LIST_SHOW: '.contacts-list-show'
+  };
+  var ClassName = {
+    UNREAD_MESSAGE: 'unread-message',
+    TEXT_PRIMARY: 'text-primary',
+    SHOW: 'show'
+  };
+  var DATA_KEY = {
+    INDEX: 'index'
+  };
+  var $chatSidebar = document.querySelector(Selector.CHAT_SIDEBAR);
+  var $chatContact = document.querySelectorAll(Selector.CHAT_CONTACT);
+  var $chatEmojiarea = document.querySelector(Selector.CHAT_EMOJIAREA);
+  var $btnSend = document.querySelector(Selector.BTN_SEND);
+  var $currentChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA); // Set scrollbar position
+
+  var setScrollbarPosition = function setScrollbarPosition($chatArea) {
+    if ($chatArea) {
+      var scrollArea = $chatArea;
+      scrollArea.scrollTop = $chatArea.scrollHeight;
+    }
+  };
+
+  setTimeout(function () {
+    setScrollbarPosition($currentChatArea);
+  }, 700);
+  document.querySelectorAll(Selector.CHAT_CONTACT).forEach(function (el) {
+    el.addEventListener(Events.CLICK, function (e) {
+      var $this = e.currentTarget;
+      $this.classList.add('active'); // Hide contact list sidebar on responsive
+
+      window.innerWidth < 768 && !e.target.classList.contains('hover-actions') && ($chatSidebar.style.left = '-100%'); // Remove unread-message class when read
+
+      $this.classList.contains(ClassName.UNREAD_MESSAGE) && $this.classList.remove(ClassName.UNREAD_MESSAGE);
+    });
+  });
+  $chatContact.forEach(function (el) {
+    el.addEventListener(Events.SHOWN_BS_TAB, function () {
+      $chatEmojiarea.innerHTML = '';
+      $btnSend.classList.remove(ClassName.TEXT_PRIMARY);
+      var TargetChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA_ACTIVE);
+      setScrollbarPosition(TargetChatArea);
+    });
+  }); // change send button color on
+
+  if ($chatEmojiarea) {
+    $chatEmojiarea.setAttribute('placeholder', 'Type your message');
+    $chatEmojiarea.addEventListener(Events.KEYUP, function (e) {
+      if (e.target.textContent.length <= 0) {
+        $btnSend.classList.remove(ClassName.TEXT_PRIMARY);
+
+        if (e.target.innerHTML === '<br>') {
+          e.target.innerHTML = '';
+        }
+      } else {
+        $btnSend.classList.add(ClassName.TEXT_PRIMARY);
+      }
+
+      var TargetChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA_ACTIVE);
+      setScrollbarPosition(TargetChatArea);
+    });
+  } // Open conversation info sidebar
+
+
+  $chatEmojiarea && document.querySelectorAll(Selector.BTN_INFO).forEach(function (el) {
+    el.addEventListener(Events.CLICK, function (e) {
+      var $this = e.currentTarget;
+      var dataIndex = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($this, DATA_KEY.INDEX);
+      var $info = document.querySelector("".concat(Selector.CONVERSATION_INFO, "[data-").concat(DATA_KEY.INDEX, "='").concat(dataIndex, "']"));
+      $info.classList.toggle(ClassName.SHOW);
+    });
+  }); // Show contact list sidebar on responsive
+
+  document.querySelectorAll(Selector.CONTACTS_LIST_SHOW).forEach(function (el) {
+    el.addEventListener(Events.CLICK, function () {
+      $chatSidebar.style.left = 0;
+    });
+  }); // Set scrollbar area height on resize
+
+  _utils__WEBPACK_IMPORTED_MODULE_0__["default"].resize(function () {
+    var TargetChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA_ACTIVE);
+    setScrollbarPosition(TargetChatArea);
+  }); // Emoji append in message text
+
+  $chatEmojiarea && window.picker.on(Events.EMOJI, function (selection) {
+    document.querySelector(Selector.EMOJIEAREA_EDITOR).innerHTML += selection.emoji;
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chatInit);
+
+/***/ }),
+
+/***/ "./resources/js/choices.js":
+/*!*********************************!*\
+  !*** ./resources/js/choices.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* -------------------------------------------------------------------------- */
+
+/*                                   choices                                   */
+
+/* -------------------------------------------------------------------------- */
+
+var choicesInit = function choicesInit() {
+  if (window.Choices) {
+    var elements = document.querySelectorAll('.js-choice');
+    elements.forEach(function (item) {
+      var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(item, 'options');
+      var choices = new window.Choices(item, _objectSpread({
+        itemSelectText: ''
+      }, userOptions));
+      var needsValidation = document.querySelectorAll('.needs-validation');
+      needsValidation.forEach(function (validationItem) {
+        var selectFormValidation = function selectFormValidation() {
+          validationItem.querySelectorAll('.choices').forEach(function (choicesItem) {
+            var singleSelect = choicesItem.querySelector('.choices__list--single');
+            var multipleSelect = choicesItem.querySelector('.choices__list--multiple');
+
+            if (choicesItem.querySelector('[required]')) {
+              if (singleSelect) {
+                var _singleSelect$querySe;
+
+                if (((_singleSelect$querySe = singleSelect.querySelector('.choices__item--selectable')) === null || _singleSelect$querySe === void 0 ? void 0 : _singleSelect$querySe.getAttribute('data-value')) !== '') {
+                  choicesItem.classList.remove('invalid');
+                  choicesItem.classList.add('valid');
+                } else {
+                  choicesItem.classList.remove('valid');
+                  choicesItem.classList.add('invalid');
+                }
+              } //----- for multiple select only ----------
+
+
+              if (multipleSelect) {
+                if (choicesItem.getElementsByTagName('option').length) {
+                  choicesItem.classList.remove('invalid');
+                  choicesItem.classList.add('valid');
+                } else {
+                  choicesItem.classList.remove('valid');
+                  choicesItem.classList.add('invalid');
+                }
+              } //------ select end ---------------
+
+            }
+          });
+        };
+
+        validationItem.addEventListener('submit', function () {
+          selectFormValidation();
+        });
+        item.addEventListener('change', function () {
+          selectFormValidation();
+        });
+      });
+      return choices;
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (choicesInit);
+
+/***/ }),
+
+/***/ "./resources/js/config.js":
+/*!********************************!*\
+  !*** ./resources/js/config.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                              Config                                        */
+
+/* -------------------------------------------------------------------------- */
+var CONFIG = {
+  isNavbarVerticalCollapsed: false,
+  theme: 'light',
+  isRTL: false,
+  isFluid: false,
+  navbarStyle: 'transparent',
+  navbarPosition: 'vertical'
+};
+Object.keys(CONFIG).forEach(function (key) {
+  if (localStorage.getItem(key) === null) {
+    localStorage.setItem(key, CONFIG[key]);
+  }
+});
+
+if (!!JSON.parse(localStorage.getItem('isNavbarVerticalCollapsed'))) {
+  document.documentElement.classList.add('navbar-vertical-collapsed');
+}
+
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CONFIG);
+
+/***/ }),
+
+/***/ "./resources/js/cookie-notice.js":
+/*!***************************************!*\
+  !*** ./resources/js/cookie-notice.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/*-----------------------------------------------
+|   Cookie notice
+-----------------------------------------------*/
+
+var cookieNoticeInit = function cookieNoticeInit() {
+  var Selector = {
+    NOTICE: '.notice',
+    DATA_TOGGLE_Notice: '[data-bs-toggle="notice"]'
+  };
+  var Events = {
+    CLICK: 'click',
+    HIDDEN_BS_TOAST: 'hidden.bs.toast'
+  };
+  var DataKeys = {
+    OPTIONS: 'options'
+  };
+  var ClassNames = {
+    HIDE: 'hide'
+  };
+  var notices = document.querySelectorAll(Selector.NOTICE);
+  var showNotice = true;
+  notices.forEach(function (item) {
+    var notice = new window.bootstrap.Toast(item);
+
+    var options = _objectSpread({
+      autoShow: false,
+      autoShowDelay: 0,
+      showOnce: false,
+      cookieExpireTime: 3600000
+    }, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(item, DataKeys.OPTIONS));
+
+    var showOnce = options.showOnce,
+        autoShow = options.autoShow,
+        autoShowDelay = options.autoShowDelay;
+
+    if (showOnce) {
+      var hasNotice = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getCookie('notice');
+      showNotice = hasNotice === null;
+    }
+
+    if (autoShow && showNotice) {
+      setTimeout(function () {
+        notice.show();
+      }, autoShowDelay);
+    }
+
+    item.addEventListener(Events.HIDDEN_BS_TOAST, function (e) {
+      var el = e.currentTarget;
+
+      var toastOptions = _objectSpread({
+        cookieExpireTime: 3600000,
+        showOnce: false
+      }, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, DataKeys.OPTIONS));
+
+      toastOptions.showOnce && _utils__WEBPACK_IMPORTED_MODULE_0__["default"].setCookie('notice', false, toastOptions.cookieExpireTime);
+    });
+  });
+  var btnNoticeToggle = document.querySelector(Selector.DATA_TOGGLE_Notice);
+  btnNoticeToggle && btnNoticeToggle.addEventListener(Events.CLICK, function (_ref) {
+    var currentTarget = _ref.currentTarget;
+    var id = currentTarget.getAttribute('href');
+    var notice = new window.bootstrap.Toast(document.querySelector(id));
+    /*eslint-disable-next-line*/
+
+    var el = notice._element;
+    _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(el, ClassNames.HIDE) ? notice.show() : notice.hide();
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cookieNoticeInit);
+
+/***/ }),
+
+/***/ "./resources/js/copy-link.js":
+/*!***********************************!*\
+  !*** ./resources/js/copy-link.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/* -------------------------------------------------------------------------- */
+
+/*                                  Copy LinK                                 */
+
+/* -------------------------------------------------------------------------- */
+
+var copyLink = function copyLink() {
+  var copyLinkModal = document.getElementById('copyLinkModal');
+  copyLinkModal && copyLinkModal.addEventListener('shown.bs.modal', function () {
+    var invitationLink = document.querySelector('.invitation-link');
+    invitationLink.select();
+  });
+  var copyButtons = document.querySelectorAll('[data-copy]');
+  copyButtons && copyButtons.forEach(function (button) {
+    var tooltip = new window.bootstrap.Tooltip(button);
+    button.addEventListener('mouseover', function () {
+      return tooltip.show();
+    });
+    button.addEventListener('mouseleave', function () {
+      return tooltip.hide();
+    });
+    button.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var el = e.target;
+      el.setAttribute('data-original-title', 'Copied');
+      tooltip.show();
+      el.setAttribute('data-original-title', 'Copy to clipboard');
+      tooltip.update();
+      var inputID = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, 'copy');
+      var input = document.querySelector(inputID);
+      input.select();
+      document.execCommand('copy');
+    });
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (copyLink);
+
+/***/ }),
+
+/***/ "./resources/js/countup.js":
+/*!*********************************!*\
+  !*** ./resources/js/countup.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+var _excluded = ["endValue"];
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+/* -------------------------------------------------------------------------- */
+
+/*                                  Count Up                                  */
+
+/* -------------------------------------------------------------------------- */
+
+var countupInit = function countupInit() {
+  if (window.countUp) {
+    var countups = document.querySelectorAll('[data-countup]');
+    countups.forEach(function (node) {
+      var _utils$getData = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(node, 'countup'),
+          endValue = _utils$getData.endValue,
+          options = _objectWithoutProperties(_utils$getData, _excluded);
+
+      var countUp = new window.countUp.CountUp(node, endValue, _objectSpread({
+        duration: 5
+      }, options));
+
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (countupInit);
+
+/***/ }),
+
+/***/ "./resources/js/detector.js":
+/*!**********************************!*\
+  !*** ./resources/js/detector.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/* -------------------------------------------------------------------------- */
+
+/*                                  Detector                                  */
+
+/* -------------------------------------------------------------------------- */
+
+var detectorInit = function detectorInit() {
+  var _window = window,
+      is = _window.is;
+  var html = document.querySelector('html');
+  is.opera() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'opera');
+  is.mobile() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'mobile');
+  is.firefox() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'firefox');
+  is.safari() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'safari');
+  is.ios() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'ios');
+  is.iphone() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'iphone');
+  is.ipad() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'ipad');
+  is.ie() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'ie');
+  is.edge() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'edge');
+  is.chrome() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'chrome');
+  is.mac() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'osx');
+  is.windows() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'windows');
+  navigator.userAgent.match('CriOS') && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'chrome');
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (detectorInit);
+
+/***/ }),
+
+/***/ "./resources/js/draggable.js":
+/*!***********************************!*\
+  !*** ./resources/js/draggable.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+/* -------------------------------------------------------------------------- */
+
+/*                                  Draggable                                 */
+
+/* -------------------------------------------------------------------------- */
+
+
+var draggableInit = function draggableInit() {
+  var Selectors = {
+    BODY: 'body',
+    KANBAN_CONTAINER: '.kanban-container',
+    KABNBAN_COLUMN: '.kanban-column',
+    KANBAN_ITEMS_CONTAINER: '.kanban-items-container',
+    KANBAN_ITEM: '.kanban-item',
+    ADD_CARD_FORM: '.add-card-form'
+  };
+  var Events = {
+    DRAG_START: 'drag:start',
+    DRAG_STOP: 'drag:stop'
+  };
+  var ClassNames = {
+    FORM_ADDED: 'form-added'
+  };
+  var columns = document.querySelectorAll(Selectors.KABNBAN_COLUMN);
+  var columnContainers = document.querySelectorAll(Selectors.KANBAN_ITEMS_CONTAINER);
+  var container = document.querySelector(Selectors.KANBAN_CONTAINER);
+
+  if (!!columnContainers.length) {
+    // Initialize Sortable
+    var sortable = new window.Draggable.Sortable(columnContainers, {
+      draggable: Selectors.KANBAN_ITEM,
+      delay: 200,
+      mirror: {
+        appendTo: Selectors.BODY,
+        constrainDimensions: true
+      },
+      scrollable: {
+        draggable: Selectors.KANBAN_ITEM,
+        scrollableElements: [].concat(_toConsumableArray(columnContainers), [container])
+      }
+    }); // Hide form when drag start
+
+    sortable.on(Events.DRAG_START, function () {
+      columns.forEach(function (column) {
+        _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(column, ClassNames.FORM_ADDED) && column.classList.remove(ClassNames.FORM_ADDED);
+      });
+    }); // Place forms and other contents bottom of the sortable container
+
+    sortable.on(Events.DRAG_STOP, function (_ref) {
+      var el = _ref.data.source;
+      var columnContainer = el.closest(Selectors.KANBAN_ITEMS_CONTAINER);
+      var form = columnContainer.querySelector(Selectors.ADD_CARD_FORM);
+      !el.nextElementSibling && columnContainer.appendChild(form);
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (draggableInit);
+
+/***/ }),
+
+/***/ "./resources/js/dropdown-menu.js":
+/*!***************************************!*\
+  !*** ./resources/js/dropdown-menu.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/*-----------------------------------------------
+|   Dashboard Table dropdown
+-----------------------------------------------*/
+var dropdownMenuInit = function dropdownMenuInit() {
+  // Only for ios
+  if (window.is.ios()) {
+    var Event = {
+      SHOWN_BS_DROPDOWN: 'shown.bs.dropdown',
+      HIDDEN_BS_DROPDOWN: 'hidden.bs.dropdown'
+    };
+    var Selector = {
+      TABLE_RESPONSIVE: '.table-responsive',
+      DROPDOWN_MENU: '.dropdown-menu'
+    };
+    document.querySelectorAll(Selector.TABLE_RESPONSIVE).forEach(function (table) {
+      table.addEventListener(Event.SHOWN_BS_DROPDOWN, function (e) {
+        var t = e.currentTarget;
+
+        if (t.scrollWidth > t.clientWidth) {
+          t.style.paddingBottom = e.target.nextElementSibling.clientHeight + 'px';
+        }
+      });
+      table.addEventListener(Event.HIDDEN_BS_DROPDOWN, function (e) {
+        e.currentTarget.style.paddingBottom = '';
+      });
+    });
+  }
+}; // Reference
+// https://github.com/twbs/bootstrap/issues/11037#issuecomment-274870381
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dropdownMenuInit);
+
+/***/ }),
+
+/***/ "./resources/js/dropdown-on-hover.js":
+/*!*******************************************!*\
+  !*** ./resources/js/dropdown-on-hover.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                           Open dropdown on hover                           */
+
+/* -------------------------------------------------------------------------- */
+var dropdownOnHover = function dropdownOnHover() {
+  var navbarArea = document.querySelector("[data-top-nav-dropdowns]");
+
+  if (navbarArea) {
+    navbarArea.addEventListener("mouseover", function (e) {
+      if (e.target.className.includes("dropdown-toggle") && window.innerWidth > 992) {
+        var dropdownInstance = new window.bootstrap.Dropdown(e.target);
+        /* eslint-disable no-underscore-dangle */
+
+        dropdownInstance._element.classList.add('show');
+
+        dropdownInstance._menu.classList.add('show');
+
+        dropdownInstance._menu.setAttribute('data-bs-popper', 'none');
+
+        e.target.parentNode.addEventListener("mouseleave", function () {
+          dropdownInstance.hide();
+        });
+      }
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dropdownOnHover);
+
+/***/ }),
+
+/***/ "./resources/js/dropzone.js":
+/*!**********************************!*\
+  !*** ./resources/js/dropzone.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+/* eslint-disable */
+
+/*-----------------------------------------------
+|   Dropzone
+-----------------------------------------------*/
+
+window.Dropzone ? window.Dropzone.autoDiscover = false : '';
+
+var dropzoneInit = function dropzoneInit() {
+  var merge = window._.merge;
+  var Selector = {
+    DROPZONE: '[data-dropzone]',
+    DZ_ERROR_MESSAGE: '.dz-error-message',
+    DZ_PREVIEW: '.dz-preview',
+    DZ_PROGRESS: '.dz-preview .dz-preview-cover .dz-progress',
+    DZ_PREVIEW_COVER: '.dz-preview .dz-preview-cover'
+  };
+  var ClassName = {
+    DZ_FILE_PROCESSING: 'dz-file-processing',
+    DZ_FILE_COMPLETE: 'dz-file-complete',
+    DZ_COMPLETE: 'dz-complete',
+    DZ_PROCESSING: 'dz-processing'
+  };
+  var DATA_KEY = {
+    OPTIONS: 'options'
+  };
+  var Events = {
+    ADDED_FILE: 'addedfile',
+    REMOVED_FILE: 'removedfile',
+    COMPLETE: 'complete'
+  };
+  var dropzones = document.querySelectorAll(Selector.DROPZONE);
+  !!dropzones.length && dropzones.forEach(function (item) {
+    var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(item, DATA_KEY.OPTIONS);
+    userOptions = userOptions ? userOptions : {};
+    var data = userOptions.data ? userOptions.data : {};
+    var options = merge({
+      url: '/assets/php/',
+      addRemoveLinks: false,
+      previewsContainer: item.querySelector(Selector.DZ_PREVIEW),
+      previewTemplate: item.querySelector(Selector.DZ_PREVIEW).innerHTML,
+      thumbnailWidth: null,
+      thumbnailHeight: null,
+      maxFilesize: 20,
+      autoProcessQueue: false,
+      filesizeBase: 1000,
+      init: function init() {
+        var thisDropzone = this;
+
+        if (data.length) {
+          data.forEach(function (v) {
+            var mockFile = {
+              name: v.name,
+              size: v.size
+            };
+            thisDropzone.options.addedfile.call(thisDropzone, mockFile);
+            thisDropzone.options.thumbnail.call(thisDropzone, mockFile, "".concat(v.url, "/").concat(v.name));
+          });
+        }
+
+        thisDropzone.on(Events.ADDED_FILE, function addedfile() {
+          if ('maxFiles' in userOptions) {
+            if (userOptions.maxFiles === 1 && item.querySelectorAll(Selector.DZ_PREVIEW_COVER).length > 1) {
+              item.querySelector(Selector.DZ_PREVIEW_COVER).remove();
+            }
+
+            if (userOptions.maxFiles === 1 && this.files.length > 1) {
+              this.removeFile(this.files[0]);
+            }
+          }
+        });
+      },
+      error: function error(file, message) {
+        if (file.previewElement) {
+          file.previewElement.classList.add('dz-error');
+
+          if (typeof message !== 'string' && message.error) {
+            message = message.error;
+          }
+
+          var _iterator = _createForOfIteratorHelper(file.previewElement.querySelectorAll('[data-dz-errormessage]')),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var node = _step.value;
+              node.textContent = message;
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
+        }
+      }
+    }, userOptions); // eslint-disable-next-line
+
+    item.querySelector(Selector.DZ_PREVIEW).innerHTML = '';
+    var dropzone = new window.Dropzone(item, options);
+    dropzone.on(Events.ADDED_FILE, function () {
+      if (item.querySelector(Selector.DZ_PREVIEW_COVER)) {
+        item.querySelector(Selector.DZ_PREVIEW_COVER).classList.remove(ClassName.DZ_FILE_COMPLETE);
+      }
+
+      item.classList.add(ClassName.DZ_FILE_PROCESSING);
+    });
+    dropzone.on(Events.REMOVED_FILE, function () {
+      if (item.querySelector(Selector.DZ_PREVIEW_COVER)) {
+        item.querySelector(Selector.DZ_PREVIEW_COVER).classList.remove(ClassName.DZ_PROCESSING);
+      }
+
+      item.classList.add(ClassName.DZ_FILE_COMPLETE);
+    });
+    dropzone.on(Events.COMPLETE, function () {
+      if (item.querySelector(Selector.DZ_PREVIEW_COVER)) {
+        item.querySelector(Selector.DZ_PREVIEW_COVER).classList.remove(ClassName.DZ_PROCESSING);
+      }
+
+      item.classList.add(ClassName.DZ_FILE_COMPLETE);
+    });
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dropzoneInit);
+
+/***/ }),
+
+/***/ "./resources/js/form-validation.js":
+/*!*****************************************!*\
+  !*** ./resources/js/form-validation.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                               from-validation                              */
+
+/* -------------------------------------------------------------------------- */
+var formValidationInit = function formValidationInit() {
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  "use strict"; // Fetch all the forms we want to apply custom Bootstrap validation styles to
+
+  var forms = document.querySelectorAll(".needs-validation"); // Loop over them and prevent submission
+
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener("submit", function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      form.classList.add("was-validated");
+    }, false);
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (formValidationInit);
+
+/***/ }),
+
+/***/ "./resources/js/fullcalendar.js":
+/*!**************************************!*\
+  !*** ./resources/js/fullcalendar.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+/* -------------------------------------------------------------------------- */
+
+/*                                FullCalendar                                */
+
+/* -------------------------------------------------------------------------- */
+
+var merge = window._.merge;
+
+var renderCalendar = function renderCalendar(el, option) {
+  var _document$querySelect;
+
+  var options = merge({
+    initialView: 'dayGridMonth',
+    editable: true,
+    direction: document.querySelector('html').getAttribute('dir'),
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay'
+    },
+    buttonText: {
+      month: 'Month',
+      week: 'Week',
+      day: 'Day'
+    }
+  }, option);
+  var calendar = new window.FullCalendar.Calendar(el, options);
+  calendar.render();
+  (_document$querySelect = document.querySelector('.navbar-vertical-toggle')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('navbar.vertical.toggle', function () {
+    return calendar.updateSize();
+  });
+  return calendar;
+};
+
+var fullCalendarInit = function fullCalendarInit() {
+  var calendars = document.querySelectorAll('[data-calendar]');
+  calendars.forEach(function (item) {
+    var options = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(item, 'calendar');
+    renderCalendar(item, options);
+  });
+};
+
+var fullCalendar = {
+  renderCalendar: renderCalendar,
+  fullCalendarInit: fullCalendarInit
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fullCalendar);
+
+/***/ }),
+
+/***/ "./resources/js/glightbox.js":
+/*!***********************************!*\
+  !*** ./resources/js/glightbox.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                                 Glightbox                                */
+
+/* -------------------------------------------------------------------------- */
+var glightboxInit = function glightboxInit() {
+  if (window.GLightbox) {
+    window.GLightbox({
+      selector: '[data-gallery]'
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (glightboxInit);
+
+/***/ }),
+
+/***/ "./resources/js/googleMap.js":
+/*!***********************************!*\
+  !*** ./resources/js/googleMap.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/*-----------------------------------------------
+|   Gooogle Map
+-----------------------------------------------*/
+
+function initMap() {
+  var themeController = document.body;
+  var $googlemaps = document.querySelectorAll(".googlemap");
+
+  if ($googlemaps.length && window.google) {
+    // Visit https://snazzymaps.com/ for more themes
+    var mapStyles = {
+      Default: [{
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{
+          color: "#e9e9e9"
+        }, {
+          lightness: 17
+        }]
+      }, {
+        featureType: "landscape",
+        elementType: "geometry",
+        stylers: [{
+          color: "#f5f5f5"
+        }, {
+          lightness: 20
+        }]
+      }, {
+        featureType: "road.highway",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#ffffff"
+        }, {
+          lightness: 17
+        }]
+      }, {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#ffffff"
+        }, {
+          lightness: 29
+        }, {
+          weight: 0.2
+        }]
+      }, {
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [{
+          color: "#ffffff"
+        }, {
+          lightness: 18
+        }]
+      }, {
+        featureType: "road.local",
+        elementType: "geometry",
+        stylers: [{
+          color: "#ffffff"
+        }, {
+          lightness: 16
+        }]
+      }, {
+        featureType: "poi",
+        elementType: "geometry",
+        stylers: [{
+          color: "#f5f5f5"
+        }, {
+          lightness: 21
+        }]
+      }, {
+        featureType: "poi.park",
+        elementType: "geometry",
+        stylers: [{
+          color: "#dedede"
+        }, {
+          lightness: 21
+        }]
+      }, {
+        elementType: "labels.text.stroke",
+        stylers: [{
+          visibility: "on"
+        }, {
+          color: "#ffffff"
+        }, {
+          lightness: 16
+        }]
+      }, {
+        elementType: "labels.text.fill",
+        stylers: [{
+          saturation: 36
+        }, {
+          color: "#333333"
+        }, {
+          lightness: 40
+        }]
+      }, {
+        elementType: "labels.icon",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{
+          color: "#f2f2f2"
+        }, {
+          lightness: 19
+        }]
+      }, {
+        featureType: "administrative",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#fefefe"
+        }, {
+          lightness: 20
+        }]
+      }, {
+        featureType: "administrative",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#fefefe"
+        }, {
+          lightness: 17
+        }, {
+          weight: 1.2
+        }]
+      }],
+      Gray: [{
+        featureType: "all",
+        elementType: "labels.text.fill",
+        stylers: [{
+          saturation: 36
+        }, {
+          color: "#000000"
+        }, {
+          lightness: 40
+        }]
+      }, {
+        featureType: "all",
+        elementType: "labels.text.stroke",
+        stylers: [{
+          visibility: "on"
+        }, {
+          color: "#000000"
+        }, {
+          lightness: 16
+        }]
+      }, {
+        featureType: "all",
+        elementType: "labels.icon",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "administrative",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 20
+        }]
+      }, {
+        featureType: "administrative",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 17
+        }, {
+          weight: 1.2
+        }]
+      }, {
+        featureType: "landscape",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 20
+        }]
+      }, {
+        featureType: "poi",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 21
+        }]
+      }, {
+        featureType: "road.highway",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 17
+        }]
+      }, {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 29
+        }, {
+          weight: 0.2
+        }]
+      }, {
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 18
+        }]
+      }, {
+        featureType: "road.local",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 16
+        }]
+      }, {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 19
+        }]
+      }, {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 17
+        }]
+      }],
+      Midnight: [{
+        featureType: "all",
+        elementType: "labels.text.fill",
+        stylers: [{
+          color: "#ffffff"
+        }]
+      }, {
+        featureType: "all",
+        elementType: "labels.text.stroke",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 13
+        }]
+      }, {
+        featureType: "administrative",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#000000"
+        }]
+      }, {
+        featureType: "administrative",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#144b53"
+        }, {
+          lightness: 14
+        }, {
+          weight: 1.4
+        }]
+      }, {
+        featureType: "landscape",
+        elementType: "all",
+        stylers: [{
+          color: "#08304b"
+        }]
+      }, {
+        featureType: "poi",
+        elementType: "geometry",
+        stylers: [{
+          color: "#0c4152"
+        }, {
+          lightness: 5
+        }]
+      }, {
+        featureType: "road.highway",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#000000"
+        }]
+      }, {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#0b434f"
+        }, {
+          lightness: 25
+        }]
+      }, {
+        featureType: "road.arterial",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#000000"
+        }]
+      }, {
+        featureType: "road.arterial",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#0b3d51"
+        }, {
+          lightness: 16
+        }]
+      }, {
+        featureType: "road.local",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }]
+      }, {
+        featureType: "transit",
+        elementType: "all",
+        stylers: [{
+          color: "#146474"
+        }]
+      }, {
+        featureType: "water",
+        elementType: "all",
+        stylers: [{
+          color: "#021019"
+        }]
+      }],
+      Hopper: [{
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{
+          hue: "#165c64"
+        }, {
+          saturation: 34
+        }, {
+          lightness: -69
+        }, {
+          visibility: "on"
+        }]
+      }, {
+        featureType: "landscape",
+        elementType: "geometry",
+        stylers: [{
+          hue: "#b7caaa"
+        }, {
+          saturation: -14
+        }, {
+          lightness: -18
+        }, {
+          visibility: "on"
+        }]
+      }, {
+        featureType: "landscape.man_made",
+        elementType: "all",
+        stylers: [{
+          hue: "#cbdac1"
+        }, {
+          saturation: -6
+        }, {
+          lightness: -9
+        }, {
+          visibility: "on"
+        }]
+      }, {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{
+          hue: "#8d9b83"
+        }, {
+          saturation: -89
+        }, {
+          lightness: -12
+        }, {
+          visibility: "on"
+        }]
+      }, {
+        featureType: "road.highway",
+        elementType: "geometry",
+        stylers: [{
+          hue: "#d4dad0"
+        }, {
+          saturation: -88
+        }, {
+          lightness: 54
+        }, {
+          visibility: "simplified"
+        }]
+      }, {
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [{
+          hue: "#bdc5b6"
+        }, {
+          saturation: -89
+        }, {
+          lightness: -3
+        }, {
+          visibility: "simplified"
+        }]
+      }, {
+        featureType: "road.local",
+        elementType: "geometry",
+        stylers: [{
+          hue: "#bdc5b6"
+        }, {
+          saturation: -89
+        }, {
+          lightness: -26
+        }, {
+          visibility: "on"
+        }]
+      }, {
+        featureType: "poi",
+        elementType: "geometry",
+        stylers: [{
+          hue: "#c17118"
+        }, {
+          saturation: 61
+        }, {
+          lightness: -45
+        }, {
+          visibility: "on"
+        }]
+      }, {
+        featureType: "poi.park",
+        elementType: "all",
+        stylers: [{
+          hue: "#8ba975"
+        }, {
+          saturation: -46
+        }, {
+          lightness: -28
+        }, {
+          visibility: "on"
+        }]
+      }, {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{
+          hue: "#a43218"
+        }, {
+          saturation: 74
+        }, {
+          lightness: -51
+        }, {
+          visibility: "simplified"
+        }]
+      }, {
+        featureType: "administrative.province",
+        elementType: "all",
+        stylers: [{
+          hue: "#ffffff"
+        }, {
+          saturation: 0
+        }, {
+          lightness: 100
+        }, {
+          visibility: "simplified"
+        }]
+      }, {
+        featureType: "administrative.neighborhood",
+        elementType: "all",
+        stylers: [{
+          hue: "#ffffff"
+        }, {
+          saturation: 0
+        }, {
+          lightness: 100
+        }, {
+          visibility: "off"
+        }]
+      }, {
+        featureType: "administrative.locality",
+        elementType: "labels",
+        stylers: [{
+          hue: "#ffffff"
+        }, {
+          saturation: 0
+        }, {
+          lightness: 100
+        }, {
+          visibility: "off"
+        }]
+      }, {
+        featureType: "administrative.land_parcel",
+        elementType: "all",
+        stylers: [{
+          hue: "#ffffff"
+        }, {
+          saturation: 0
+        }, {
+          lightness: 100
+        }, {
+          visibility: "off"
+        }]
+      }, {
+        featureType: "administrative",
+        elementType: "all",
+        stylers: [{
+          hue: "#3a3935"
+        }, {
+          saturation: 5
+        }, {
+          lightness: -57
+        }, {
+          visibility: "off"
+        }]
+      }, {
+        featureType: "poi.medical",
+        elementType: "geometry",
+        stylers: [{
+          hue: "#cba923"
+        }, {
+          saturation: 50
+        }, {
+          lightness: -46
+        }, {
+          visibility: "on"
+        }]
+      }],
+      Beard: [{
+        featureType: "poi.business",
+        elementType: "labels.text",
+        stylers: [{
+          visibility: "on"
+        }, {
+          color: "#333333"
+        }]
+      }],
+      AssassianCreed: [{
+        featureType: "all",
+        elementType: "all",
+        stylers: [{
+          visibility: "on"
+        }]
+      }, {
+        featureType: "all",
+        elementType: "labels",
+        stylers: [{
+          visibility: "off"
+        }, {
+          saturation: "-100"
+        }]
+      }, {
+        featureType: "all",
+        elementType: "labels.text.fill",
+        stylers: [{
+          saturation: 36
+        }, {
+          color: "#000000"
+        }, {
+          lightness: 40
+        }, {
+          visibility: "off"
+        }]
+      }, {
+        featureType: "all",
+        elementType: "labels.text.stroke",
+        stylers: [{
+          visibility: "off"
+        }, {
+          color: "#000000"
+        }, {
+          lightness: 16
+        }]
+      }, {
+        featureType: "all",
+        elementType: "labels.icon",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "administrative",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 20
+        }]
+      }, {
+        featureType: "administrative",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 17
+        }, {
+          weight: 1.2
+        }]
+      }, {
+        featureType: "landscape",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 20
+        }]
+      }, {
+        featureType: "landscape",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#4d6059"
+        }]
+      }, {
+        featureType: "landscape",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#4d6059"
+        }]
+      }, {
+        featureType: "landscape.natural",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#4d6059"
+        }]
+      }, {
+        featureType: "poi",
+        elementType: "geometry",
+        stylers: [{
+          lightness: 21
+        }]
+      }, {
+        featureType: "poi",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#4d6059"
+        }]
+      }, {
+        featureType: "poi",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#4d6059"
+        }]
+      }, {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [{
+          visibility: "on"
+        }, {
+          color: "#7f8d89"
+        }]
+      }, {
+        featureType: "road",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#7f8d89"
+        }]
+      }, {
+        featureType: "road.highway",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#7f8d89"
+        }, {
+          lightness: 17
+        }]
+      }, {
+        featureType: "road.highway",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#7f8d89"
+        }, {
+          lightness: 29
+        }, {
+          weight: 0.2
+        }]
+      }, {
+        featureType: "road.arterial",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 18
+        }]
+      }, {
+        featureType: "road.arterial",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#7f8d89"
+        }]
+      }, {
+        featureType: "road.arterial",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#7f8d89"
+        }]
+      }, {
+        featureType: "road.local",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 16
+        }]
+      }, {
+        featureType: "road.local",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#7f8d89"
+        }]
+      }, {
+        featureType: "road.local",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#7f8d89"
+        }]
+      }, {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [{
+          color: "#000000"
+        }, {
+          lightness: 19
+        }]
+      }, {
+        featureType: "water",
+        elementType: "all",
+        stylers: [{
+          color: "#2b3638"
+        }, {
+          visibility: "on"
+        }]
+      }, {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{
+          color: "#2b3638"
+        }, {
+          lightness: 17
+        }]
+      }, {
+        featureType: "water",
+        elementType: "geometry.fill",
+        stylers: [{
+          color: "#24282b"
+        }]
+      }, {
+        featureType: "water",
+        elementType: "geometry.stroke",
+        stylers: [{
+          color: "#24282b"
+        }]
+      }, {
+        featureType: "water",
+        elementType: "labels",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "water",
+        elementType: "labels.text",
+        stylers: [{
+          visibility: "off "
+        }]
+      }, {
+        featureType: "water",
+        elementType: "labels.text.fill",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "water",
+        elementType: "labels.text.stroke",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "water",
+        elementType: "labels.icon",
+        stylers: [{
+          visibility: "off"
+        }]
+      }],
+      SubtleGray: [{
+        featureType: "administrative",
+        elementType: "all",
+        stylers: [{
+          saturation: "-100"
+        }]
+      }, {
+        featureType: "administrative.province",
+        elementType: "all",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "landscape",
+        elementType: "all",
+        stylers: [{
+          saturation: -100
+        }, {
+          lightness: 65
+        }, {
+          visibility: "on"
+        }]
+      }, {
+        featureType: "poi",
+        elementType: "all",
+        stylers: [{
+          saturation: -100
+        }, {
+          lightness: "50"
+        }, {
+          visibility: "simplified"
+        }]
+      }, {
+        featureType: "road",
+        elementType: "all",
+        stylers: [{
+          saturation: -100
+        }]
+      }, {
+        featureType: "road.highway",
+        elementType: "all",
+        stylers: [{
+          visibility: "simplified"
+        }]
+      }, {
+        featureType: "road.arterial",
+        elementType: "all",
+        stylers: [{
+          lightness: "30"
+        }]
+      }, {
+        featureType: "road.local",
+        elementType: "all",
+        stylers: [{
+          lightness: "40"
+        }]
+      }, {
+        featureType: "transit",
+        elementType: "all",
+        stylers: [{
+          saturation: -100
+        }, {
+          visibility: "simplified"
+        }]
+      }, {
+        featureType: "water",
+        elementType: "geometry",
+        stylers: [{
+          hue: "#ffff00"
+        }, {
+          lightness: -25
+        }, {
+          saturation: -97
+        }]
+      }, {
+        featureType: "water",
+        elementType: "labels",
+        stylers: [{
+          lightness: -25
+        }, {
+          saturation: -100
+        }]
+      }],
+      Tripitty: [{
+        featureType: "all",
+        elementType: "labels",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "administrative",
+        elementType: "all",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "landscape",
+        elementType: "all",
+        stylers: [{
+          color: "#2c5ca5"
+        }]
+      }, {
+        featureType: "poi",
+        elementType: "all",
+        stylers: [{
+          color: "#2c5ca5"
+        }]
+      }, {
+        featureType: "road",
+        elementType: "all",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "transit",
+        elementType: "all",
+        stylers: [{
+          visibility: "off"
+        }]
+      }, {
+        featureType: "water",
+        elementType: "all",
+        stylers: [{
+          color: "#193a70"
+        }, {
+          visibility: "on"
+        }]
+      }],
+      Cobalt: [{
+        "featureType": "all",
+        "elementType": "all",
+        "stylers": [{
+          "invert_lightness": true
+        }, {
+          "saturation": 10
+        }, {
+          "lightness": 30
+        }, {
+          "gamma": 0.5
+        }, {
+          "hue": "#435158"
+        }]
+      }]
+    };
+    $googlemaps.forEach(function (itm) {
+      var latLng = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "latlng").split(",");
+      var markerPopup = itm.innerHTML;
+      var icon = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "icon") ? _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "icon") : "https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png";
+      var zoom = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "zoom");
+      var mapElement = itm;
+      var mapStyle = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "theme");
+
+      if (_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "theme") === "streetview") {
+        var pov = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "pov");
+        var _mapOptions = {
+          position: {
+            lat: Number(latLng[0]),
+            lng: Number(latLng[1])
+          },
+          pov: pov,
+          zoom: zoom,
+          gestureHandling: "none",
+          scrollwheel: false
+        };
+        return new window.google.maps.StreetViewPanorama(mapElement, _mapOptions);
+      }
+
+      var mapOptions = {
+        zoom: zoom,
+        scrollwheel: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "scrollwheel"),
+        center: new window.google.maps.LatLng(latLng[0], latLng[1]),
+        styles: localStorage.getItem("theme") === "dark" ? mapStyles.Cobalt : mapStyles[mapStyle]
+      };
+      var map = new window.google.maps.Map(mapElement, mapOptions);
+      var infowindow = new window.google.maps.InfoWindow({
+        content: markerPopup
+      });
+      var marker = new window.google.maps.Marker({
+        position: new window.google.maps.LatLng(latLng[0], latLng[1]),
+        icon: icon,
+        map: map
+      });
+      marker.addListener("click", function () {
+        infowindow.open(map, marker);
+      });
+      themeController && themeController.addEventListener("clickControl", function (_ref) {
+        var _ref$detail = _ref.detail,
+            control = _ref$detail.control,
+            value = _ref$detail.value;
+
+        if (control === "theme") {
+          map.set("styles", value === "dark" ? mapStyles.Cobalt : mapStyles[mapStyle]);
+        }
+      });
+      return null;
+    });
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (initMap);
+
+/***/ }),
+
+/***/ "./resources/js/icons.js":
+/*!*******************************!*\
+  !*** ./resources/js/icons.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                           Icon copy to clipboard                           */
+
+/* -------------------------------------------------------------------------- */
+var iconCopiedInit = function iconCopiedInit() {
+  var iconList = document.getElementById("icon-list");
+  var iconCopiedToast = document.getElementById("icon-copied-toast");
+  var iconCopiedToastInstance = new window.bootstrap.Toast(iconCopiedToast);
+
+  if (iconList) {
+    iconList.addEventListener("click", function (e) {
+      var el = e.target;
+
+      if (el.tagName === "INPUT") {
+        el.select();
+        el.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        iconCopiedToast.querySelector(".toast-body").innerHTML = "<span class=\"fw-black\">Copied:</span> <code>".concat(el.value, "</code>");
+        iconCopiedToastInstance.show();
+      }
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (iconCopiedInit);
+
+/***/ }),
+
+/***/ "./resources/js/kanban.js":
+/*!********************************!*\
+  !*** ./resources/js/kanban.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+/* -------------------------------------------------------------------------- */
+
+/*                                   Kanbah                                   */
+
+/* -------------------------------------------------------------------------- */
+
+
+var kanbanInit = function kanbanInit() {
+  var Selectors = {
+    KANBAN_COLUMN: '.kanban-column',
+    KANBAN_ITEMS_CONTAINER: '.kanban-items-container',
+    BTN_ADD_CARD: '.btn-add-card',
+    COLLAPSE: '.collapse',
+    ADD_LIST_FORM: '#addListForm',
+    BTN_COLLAPSE_DISMISS: '[data-dismiss="collapse"]',
+    BTN_FORM_HIDE: '[data-btn-form="hide"]',
+    INPUT_ADD_CARD: '[data-input="add-card"]',
+    INPUT_ADD_LIST: '[data-input="add-list"]'
+  };
+  var ClassNames = {
+    FORM_ADDED: 'form-added',
+    D_NONE: 'd-none'
+  };
+  var Events = {
+    CLICK: 'click',
+    SHOW_BS_COLLAPSE: 'show.bs.collapse',
+    SHOWN_BS_COLLAPSE: 'shown.bs.collapse'
+  };
+  var addCardButtons = document.querySelectorAll(Selectors.BTN_ADD_CARD);
+  var formHideButtons = document.querySelectorAll(Selectors.BTN_FORM_HIDE);
+  var addListForm = document.querySelector(Selectors.ADD_LIST_FORM);
+  var collapseDismissButtons = document.querySelectorAll(Selectors.BTN_COLLAPSE_DISMISS); // Show add card form and place scrollbar bottom of the list
+
+  addCardButtons && addCardButtons.forEach(function (button) {
+    button.addEventListener(Events.CLICK, function (_ref) {
+      var el = _ref.currentTarget;
+      var column = el.closest(Selectors.KANBAN_COLUMN);
+      var container = column.querySelector(Selectors.KANBAN_ITEMS_CONTAINER);
+      var scrollHeight = container.scrollHeight;
+      column.classList.add(ClassNames.FORM_ADDED);
+      container.querySelector(Selectors.INPUT_ADD_CARD).focus();
+      container.scrollTo({
+        top: scrollHeight
+      });
+    });
+  }); // Remove add card form
+
+  formHideButtons.forEach(function (button) {
+    button.addEventListener(Events.CLICK, function (_ref2) {
+      var el = _ref2.currentTarget;
+      el.closest(Selectors.KANBAN_COLUMN).classList.remove(ClassNames.FORM_ADDED);
+    });
+  });
+
+  if (addListForm) {
+    // Hide add list button when the form is going to show
+    addListForm.addEventListener(Events.SHOW_BS_COLLAPSE, function (_ref3) {
+      var el = _ref3.currentTarget;
+      var nextElement = el.nextElementSibling;
+      nextElement && nextElement.classList.add(ClassNames.D_NONE);
+    }); // Focus input field when the form is shown
+
+    addListForm.addEventListener(Events.SHOWN_BS_COLLAPSE, function (_ref4) {
+      var el = _ref4.currentTarget;
+      el.querySelector(Selectors.INPUT_ADD_LIST).focus();
+    });
+  } // Hide add list form when the dismiss button is clicked
+
+
+  collapseDismissButtons.forEach(function (button) {
+    button.addEventListener(Events.CLICK, function (_ref5) {
+      var el = _ref5.currentTarget;
+      var collapseElement = el.closest(Selectors.COLLAPSE);
+      var collapse = window.bootstrap.Collapse.getInstance(collapseElement);
+      _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(collapseElement.nextElementSibling, ClassNames.D_NONE) && collapseElement.nextElementSibling.classList.remove(ClassNames.D_NONE);
+      collapse.hide();
+    });
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (kanbanInit);
+
+/***/ }),
+
+/***/ "./resources/js/leaflet-active-user.js":
+/*!*********************************************!*\
+  !*** ./resources/js/leaflet-active-user.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                                   leaflet                                  */
+
+/* -------------------------------------------------------------------------- */
+var leafletActiveUserInit = function leafletActiveUserInit() {
+  var points = [{
+    lat: 53.958332,
+    "long": -1.080278,
+    name: "Diana Meyer",
+    street: "Slude Strand 27",
+    location: "1130 Kobenhavn"
+  }, {
+    lat: 52.958332,
+    "long": -1.080278,
+    name: "Diana Meyer",
+    street: "Slude Strand 27",
+    location: "1130 Kobenhavn"
+  }, {
+    lat: 51.958332,
+    "long": -1.080278,
+    name: "Diana Meyer",
+    street: "Slude Strand 27",
+    location: "1130 Kobenhavn"
+  }, {
+    lat: 53.958332,
+    "long": -1.080278,
+    name: "Diana Meyer",
+    street: "Slude Strand 27",
+    location: "1130 Kobenhavn"
+  }, {
+    lat: 54.958332,
+    "long": -1.080278,
+    name: "Diana Meyer",
+    street: "Slude Strand 27",
+    location: "1130 Kobenhavn"
+  }, {
+    lat: 55.958332,
+    "long": -1.080278,
+    name: "Diana Meyer",
+    street: "Slude Strand 27",
+    location: "1130 Kobenhavn"
+  }, {
+    lat: 53.908332,
+    "long": -1.080278,
+    name: "Diana Meyer",
+    street: "Slude Strand 27",
+    location: "1130 Kobenhavn"
+  }, {
+    lat: 53.008332,
+    "long": -1.080278,
+    name: "Diana Meyer",
+    street: "Slude Strand 27",
+    location: "1130 Kobenhavn"
+  }, {
+    lat: 53.158332,
+    "long": -1.080278,
+    name: "Diana Meyer",
+    street: "Slude Strand 27",
+    location: "1130 Kobenhavn"
+  }, {
+    lat: 53.000032,
+    "long": -1.080278,
+    name: "Diana Meyer",
+    street: "Slude Strand 27",
+    location: "1130 Kobenhavn"
+  }, {
+    lat: 52.292001,
+    "long": -2.22,
+    name: "Anke Schroder",
+    street: "Industrivej 54",
+    location: "4140 Borup"
+  }, {
+    lat: 52.392001,
+    "long": -2.22,
+    name: "Anke Schroder",
+    street: "Industrivej 54",
+    location: "4140 Borup"
+  }, {
+    lat: 51.492001,
+    "long": -2.22,
+    name: "Anke Schroder",
+    street: "Industrivej 54",
+    location: "4140 Borup"
+  }, {
+    lat: 51.192001,
+    "long": -2.22,
+    name: "Anke Schroder",
+    street: "Industrivej 54",
+    location: "4140 Borup"
+  }, {
+    lat: 52.292001,
+    "long": -2.22,
+    name: "Anke Schroder",
+    street: "Industrivej 54",
+    location: "4140 Borup"
+  }, {
+    lat: 54.392001,
+    "long": -2.22,
+    name: "Anke Schroder",
+    street: "Industrivej 54",
+    location: "4140 Borup"
+  }, {
+    lat: 51.292001,
+    "long": -2.22,
+    name: "Anke Schroder",
+    street: "Industrivej 54",
+    location: "4140 Borup"
+  }, {
+    lat: 52.102001,
+    "long": -2.22,
+    name: "Anke Schroder",
+    street: "Industrivej 54",
+    location: "4140 Borup"
+  }, {
+    lat: 52.202001,
+    "long": -2.22,
+    name: "Anke Schroder",
+    street: "Industrivej 54",
+    location: "4140 Borup"
+  }, {
+    lat: 51.063202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.363202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.463202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.563202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.763202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.863202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.963202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.000202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.000202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.163202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 52.263202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 53.463202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 55.163202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 56.263202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 56.463202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 56.563202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 56.663202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 56.763202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 56.863202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 56.963202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 57.973202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 57.163202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.163202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.263202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.363202,
+    "long": -1.308,
+    name: "Tobias Vogel",
+    street: "Mollebakken 33",
+    location: "3650 Olstykke"
+  }, {
+    lat: 51.409,
+    "long": -2.647,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.68,
+    "long": -1.49,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 50.259998,
+    "long": -5.051,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 54.906101,
+    "long": -1.38113,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.383331,
+    "long": -1.466667,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.483002,
+    "long": -2.2931,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 51.509865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 51.109865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 51.209865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 51.309865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 51.409865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 51.609865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 51.709865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 51.809865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 51.909865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.109865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.209865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.309865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.409865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.509865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.609865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.709865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.809865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.909865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.519865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.529865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.539865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.549865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 52.549865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.109865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.209865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.319865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.329865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.409865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.559865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.619865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.629865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.639865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.649865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.669865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.669865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.719865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.739865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.749865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.759865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.769865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.769865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.819865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.829865,
+    "long": -0.118092,
+    name: "Richard Hendricks",
+    street: "37 Seafield Place",
+    location: "London"
+  }, {
+    lat: 53.483959,
+    "long": -2.244644,
+    name: "Ethel B. Brooks",
+    street: "2576 Sun Valley Road"
+  }, {
+    lat: 40.737,
+    "long": -73.923,
+    name: "Marshall D. Lewis",
+    street: "1489 Michigan Avenue",
+    location: "Michigan"
+  }, {
+    lat: 39.737,
+    "long": -73.923,
+    name: "Marshall D. Lewis",
+    street: "1489 Michigan Avenue",
+    location: "Michigan"
+  }, {
+    lat: 38.737,
+    "long": -73.923,
+    name: "Marshall D. Lewis",
+    street: "1489 Michigan Avenue",
+    location: "Michigan"
+  }, {
+    lat: 37.737,
+    "long": -73.923,
+    name: "Marshall D. Lewis",
+    street: "1489 Michigan Avenue",
+    location: "Michigan"
+  }, {
+    lat: 40.737,
+    "long": -73.923,
+    name: "Marshall D. Lewis",
+    street: "1489 Michigan Avenue",
+    location: "Michigan"
+  }, {
+    lat: 41.737,
+    "long": -73.923,
+    name: "Marshall D. Lewis",
+    street: "1489 Michigan Avenue",
+    location: "Michigan"
+  }, {
+    lat: 42.737,
+    "long": -73.923,
+    name: "Marshall D. Lewis",
+    street: "1489 Michigan Avenue",
+    location: "Michigan"
+  }, {
+    lat: 43.737,
+    "long": -73.923,
+    name: "Marshall D. Lewis",
+    street: "1489 Michigan Avenue",
+    location: "Michigan"
+  }, {
+    lat: 44.737,
+    "long": -73.923,
+    name: "Marshall D. Lewis",
+    street: "1489 Michigan Avenue",
+    location: "Michigan"
+  }, {
+    lat: 45.737,
+    "long": -73.923,
+    name: "Marshall D. Lewis",
+    street: "1489 Michigan Avenue",
+    location: "Michigan"
+  }, {
+    lat: 46.7128,
+    "long": 74.006,
+    name: "Elizabeth C. Lyons",
+    street: "4553 Kenwood Place",
+    location: "Fort Lauderdale"
+  }, {
+    lat: 40.7128,
+    "long": 74.1181,
+    name: "Elizabeth C. Lyons",
+    street: "4553 Kenwood Place",
+    location: "Fort Lauderdale"
+  }, {
+    lat: 14.235,
+    "long": 51.9253,
+    name: "Ralph D. Wylie",
+    street: "3186 Levy Court",
+    location: "North Reading"
+  }, {
+    lat: 15.235,
+    "long": 51.9253,
+    name: "Ralph D. Wylie",
+    street: "3186 Levy Court",
+    location: "North Reading"
+  }, {
+    lat: 16.235,
+    "long": 51.9253,
+    name: "Ralph D. Wylie",
+    street: "3186 Levy Court",
+    location: "North Reading"
+  }, {
+    lat: 14.235,
+    "long": 51.9253,
+    name: "Ralph D. Wylie",
+    street: "3186 Levy Court",
+    location: "North Reading"
+  }, {
+    lat: 15.8267,
+    "long": 47.9218,
+    name: "Hope A. Atkins",
+    street: "3715 Hillcrest Drive",
+    location: "Seattle"
+  }, {
+    lat: 15.9267,
+    "long": 47.9218,
+    name: "Hope A. Atkins",
+    street: "3715 Hillcrest Drive",
+    location: "Seattle"
+  }, {
+    lat: 23.4425,
+    "long": 58.4438,
+    name: "Samuel R. Bailey",
+    street: "2883 Raoul Wallenberg Place",
+    location: "Cheshire"
+  }, {
+    lat: 23.5425,
+    "long": 58.3438,
+    name: "Samuel R. Bailey",
+    street: "2883 Raoul Wallenberg Place",
+    location: "Cheshire"
+  }, {
+    lat: -37.8927369333,
+    "long": 175.4087452333,
+    name: "Samuel R. Bailey",
+    street: "3228 Glory Road",
+    location: "Nashville"
+  }, {
+    lat: -38.9064188833,
+    "long": 175.4441556833,
+    name: "Samuel R. Bailey",
+    street: "3228 Glory Road",
+    location: "Nashville"
+  }, {
+    lat: -12.409874,
+    "long": -65.596832,
+    name: "Ann J. Perdue",
+    street: "921 Ella Street",
+    location: "Dublin"
+  }, {
+    lat: -22.090887,
+    "long": -57.411827,
+    name: "Jorge C. Woods",
+    street: "4800 North Bend River Road",
+    location: "Allen"
+  }, {
+    lat: -19.019585,
+    "long": -65.261963,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: -16.500093,
+    "long": -68.214684,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: -17.413977,
+    "long": -66.165321,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: -16.489689,
+    "long": -68.119293,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: 54.766323,
+    "long": 3.08603729,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: 54.866323,
+    "long": 3.08603729,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: 49.537685,
+    "long": 3.08603729,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: 54.715424,
+    "long": 0.509207,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: 44.891666,
+    "long": 10.136665,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: 48.078335,
+    "long": 14.535004,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: -26.358055,
+    "long": 27.398056,
+    name: "Russ E. Panek",
+    street: "4068 Hartland Avenue",
+    location: "Appleton"
+  }, {
+    lat: -29.1,
+    "long": 26.2167,
+    name: "Wilbur J. Dry",
+    street: "2043 Jadewood Drive",
+    location: "Northbrook"
+  }, {
+    lat: -29.883333,
+    "long": 31.049999,
+    name: "Wilbur J. Dry",
+    street: "2043 Jadewood Drive",
+    location: "Northbrook"
+  }, {
+    lat: -26.266111,
+    "long": 27.865833,
+    name: "Wilbur J. Dry",
+    street: "2043 Jadewood Drive",
+    location: "Northbrook"
+  }, {
+    lat: -29.087217,
+    "long": 26.154898,
+    name: "Wilbur J. Dry",
+    street: "2043 Jadewood Drive",
+    location: "Northbrook"
+  }, {
+    lat: -33.958252,
+    "long": 25.619022,
+    name: "Wilbur J. Dry",
+    street: "2043 Jadewood Drive",
+    location: "Northbrook"
+  }, {
+    lat: -33.977074,
+    "long": 22.457581,
+    name: "Wilbur J. Dry",
+    street: "2043 Jadewood Drive",
+    location: "Northbrook"
+  }, {
+    lat: -26.563404,
+    "long": 27.844164,
+    name: "Wilbur J. Dry",
+    street: "2043 Jadewood Drive",
+    location: "Northbrook"
+  }, {
+    lat: 51.21389,
+    "long": -102.462776,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 52.321945,
+    "long": -106.584167,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 50.288055,
+    "long": -107.793892,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 52.7575,
+    "long": -108.28611,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 50.393333,
+    "long": -105.551941,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 50.930557,
+    "long": -102.807777,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 52.856388,
+    "long": -104.610001,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 52.289722,
+    "long": -106.666664,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 52.201942,
+    "long": -105.123055,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 53.278046,
+    "long": -110.00547,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 49.13673,
+    "long": -102.990959,
+    name: "Joseph B. Poole",
+    street: "3364 Lunetta Street",
+    location: "Wichita Falls"
+  }, {
+    lat: 45.484531,
+    "long": -73.597023,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 45.266666,
+    "long": -71.900002,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 45.349998,
+    "long": -72.51667,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 47.333332,
+    "long": -79.433334,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 45.400002,
+    "long": -74.033333,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 45.683334,
+    "long": -73.433334,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 48.099998,
+    "long": -77.783333,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 45.5,
+    "long": -72.316666,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 46.349998,
+    "long": -72.550003,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 48.119999,
+    "long": -69.18,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 45.599998,
+    "long": -75.25,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 46.099998,
+    "long": -71.300003,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 45.700001,
+    "long": -73.633331,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 47.68,
+    "long": -68.879997,
+    name: "Claudette D. Nowakowski",
+    street: "3742 Farland Avenue",
+    location: "San Antonio"
+  }, {
+    lat: 46.716667,
+    "long": -79.099998,
+    name: "299"
+  }, {
+    lat: 45.016666,
+    "long": -72.099998,
+    name: "299"
+  }];
+  var _window = window,
+      L = _window.L;
+  var mapContainer = document.getElementById("map");
+
+  if (L && mapContainer) {
+    var getFilterColor = function getFilterColor() {
+      return localStorage.getItem("theme") === "dark" ? ["invert:98%", "grayscale:69%", "bright:89%", "contrast:111%", "hue:205deg", "saturate:1000%"] : ["bright:101%", "contrast:101%", "hue:23deg", "saturate:225%"];
+    };
+
+    var tileLayerTheme = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+    var tiles = L.tileLayer.colorFilter(tileLayerTheme, {
+      attribution: null,
+      transparent: true,
+      filter: getFilterColor()
+    });
+    var map = L.map("map", {
+      center: L.latLng(10.737, 0),
+      zoom: 0,
+      layers: [tiles],
+      minZoom: 1.3,
+      zoomSnap: 0.5,
+      dragging: !L.Browser.mobile,
+      tap: !L.Browser.mobile
+    });
+    var mcg = L.markerClusterGroup({
+      chunkedLoading: false,
+      spiderfyOnMaxZoom: false
+    });
+    points.map(function (point) {
+      var name = point.name,
+          location = point.location,
+          street = point.street;
+      var icon = L.icon({
+        iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAApCAYAAADAk4LOAAAACXBIWXMAAAFgAAABYAEg2RPaAAADpElEQVRYCZ1XS1LbQBBtybIdiMEJKSpUqihgEW/xDdARyAnirOIl3MBH8NK7mBvkBpFv4Gy9IRSpFIQiRPyNfqkeZkY9HwmFt7Lm06+7p/vN2MmyDIrQ6QebALAHAD4AbFuWfQeAAACGs5H/w5jlsJJw4wMA+GhMFuMA99jIDJJOP+ihZwDQFmNuowWO1wS3viDXpdEdZPEc0odruj0EgN5s5H8tJOEEX8R3rbkMtcU34NTqhe5nSQTJ7Tkk80s6/Gk28scGiULguFBffgdufdEwWoQ0uoXo8hdAlooVH0REjISfwZSlyHGh0V5n6aHAtKTxXI5g6nQnMH0P4bEgwtR18Yw8Pj8QZ4ARUAI0Hl+fQZZGisGEBVwHr7XKzox57DXZ/ij8Cdwe2u057z9/wygOxRl4S2vSUHx1oucaMQGAHTrgtdag9mK5aN+Wx/uAAQ9Zenp/SRce4TpaNbQK4+sTcGqeTB/aIXv3XN5oj2VKqii++U0JunpZ8urxee4hvjqVc2hHpBDXuKKT9XMgVYJ1/1fPGSeaikzgmWWkMIi9bVf8UhotXxzORn5gWFchI8QyttlzjS0qpsaIGY2MMsujV/AUSdcY0dDpB6/EiOPYzclR1CI5mOez3ekHvrFLxa7cR5pTscfrXjk0Vhm5V2PqLUWnH3R5GbPGpMVD7E1ckXesKBQ7AS/vmQ1c0+kHuxpBj98lTCm8pbc5QRJRdZ6qHb/wGryXq3Lxszv+5gySuwvxueXySwYvHEjuQ9ofTGKYlrmK1EsCHMd5SoD7mZ1HHFCBHLNbMEshvrugqWLn01hpVVJhFgVGkDvK7hR6n2B+d9C7xsqWsbkqHv4cCsWezEb+o2SR+SFweUBxfA5wH7kShjKt2vWL57Px3GhIFEezkb8pxvUWHYhotAfCk2AtkEcxoOttrxUWDR5svb1emSQKj0WXK1HYIgFREbiBqmoZcB2RkbE+byMZiosorVgAZF1ID7yQhEs38wa7nUqNDezdlavC2HbBGSQkGgZ8uJVBmzeiKCRRpEa9ilWghORVeGB7BxeSKF5xqbFBkxBrFKUk/JHA7ppENQaCnCjthK+3opCEYyANztXmZN858cDYWSUSHk3A311GAZDvo6deNKUk1EsqnJoQlkYBNlmxQZeaMgmxoUokICoHDce351RCCiuKoirJWEgNOYvQplM2VCLhUqF7jf94rW9kHVUjQeheV4riv0i4ZOzzz/2y/+0KAOAfr4EE4HpCFhwAAAAASUVORK5CYII=\n        "
+      });
+      var marker = L.marker(new L.LatLng(point.lat, point["long"]), {
+        icon: icon
+      }, {
+        name: name,
+        location: location
+      });
+      var popupContent = "\n        <h6 class=\"mb-1\">".concat(name, "</h6>\n        <p class=\"m-0 text-500\">").concat(street, ", ").concat(location, "</p>\n      ");
+      var popup = L.popup({
+        minWidth: 180
+      }).setContent(popupContent);
+      marker.bindPopup(popup);
+      mcg.addLayer(marker);
+      return true;
+    });
+    map.addLayer(mcg);
+    var themeController = document.body;
+    themeController.addEventListener("clickControl", function (_ref) {
+      var _ref$detail = _ref.detail,
+          control = _ref$detail.control,
+          value = _ref$detail.value;
+
+      if (control === "theme") {
+        tiles.updateFilter(value === "dark" ? ["invert:98%", "grayscale:69%", "bright:89%", "contrast:111%", "hue:205deg", "saturate:1000%"] : ["bright:101%", "contrast:101%", "hue:23deg", "saturate:225%"]);
+      }
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (leafletActiveUserInit);
+
+/***/ }),
+
+/***/ "./resources/js/list.js":
+/*!******************************!*\
+  !*** ./resources/js/list.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* -------------------------------------------------------------------------- */
+
+/*                                 Data Table                                 */
+
+/* -------------------------------------------------------------------------- */
+
+/* eslint-disable no-param-reassign */
+
+var togglePaginationButtonDisable = function togglePaginationButtonDisable(button, disabled) {
+  button.disabled = disabled;
+  button.classList[disabled ? 'add' : 'remove']('disabled');
+};
+
+var listInit = function listInit() {
+  if (window.List) {
+    var lists = document.querySelectorAll('[data-list]');
+
+    if (lists.length) {
+      lists.forEach(function (el) {
+        var options = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, 'list');
+
+        if (options.pagination) {
+          options = _objectSpread(_objectSpread({}, options), {}, {
+            pagination: _objectSpread({
+              item: "<li><button class='page' type='button'></button></li>"
+            }, options.pagination)
+          });
+        }
+
+        var paginationButtonNext = el.querySelector('[data-list-pagination="next"]');
+        var paginationButtonPrev = el.querySelector('[data-list-pagination="prev"]');
+        var viewAll = el.querySelector('[data-list-view="*"]');
+        var viewLess = el.querySelector('[data-list-view="less"]');
+        var listInfo = el.querySelector('[data-list-info]');
+        var listFilter = document.querySelector('[data-list-filter]');
+        var list = new window.List(el, options); //-------fallback-----------
+
+        list.on('updated', function (item) {
+          var fallback = el.querySelector('.fallback') || document.getElementById(options.fallback);
+
+          if (fallback) {
+            if (item.matchingItems.length === 0) {
+              fallback.classList.remove('d-none');
+            } else {
+              fallback.classList.add('d-none');
+            }
+          }
+        }); // ---------------------------------------
+
+        var totalItem = list.items.length;
+        var itemsPerPage = list.page;
+        var btnDropdownClose = list.listContainer.querySelector('.btn-close');
+        var pageQuantity = Math.ceil(totalItem / itemsPerPage);
+        var numberOfcurrentItems = list.visibleItems.length;
+        var pageCount = 1;
+        btnDropdownClose && btnDropdownClose.addEventListener('search.close', function () {
+          list.fuzzySearch('');
+        });
+
+        var updateListControls = function updateListControls() {
+          listInfo && (listInfo.innerHTML = "".concat(list.i, " to ").concat(numberOfcurrentItems, " of ").concat(totalItem));
+          paginationButtonPrev && togglePaginationButtonDisable(paginationButtonPrev, pageCount === 1);
+          paginationButtonNext && togglePaginationButtonDisable(paginationButtonNext, pageCount === pageQuantity);
+
+          if (pageCount > 1 && pageCount < pageQuantity) {
+            togglePaginationButtonDisable(paginationButtonNext, false);
+            togglePaginationButtonDisable(paginationButtonPrev, false);
+          }
+        }; // List info
+
+
+        updateListControls();
+
+        if (paginationButtonNext) {
+          paginationButtonNext.addEventListener('click', function (e) {
+            e.preventDefault();
+            pageCount = pageCount + 1;
+            var nextInitialIndex = list.i + itemsPerPage;
+            nextInitialIndex <= list.size() && list.show(nextInitialIndex, itemsPerPage);
+            numberOfcurrentItems += list.visibleItems.length;
+            updateListControls();
+          });
+        }
+
+        if (paginationButtonPrev) {
+          paginationButtonPrev.addEventListener('click', function (e) {
+            e.preventDefault();
+            pageCount = pageCount - 1;
+            numberOfcurrentItems = numberOfcurrentItems - list.visibleItems.length;
+            var prevItem = list.i - itemsPerPage;
+            prevItem > 0 && list.show(prevItem, itemsPerPage);
+            updateListControls();
+          });
+        }
+
+        var toggleViewBtn = function toggleViewBtn() {
+          viewLess.classList.toggle('d-none');
+          viewAll.classList.toggle('d-none');
+        };
+
+        if (viewAll) {
+          viewAll.addEventListener('click', function () {
+            list.show(1, totalItem);
+            pageQuantity = 1;
+            pageCount = 1;
+            numberOfcurrentItems = totalItem;
+            updateListControls();
+            toggleViewBtn();
+          });
+        }
+
+        if (viewLess) {
+          viewLess.addEventListener('click', function () {
+            list.show(1, itemsPerPage);
+            pageQuantity = Math.ceil(totalItem / itemsPerPage);
+            pageCount = 1;
+            numberOfcurrentItems = list.visibleItems.length;
+            updateListControls();
+            toggleViewBtn();
+          });
+        } // numbering pagination
+
+
+        if (options.pagination) {
+          el.querySelector('.pagination').addEventListener('click', function (e) {
+            if (e.target.classList[0] === 'page') {
+              pageCount = Number(e.target.innerText);
+              updateListControls();
+            }
+          });
+        }
+
+        if (options.filter) {
+          listFilter.addEventListener('change', function (e) {
+            list.filter(function (item) {
+              if (e.target.value === '') {
+                return true;
+              } else return item.values().payment.toLowerCase().includes(e.target.value.toLowerCase());
+            });
+          });
+        }
+      });
+    }
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (listInit);
+
+/***/ }),
+
+/***/ "./resources/js/lottie.js":
+/*!********************************!*\
+  !*** ./resources/js/lottie.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var lottieInit = function lottieInit() {
+  var lotties = document.querySelectorAll(".lottie");
+
+  if (lotties.length) {
+    lotties.forEach(function (item) {
+      var options = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(item, "options");
+      window.bodymovin.loadAnimation(_objectSpread({
+        container: item,
+        path: "../img/animated-icons/warning-light.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        name: "Hello World"
+      }, options));
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (lottieInit);
+
+/***/ }),
+
+/***/ "./resources/js/navbar-combo.js":
+/*!**************************************!*\
+  !*** ./resources/js/navbar-combo.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/* -------------------------------------------------------------------------- */
+
+/*                             Navbar Combo Layout                            */
+
+/* -------------------------------------------------------------------------- */
+
+var navbarComboInit = function navbarComboInit() {
+  var Selector = {
+    NAVBAR_VERTICAL: '.navbar-vertical',
+    NAVBAR_TOP_COMBO: '[data-navbar-top="combo"]',
+    COLLAPSE: '.collapse',
+    DATA_MOVE_CONTAINER: '[data-move-container]',
+    NAVBAR_NAV: '.navbar-nav',
+    NAVBAR_VERTICAL_DIVIDER: '.navbar-vertical-divider'
+  };
+  var ClassName = {
+    FLEX_COLUMN: 'flex-column'
+  };
+  var navbarVertical = document.querySelector(Selector.NAVBAR_VERTICAL);
+  var navbarTopCombo = document.querySelector(Selector.NAVBAR_TOP_COMBO);
+
+  var moveNavContent = function moveNavContent(windowWidth) {
+    var navbarVerticalBreakpoint = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getBreakpoint(navbarVertical);
+    var navbarTopBreakpoint = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getBreakpoint(navbarTopCombo);
+
+    if (windowWidth < navbarTopBreakpoint) {
+      var navbarCollapse = navbarTopCombo.querySelector(Selector.COLLAPSE);
+      var navbarTopContent = navbarCollapse.innerHTML;
+
+      if (navbarTopContent) {
+        var targetID = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(navbarTopCombo, 'move-target');
+        var targetElement = document.querySelector(targetID);
+        navbarCollapse.innerHTML = '';
+        targetElement.insertAdjacentHTML('afterend', "\n            <div data-move-container>\n              <div class='navbar-vertical-divider'>\n                <hr class='navbar-vertical-hr' />\n              </div>\n              ".concat(navbarTopContent, "\n            </div>\n          "));
+
+        if (navbarVerticalBreakpoint < navbarTopBreakpoint) {
+          var navbarNav = document.querySelector(Selector.DATA_MOVE_CONTAINER).querySelector(Selector.NAVBAR_NAV);
+          _utils__WEBPACK_IMPORTED_MODULE_0__["default"].addClass(navbarNav, ClassName.FLEX_COLUMN);
+        }
+      }
+    } else {
+      var moveableContainer = document.querySelector(Selector.DATA_MOVE_CONTAINER);
+
+      if (moveableContainer) {
+        var _navbarNav = moveableContainer.querySelector(Selector.NAVBAR_NAV);
+
+        _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(_navbarNav, ClassName.FLEX_COLUMN) && _navbarNav.classList.remove(ClassName.FLEX_COLUMN);
+        moveableContainer.querySelector(Selector.NAVBAR_VERTICAL_DIVIDER).remove();
+        navbarTopCombo.querySelector(Selector.COLLAPSE).innerHTML = moveableContainer.innerHTML;
+        moveableContainer.remove();
+      }
+    }
+  };
+
+  moveNavContent(window.innerWidth);
+  _utils__WEBPACK_IMPORTED_MODULE_0__["default"].resize(function () {
+    return moveNavContent(window.innerWidth);
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (navbarComboInit);
+
+/***/ }),
+
+/***/ "./resources/js/navbar-darken-on-scroll.js":
+/*!*************************************************!*\
+  !*** ./resources/js/navbar-darken-on-scroll.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* -------------------------------------------------------------------------- */
+
+/*                         Navbar Darken on scroll                        */
+
+/* -------------------------------------------------------------------------- */
+
+var navbarDarkenOnScroll = function navbarDarkenOnScroll() {
+  var Selector = {
+    NAVBAR: '[data-navbar-darken-on-scroll]',
+    NAVBAR_COLLAPSE: '.navbar-collapse',
+    NAVBAR_TOGGLER: '.navbar-toggler'
+  };
+  var ClassNames = {
+    COLLAPSED: 'collapsed'
+  };
+  var Events = {
+    SCROLL: 'scroll',
+    SHOW_BS_COLLAPSE: 'show.bs.collapse',
+    HIDE_BS_COLLAPSE: 'hide.bs.collapse',
+    HIDDEN_BS_COLLAPSE: 'hidden.bs.collapse'
+  };
+  var DataKey = {
+    NAVBAR_DARKEN_ON_SCROLL: 'navbar-darken-on-scroll'
+  };
+  var navbar = document.querySelector(Selector.NAVBAR);
+
+  function removeNavbarBgClass() {
+    navbar.classList.remove('bg-dark');
+    navbar.classList.remove('bg-100');
+  }
+
+  var toggleThemeClass = function toggleThemeClass(theme) {
+    if (theme === 'dark') {
+      navbar.classList.remove('navbar-dark');
+      navbar.classList.add('navbar-light');
+    } else {
+      navbar.classList.remove('navbar-light');
+      navbar.classList.add('navbar-dark');
+    }
+  };
+
+  function getBgClassName(name, defaultColorName) {
+    var parent = document.documentElement;
+
+    var allColors = _objectSpread(_objectSpread({}, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors(parent)), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays(parent));
+
+    var colorName = Object.keys(allColors).includes(name) ? name : defaultColorName;
+    var color = allColors[colorName];
+    var bgClassName = "bg-".concat(colorName);
+    return {
+      color: color,
+      bgClassName: bgClassName
+    };
+  }
+
+  if (navbar) {
+    var theme = localStorage.getItem('theme');
+    var defaultColorName = theme === 'dark' ? '100' : 'dark';
+    var name = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(navbar, DataKey.NAVBAR_DARKEN_ON_SCROLL);
+    toggleThemeClass(theme);
+    var themeController = document.body;
+    themeController.addEventListener('clickControl', function (_ref) {
+      var _ref$detail = _ref.detail,
+          control = _ref$detail.control,
+          value = _ref$detail.value;
+
+      if (control === 'theme') {
+        toggleThemeClass(value);
+        defaultColorName = value === 'dark' ? '100' : 'dark';
+
+        if (navbar.classList.contains('bg-dark') || navbar.classList.contains('bg-100')) {
+          removeNavbarBgClass();
+          navbar.classList.add(getBgClassName(name, defaultColorName).bgClassName);
+        }
+      }
+    });
+    var windowHeight = window.innerHeight;
+    var html = document.documentElement;
+    var navbarCollapse = navbar.querySelector(Selector.NAVBAR_COLLAPSE);
+    var colorRgb = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hexToRgb(getBgClassName(name, defaultColorName).color);
+
+    var _window$getComputedSt = window.getComputedStyle(navbar),
+        backgroundImage = _window$getComputedSt.backgroundImage;
+
+    var transition = 'background-color 0.35s ease';
+    navbar.style.backgroundImage = 'none'; // Change navbar background color on scroll
+
+    window.addEventListener(Events.SCROLL, function () {
+      var scrollTop = html.scrollTop;
+      var alpha = scrollTop / windowHeight * 2;
+      alpha >= 1 && (alpha = 1);
+      navbar.style.backgroundColor = "rgba(".concat(colorRgb[0], ", ").concat(colorRgb[1], ", ").concat(colorRgb[2], ", ").concat(alpha, ")");
+      navbar.style.backgroundImage = alpha > 0 || _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(navbarCollapse, 'show') ? backgroundImage : 'none';
+    }); // Toggle bg class on window resize
+
+    _utils__WEBPACK_IMPORTED_MODULE_0__["default"].resize(function () {
+      var breakPoint = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getBreakpoint(navbar);
+
+      if (window.innerWidth > breakPoint) {
+        removeNavbarBgClass();
+        navbar.style.backgroundImage = html.scrollTop ? backgroundImage : 'none';
+        navbar.style.transition = 'none';
+      } else if (!_utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(navbar.querySelector(Selector.NAVBAR_TOGGLER), ClassNames.COLLAPSED)) {
+        removeNavbarBgClass();
+        navbar.style.backgroundImage = backgroundImage;
+      }
+
+      if (window.innerWidth <= breakPoint) {
+        navbar.style.transition = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(navbarCollapse, 'show') ? transition : 'none';
+      }
+    });
+    navbarCollapse.addEventListener(Events.SHOW_BS_COLLAPSE, function () {
+      navbar.classList.add(getBgClassName(name, defaultColorName).bgClassName);
+      navbar.style.backgroundImage = backgroundImage;
+      navbar.style.transition = transition;
+    });
+    navbarCollapse.addEventListener(Events.HIDE_BS_COLLAPSE, function () {
+      removeNavbarBgClass();
+      !html.scrollTop && (navbar.style.backgroundImage = 'none');
+    });
+    navbarCollapse.addEventListener(Events.HIDDEN_BS_COLLAPSE, function () {
+      navbar.style.transition = 'none';
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (navbarDarkenOnScroll);
+
+/***/ }),
+
+/***/ "./resources/js/navbar-top.js":
+/*!************************************!*\
+  !*** ./resources/js/navbar-top.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/* -------------------------------------------------------------------------- */
+
+/*                                 Navbar Top                                 */
+
+/* -------------------------------------------------------------------------- */
+
+var navbarTopDropShadow = function navbarTopDropShadow() {
+  var Selector = {
+    NAVBAR: '.navbar:not(.navbar-vertical)',
+    NAVBAR_VERTICAL: '.navbar-vertical',
+    NAVBAR_VERTICAL_CONTENT: '.navbar-vertical-content',
+    NAVBAR_VERTICAL_COLLAPSE: 'navbarVerticalCollapse'
+  };
+  var ClassNames = {
+    NAVBAR_GLASS_SHADOW: 'navbar-glass-shadow',
+    SHOW: 'show'
+  };
+  var Events = {
+    SCROLL: 'scroll',
+    SHOW_BS_COLLAPSE: 'show.bs.collapse',
+    HIDDEN_BS_COLLAPSE: 'hidden.bs.collapse'
+  };
+  var navDropShadowFlag = true;
+  var $navbar = document.querySelector(Selector.NAVBAR);
+  var $navbarVertical = document.querySelector(Selector.NAVBAR_VERTICAL);
+  var $navbarVerticalContent = document.querySelector(Selector.NAVBAR_VERTICAL_CONTENT);
+  var $navbarVerticalCollapse = document.getElementById(Selector.NAVBAR_VERTICAL_COLLAPSE);
+  var html = document.documentElement;
+  var breakPoint = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getBreakpoint($navbarVertical);
+
+  var setDropShadow = function setDropShadow($elem) {
+    if ($elem.scrollTop > 0 && navDropShadowFlag) {
+      $navbar && $navbar.classList.add(ClassNames.NAVBAR_GLASS_SHADOW);
+    } else {
+      $navbar && $navbar.classList.remove(ClassNames.NAVBAR_GLASS_SHADOW);
+    }
+  };
+
+  window.addEventListener(Events.SCROLL, function () {
+    setDropShadow(html);
+  });
+
+  if ($navbarVerticalContent) {
+    $navbarVerticalContent.addEventListener(Events.SCROLL, function () {
+      if (window.outerWidth < breakPoint) {
+        navDropShadowFlag = true;
+        setDropShadow($navbarVerticalContent);
+      }
+    });
+  }
+
+  if ($navbarVerticalCollapse) {
+    $navbarVerticalCollapse.addEventListener(Events.SHOW_BS_COLLAPSE, function () {
+      if (window.outerWidth < breakPoint) {
+        navDropShadowFlag = false;
+        setDropShadow(html);
+      }
+    });
+  }
+
+  if ($navbarVerticalCollapse) {
+    $navbarVerticalCollapse.addEventListener(Events.HIDDEN_BS_COLLAPSE, function () {
+      if (_utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass($navbarVerticalCollapse, ClassNames.SHOW) && window.outerWidth < breakPoint) {
+        navDropShadowFlag = false;
+      } else {
+        navDropShadowFlag = true;
+      }
+
+      setDropShadow(html);
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (navbarTopDropShadow);
+
+/***/ }),
+
+/***/ "./resources/js/navbar-vertical.js":
+/*!*****************************************!*\
+  !*** ./resources/js/navbar-vertical.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/* -------------------------------------------------------------------------- */
+
+/*                               Navbar Vertical                              */
+
+/* -------------------------------------------------------------------------- */
+
+var handleNavbarVerticalCollapsed = function handleNavbarVerticalCollapsed() {
+  var Selector = {
+    HTML: 'html',
+    NAVBAR_VERTICAL_TOGGLE: '.navbar-vertical-toggle',
+    NAVBAR_VERTICAL_COLLAPSE: '.navbar-vertical .navbar-collapse',
+    ECHART_RESPONSIVE: '[data-echart-responsive]'
+  };
+  var Events = {
+    CLICK: 'click',
+    MOUSE_OVER: 'mouseover',
+    MOUSE_LEAVE: 'mouseleave',
+    NAVBAR_VERTICAL_TOGGLE: 'navbar.vertical.toggle'
+  };
+  var ClassNames = {
+    NAVBAR_VERTICAL_COLLAPSED: 'navbar-vertical-collapsed',
+    NAVBAR_VERTICAL_COLLAPSED_HOVER: 'navbar-vertical-collapsed-hover'
+  };
+  var navbarVerticalToggle = document.querySelector(Selector.NAVBAR_VERTICAL_TOGGLE);
+  var html = document.querySelector(Selector.HTML);
+  var navbarVerticalCollapse = document.querySelector(Selector.NAVBAR_VERTICAL_COLLAPSE);
+
+  if (navbarVerticalToggle) {
+    navbarVerticalToggle.addEventListener(Events.CLICK, function (e) {
+      navbarVerticalToggle.blur();
+      html.classList.toggle(ClassNames.NAVBAR_VERTICAL_COLLAPSED); // Set collapse state on localStorage
+
+      var isNavbarVerticalCollapsed = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getItemFromStore('isNavbarVerticalCollapsed');
+      _utils__WEBPACK_IMPORTED_MODULE_0__["default"].setItemToStore('isNavbarVerticalCollapsed', !isNavbarVerticalCollapsed);
+      var event = new CustomEvent(Events.NAVBAR_VERTICAL_TOGGLE);
+      e.currentTarget.dispatchEvent(event);
+    });
+  }
+
+  if (navbarVerticalCollapse) {
+    navbarVerticalCollapse.addEventListener(Events.MOUSE_OVER, function () {
+      if (_utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(html, ClassNames.NAVBAR_VERTICAL_COLLAPSED)) {
+        html.classList.add(ClassNames.NAVBAR_VERTICAL_COLLAPSED_HOVER);
+      }
+    });
+    navbarVerticalCollapse.addEventListener(Events.MOUSE_LEAVE, function () {
+      if (_utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(html, ClassNames.NAVBAR_VERTICAL_COLLAPSED_HOVER)) {
+        html.classList.remove(ClassNames.NAVBAR_VERTICAL_COLLAPSED_HOVER);
+      }
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (handleNavbarVerticalCollapsed);
+
+/***/ }),
+
+/***/ "./resources/js/node.js":
+/*!******************************!*\
+  !*** ./resources/js/node.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+/*-----------------------------------------------
+|   DomNode
+-----------------------------------------------*/
+var DomNode = /*#__PURE__*/function () {
+  function DomNode(node) {
+    _classCallCheck(this, DomNode);
+
+    this.node = node;
+  }
+
+  _createClass(DomNode, [{
+    key: "addClass",
+    value: function addClass(className) {
+      this.isValidNode() && this.node.classList.add(className);
+    }
+  }, {
+    key: "removeClass",
+    value: function removeClass(className) {
+      this.isValidNode() && this.node.classList.remove(className);
+    }
+  }, {
+    key: "toggleClass",
+    value: function toggleClass(className) {
+      this.isValidNode() && this.node.classList.toggle(className);
+    }
+  }, {
+    key: "hasClass",
+    value: function hasClass(className) {
+      this.isValidNode() && this.node.classList.contains(className);
+    }
+  }, {
+    key: "data",
+    value: function data(key) {
+      if (this.isValidNode()) {
+        try {
+          return JSON.parse(this.node.dataset[this.camelize(key)]);
+        } catch (e) {
+          return this.node.dataset[this.camelize(key)];
+        }
+      }
+
+      return null;
+    }
+  }, {
+    key: "attr",
+    value: function attr(name) {
+      return this.isValidNode() && this.node[name];
+    }
+  }, {
+    key: "setAttribute",
+    value: function setAttribute(name, value) {
+      this.isValidNode() && this.node.setAttribute(name, value);
+    }
+  }, {
+    key: "removeAttribute",
+    value: function removeAttribute(name) {
+      this.isValidNode() && this.node.removeAttribute(name);
+    }
+  }, {
+    key: "setProp",
+    value: function setProp(name, value) {
+      this.isValidNode() && (this.node[name] = value);
+    }
+  }, {
+    key: "on",
+    value: function on(event, cb) {
+      this.isValidNode() && this.node.addEventListener(event, cb);
+    }
+  }, {
+    key: "isValidNode",
+    value: function isValidNode() {
+      return !!this.node;
+    } // eslint-disable-next-line class-methods-use-this
+
+  }, {
+    key: "camelize",
+    value: function camelize(str) {
+      var text = str.replace(/[-_\s.]+(.)?/g, function (_, c) {
+        return c ? c.toUpperCase() : '';
+      });
+      return "".concat(text.substr(0, 1).toLowerCase()).concat(text.substr(1));
+    }
+  }]);
+
+  return DomNode;
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DomNode);
+
+/***/ }),
+
+/***/ "./resources/js/plyr.js":
+/*!******************************!*\
+  !*** ./resources/js/plyr.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/*-----------------------------------------------
+|   Inline Player [plyr]
+-----------------------------------------------*/
+
+var plyrInit = function plyrInit() {
+  if (window.Plyr) {
+    var plyrs = document.querySelectorAll(".player");
+    plyrs.forEach(function (plyr) {
+      var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(plyr, "options");
+      var defaultOptions = {
+        captions: {
+          active: true
+        }
+      };
+
+      var options = window._.merge(defaultOptions, userOptions);
+
+      return new window.Plyr(plyr, options);
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (plyrInit);
+
+/***/ }),
+
+/***/ "./resources/js/popover.js":
+/*!*********************************!*\
+  !*** ./resources/js/popover.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                                   Popover                                  */
+
+/* -------------------------------------------------------------------------- */
+var popoverInit = function popoverInit() {
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+  popoverTriggerList.map(function (popoverTriggerEl) {
+    return new window.bootstrap.Popover(popoverTriggerEl);
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (popoverInit);
+
+/***/ }),
+
+/***/ "./resources/js/progress.js":
+/*!**********************************!*\
+  !*** ./resources/js/progress.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/* -------------------------------------------------------------------------- */
+
+/*                         Bootstrap Animated Progress                        */
+
+/* -------------------------------------------------------------------------- */
+
+var progressAnimationToggle = function progressAnimationToggle() {
+  var animatedProgress = document.querySelectorAll('[data-progress-animation]');
+  animatedProgress.forEach(function (progress) {
+    progress.addEventListener('click', function (e) {
+      var progressID = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(e.currentTarget, 'progressAnimation');
+      var $progress = document.getElementById(progressID);
+      $progress.classList.toggle('progress-bar-animated');
+    });
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (progressAnimationToggle);
+
+/***/ }),
+
+/***/ "./resources/js/quantity.js":
+/*!**********************************!*\
+  !*** ./resources/js/quantity.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/*-----------------------------------------------
+|  Quantity
+-----------------------------------------------*/
+
+var quantityInit = function quantityInit() {
+  var Selector = {
+    DATA_QUANTITY_BTN: '[data-quantity] [data-type]',
+    DATA_QUANTITY: '[data-quantity]',
+    DATA_QUANTITY_INPUT: '[data-quantity] input[type="number"]'
+  };
+  var Events = {
+    CLICK: 'click'
+  };
+  var Attributes = {
+    MIN: 'min'
+  };
+  var DataKey = {
+    TYPE: 'type'
+  };
+  var quantities = document.querySelectorAll(Selector.DATA_QUANTITY_BTN);
+  quantities.forEach(function (quantity) {
+    quantity.addEventListener(Events.CLICK, function (e) {
+      var el = e.currentTarget;
+      var type = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, DataKey.TYPE);
+      var numberInput = el.closest(Selector.DATA_QUANTITY).querySelector(Selector.DATA_QUANTITY_INPUT);
+      var min = numberInput.getAttribute(Attributes.MIN);
+      var value = parseInt(numberInput.value, 10);
+
+      if (type === 'plus') {
+        value += 1;
+      } else {
+        value = value > min ? value -= 1 : value;
+      }
+
+      numberInput.value = value;
+    });
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (quantityInit);
+
+/***/ }),
+
+/***/ "./resources/js/rater.js":
+/*!*******************************!*\
+  !*** ./resources/js/rater.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/* -------------------------------------------------------------------------- */
+
+/*                               Ratings                               */
+
+/* -------------------------------------------------------------------------- */
+
+var ratingInit = function ratingInit() {
+  var raters = document.querySelectorAll("[data-rater]");
+  raters.forEach(function (rater) {
+    var options = _objectSpread({
+      reverse: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getItemFromStore('isRTL'),
+      starSize: 32,
+      step: 0.5,
+      element: rater,
+      rateCallback: function rateCallback(rating, done) {
+        this.setRating(rating);
+        done();
+      }
+    }, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(rater, "rater"));
+
+    return window.raterJs(options);
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ratingInit);
+
+/***/ }),
+
+/***/ "./resources/js/scroll-to-top.js":
+/*!***************************************!*\
+  !*** ./resources/js/scroll-to-top.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/* -------------------------------------------------------------------------- */
+
+/*                                Scroll To Top                               */
+
+/* -------------------------------------------------------------------------- */
+
+var scrollToTop = function scrollToTop() {
+  document.querySelectorAll('[data-anchor] > a, [data-scroll-to]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var _utils$getData;
+
+      e.preventDefault();
+      var el = e.target;
+      var id = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, 'scroll-to') || el.getAttribute('href');
+      window.scroll({
+        top: (_utils$getData = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, 'offset-top')) !== null && _utils$getData !== void 0 ? _utils$getData : _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getOffset(document.querySelector(id)).top - 100,
+        left: 0,
+        behavior: 'smooth'
+      });
+      window.location.hash = id;
+    });
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollToTop);
+
+/***/ }),
+
+/***/ "./resources/js/scroll.js":
+/*!********************************!*\
+  !*** ./resources/js/scroll.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                                 Scrollbars                                 */
+
+/* -------------------------------------------------------------------------- */
+// import utils from './utils';
+var scrollInit = function scrollInit() {
+  var dropdownElements = Array.from(document.querySelectorAll('[data-hide-on-body-scroll]'));
+
+  if (window.innerWidth < 1200) {
+    window.addEventListener('scroll', function () {
+      dropdownElements.forEach(function (dropdownElement) {
+        var instanceEl = window.bootstrap.Dropdown.getInstance(dropdownElement);
+        instanceEl && instanceEl.hide();
+      });
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollInit);
+
+/***/ }),
+
+/***/ "./resources/js/scrollbar.js":
+/*!***********************************!*\
+  !*** ./resources/js/scrollbar.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                                 Scrollbars                                 */
+
+/* -------------------------------------------------------------------------- */
+var scrollbarInit = function scrollbarInit() {
+  Array.prototype.forEach.call(document.querySelectorAll(".scrollbar-overlay"), function (el) {
+    return new window.OverlayScrollbars(el, {
+      scrollbars: {
+        autoHide: "leave",
+        autoHideDelay: 200
+      }
+    });
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollbarInit);
+
+/***/ }),
+
+/***/ "./resources/js/search.js":
+/*!********************************!*\
+  !*** ./resources/js/search.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var searchInit = function searchInit() {
+  var Selectors = {
+    SEARCH_DISMISS: '[data-bs-dismiss="search"]',
+    DROPDOWN_TOGGLE: '[data-bs-toggle="dropdown"]',
+    DROPDOWN_MENU: '.dropdown-menu',
+    SEARCH_BOX: '.search-box',
+    SEARCH_INPUT: '.search-input',
+    SEARCH_TOGGLE: '[data-bs-toggle="search"]'
+  };
+  var ClassName = {
+    SHOW: 'show'
+  };
+  var Attribute = {
+    ARIA_EXPANDED: 'aria-expanded'
+  };
+  var Events = {
+    CLICK: 'click',
+    FOCUS: 'focus',
+    SHOW_BS_DROPDOWN: 'show.bs.dropdown',
+    SEARCH_CLOSE: 'search.close'
+  };
+
+  var hideSearchSuggestion = function hideSearchSuggestion(searchArea) {
+    var el = searchArea.querySelector(Selectors.SEARCH_TOGGLE);
+    var dropdownMenu = searchArea.querySelector(Selectors.DROPDOWN_MENU);
+    el.setAttribute(Attribute.ARIA_EXPANDED, 'false');
+    el.classList.remove(ClassName.SHOW);
+    dropdownMenu.classList.remove(ClassName.SHOW);
+  };
+
+  var searchAreas = document.querySelectorAll(Selectors.SEARCH_BOX);
+
+  var hideAllSearchAreas = function hideAllSearchAreas() {
+    searchAreas.forEach(hideSearchSuggestion);
+  };
+
+  searchAreas.forEach(function (searchArea) {
+    var input = searchArea.querySelector(Selectors.SEARCH_INPUT);
+    var btnDropdownClose = searchArea.querySelector(Selectors.SEARCH_DISMISS);
+    var dropdownMenu = searchArea.querySelector(Selectors.DROPDOWN_MENU);
+
+    if (input) {
+      input.addEventListener(Events.FOCUS, function () {
+        hideAllSearchAreas();
+        var el = searchArea.querySelector(Selectors.SEARCH_TOGGLE);
+        el.setAttribute(Attribute.ARIA_EXPANDED, 'true');
+        el.classList.add(ClassName.SHOW);
+        dropdownMenu.classList.add(ClassName.SHOW);
+      });
+    }
+
+    document.addEventListener(Events.CLICK, function (_ref) {
+      var target = _ref.target;
+      !searchArea.contains(target) && hideSearchSuggestion(searchArea);
+    });
+    btnDropdownClose && btnDropdownClose.addEventListener(Events.CLICK, function (e) {
+      hideSearchSuggestion(searchArea);
+      input.value = '';
+      var event = new CustomEvent(Events.SEARCH_CLOSE);
+      e.currentTarget.dispatchEvent(event);
+    });
+  });
+  document.querySelectorAll(Selectors.DROPDOWN_TOGGLE).forEach(function (dropdown) {
+    dropdown.addEventListener(Events.SHOW_BS_DROPDOWN, function () {
+      hideAllSearchAreas();
+    });
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (searchInit);
+
+/***/ }),
+
+/***/ "./resources/js/swiper.js":
+/*!********************************!*\
+  !*** ./resources/js/swiper.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+/*-----------------------------------------------
+|  Swiper
+-----------------------------------------------*/
+
+var swiperInit = function swiperInit() {
+  var swipers = document.querySelectorAll('[data-swiper]');
+  var navbarVerticalToggle = document.querySelector('.navbar-vertical-toggle');
+  swipers.forEach(function (swiper) {
+    var options = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(swiper, 'swiper');
+    var thumbsOptions = options.thumb;
+    var thumbsInit;
+
+    if (thumbsOptions) {
+      var thumbImages = swiper.querySelectorAll('img');
+      var slides = '';
+      thumbImages.forEach(function (img) {
+        slides += "\n          <div class='swiper-slide '>\n            <img class='img-fluid rounded mt-1' src=".concat(img.src, " alt=''/>\n          </div>\n        ");
+      });
+      var thumbs = document.createElement('div');
+      thumbs.setAttribute('class', 'swiper-container thumb');
+      thumbs.innerHTML = "<div class='swiper-wrapper'>".concat(slides, "</div>");
+
+      if (thumbsOptions.parent) {
+        var parent = document.querySelector(thumbsOptions.parent);
+        parent.parentNode.appendChild(thumbs);
+      } else {
+        swiper.parentNode.appendChild(thumbs);
+      }
+
+      thumbsInit = new window.Swiper(thumbs, thumbsOptions);
+    }
+
+    var swiperNav = swiper.querySelector('.swiper-nav');
+    var newSwiper = new window.Swiper(swiper, _objectSpread(_objectSpread({}, options), {}, {
+      navigation: {
+        nextEl: swiperNav === null || swiperNav === void 0 ? void 0 : swiperNav.querySelector('.swiper-button-next'),
+        prevEl: swiperNav === null || swiperNav === void 0 ? void 0 : swiperNav.querySelector('.swiper-button-prev')
+      },
+      thumbs: {
+        swiper: thumbsInit
+      }
+    }));
+
+    if (navbarVerticalToggle) {
+      navbarVerticalToggle.addEventListener('navbar.vertical.toggle', function () {
+        newSwiper.update();
+      });
+    }
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (swiperInit);
+
+/***/ }),
+
+/***/ "./resources/js/theme-control.js":
+/*!***************************************!*\
+  !*** ./resources/js/theme-control.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+/* harmony import */ var _node__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node */ "./resources/js/node.js");
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config */ "./resources/js/config.js");
+
+
+/* -------------------------------------------------------------------------- */
+
+/*                                Theme Control                               */
+
+/* -------------------------------------------------------------------------- */
+
+/* eslint-disable no-param-reassign */
+
+/* eslint-disable */
+
+
+
+var initialDomSetup = function initialDomSetup(element) {
+  if (!element) return;
+  var dataUrlDom = element.querySelector('[data-theme-control = "navbarPosition"]');
+  var hasDataUrl = dataUrlDom ? (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getData)(dataUrlDom, 'page-url') : null;
+  element.querySelectorAll('[data-theme-control]').forEach(function (el) {
+    var inputDataAttributeValue = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getData)(el, 'theme-control');
+    var localStorageValue = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getItemFromStore)(inputDataAttributeValue);
+
+    if (inputDataAttributeValue === 'navbarStyle' && !hasDataUrl && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getItemFromStore)('navbarPosition') === 'top') {
+      el.setAttribute('disabled', true);
+    }
+
+    if (el.type === 'checkbox') {
+      if (inputDataAttributeValue === 'theme') {
+        localStorageValue === 'dark' && el.setAttribute('checked', true);
+      } else {
+        localStorageValue && el.setAttribute('checked', true);
+      }
+    } else {
+      var isChecked = localStorageValue === el.value;
+      isChecked && el.setAttribute('checked', true);
+    }
+  });
+};
+
+var changeTheme = function changeTheme(element) {
+  element.querySelectorAll('[data-theme-control = "theme"]').forEach(function (el) {
+    var inputDataAttributeValue = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getData)(el, 'theme-control');
+    var localStorageValue = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getItemFromStore)(inputDataAttributeValue);
+
+    if (el.type === 'checkbox') {
+      localStorageValue === 'dark' ? el.checked = true : el.checked = false;
+    } else {
+      localStorageValue === el.value ? el.checked = true : el.checked = false;
+    }
+  });
+};
+
+var themeControl = function themeControl() {
+  var themeController = new _node__WEBPACK_IMPORTED_MODULE_1__["default"](document.body);
+  var navbarVertical = document.querySelector('.navbar-vertical');
+  initialDomSetup(themeController.node);
+  themeController.on('click', function (e) {
+    var target = new _node__WEBPACK_IMPORTED_MODULE_1__["default"](e.target);
+
+    if (target.data('theme-control')) {
+      var control = target.data('theme-control');
+      var value = e.target[e.target.type === 'radio' ? 'value' : 'checked'];
+
+      if (control === 'theme') {
+        typeof value === 'boolean' && (value = value ? 'dark' : 'light');
+      }
+
+      (0,_utils__WEBPACK_IMPORTED_MODULE_0__.setItemToStore)(control, value);
+
+      switch (control) {
+        case 'theme':
+          {
+            document.documentElement.classList[value === 'dark' ? 'add' : 'remove']('dark');
+            var clickControl = new CustomEvent('clickControl', {
+              detail: {
+                control: control,
+                value: value
+              }
+            });
+            e.currentTarget.dispatchEvent(clickControl);
+            changeTheme(themeController.node);
+            break;
+          }
+
+        case 'navbarStyle':
+          {
+            navbarVertical.classList.remove('navbar-card');
+            navbarVertical.classList.remove('navbar-inverted');
+            navbarVertical.classList.remove('navbar-vibrant');
+
+            if (value !== 'transparent') {
+              navbarVertical.classList.add("navbar-".concat(value));
+            }
+
+            break;
+          }
+
+        case 'navbarPosition':
+          {
+            var pageUrl = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getData)(target.node, 'page-url');
+            !!pageUrl ? window.location.replace(pageUrl) : window.location.reload();
+            break;
+          }
+
+        case 'reset':
+          {
+            Object.keys(_config__WEBPACK_IMPORTED_MODULE_2__["default"]).forEach(function (key) {
+              localStorage.setItem(key, _config__WEBPACK_IMPORTED_MODULE_2__["default"][key]);
+            });
+            window.location.reload();
+            break;
+          }
+
+        default:
+          window.location.reload();
+      }
+    }
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (themeControl);
+
+/***/ }),
+
+/***/ "./resources/js/tinymce.js":
+/*!*********************************!*\
+  !*** ./resources/js/tinymce.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/* -------------------------------------------------------------------------- */
+
+/*                                   Tinymce                                  */
+
+/* -------------------------------------------------------------------------- */
+
+var tinymceInit = function tinymceInit() {
+  if (window.tinymce) {
+    var tinymces = document.querySelectorAll('.tinymce');
+
+    if (tinymces.length) {
+      window.tinymce.init({
+        selector: '.tinymce',
+        height: '50vh',
+        menubar: false,
+        skin: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].settings.tinymce.theme,
+        content_style: ".mce-content-body { color: ".concat(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays().black, " }"),
+        mobile: {
+          theme: 'mobile',
+          toolbar: ['undo', 'bold']
+        },
+        statusbar: false,
+        plugins: 'link,image,lists,table,media',
+        toolbar: 'styleselect | bold italic link bullist numlist image blockquote table media undo redo',
+        directionality: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getItemFromStore('isRTL') ? 'rtl' : 'ltr',
+        theme_advanced_toolbar_align: 'center'
+      });
+    }
+
+    var themeController = document.body;
+    themeController && themeController.addEventListener('clickControl', function (_ref) {
+      var control = _ref.detail.control;
+
+      if (control === 'theme') {
+        window.tinyMCE.editors.forEach(function (el) {
+          el.dom.addStyle(".mce-content-body{color: ".concat(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays().black, " !important;}"));
+        });
+      }
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tinymceInit);
+
+/***/ }),
+
+/***/ "./resources/js/toast.js":
+/*!*******************************!*\
+  !*** ./resources/js/toast.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                                    Toast                                   */
+
+/* -------------------------------------------------------------------------- */
+var toastInit = function toastInit() {
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+  toastElList.map(function (toastEl) {
+    return new window.bootstrap.Toast(toastEl);
+  });
+  var liveToastBtn = document.getElementById('liveToastBtn');
+
+  if (liveToastBtn) {
+    var liveToast = new window.bootstrap.Toast(document.getElementById('liveToast'));
+    liveToastBtn.addEventListener('click', function () {
+      liveToast && liveToast.show();
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toastInit);
+
+/***/ }),
+
+/***/ "./resources/js/tooltip.js":
+/*!*********************************!*\
+  !*** ./resources/js/tooltip.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                                   Tooltip                                  */
+
+/* -------------------------------------------------------------------------- */
+var tooltipInit = function tooltipInit() {
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new window.bootstrap.Tooltip(tooltipTriggerEl, {
+      trigger: 'hover'
+    });
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tooltipInit);
+
+/***/ }),
+
+/***/ "./resources/js/treeview.js":
+/*!**********************************!*\
+  !*** ./resources/js/treeview.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+/* eslint-disable no-param-reassign */
+
+/* -------------------------------------------------------------------------- */
+
+/*                                   Treeview                                   */
+
+/* -------------------------------------------------------------------------- */
+
+var treeviewInit = function treeviewInit() {
+  var Events = {
+    CHANGE: 'change',
+    SHOW_BS_COLLAPSE: 'show.bs.collapse',
+    HIDE_BS_COLLAPSE: 'hide.bs.collapse'
+  };
+  var Selector = {
+    TREEVIEW_ROW: '.treeview > li > .treeview-row,.treeview-list.collapse-show > li > .treeview-row',
+    TREEVIEW: '.treeview',
+    TREEVIEW_LIST: '.treeview-list',
+    TOGGLE_ELEMENT: "[data-bs-toggle='collapse']",
+    INPUT: 'input',
+    TREEVIEW_LIST_ITEM: '.treeview-list-item',
+    CHILD_SELECTOR: ':scope > li > .collapse.collapse-show'
+  };
+  var ClassName = {
+    TREEVIEW: 'treeview',
+    TREEVIEW_LIST: 'treeview-list',
+    TREEVIEW_BORDER: 'treeview-border',
+    TREEVIEW_BORDER_TRANSPARENT: 'treeview-border-transparent',
+    COLLAPSE_SHOW: 'collapse-show',
+    COLLAPSE_HIDDEN: 'collapse-hidden',
+    TREEVIEW_ROW: 'treeview-row',
+    TREEVIEW_ROW_ODD: 'treeview-row-odd',
+    TREEVIEW_ROW_EVEN: 'treeview-row-even'
+  };
+  var treeviews = document.querySelectorAll(Selector.TREEVIEW);
+
+  var makeStriped = function makeStriped(treeview) {
+    var tags = Array.from(treeview.querySelectorAll(Selector.TREEVIEW_ROW));
+    var uTags = tags.filter(function (tag) {
+      var result = true;
+
+      while (tag.parentElement) {
+        if (tag.parentElement.classList.contains(ClassName.COLLAPSE_HIDDEN)) {
+          result = false;
+          break;
+        }
+
+        tag = tag.parentElement;
+      }
+
+      return result;
+    });
+    uTags.forEach(function (tag, index) {
+      if (index % 2 === 0) {
+        tag.classList.add(ClassName.TREEVIEW_ROW_EVEN);
+        tag.classList.remove(ClassName.TREEVIEW_ROW_ODD);
+      } else {
+        tag.classList.add(ClassName.TREEVIEW_ROW_ODD);
+        tag.classList.remove(ClassName.TREEVIEW_ROW_EVEN);
+      }
+    });
+  };
+
+  if (treeviews.length) {
+    treeviews.forEach(function (treeview) {
+      var options = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(treeview, 'options');
+      var striped = options === null || options === void 0 ? void 0 : options.striped;
+      var select = options === null || options === void 0 ? void 0 : options.select;
+
+      if (striped) {
+        makeStriped(treeview);
+      }
+
+      var collapseElementList = Array.from(treeview.querySelectorAll(Selector.TREEVIEW_LIST));
+      var collapseListItem = Array.from(treeview.querySelectorAll(Selector.TREEVIEW_LIST_ITEM));
+      collapseListItem.forEach(function (item) {
+        var wholeRow = document.createElement('div');
+        wholeRow.setAttribute('class', ClassName.TREEVIEW_ROW);
+        item.prepend(wholeRow);
+      });
+      collapseElementList.forEach(function (collapse) {
+        var collapseId = collapse.id;
+
+        if (!striped) {
+          collapse.classList.add(ClassName.TREEVIEW_BORDER);
+        }
+
+        collapse.addEventListener(Events.SHOW_BS_COLLAPSE, function (e) {
+          e.target.classList.remove(ClassName.COLLAPSE_HIDDEN);
+          e.target.classList.add(ClassName.COLLAPSE_SHOW);
+
+          if (striped) {
+            makeStriped(treeview);
+          } else {
+            e.path[2].classList.add(ClassName.TREEVIEW_BORDER_TRANSPARENT);
+          }
+        });
+        collapse.addEventListener(Events.HIDE_BS_COLLAPSE, function (e) {
+          e.target.classList.add(ClassName.COLLAPSE_HIDDEN);
+          e.target.classList.remove(ClassName.COLLAPSE_SHOW);
+
+          if (striped) {
+            makeStriped(treeview);
+          } else {
+            var childs = e.path[2].querySelectorAll(Selector.CHILD_SELECTOR);
+
+            if (!e.path[2].classList.contains(ClassName.TREEVIEW) && childs.length === 0) {
+              e.path[2].classList.remove(ClassName.TREEVIEW_BORDER_TRANSPARENT);
+            }
+          }
+        });
+
+        if (collapse.dataset.show === 'true') {
+          var parents = [collapse];
+
+          while (collapse.parentElement) {
+            if (collapse.parentElement.classList.contains(ClassName.TREEVIEW_LIST)) {
+              parents.unshift(collapse.parentElement);
+            }
+
+            collapse = collapse.parentElement;
+          }
+
+          parents.forEach(function (collapseEl) {
+            // eslint-disable-next-line no-new
+            new window.bootstrap.Collapse(collapseEl, {
+              show: true
+            });
+          });
+        }
+
+        if (select) {
+          var inputElement = treeview.querySelector("input[data-target='#".concat(collapseId, "']"));
+          inputElement.addEventListener(Events.CHANGE, function (e) {
+            var childInputElements = Array.from(treeview.querySelector("#".concat(collapseId)).querySelectorAll(Selector.INPUT));
+            childInputElements.forEach(function (input) {
+              input.checked = e.target.checked;
+            });
+          });
+        }
+      });
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (treeviewInit);
+
+/***/ }),
+
+/***/ "./resources/js/typed.js":
+/*!*******************************!*\
+  !*** ./resources/js/typed.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+
+/* -------------------------------------------------------------------------- */
+
+/*                                 Typed Text                                 */
+
+/* -------------------------------------------------------------------------- */
+
+var typedTextInit = function typedTextInit() {
+  var typedTexts = document.querySelectorAll('.typed-text');
+
+  if (typedTexts.length && window.Typed) {
+    typedTexts.forEach(function (typedText) {
+      return new window.Typed(typedText, {
+        strings: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(typedText, 'typedText'),
+        typeSpeed: 100,
+        loop: true,
+        backDelay: 1500
+      });
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (typedTextInit);
+
+/***/ }),
+
+/***/ "./resources/js/utils.js":
+/*!*******************************!*\
+  !*** ./resources/js/utils.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                                    Utils                                   */
+
+/* -------------------------------------------------------------------------- */
+var docReady = function docReady(fn) {
+  // see if DOM is already available
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fn);
+  } else {
+    setTimeout(fn, 1);
+  }
+};
+
+var resize = function resize(fn) {
+  return window.addEventListener('resize', fn);
+};
+
+var isIterableArray = function isIterableArray(array) {
+  return Array.isArray(array) && !!array.length;
+};
+
+var camelize = function camelize(str) {
+  var text = str.replace(/[-_\s.]+(.)?/g, function (_, c) {
+    return c ? c.toUpperCase() : '';
+  });
+  return "".concat(text.substr(0, 1).toLowerCase()).concat(text.substr(1));
+};
+
+var getData = function getData(el, data) {
+  try {
+    return JSON.parse(el.dataset[camelize(data)]);
+  } catch (e) {
+    return el.dataset[camelize(data)];
+  }
+};
+/* ----------------------------- Colors function ---------------------------- */
+
+
+var hexToRgb = function hexToRgb(hexValue) {
+  var hex;
+  hexValue.indexOf('#') === 0 ? hex = hexValue.substring(1) : hex = hexValue; // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+
+  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.replace(shorthandRegex, function (m, r, g, b) {
+    return r + r + g + g + b + b;
+  }));
+  return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
+};
+
+var rgbaColor = function rgbaColor() {
+  var color = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '#fff';
+  var alpha = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.5;
+  return "rgba(".concat(hexToRgb(color), ", ").concat(alpha, ")");
+};
+/* --------------------------------- Colors --------------------------------- */
+
+
+var getColor = function getColor(name) {
+  var dom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.documentElement;
+  return getComputedStyle(dom).getPropertyValue("--falcon-".concat(name)).trim();
+};
+
+var getColors = function getColors(dom) {
+  return {
+    primary: getColor('primary', dom),
+    secondary: getColor('secondary', dom),
+    success: getColor('success', dom),
+    info: getColor('info', dom),
+    warning: getColor('warning', dom),
+    danger: getColor('danger', dom),
+    light: getColor('light', dom),
+    dark: getColor('dark', dom)
+  };
+};
+
+var getSoftColors = function getSoftColors(dom) {
+  return {
+    primary: getColor('soft-primary', dom),
+    secondary: getColor('soft-secondary', dom),
+    success: getColor('soft-success', dom),
+    info: getColor('soft-info', dom),
+    warning: getColor('soft-warning', dom),
+    danger: getColor('soft-danger', dom),
+    light: getColor('soft-light', dom),
+    dark: getColor('soft-dark', dom)
+  };
+};
+
+var getGrays = function getGrays(dom) {
+  return {
+    white: getColor('white', dom),
+    100: getColor('100', dom),
+    200: getColor('200', dom),
+    300: getColor('300', dom),
+    400: getColor('400', dom),
+    500: getColor('500', dom),
+    600: getColor('600', dom),
+    700: getColor('700', dom),
+    800: getColor('800', dom),
+    900: getColor('900', dom),
+    1000: getColor('1000', dom),
+    1100: getColor('1100', dom),
+    black: getColor('black', dom)
+  };
+};
+
+var hasClass = function hasClass(el, className) {
+  !el && false;
+  return el.classList.value.includes(className);
+};
+
+var addClass = function addClass(el, className) {
+  el.classList.add(className);
+};
+
+var getOffset = function getOffset(el) {
+  var rect = el.getBoundingClientRect();
+  var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return {
+    top: rect.top + scrollTop,
+    left: rect.left + scrollLeft
+  };
+};
+
+function isScrolledIntoView(el) {
+  var rect = el.getBoundingClientRect();
+  var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  var windowWidth = window.innerWidth || document.documentElement.clientWidth;
+  var vertInView = rect.top <= windowHeight && rect.top + rect.height >= 0;
+  var horInView = rect.left <= windowWidth && rect.left + rect.width >= 0;
+  return vertInView && horInView;
+}
+
+var breakpoints = {
+  xs: 0,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  xxl: 1540
+};
+
+var getBreakpoint = function getBreakpoint(el) {
+  var classes = el && el.classList.value;
+  var breakpoint;
+
+  if (classes) {
+    breakpoint = breakpoints[classes.split(' ').filter(function (cls) {
+      return cls.includes('navbar-expand-');
+    }).pop().split('-').pop()];
+  }
+
+  return breakpoint;
+};
+/* --------------------------------- Cookie --------------------------------- */
+
+
+var setCookie = function setCookie(name, value, expire) {
+  var expires = new Date();
+  expires.setTime(expires.getTime() + expire);
+  document.cookie = name + '=' + value + ';expires=' + expires.toUTCString();
+};
+
+var getCookie = function getCookie(name) {
+  var keyValue = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  return keyValue ? keyValue[2] : keyValue;
+};
+
+var settings = {
+  tinymce: {
+    theme: 'oxide'
+  },
+  chart: {
+    borderColor: 'rgba(255, 255, 255, 0.8)'
+  }
+};
+/* -------------------------- Chart Initialization -------------------------- */
+
+var newChart = function newChart(chart, config) {
+  var ctx = chart.getContext('2d');
+  return new window.Chart(ctx, config);
+};
+/* ---------------------------------- Store --------------------------------- */
+
+
+var getItemFromStore = function getItemFromStore(key, defaultValue) {
+  var store = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : localStorage;
+
+  try {
+    return JSON.parse(store.getItem(key)) || defaultValue;
+  } catch (_unused) {
+    return store.getItem(key) || defaultValue;
+  }
+};
+
+var setItemToStore = function setItemToStore(key, payload) {
+  var store = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : localStorage;
+  return store.setItem(key, payload);
+};
+
+var getStoreSpace = function getStoreSpace() {
+  var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : localStorage;
+  return parseFloat((escape(encodeURIComponent(JSON.stringify(store))).length / (1024 * 1024)).toFixed(2));
+};
+/* get Dates between */
+
+
+var getDates = function getDates(startDate, endDate) {
+  var interval = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1000 * 60 * 60 * 24;
+  var duration = endDate - startDate;
+  var steps = duration / interval;
+  return Array.from({
+    length: steps + 1
+  }, function (v, i) {
+    return new Date(startDate.valueOf() + interval * i);
+  });
+};
+
+var getPastDates = function getPastDates(duration) {
+  var days;
+
+  switch (duration) {
+    case 'week':
+      days = 7;
+      break;
+
+    case 'month':
+      days = 30;
+      break;
+
+    case 'year':
+      days = 365;
+      break;
+
+    default:
+      days = duration;
+  }
+
+  var date = new Date();
+  var endDate = date;
+  var startDate = new Date(new Date().setDate(date.getDate() - (days - 1)));
+  return getDates(startDate, endDate);
+};
+/* Get Random Number */
+
+
+var getRandomNumber = function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+};
+
+var utils = {
+  docReady: docReady,
+  resize: resize,
+  isIterableArray: isIterableArray,
+  camelize: camelize,
+  getData: getData,
+  hasClass: hasClass,
+  addClass: addClass,
+  hexToRgb: hexToRgb,
+  rgbaColor: rgbaColor,
+  getColor: getColor,
+  getColors: getColors,
+  getSoftColors: getSoftColors,
+  getGrays: getGrays,
+  getOffset: getOffset,
+  isScrolledIntoView: isScrolledIntoView,
+  getBreakpoint: getBreakpoint,
+  setCookie: setCookie,
+  getCookie: getCookie,
+  newChart: newChart,
+  settings: settings,
+  getItemFromStore: getItemFromStore,
+  setItemToStore: setItemToStore,
+  getStoreSpace: getStoreSpace,
+  getDates: getDates,
+  getPastDates: getPastDates,
+  getRandomNumber: getRandomNumber
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (utils);
+
+/***/ }),
+
+/***/ "./resources/js/wizard.js":
+/*!********************************!*\
+  !*** ./resources/js/wizard.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* -------------------------------------------------------------------------- */
+
+/*                                 step wizard                                */
+
+/* -------------------------------------------------------------------------- */
+var wizardInit = function wizardInit() {
+  var wizards = document.querySelectorAll('.theme-wizard');
+  var tabPillEl = document.querySelectorAll('#pill-tab2 [data-bs-toggle="pill"]');
+  var tabProgressBar = document.querySelector('.theme-wizard .progress');
+  wizards.forEach(function (wizard) {
+    var tabToggleButtonEl = wizard.querySelectorAll('[data-wizard-step]');
+    var inputEmail = wizard.querySelector('[data-wizard-validate-email]');
+    var emailPattern = inputEmail.getAttribute('pattern');
+    var inputPassword = wizard.querySelector('[data-wizard-validate-password]');
+    var inputConfirmPassword = wizard.querySelector('[data-wizard-validate-confirm-password]');
+    var form = wizard.querySelector('[novalidate]');
+    var nextButton = wizard.querySelector('.next button');
+    var prevButton = wizard.querySelector('.previous button');
+    var cardFooter = wizard.querySelector('.theme-wizard .card-footer');
+    var count = 0;
+
+    var validatePattern = function validatePattern(pattern, value) {
+      var regexPattern = new RegExp(pattern);
+      return regexPattern.test(String(value).toLowerCase());
+    };
+
+    prevButton.classList.add('d-none'); // on button click tab change
+
+    nextButton.addEventListener('click', function () {
+      if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
+        form.classList.add('was-validated');
+      } else {
+        count = count + 1;
+        var tab = new window.bootstrap.Tab(tabToggleButtonEl[count]);
+        tab.show();
+      }
+    });
+    prevButton.addEventListener('click', function () {
+      count = count - 1;
+      var tab = new window.bootstrap.Tab(tabToggleButtonEl[count]);
+      tab.show();
+    });
+
+    if (tabToggleButtonEl.length) {
+      tabToggleButtonEl.forEach(function (item, index) {
+        /* eslint-disable */
+        item.addEventListener('show.bs.tab', function (e) {
+          if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
+            e.preventDefault();
+            form.classList.add('was-validated');
+            return null;
+            /* eslint-enable */
+          }
+
+          count = index; // can't go back tab
+
+          if (count === tabToggleButtonEl.length - 1) {
+            tabToggleButtonEl.forEach(function (tab) {
+              tab.setAttribute('data-bs-toggle', 'modal');
+              tab.setAttribute('data-bs-target', '#error-modal');
+            });
+          } //add done class
+
+
+          for (var i = 0; i < count; i = i + 1) {
+            tabToggleButtonEl[i].classList.add('done');
+          } //remove done class
+
+
+          for (var j = count; j < tabToggleButtonEl.length; j = j + 1) {
+            tabToggleButtonEl[j].classList.remove('done');
+          } // card footer remove at last step
+
+
+          if (count > tabToggleButtonEl.length - 2) {
+            item.classList.add('done');
+            cardFooter.classList.add('d-none');
+          } else {
+            cardFooter.classList.remove('d-none');
+          } // prev-button removing
+
+
+          if (count > 0) {
+            prevButton.classList.remove('d-none');
+          } else {
+            prevButton.classList.add('d-none');
+          }
+        });
+      });
+    }
+  }); // control wizard progressbar
+
+  if (tabPillEl.length) {
+    var dividedProgressbar = 100 / tabPillEl.length;
+    tabProgressBar.querySelector('.progress-bar').style.width = dividedProgressbar + '%';
+    tabPillEl.forEach(function (item, index) {
+      item.addEventListener('show.bs.tab', function () {
+        tabProgressBar.querySelector('.progress-bar').style.width = dividedProgressbar * (index + 1) + '%';
+      });
+    });
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (wizardInit);
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!*******************************!*\
+  !*** ./resources/js/theme.js ***!
+  \*******************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+/* harmony import */ var _navbar_vertical__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar-vertical */ "./resources/js/navbar-vertical.js");
+/* harmony import */ var _detector__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./detector */ "./resources/js/detector.js");
+/* harmony import */ var _tooltip__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tooltip */ "./resources/js/tooltip.js");
+/* harmony import */ var _popover__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./popover */ "./resources/js/popover.js");
+/* harmony import */ var _navbar_top__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./navbar-top */ "./resources/js/navbar-top.js");
+/* harmony import */ var _toast__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./toast */ "./resources/js/toast.js");
+/* harmony import */ var _progress__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./progress */ "./resources/js/progress.js");
+/* harmony import */ var _glightbox__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./glightbox */ "./resources/js/glightbox.js");
+/* harmony import */ var _plyr__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./plyr */ "./resources/js/plyr.js");
+/* harmony import */ var _googleMap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./googleMap */ "./resources/js/googleMap.js");
+/* harmony import */ var _dropzone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dropzone */ "./resources/js/dropzone.js");
+/* harmony import */ var _choices__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./choices */ "./resources/js/choices.js");
+/* harmony import */ var _charts_chartjs_chart_bar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./charts/chartjs/chart-bar */ "./resources/js/charts/chartjs/chart-bar.js");
+/* harmony import */ var _form_validation__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./form-validation */ "./resources/js/form-validation.js");
+/* harmony import */ var _leaflet_active_user__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./leaflet-active-user */ "./resources/js/leaflet-active-user.js");
+/* harmony import */ var _countup__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./countup */ "./resources/js/countup.js");
+/* harmony import */ var _copy_link__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./copy-link */ "./resources/js/copy-link.js");
+/* harmony import */ var _typed__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./typed */ "./resources/js/typed.js");
+/* harmony import */ var _navbar_darken_on_scroll__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./navbar-darken-on-scroll */ "./resources/js/navbar-darken-on-scroll.js");
+/* harmony import */ var _scroll_to_top__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./scroll-to-top */ "./resources/js/scroll-to-top.js");
+/* harmony import */ var _tinymce__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./tinymce */ "./resources/js/tinymce.js");
+/* harmony import */ var _bulk_select__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./bulk-select */ "./resources/js/bulk-select.js");
+/* harmony import */ var _quantity__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./quantity */ "./resources/js/quantity.js");
+/* harmony import */ var _navbar_combo__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./navbar-combo */ "./resources/js/navbar-combo.js");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./list */ "./resources/js/list.js");
+/* harmony import */ var _chat__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./chat */ "./resources/js/chat.js");
+/* harmony import */ var _draggable__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./draggable */ "./resources/js/draggable.js");
+/* harmony import */ var _kanban__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./kanban */ "./resources/js/kanban.js");
+/* harmony import */ var _fullcalendar__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./fullcalendar */ "./resources/js/fullcalendar.js");
+/* harmony import */ var _calendar_index__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./calendar/index */ "./resources/js/calendar/index.js");
+/* harmony import */ var _calendar_management_calendar__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./calendar/management-calendar */ "./resources/js/calendar/management-calendar.js");
+/* harmony import */ var _lottie__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./lottie */ "./resources/js/lottie.js");
+/* harmony import */ var _wizard__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./wizard */ "./resources/js/wizard.js");
+/* harmony import */ var _swiper__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./swiper */ "./resources/js/swiper.js");
+/* harmony import */ var _rater__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./rater */ "./resources/js/rater.js");
+/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./search */ "./resources/js/search.js");
+/* harmony import */ var _cookie_notice__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./cookie-notice */ "./resources/js/cookie-notice.js");
+/* harmony import */ var _theme_control__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./theme-control */ "./resources/js/theme-control.js");
+/* harmony import */ var _dropdown_on_hover__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./dropdown-on-hover */ "./resources/js/dropdown-on-hover.js");
+/* harmony import */ var _charts_chartjs_product_share_doughnut__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./charts/chartjs/product-share-doughnut */ "./resources/js/charts/chartjs/product-share-doughnut.js");
+/* harmony import */ var _charts_echarts_total_sales_ecommerce__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./charts/echarts/total-sales-ecommerce */ "./resources/js/charts/echarts/total-sales-ecommerce.js");
+/* harmony import */ var _charts_echarts_sales_by_pos_location__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./charts/echarts/sales-by-pos-location */ "./resources/js/charts/echarts/sales-by-pos-location.js");
+/* harmony import */ var _charts_echarts_returning_customer_rate__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./charts/echarts/returning-customer-rate */ "./resources/js/charts/echarts/returning-customer-rate.js");
+/* harmony import */ var _charts_echarts_top_products__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./charts/echarts/top-products */ "./resources/js/charts/echarts/top-products.js");
+/* harmony import */ var _charts_echarts_market_share_ecommerce__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./charts/echarts/market-share-ecommerce */ "./resources/js/charts/echarts/market-share-ecommerce.js");
+/* harmony import */ var _charts_echarts_total_sales__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./charts/echarts/total-sales */ "./resources/js/charts/echarts/total-sales.js");
+/* harmony import */ var _charts_echarts_weekly_sales__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./charts/echarts/weekly-sales */ "./resources/js/charts/echarts/weekly-sales.js");
+/* harmony import */ var _charts_echarts_market_share__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./charts/echarts/market-share */ "./resources/js/charts/echarts/market-share.js");
+/* harmony import */ var _charts_echarts_total_order__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./charts/echarts/total-order */ "./resources/js/charts/echarts/total-order.js");
+/* harmony import */ var _charts_echarts_candle_chart__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./charts/echarts/candle-chart */ "./resources/js/charts/echarts/candle-chart.js");
+/* harmony import */ var _charts_echarts_gross_revenue__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./charts/echarts/gross-revenue */ "./resources/js/charts/echarts/gross-revenue.js");
+/* harmony import */ var _scrollbar__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./scrollbar */ "./resources/js/scrollbar.js");
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./icons */ "./resources/js/icons.js");
+/* harmony import */ var _charts_echarts_report_for_this_week__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./charts/echarts/report-for-this-week */ "./resources/js/charts/echarts/report-for-this-week.js");
+/* harmony import */ var _charts_echarts_basic_echarts__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./charts/echarts/basic-echarts */ "./resources/js/charts/echarts/basic-echarts.js");
+/* harmony import */ var _charts_chartjs_chart_scatter__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./charts/chartjs/chart-scatter */ "./resources/js/charts/chartjs/chart-scatter.js");
+/* harmony import */ var _charts_chartjs_chart_doughnut__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./charts/chartjs/chart-doughnut */ "./resources/js/charts/chartjs/chart-doughnut.js");
+/* harmony import */ var _charts_chartjs_chart_pie__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./charts/chartjs/chart-pie */ "./resources/js/charts/chartjs/chart-pie.js");
+/* harmony import */ var _charts_chartjs_chart_polar__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./charts/chartjs/chart-polar */ "./resources/js/charts/chartjs/chart-polar.js");
+/* harmony import */ var _charts_chartjs_chart_radar__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./charts/chartjs/chart-radar */ "./resources/js/charts/chartjs/chart-radar.js");
+/* harmony import */ var _charts_chartjs_chart_combo__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./charts/chartjs/chart-combo */ "./resources/js/charts/chartjs/chart-combo.js");
+/* harmony import */ var _charts_chartjs_chart_bubble__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./charts/chartjs/chart-bubble */ "./resources/js/charts/chartjs/chart-bubble.js");
+/* harmony import */ var _dropdown_menu__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./dropdown-menu */ "./resources/js/dropdown-menu.js");
+/* harmony import */ var _charts_echarts_audience__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./charts/echarts/audience */ "./resources/js/charts/echarts/audience.js");
+/* harmony import */ var _charts_echarts_session_by_browser__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./charts/echarts/session-by-browser */ "./resources/js/charts/echarts/session-by-browser.js");
+/* harmony import */ var _charts_echarts_session_by_country__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./charts/echarts/session-by-country */ "./resources/js/charts/echarts/session-by-country.js");
+/* harmony import */ var _charts_echarts_active_users_report__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./charts/echarts/active-users-report */ "./resources/js/charts/echarts/active-users-report.js");
+/* harmony import */ var _charts_echarts_traffic_channels__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./charts/echarts/traffic-channels */ "./resources/js/charts/echarts/traffic-channels.js");
+/* harmony import */ var _charts_echarts_bounce_rate__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./charts/echarts/bounce-rate */ "./resources/js/charts/echarts/bounce-rate.js");
+/* harmony import */ var _charts_echarts_users_by_time__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./charts/echarts/users-by-time */ "./resources/js/charts/echarts/users-by-time.js");
+/* harmony import */ var _charts_echarts_session_by_country_map__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./charts/echarts/session-by-country-map */ "./resources/js/charts/echarts/session-by-country-map.js");
+/* harmony import */ var _charts_echarts_most_leads__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./charts/echarts/most-leads */ "./resources/js/charts/echarts/most-leads.js");
+/* harmony import */ var _charts_echarts_closed_vs_goal__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./charts/echarts/closed-vs-goal */ "./resources/js/charts/echarts/closed-vs-goal.js");
+/* harmony import */ var _charts_echarts_lead_conversion__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./charts/echarts/lead-conversion */ "./resources/js/charts/echarts/lead-conversion.js");
+/* harmony import */ var _charts_echarts_deal_storage_funnel__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./charts/echarts/deal-storage-funnel */ "./resources/js/charts/echarts/deal-storage-funnel.js");
+/* harmony import */ var _charts_echarts_crm_revenue__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./charts/echarts/crm-revenue */ "./resources/js/charts/echarts/crm-revenue.js");
+/* harmony import */ var _charts_echarts_location_by_session_crm__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./charts/echarts/location-by-session-crm */ "./resources/js/charts/echarts/location-by-session-crm.js");
+/* harmony import */ var _charts_echarts_real_time_users__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./charts/echarts/real-time-users */ "./resources/js/charts/echarts/real-time-users.js");
+/* harmony import */ var _charts_echarts_line_payment__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./charts/echarts/line-payment */ "./resources/js/charts/echarts/line-payment.js");
+/* harmony import */ var _charts_chartjs_chart_line__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./charts/chartjs/chart-line */ "./resources/js/charts/chartjs/chart-line.js");
+/* harmony import */ var _charts_echarts_bandwidth_saved__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./charts/echarts/bandwidth-saved */ "./resources/js/charts/echarts/bandwidth-saved.js");
+/* harmony import */ var _treeview__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./treeview */ "./resources/js/treeview.js");
+/* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./scroll */ "./resources/js/scroll.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* -------------------------------------------------------------------------- */
 
 /*                            Theme Initialization                            */
 
 /* -------------------------------------------------------------------------- */
 
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_detector__WEBPACK_IMPORTED_MODULE_2__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_navbar_vertical__WEBPACK_IMPORTED_MODULE_1__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_total_order__WEBPACK_IMPORTED_MODULE_49__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_weekly_sales__WEBPACK_IMPORTED_MODULE_47__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_market_share__WEBPACK_IMPORTED_MODULE_48__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_total_sales__WEBPACK_IMPORTED_MODULE_46__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_top_products__WEBPACK_IMPORTED_MODULE_44__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_navbar_top__WEBPACK_IMPORTED_MODULE_5__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_tooltip__WEBPACK_IMPORTED_MODULE_3__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_popover__WEBPACK_IMPORTED_MODULE_4__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_toast__WEBPACK_IMPORTED_MODULE_6__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_progress__WEBPACK_IMPORTED_MODULE_7__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_glightbox__WEBPACK_IMPORTED_MODULE_8__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_plyr__WEBPACK_IMPORTED_MODULE_9__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_googleMap__WEBPACK_IMPORTED_MODULE_10__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_dropzone__WEBPACK_IMPORTED_MODULE_11__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_choices__WEBPACK_IMPORTED_MODULE_12__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_form_validation__WEBPACK_IMPORTED_MODULE_14__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_chartjs_chart_bar__WEBPACK_IMPORTED_MODULE_13__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_leaflet_active_user__WEBPACK_IMPORTED_MODULE_15__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_countup__WEBPACK_IMPORTED_MODULE_16__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_copy_link__WEBPACK_IMPORTED_MODULE_17__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_navbar_darken_on_scroll__WEBPACK_IMPORTED_MODULE_19__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_typed__WEBPACK_IMPORTED_MODULE_18__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_scroll_to_top__WEBPACK_IMPORTED_MODULE_20__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_tinymce__WEBPACK_IMPORTED_MODULE_21__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_bulk_select__WEBPACK_IMPORTED_MODULE_22__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_chat__WEBPACK_IMPORTED_MODULE_26__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_quantity__WEBPACK_IMPORTED_MODULE_23__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_navbar_combo__WEBPACK_IMPORTED_MODULE_24__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_list__WEBPACK_IMPORTED_MODULE_25__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_swiper__WEBPACK_IMPORTED_MODULE_34__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_rater__WEBPACK_IMPORTED_MODULE_35__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_draggable__WEBPACK_IMPORTED_MODULE_27__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_kanban__WEBPACK_IMPORTED_MODULE_28__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_fullcalendar__WEBPACK_IMPORTED_MODULE_29__.fullCalendarInit);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_calendar_index__WEBPACK_IMPORTED_MODULE_30__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_calendar_management_calendar__WEBPACK_IMPORTED_MODULE_31__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_lottie__WEBPACK_IMPORTED_MODULE_32__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_wizard__WEBPACK_IMPORTED_MODULE_33__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_search__WEBPACK_IMPORTED_MODULE_36__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_cookie_notice__WEBPACK_IMPORTED_MODULE_37__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_theme_control__WEBPACK_IMPORTED_MODULE_38__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_dropdown_on_hover__WEBPACK_IMPORTED_MODULE_39__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_market_share_ecommerce__WEBPACK_IMPORTED_MODULE_45__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_chartjs_product_share_doughnut__WEBPACK_IMPORTED_MODULE_40__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_total_sales_ecommerce__WEBPACK_IMPORTED_MODULE_41__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_bandwidth_saved__WEBPACK_IMPORTED_MODULE_81__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_sales_by_pos_location__WEBPACK_IMPORTED_MODULE_42__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_returning_customer_rate__WEBPACK_IMPORTED_MODULE_43__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_candle_chart__WEBPACK_IMPORTED_MODULE_50__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_gross_revenue__WEBPACK_IMPORTED_MODULE_51__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_scrollbar__WEBPACK_IMPORTED_MODULE_52__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_icons__WEBPACK_IMPORTED_MODULE_53__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_report_for_this_week__WEBPACK_IMPORTED_MODULE_54__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_basic_echarts__WEBPACK_IMPORTED_MODULE_55__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_chartjs_chart_scatter__WEBPACK_IMPORTED_MODULE_56__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_chartjs_chart_doughnut__WEBPACK_IMPORTED_MODULE_57__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_chartjs_chart_pie__WEBPACK_IMPORTED_MODULE_58__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_chartjs_chart_polar__WEBPACK_IMPORTED_MODULE_59__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_chartjs_chart_radar__WEBPACK_IMPORTED_MODULE_60__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_chartjs_chart_combo__WEBPACK_IMPORTED_MODULE_61__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_dropdown_menu__WEBPACK_IMPORTED_MODULE_63__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_audience__WEBPACK_IMPORTED_MODULE_64__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_session_by_browser__WEBPACK_IMPORTED_MODULE_65__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_session_by_country__WEBPACK_IMPORTED_MODULE_66__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_active_users_report__WEBPACK_IMPORTED_MODULE_67__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_traffic_channels__WEBPACK_IMPORTED_MODULE_68__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_bounce_rate__WEBPACK_IMPORTED_MODULE_69__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_users_by_time__WEBPACK_IMPORTED_MODULE_70__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_session_by_country_map__WEBPACK_IMPORTED_MODULE_71__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_most_leads__WEBPACK_IMPORTED_MODULE_72__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_closed_vs_goal__WEBPACK_IMPORTED_MODULE_73__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_lead_conversion__WEBPACK_IMPORTED_MODULE_74__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_deal_storage_funnel__WEBPACK_IMPORTED_MODULE_75__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_crm_revenue__WEBPACK_IMPORTED_MODULE_76__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_location_by_session_crm__WEBPACK_IMPORTED_MODULE_77__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_real_time_users__WEBPACK_IMPORTED_MODULE_78__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_line_payment__WEBPACK_IMPORTED_MODULE_79__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_chartjs_chart_bubble__WEBPACK_IMPORTED_MODULE_62__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_chartjs_chart_line__WEBPACK_IMPORTED_MODULE_80__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_treeview__WEBPACK_IMPORTED_MODULE_82__["default"]);
+(0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_scroll__WEBPACK_IMPORTED_MODULE_83__["default"]);
+})();
 
-docReady(detectorInit);
-docReady(handleNavbarVerticalCollapsed);
-docReady(totalOrderInit);
-docReady(weeklySalesInit);
-docReady(marketShareInit);
-docReady(totalSalesInit);
-docReady(topProductsInit);
-docReady(navbarTopDropShadow);
-docReady(tooltipInit);
-docReady(popoverInit);
-docReady(toastInit);
-docReady(progressAnimationToggle);
-docReady(glightboxInit);
-docReady(plyrInit);
-docReady(initMap);
-docReady(dropzoneInit);
-docReady(choicesInit);
-docReady(formValidationInit);
-docReady(barChartInit);
-docReady(leafletActiveUserInit);
-docReady(countupInit);
-docReady(copyLink);
-docReady(navbarDarkenOnScroll);
-docReady(typedTextInit);
-docReady(scrollToTop);
-docReady(tinymceInit);
-docReady(bulkSelectInit);
-docReady(chatInit);
-docReady(quantityInit);
-docReady(navbarComboInit);
-docReady(listInit);
-docReady(swiperInit);
-docReady(ratingInit);
-docReady(draggableInit);
-docReady(kanbanInit);
-docReady(fullCalendarInit);
-docReady(appCalendarInit);
-docReady(managementCalendarInit);
-docReady(lottieInit);
-docReady(wizardInit);
-docReady(searchInit);
-docReady(cookieNoticeInit);
-docReady(themeControl);
-docReady(dropdownOnHover);
-docReady(marketShareEcommerceInit);
-docReady(productShareDoughnutInit);
-docReady(totalSalesEcommerce);
-docReady(bandwidthSavedInit);
-docReady(salesByPosLocationInit);
-docReady(returningCustomerRateInit);
-docReady(candleChartInit);
-docReady(grossRevenueChartInit);
-docReady(scrollbarInit);
-docReady(iconCopiedInit);
-docReady(reportForThisWeekInit);
-docReady(basicEchartsInit);
-docReady(chartScatter);
-docReady(chartDoughnut);
-docReady(chartPie);
-docReady(chartPolar);
-docReady(chartRadar);
-docReady(chartCombo);
-docReady(dropdownMenuInit);
-docReady(audienceChartInit);
-docReady(sessionByBrowserChartInit);
-docReady(sessionByCountryChartInit);
-docReady(activeUsersChartReportInit);
-docReady(trafficChannelChartInit);
-docReady(bounceRateChartInit);
-docReady(usersByTimeChartInit);
-docReady(sessionByCountryMapInit);
-docReady(mostLeadsInit);
-docReady(closedVsGoalInit);
-docReady(leadConversionInit);
-docReady(dealStorageFunnelInit);
-docReady(revenueChartInit);
-docReady(locationBySessionInit);
-docReady(realTimeUsersChartInit);
-docReady(linePaymentChartInit);
-docReady(chartBubble);
-docReady(chartLine);
-docReady(treeviewInit);
-docReady(scrollInit);
-
+/******/ })()
+;

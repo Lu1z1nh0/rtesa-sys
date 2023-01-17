@@ -10,7 +10,7 @@
         <div class="container">
           <div class="row flex-center pt-8 pt-lg-10 pb-lg-9 pb-xl-0">
 
-            <div class="col-md-11 col-lg-8 col-xl-4 pb-7 pb-xl-9 text-center text-xl-start">
+            <div style="text-shadow: 3px 3px 4px #000;" class="col-md-11 col-lg-8 col-xl-4 pb-7 pb-xl-9 text-center text-xl-start">
 
               <!--<a class="btn btn-outline-danger mb-4 fs--1 border-2 rounded-pill" href="#!"><span class="me-2" role="img" aria-label="Gift">🎁</span>-</a>-->
 
@@ -220,9 +220,9 @@
               <h5 class="text-uppercase text-white opacity-85 mb-3">En Representaciones Thompson</h5>
               <p class="text-600 text-justify">Buscamos ser líderes en el rubro de las importaciones de productos de la industria automotriz y así poder ofrecer excelentes precios y servicios a nuestros clientes posicionandose como la empresa número uno.</p>
               <div class="icon-group mt-4">
-                <p class="mt-2" style="">Síguenos: &nbsp;&nbsp;</p>
-                <a class="icon-item bg-white text-facebook" href="#!" title="Ir a" target="_blank"><span class="fab fa-facebook-f"></span></a>
-                <a class="icon-item bg-white text-instagram" href="#!" title="Ir a" target="_blank"><span class="fab fa-instagram"></span></a>
+                <p class="mt-2" style="">SÍGUENOS: &nbsp;&nbsp;</p>
+                <a class="icon-item bg-white text-facebook" href="#!" title="Ir a" target="_blank"><span class="fab fa-facebook-square"></span></a>
+                <a class="icon-item bg-white text-instagram" href="#!" title="Ir a" target="_blank"><span class="fab fa-instagram-square"></span></a>
             </div>
             </div>
 
@@ -248,11 +248,11 @@
                     </li>
 
                     <li>
-                      <p class="text-600"><b>Oficina:</b> Prolongación Juan Pablo II, Urbanización Guerrero, Pasaje Triunfal, Casa 2-B, San Salvador.</p>
-                      <p class="text-600 opacity-50">Lun-Jue: 8:00 - 6:00 p.m. | Vie: 8:00 - 5:00 p.m.</p>
+                      <p class="text-600 opacity-85"><b>Oficina:</b> Prolongación Juan Pablo II, Urbanización Guerrero, Pasaje Triunfal, Casa 2-B, San Salvador.</p>
+                      <p class="text-600 opacity-75">Lun-Jue: 8:00 - 6:00 p.m. | Vie: 8:00 - 5:00 p.m.</p>
 
-                      <p class="text-600"><b>Bódega:</b> Zona Franca, Santa Tecla.</p>
-                      <p class="text-600 opacity-50">Lun-Vie: 8:00 - 5:00 p.m. | Sáb: 8:00 - 12:00 m.d.</p>
+                      <p class="text-600 opacity-85"><b>Bódega:</b> Zona Franca, Santa Tecla.</p>
+                      <p class="text-600 opacity-75">Lun-Vie: 8:00 - 5:00 p.m. | Sáb: 8:00 - 12:00 m.d.</p>
                     </li>
 
                   </ul>

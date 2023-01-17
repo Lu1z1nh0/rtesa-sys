@@ -13,45 +13,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node */ "./resources/js/node.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 /*-----------------------------------------------
 |   Bulk Select
 -----------------------------------------------*/
-
 var BulkSelect = /*#__PURE__*/function () {
   function BulkSelect(element, option) {
     _classCallCheck(this, BulkSelect);
-
     this.element = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](element);
     this.option = _objectSpread({
       displayNoneClassName: 'd-none'
     }, option);
   }
-
   _createClass(BulkSelect, [{
     key: "init",
     value: function init() {
@@ -63,10 +52,9 @@ var BulkSelect = /*#__PURE__*/function () {
     key: "attachNodes",
     value: function attachNodes() {
       var _this$element$data = this.element.data('bulk-select'),
-          body = _this$element$data.body,
-          actions = _this$element$data.actions,
-          replacedElement = _this$element$data.replacedElement;
-
+        body = _this$element$data.body,
+        actions = _this$element$data.actions,
+        replacedElement = _this$element$data.replacedElement;
       this.actions = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById(actions));
       this.replacedElement = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById(replacedElement));
       this.bulkSelectRows = document.getElementById(body).querySelectorAll('[data-bulk-select-row]');
@@ -75,27 +63,20 @@ var BulkSelect = /*#__PURE__*/function () {
     key: "clickBulkCheckbox",
     value: function clickBulkCheckbox() {
       var _this = this;
-
       // Handle click event in bulk checkbox
       this.element.on('click', function () {
         if (_this.element.attr('indeterminate') === 'indeterminate') {
           _this.actions.addClass(_this.option.displayNoneClassName);
-
           _this.replacedElement.removeClass(_this.option.displayNoneClassName);
-
           _this.removeBulkCheck();
-
           _this.bulkSelectRows.forEach(function (el) {
             var rowCheck = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](el);
             rowCheck.setProp('checked', false);
             rowCheck.setAttribute('checked', false);
           });
-
           return;
         }
-
         _this.toggleDisplay();
-
         _this.bulkSelectRows.forEach(function (el) {
           var rowCheck = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](el);
           rowCheck.setProp('checked', _this.element.attr('checked'));
@@ -107,38 +88,28 @@ var BulkSelect = /*#__PURE__*/function () {
     key: "clickRowCheckbox",
     value: function clickRowCheckbox() {
       var _this2 = this;
-
       // Handle click event in checkbox of each row
       this.bulkSelectRows.forEach(function (el) {
         var rowCheck = new _node__WEBPACK_IMPORTED_MODULE_0__["default"](el);
         rowCheck.on('click', function () {
           if (_this2.element.attr('indeterminate') !== 'indeterminate') {
             _this2.element.setProp('indeterminate', true);
-
             _this2.element.setAttribute('indeterminate', 'indeterminate');
-
             _this2.element.setProp('checked', true);
-
             _this2.element.setAttribute('checked', true);
-
             _this2.actions.removeClass(_this2.option.displayNoneClassName);
-
             _this2.replacedElement.addClass(_this2.option.displayNoneClassName);
           }
-
           if (_toConsumableArray(_this2.bulkSelectRows).every(function (element) {
             return element.checked;
           })) {
             _this2.element.setProp('indeterminate', false);
-
             _this2.element.setAttribute('indeterminate', false);
           }
-
           if (_toConsumableArray(_this2.bulkSelectRows).every(function (element) {
             return !element.checked;
           })) {
             _this2.removeBulkCheck();
-
             _this2.toggleDisplay();
           }
         });
@@ -159,13 +130,10 @@ var BulkSelect = /*#__PURE__*/function () {
       this.replacedElement.toggleClass(this.option.displayNoneClassName);
     }
   }]);
-
   return BulkSelect;
 }();
-
 function bulkSelectInit() {
   var bulkSelects = document.querySelectorAll('[data-bulk-select');
-
   if (bulkSelects.length) {
     bulkSelects.forEach(function (el) {
       var bulkSelect = new BulkSelect(el);
@@ -173,7 +141,6 @@ function bulkSelectInit() {
     });
   }
 }
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (bulkSelectInit);
 
 /***/ }),
@@ -189,7 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 var _window = window,
-    dayjs = _window.dayjs;
+  dayjs = _window.dayjs;
 var currentDay = dayjs && dayjs().format('DD');
 var currentMonth = dayjs && dayjs().format('MM');
 var prevMonth = dayjs && dayjs().subtract(1, 'month').format('MM');
@@ -296,10 +263,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /*-----------------------------------------------
 |   Calendar
 -----------------------------------------------*/
-
 var appCalendarInit = function appCalendarInit() {
   var Selectors = {
     ACTIVE: '.active',
@@ -330,16 +297,13 @@ var appCalendarInit = function appCalendarInit() {
   var eventList = _events__WEBPACK_IMPORTED_MODULE_1__["default"].reduce(function (acc, val) {
     return val.schedules ? acc.concat(val.schedules.concat(val)) : acc.concat(val);
   }, []);
-
   var updateTitle = function updateTitle(title) {
     document.querySelector(Selectors.CALENDAR_TITLE).textContent = title;
   };
-
   var appCalendar = document.querySelector(Selectors.CALENDAR);
   var addEventForm = document.querySelector(Selectors.ADD_EVENT_FORM);
   var addEventModal = document.querySelector(Selectors.ADD_EVENT_MODAL);
   var eventDetailsModal = document.querySelector(Selectors.EVENT_DETAILS_MODAL);
-
   if (appCalendar) {
     var calendar = (0,_fullcalendar__WEBPACK_IMPORTED_MODULE_3__.renderCalendar)(appCalendar, {
       headerToolbar: false,
@@ -373,9 +337,7 @@ var appCalendarInit = function appCalendarInit() {
         var modal = new window.bootstrap.Modal(addEventModal);
         modal.show();
         /*eslint-disable-next-line*/
-
         var flatpickr = document.querySelector(Selectors.EVENT_START_DATE)._flatpickr;
-
         flatpickr.setDate([info.dateStr]);
       }
     });
@@ -384,23 +346,19 @@ var appCalendarInit = function appCalendarInit() {
       button.addEventListener(Events.CLICK, function (e) {
         var el = e.currentTarget;
         var type = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, DataKeys.EVENT);
-
         switch (type) {
           case 'prev':
             calendar.prev();
             updateTitle(calendar.currentData.viewTitle);
             break;
-
           case 'next':
             calendar.next();
             updateTitle(calendar.currentData.viewTitle);
             break;
-
           case 'today':
             calendar.today();
             updateTitle(calendar.currentData.viewTitle);
             break;
-
           default:
             calendar.today();
             updateTitle(calendar.currentData.viewTitle);
@@ -423,12 +381,12 @@ var appCalendarInit = function appCalendarInit() {
     addEventForm && addEventForm.addEventListener(Events.SUBMIT, function (e) {
       e.preventDefault();
       var _e$target = e.target,
-          title = _e$target.title,
-          startDate = _e$target.startDate,
-          endDate = _e$target.endDate,
-          label = _e$target.label,
-          description = _e$target.description,
-          allDay = _e$target.allDay;
+        title = _e$target.title,
+        startDate = _e$target.startDate,
+        endDate = _e$target.endDate,
+        label = _e$target.label,
+        description = _e$target.description,
+        allDay = _e$target.allDay;
       calendar.addEvent({
         title: title.value,
         start: startDate.value,
@@ -441,13 +399,11 @@ var appCalendarInit = function appCalendarInit() {
       window.bootstrap.Modal.getInstance(addEventModal).hide();
     });
   }
-
   addEventModal && addEventModal.addEventListener(Events.SHOWN_BS_MODAL, function (_ref) {
     var currentTarget = _ref.currentTarget;
     currentTarget.querySelector(Selectors.INPUT_TITLE).focus();
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (appCalendarInit);
 
 /***/ }),
@@ -472,10 +428,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /*-----------------------------------------------
 |   Project Management Calendar
 -----------------------------------------------*/
-
 var managementCalendarInit = function managementCalendarInit() {
   var Selectors = {
     ADD_EVENT_FORM: '#addEventForm',
@@ -497,31 +453,25 @@ var managementCalendarInit = function managementCalendarInit() {
     EVENT: 'event'
   };
   var managementCalendar = document.querySelector(Selectors.CALENDAR);
-
   if (managementCalendar) {
     var calendarData = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(managementCalendar, 'calendar-option');
     var managementCalendarEvents = document.getElementById(calendarData === null || calendarData === void 0 ? void 0 : calendarData.events);
     var addEventForm = document.querySelector(Selectors.ADD_EVENT_FORM);
     var addEventModal = document.querySelector(Selectors.ADD_EVENT_MODAL);
     var eventDetailsModal = document.querySelector(Selectors.EVENT_DETAILS_MODAL);
-
     var updateTitle = function updateTitle(title) {
       var selectTitle = document.getElementById(calendarData === null || calendarData === void 0 ? void 0 : calendarData.title);
-
       if (selectTitle) {
         selectTitle.textContent = title;
       }
     };
-
     var updateDay = function updateDay(day) {
       var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       var selectDay = document.getElementById(calendarData === null || calendarData === void 0 ? void 0 : calendarData.day);
-
       if (selectDay) {
         selectDay.textContent = days[day];
       }
     };
-
     if (_management_events__WEBPACK_IMPORTED_MODULE_1__["default"]) {
       _management_events__WEBPACK_IMPORTED_MODULE_1__["default"].forEach(function (e) {
         managementEventList.push({
@@ -532,15 +482,12 @@ var managementCalendarInit = function managementCalendarInit() {
         });
       });
     }
-
     if (managementCalendarEvents) {
       _management_events__WEBPACK_IMPORTED_MODULE_1__["default"].forEach(function (e) {
         managementCalendarEvents.innerHTML += "\n          <li class= 'border-top pt-3 mb-3 pb-1 cursor-pointer' data-calendar-events>\n            <div class= 'border-start border-3 border-".concat(e.classNames, " ps-3 mt-1'>\n              <h6 class=\"mb-1 fw-semi-bold text-700\">").concat(e.title, "</h6>\n              <p class= 'fs--2 text-600 mb-0'>").concat(e.startTime || '', " ").concat(e.endTime ? '-' : '', " ").concat(e.endTime || '', "</p>\n            </div>\n          </li> ");
       });
     }
-
     var eventManagementInfo = document.querySelectorAll(Selectors.EVENT_MANAGEMENT_INFO);
-
     if (eventManagementInfo) {
       eventManagementInfo.forEach(function (li, index) {
         li.addEventListener(Events.CLICK, function () {
@@ -552,7 +499,6 @@ var managementCalendarInit = function managementCalendarInit() {
         });
       });
     }
-
     if (managementCalendar) {
       var calendar = (0,_fullcalendar__WEBPACK_IMPORTED_MODULE_2__.renderCalendar)(managementCalendar, {
         headerToolbar: false,
@@ -563,9 +509,7 @@ var managementCalendarInit = function managementCalendarInit() {
           var modal = new window.bootstrap.Modal(addEventModal);
           modal.show();
           /*eslint-disable-next-line*/
-
           var flatpickr = document.querySelector(Selectors.EVENT_START_DATE)._flatpickr;
-
           flatpickr.setDate([info.dateStr]);
         },
         events: managementEventList
@@ -576,23 +520,19 @@ var managementCalendarInit = function managementCalendarInit() {
         button.addEventListener(Events.CLICK, function (e) {
           var el = e.currentTarget;
           var type = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, DataKeys.EVENT);
-
           switch (type) {
             case 'prev':
               calendar.prev();
               updateTitle(calendar.currentData.viewTitle);
               break;
-
             case 'next':
               calendar.next();
               updateTitle(calendar.currentData.viewTitle);
               break;
-
             case 'today':
               calendar.today();
               updateTitle(calendar.currentData.viewTitle);
               break;
-
             default:
               calendar.today();
               updateTitle(calendar.currentData.viewTitle);
@@ -600,7 +540,6 @@ var managementCalendarInit = function managementCalendarInit() {
           }
         });
       });
-
       if (addEventForm) {
         addEventForm.addEventListener(Events.SUBMIT, function (e) {
           e.preventDefault();
@@ -611,7 +550,6 @@ var managementCalendarInit = function managementCalendarInit() {
     }
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (managementCalendarInit);
 
 /***/ }),
@@ -708,13 +646,11 @@ __webpack_require__.r(__webpack_exports__);
 var getStackIcon = function getStackIcon(icon, transform) {
   return "\n  <span class=\"fa-stack ms-n1 me-3\">\n    <i class=\"fas fa-circle fa-stack-2x text-200\"></i>\n    <i class=\"".concat(icon, " fa-stack-1x text-primary\" data-fa-transform=").concat(transform, "></i>\n  </span>\n");
 };
-
 var getTemplate = function getTemplate(event) {
   return "\n<div class=\"modal-header bg-light ps-card pe-5 border-bottom-0\">\n  <div>\n    <h5 class=\"modal-title mb-0\">".concat(event.title, "</h5>\n    ").concat(!!event.extendedProps.organizer ? "<p class=\"mb-0 fs--1 mt-1\">\n        by <a href=\"#!\">".concat(event.extendedProps.organizer, "</a>\n      </p>") : '', "\n  </div>\n  <button type=\"button\" class=\"btn-close position-absolute end-0 top-0 mt-3 me-3\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\n</div>\n<div class=\"modal-body px-card pb-card pt-1 fs--1\">\n  ").concat(event.extendedProps.description ? "\n      <div class=\"d-flex mt-3\">\n        ".concat(getStackIcon('fas fa-align-left'), "\n        <div class=\"flex-1\">\n          <h6>Description</h6>\n          <p class=\"mb-0\">\n            \n          ").concat(event.extendedProps.description.split(' ').slice(0, 30).join(' '), "\n          </p>\n        </div>\n      </div>\n    ") : '', " \n  <div class=\"d-flex mt-3\">\n    ").concat(getStackIcon('fas fa-calendar-check'), "\n    <div class=\"flex-1\">\n        <h6>Date and Time</h6>\n        <p class=\"mb-1\">\n          ").concat(window.dayjs && window.dayjs(event.start).format('dddd, MMMM D, YYYY, h:mm A'), " \n          ").concat(event.end ? "\u2013 <br/>".concat(window.dayjs && window.dayjs(event.end).subtract(1, 'day').format('dddd, MMMM D, YYYY, h:mm A')) : '', "\n        </p>\n    </div>\n  </div>\n  ").concat(event.extendedProps.location ? "\n        <div class=\"d-flex mt-3\">\n          ".concat(getStackIcon('fas fa-map-marker-alt'), "\n          <div class=\"flex-1\">\n              <h6>Location</h6>\n              <p class=\"mb-0\">").concat(event.extendedProps.location, "</p>\n          </div>\n        </div>\n      ") : '', "\n  ").concat(event.schedules ? "\n        <div class=\"d-flex mt-3\">\n        ".concat(getStackIcon('fas fa-clock'), "\n        <div class=\"flex-1\">\n            <h6>Schedule</h6>\n            \n            <ul class=\"list-unstyled timeline mb-0\">\n              ").concat(event.schedules.map(function (schedule) {
     return "<li>".concat(schedule.title, "</li>");
   }).join(''), "\n            </ul>\n        </div>\n      ") : '', "\n  </div>\n</div>\n<div class=\"modal-footer d-flex justify-content-end bg-light px-card border-top-0\">\n  <a href=\"").concat(document.location.href.split('/').slice(0, 5).join('/'), "/app/events/create-an-event.html\" class=\"btn btn-falcon-default btn-sm\">\n    <span class=\"fas fa-pencil-alt fs--2 mr-2\"></span> Edit\n  </a>\n  <a href='").concat(document.location.href.split('/').slice(0, 5).join('/'), "/app/events/event-detail.html' class=\"btn btn-falcon-primary btn-sm\">\n    See more details\n    <span class=\"fas fa-angle-right fs--2 ml-1\"></span>\n  </a>\n</div>\n");
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getTemplate);
 
 /***/ }),
@@ -733,15 +669,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                  bar-chart                                 */
-
 /* -------------------------------------------------------------------------- */
 
 var barChartInit = function barChartInit() {
   var barChartElement = document.getElementById('chartjs-bar-chart');
-
   var getOptions = function getOptions() {
     return {
       type: 'bar',
@@ -775,10 +709,8 @@ var barChartInit = function barChartInit() {
       }
     };
   };
-
   (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(barChartElement, getOptions);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (barChartInit);
 
 /***/ }),
@@ -799,14 +731,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* -------------------------------------------------------------------------- */
-
 /*                            Chart Bubble                                    */
-
 /* -------------------------------------------------------------------------- */
 
 var chartBubble = function chartBubble() {
   var pie = document.getElementById('chartjs-bubble-chart');
-
   var getOptions = function getOptions() {
     return {
       type: 'bubble',
@@ -850,10 +779,8 @@ var chartBubble = function chartBubble() {
       }
     };
   };
-
   (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(pie, getOptions);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartBubble);
 
 /***/ }),
@@ -872,15 +799,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
 
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                            Chart Combo                                  */
-
 /* -------------------------------------------------------------------------- */
-
 var chartCombo = function chartCombo() {
   var combo = document.getElementById('chartjs-combo-chart');
-
   var getOptions = function getOptions() {
     return {
       type: 'bar',
@@ -927,10 +851,8 @@ var chartCombo = function chartCombo() {
       }
     };
   };
-
   (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(combo, getOptions);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartCombo);
 
 /***/ }),
@@ -949,15 +871,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
 
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                            Chart Doughnut                                  */
-
 /* -------------------------------------------------------------------------- */
-
 var chartDoughnut = function chartDoughnut() {
   var doughnut = document.getElementById('chartjs-doughnut-chart');
-
   var getOptions = function getOptions() {
     return {
       type: 'doughnut',
@@ -978,10 +897,8 @@ var chartDoughnut = function chartDoughnut() {
       }
     };
   };
-
   (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(doughnut, getOptions);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartDoughnut);
 
 /***/ }),
@@ -1000,15 +917,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
 
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                            Chart Line                                  */
-
 /* -------------------------------------------------------------------------- */
-
 var chartLine = function chartLine() {
   var line = document.getElementById('chartjs-line-chart');
-
   var getOptions = function getOptions() {
     return {
       type: 'bar',
@@ -1043,10 +957,8 @@ var chartLine = function chartLine() {
       }
     };
   };
-
   (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(line, getOptions);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartLine);
 
 /***/ }),
@@ -1065,15 +977,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
 
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                            Chart Pie                                  */
-
 /* -------------------------------------------------------------------------- */
-
 var chartPie = function chartPie() {
   var pie = document.getElementById('chartjs-pie-chart');
-
   var getOptions = function getOptions() {
     return {
       type: 'pie',
@@ -1094,10 +1003,8 @@ var chartPie = function chartPie() {
       }
     };
   };
-
   (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(pie, getOptions);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartPie);
 
 /***/ }),
@@ -1116,15 +1023,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
 
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                            Chart Polar                                  */
-
 /* -------------------------------------------------------------------------- */
-
 var chartPolar = function chartPolar() {
   var polar = document.getElementById('chartjs-polar-chart');
-
   var getOptions = function getOptions() {
     return {
       type: 'polarArea',
@@ -1152,10 +1056,8 @@ var chartPolar = function chartPolar() {
       }
     };
   };
-
   (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(polar, getOptions);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartPolar);
 
 /***/ }),
@@ -1174,15 +1076,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
 
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                            Chart Radar                                  */
-
 /* -------------------------------------------------------------------------- */
-
 var chartRadar = function chartRadar() {
   var radar = document.getElementById('chartjs-radar-chart');
-
   var getOptions = function getOptions() {
     return {
       type: 'radar',
@@ -1215,10 +1114,8 @@ var chartRadar = function chartRadar() {
       }
     };
   };
-
   (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(radar, getOptions);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartRadar);
 
 /***/ }),
@@ -1237,15 +1134,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chartjs_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartjs-utils */ "./resources/js/charts/chartjs/chartjs-utils.js");
 
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                            Chart Scatter                                   */
-
 /* -------------------------------------------------------------------------- */
-
 var chartScatter = function chartScatter() {
   var scatter = document.getElementById('chartjs-scatter-chart');
-
   var getOptions = function getOptions() {
     return {
       type: 'scatter',
@@ -1353,10 +1247,8 @@ var chartScatter = function chartScatter() {
       }
     };
   };
-
   (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(scatter, getOptions);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartScatter);
 
 /***/ }),
@@ -1373,10 +1265,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils */ "./resources/js/utils.js");
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                            ChartJs Initialization                          */
-
 /* -------------------------------------------------------------------------- */
 
 var chartJsInit = function chartJsInit(chartEl, config) {
@@ -1386,16 +1277,13 @@ var chartJsInit = function chartJsInit(chartEl, config) {
   var themeController = document.body;
   themeController.addEventListener('clickControl', function (_ref) {
     var control = _ref.detail.control;
-
     if (control === 'theme') {
       chart.destroy();
       chart = new window.Chart(ctx, config());
     }
-
     return null;
   });
 };
-
 var chartJsDefaultTooltip = function chartJsDefaultTooltip() {
   return {
     backgroundColor: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
@@ -1409,7 +1297,6 @@ var chartJsDefaultTooltip = function chartJsDefaultTooltip() {
     }
   };
 };
-
 var getBubbleDataset = function getBubbleDataset(count, rmin, rmax, min, max) {
   var arr = Array.from(Array(count).keys());
   return arr.map(function () {
@@ -1420,7 +1307,6 @@ var getBubbleDataset = function getBubbleDataset(count, rmin, rmax, min, max) {
     };
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   chartJsDefaultTooltip: chartJsDefaultTooltip,
   chartJsInit: chartJsInit,
@@ -1444,15 +1330,12 @@ __webpack_require__.r(__webpack_exports__);
 /* eslint-disable */
 
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                            Chart Scatter                                   */
-
 /* -------------------------------------------------------------------------- */
-
 var productShareDoughnutInit = function productShareDoughnutInit() {
   var marketShareDoughnutElement = document.getElementById('marketShareDoughnut');
-
   var getOptions = function getOptions() {
     return {
       type: 'doughnut',
@@ -1477,10 +1360,8 @@ var productShareDoughnutInit = function productShareDoughnutInit() {
       }
     };
   };
-
   (0,_chartjs_utils__WEBPACK_IMPORTED_MODULE_1__.chartJsInit)(marketShareDoughnutElement, getOptions);
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (productShareDoughnutInit);
 
 /***/ }),
@@ -1499,23 +1380,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Echarts Active Users                           */
-
 /* -------------------------------------------------------------------------- */
 
 var activeUsersChartReportInit = function activeUsersChartReportInit() {
   var $echartsActiveUsersChart = document.querySelector('.echart-active-users-report');
-
   if ($echartsActiveUsersChart) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsActiveUsersChart, 'options');
     var chart = window.echarts.init($echartsActiveUsersChart);
-
     var tooltipFormatter = function tooltipFormatter(params) {
       return "\n      <div>\n        <p class='mb-2 text-600'>".concat(window.dayjs(params[0].axisValue).format('MMM DD, YYYY'), "</p>\n        <div class='ms-1'>\n          <h6 class=\"fs--1 text-700\"><span class=\"fas fa-circle text-primary me-2\"></span>").concat(params[0].value, "</h6>\n          <h6 class=\"fs--1 text-700\"><span class=\"fas fa-circle text-success me-2\"></span>").concat(params[1].value, "</h6>\n          <h6 class=\"fs--1 text-700\"><span class=\"fas fa-circle text-info me-2\"></span>").concat(params[2].value, "</h6>\n        </div>\n      </div>\n      ");
     };
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('success'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('info')],
@@ -1646,11 +1523,9 @@ var activeUsersChartReportInit = function activeUsersChartReportInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (activeUsersChartReportInit);
 
 /***/ }),
@@ -1669,10 +1544,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Audience Chart                              */
-
 /* -------------------------------------------------------------------------- */
 
 var audienceChartInit = function audienceChartInit() {
@@ -1685,7 +1559,6 @@ var audienceChartInit = function audienceChartInit() {
       duration: [[625, 269, 479, 654, 549, 305, 671], [499, 670, 550, 222, 696, 695, 469]]
     }
   };
-
   var tooltipFormatter = function tooltipFormatter(params) {
     var percentage = (params[0].value - params[1].value) / params[1].value * 100;
     var perTemp = "\n      <div class=\"d-flex align-items-center ms-2\">\n        <span class=\"fas fa-caret-".concat(percentage < 0 ? 'down' : 'up', " text-").concat(percentage < 0 ? 'danger' : 'success', "\"></span>\n        <h6 class=\"fs--2 mb-0 ms-1 fw-semi-bold\">").concat(Math.abs(percentage).toFixed(2), " %</h6>\n      </div>\n    ");
@@ -1693,7 +1566,6 @@ var audienceChartInit = function audienceChartInit() {
     var prevDate = new Date(new Date().setDate(currentDate.getDate() - 7));
     return "<div>\n          <p class='mb-0 fs--2 text-600'>".concat(window.dayjs(params[0].axisValue).format('MMM DD'), " vs ").concat(window.dayjs(prevDate).format('MMM DD'), "</p>\n          <div class=\"d-flex align-items-center\">\n            <p class='mb-0 text-600 fs--1'>\n              Users: <span class='text-800 fw-semi-bold fs--1'>").concat(params[0].data, "</span>\n            </p>\n            ").concat(perTemp, "\n          </div>\n        </div>");
   };
-
   var getDefaultOptions = function getDefaultOptions(data1, data2) {
     return function () {
       return {
@@ -1808,15 +1680,12 @@ var audienceChartInit = function audienceChartInit() {
       };
     };
   };
-
   var initChart = function initChart(el, options) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, 'options');
     var chart = window.echarts.init(el);
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, options);
   };
-
   var tab = document.querySelector('#audience-chart-tab');
-
   if (tab) {
     initChart(document.querySelector('.echart-audience'), getDefaultOptions(data.dataset.users[0], data.dataset.users[1]));
     var triggerTabList = Array.from(tab.querySelectorAll('[data-bs-toggle="tab"]'));
@@ -1829,7 +1698,6 @@ var audienceChartInit = function audienceChartInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (audienceChartInit);
 
 /***/ }),
@@ -1848,19 +1716,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                            Bandwidth Saved                                 */
-
 /* -------------------------------------------------------------------------- */
 
 var bandwidthSavedInit = function bandwidthSavedInit() {
   var $echartsBandwidthSaved = document.querySelector('.echart-bandwidth-saved');
-
   if ($echartsBandwidthSaved) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsBandwidthSaved, 'options');
     var chart = window.echarts.init($echartsBandwidthSaved);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         series: [{
@@ -1928,18 +1793,15 @@ var bandwidthSavedInit = function bandwidthSavedInit() {
         }]
       };
     };
-
     var initChart = function initChart() {
       if (_utils__WEBPACK_IMPORTED_MODULE_0__["default"].isScrolledIntoView($echartsBandwidthSaved)) {
         (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
         window.removeEventListener('scroll', initChart);
       }
     };
-
     window.addEventListener('scroll', initChart);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (bandwidthSavedInit);
 
 /***/ }),
@@ -1958,10 +1820,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                     Echart Bar Member info                                 */
-
 /* -------------------------------------------------------------------------- */
 
 var basicEchartsInit = function basicEchartsInit() {
@@ -1969,7 +1830,6 @@ var basicEchartsInit = function basicEchartsInit() {
   $echartBasicCharts.forEach(function ($echartBasicChart) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartBasicChart, 'echarts');
     var chart = window.echarts.init($echartBasicChart);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary,
@@ -2028,11 +1888,9 @@ var basicEchartsInit = function basicEchartsInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (basicEchartsInit);
 
 /***/ }),
@@ -2051,28 +1909,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Echarts Bounce Rate                            */
-
 /* -------------------------------------------------------------------------- */
 
 var bounceRateChartInit = function bounceRateChartInit() {
   var $echartsBounceRateChart = document.querySelector('.echart-bounce-rate');
-
   var tooltipFormatter = function tooltipFormatter(params) {
     return "<div>\n          <p class='mb-0 text-600'>".concat(window.dayjs(params[0].axisValue).format('DD, MMMM'), "</p>\n          <div class=\"d-flex align-items-center\">\n            <p class=\"mb-0 text-600\">\n              Rate : <span class='text-800'>").concat(params[0].value, "%</span>\n            </p>\n          </div>\n        </div>");
   };
-
   var dataset = {
     week: [41, 45, 37, 44, 35, 39, 43],
     month: [40, 37, 42, 44, 36, 39, 37, 43, 38, 35, 43, 39, 42, 36, 37, 36, 42, 44, 34, 41, 37, 41, 40, 40, 43, 34, 41, 35, 44, 41, 40]
   };
-
   if ($echartsBounceRateChart) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsBounceRateChart, 'options');
     var chart = window.echarts.init($echartsBounceRateChart);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays().white,
@@ -2179,10 +2032,8 @@ var bounceRateChartInit = function bounceRateChartInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     var selectMenu = document.querySelector("[data-target='.echart-bounce-rate']");
-
     if (selectMenu) {
       selectMenu.addEventListener('change', function (e) {
         var value = e.currentTarget.value;
@@ -2200,7 +2051,6 @@ var bounceRateChartInit = function bounceRateChartInit() {
     }
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (bounceRateChartInit);
 
 /***/ }),
@@ -2219,10 +2069,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Echarts Candle Chart                           */
-
 /* -------------------------------------------------------------------------- */
 
 var candleChartInit = function candleChartInit() {
@@ -2230,7 +2079,6 @@ var candleChartInit = function candleChartInit() {
   var ECHART_ZOOM_IN = "[data-zoom='in']";
   var ECHART_ZOOM_OUT = "[data-zoom='out']";
   var $echartsCandleChart = document.querySelector(ECHART_CANDLE_CHART);
-
   if ($echartsCandleChart) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsCandleChart, "options");
     var chart = window.echarts.init($echartsCandleChart);
@@ -2238,7 +2086,6 @@ var candleChartInit = function candleChartInit() {
     var $echartsZoomOut = document.getElementById($echartsCandleChart.dataset.actionTarget).querySelector(ECHART_ZOOM_OUT);
     var warning = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors()["warning"];
     var primary = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors()["primary"];
-
     var splitData = function splitData(rawData) {
       var categoryData = [];
       var values = [];
@@ -2251,11 +2098,9 @@ var candleChartInit = function candleChartInit() {
         values: values
       };
     };
-
     var data = splitData([["2013/1/24", 2320.26, 2320.26, 2287.3, 2362.94], ["2013/1/25", 2300, 2291.3, 2288.26, 2308.38], ["2013/1/28", 2295.35, 2346.5, 2295.35, 2346.92], ["2013/1/29", 2347.22, 2358.98, 2337.35, 2363.8], ["2013/1/30", 2360.75, 2382.48, 2347.89, 2383.76], ["2013/1/31", 2383.43, 2385.42, 2371.23, 2391.82], ["2013/2/1", 2377.41, 2419.02, 2369.57, 2421.15], ["2013/2/4", 2425.92, 2428.15, 2417.58, 2440.38], ["2013/2/5", 2411, 2433.13, 2403.3, 2437.42], ["2013/2/6", 2432.68, 2434.48, 2427.7, 2441.73], ["2013/2/7", 2430.69, 2418.53, 2394.22, 2433.89], ["2013/2/8", 2416.62, 2432.4, 2414.4, 2443.03], ["2013/2/18", 2441.91, 2421.56, 2415.43, 2444.8], ["2013/2/19", 2420.26, 2382.91, 2373.53, 2427.07], ["2013/2/20", 2383.49, 2397.18, 2370.61, 2397.94], ["2013/2/21", 2378.82, 2325.95, 2309.17, 2378.82], ["2013/2/22", 2322.94, 2314.16, 2308.76, 2330.88], ["2013/2/25", 2320.62, 2325.82, 2315.01, 2338.78], ["2013/2/26", 2313.74, 2293.34, 2289.89, 2340.71], ["2013/2/27", 2297.77, 2313.22, 2292.03, 2324.63], ["2013/2/28", 2322.32, 2365.59, 2308.92, 2366.16], ["2013/3/1", 2364.54, 2359.51, 2330.86, 2369.65], ["2013/3/4", 2332.08, 2273.4, 2259.25, 2333.54], ["2013/3/5", 2274.81, 2326.31, 2270.1, 2328.14], ["2013/3/6", 2333.61, 2347.18, 2321.6, 2351.44], ["2013/3/7", 2340.44, 2324.29, 2304.27, 2352.02], ["2013/3/8", 2326.42, 2318.61, 2314.59, 2333.67], ["2013/3/11", 2314.68, 2310.59, 2296.58, 2320.96], ["2013/3/12", 2309.16, 2286.6, 2264.83, 2333.29], ["2013/3/13", 2282.17, 2263.97, 2253.25, 2286.33], ["2013/3/14", 2255.77, 2270.28, 2253.31, 2276.22], ["2013/3/15", 2269.31, 2278.4, 2250, 2312.08], ["2013/3/18", 2267.29, 2240.02, 2239.21, 2276.05], ["2013/3/19", 2244.26, 2257.43, 2232.02, 2261.31], ["2013/3/20", 2257.74, 2317.37, 2257.42, 2317.86], ["2013/3/21", 2318.21, 2324.24, 2311.6, 2330.81], ["2013/3/22", 2321.4, 2328.28, 2314.97, 2332], ["2013/3/25", 2334.74, 2326.72, 2319.91, 2344.89], ["2013/3/26", 2318.58, 2297.67, 2281.12, 2319.99], ["2013/3/27", 2299.38, 2301.26, 2289, 2323.48], ["2013/3/28", 2273.55, 2236.3, 2232.91, 2273.55], ["2013/3/29", 2238.49, 2236.62, 2228.81, 2246.87], ["2013/4/1", 2229.46, 2234.4, 2227.31, 2243.95], ["2013/4/2", 2234.9, 2227.74, 2220.44, 2253.42], ["2013/4/3", 2232.69, 2225.29, 2217.25, 2241.34], ["2013/4/8", 2196.24, 2211.59, 2180.67, 2212.59], ["2013/4/9", 2215.47, 2225.77, 2215.47, 2234.73], ["2013/4/10", 2224.93, 2226.13, 2212.56, 2233.04], ["2013/4/11", 2236.98, 2219.55, 2217.26, 2242.48], ["2013/4/12", 2218.09, 2206.78, 2204.44, 2226.26]]);
     var zoomStart = 0;
     var zoomEnd = 70;
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         tooltip: {
@@ -2362,9 +2207,7 @@ var candleChartInit = function candleChartInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
-
     var dispatchZoomAction = function dispatchZoomAction() {
       chart.dispatchAction({
         type: "dataZoom",
@@ -2372,16 +2215,13 @@ var candleChartInit = function candleChartInit() {
         end: zoomEnd
       });
     };
-
     $echartsZoomIn.addEventListener("click", function () {
       if (zoomEnd > 10) {
         zoomEnd -= 10;
       }
-
       if (zoomEnd <= 10) {
         $echartsZoomIn.disabled = true;
       }
-
       if (zoomEnd > 0) {
         $echartsZoomOut.disabled = false;
         dispatchZoomAction();
@@ -2391,11 +2231,9 @@ var candleChartInit = function candleChartInit() {
       if (zoomEnd < 100) {
         zoomEnd += 10;
       }
-
       if (zoomEnd >= 100) {
         $echartsZoomOut.disabled = true;
       }
-
       if (zoomEnd > 0) {
         $echartsZoomIn.disabled = false;
         dispatchZoomAction();
@@ -2409,7 +2247,6 @@ var candleChartInit = function candleChartInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (candleChartInit);
 
 /***/ }),
@@ -2428,22 +2265,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Echarts Total Sales                            */
-
 /* -------------------------------------------------------------------------- */
 
 var closedVsGoalInit = function closedVsGoalInit() {
   var ECHART_LINE_TOTAL_SALES = '.echart-closed-vs-goal';
   var $echartsLineTotalSales = document.querySelector(ECHART_LINE_TOTAL_SALES);
   var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
   if ($echartsLineTotalSales) {
     // Get options from data attribute
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsLineTotalSales, 'options');
     var chart = window.echarts.init($echartsLineTotalSales);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning],
@@ -2585,11 +2419,9 @@ var closedVsGoalInit = function closedVsGoalInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (closedVsGoalInit);
 
 /***/ }),
@@ -2608,10 +2440,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Audience Chart                              */
-
 /* -------------------------------------------------------------------------- */
 
 var revenueChartInit = function revenueChartInit() {
@@ -2624,11 +2455,9 @@ var revenueChartInit = function revenueChartInit() {
       profit: [[545, 400, 450, 627, 673, 605, 686, 501, 843, 518, 504, 715, 955, 622, 627, 716, 736, 952, 619, 558, 937, 785, 872, 550, 400], [340, 360, 330, 300, 410, 380, 450, 400, 420, 240, 200, 250, 355, 320, 500, 630, 680, 400, 420, 450, 650, 620, 700, 450, 340]]
     }
   };
-
   var tooltipFormatter = function tooltipFormatter(params) {
     return "<div class=\"card\">\n                <div class=\"card-header bg-light py-2\">\n                  <h6 class=\"text-600 mb-0\">".concat(params[0].axisValue, "</h6>\n                </div>\n              <div class=\"card-body py-2\">\n                <h6 class=\"text-600 fw-normal\">\n                  <span class=\"fas fa-circle text-primary me-2\"></span>Revenue: \n                  <span class=\"fw-medium\">$").concat(params[0].data, "</span></h6>\n                <h6 class=\"text-600 mb-0 fw-normal\"> \n                  <span class=\"fas fa-circle text-warning me-2\"></span>Revenue Goal: \n                  <span class=\"fw-medium\">$").concat(params[1].data, "</span></h6>\n              </div>\n            </div>");
   };
-
   var getDefaultOptions = function getDefaultOptions(data1, data2) {
     return function () {
       return {
@@ -2729,20 +2558,17 @@ var revenueChartInit = function revenueChartInit() {
       };
     };
   };
-
   var initChart = function initChart(el, options) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, 'options');
     var chart = window.echarts.init(el);
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, options);
   };
-
   var chartKeys = ['revenue', 'users', 'deals', 'profit'];
   chartKeys.forEach(function (key) {
     var el = document.querySelector(".echart-crm-".concat(key));
     el && initChart(el, getDefaultOptions(data.dataset[key][0], data.dataset[key][1]));
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (revenueChartInit);
 
 /***/ }),
@@ -2761,22 +2587,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Echarts Bounce Rate                            */
-
 /* -------------------------------------------------------------------------- */
 
 var dealStorageFunnelInit = function dealStorageFunnelInit() {
   var $echartDealStorageFunnel = document.querySelector('.echart-deal-storage-funnel');
-
   if ($echartDealStorageFunnel) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartDealStorageFunnel, 'options');
     var data = userOptions.data,
-        dataAxis1 = userOptions.dataAxis1,
-        dataAxis2 = userOptions.dataAxis2;
+      dataAxis1 = userOptions.dataAxis1,
+      dataAxis2 = userOptions.dataAxis2;
     var chart = window.echarts.init($echartDealStorageFunnel);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         yAxis: [{
@@ -2865,11 +2688,9 @@ var dealStorageFunnelInit = function dealStorageFunnelInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dealStorageFunnelInit);
 
 /***/ }),
@@ -2885,7 +2706,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
 /* eslint-disable */
 var getPosition = function getPosition(pos, params, dom, rect, size) {
   return {
@@ -2893,20 +2713,17 @@ var getPosition = function getPosition(pos, params, dom, rect, size) {
     left: pos[0] - size.contentSize[0] / 2
   };
 };
-
 var echartSetOption = function echartSetOption(chart, userOptions, getDefaultOptions) {
-  var themeController = document.body; // Merge user options with lodash
-
+  var themeController = document.body;
+  // Merge user options with lodash
   chart.setOption(window._.merge(getDefaultOptions(), userOptions));
   themeController.addEventListener('clickControl', function (_ref) {
     var control = _ref.detail.control;
-
     if (control === 'theme') {
       chart.setOption(window._.merge(getDefaultOptions(), userOptions));
     }
   });
 };
-
 var tooltipFormatter = function tooltipFormatter(params) {
   var tooltipItem = "";
   params.forEach(function (el) {
@@ -2914,7 +2731,6 @@ var tooltipFormatter = function tooltipFormatter(params) {
   });
   return "<div>\n            <p class='mb-2 text-600'>\n              ".concat(window.dayjs(params[0].axisValue).isValid() ? window.dayjs(params[0].axisValue).format('MMMM DD') : params[0].axisValue, "\n            </p>\n            ").concat(tooltipItem, "\n          </div>");
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   getPosition: getPosition,
   echartSetOption: echartSetOption,
@@ -2937,17 +2753,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Echarts Gross Revenue                          */
-
 /* -------------------------------------------------------------------------- */
 
 var grossRevenueChartInit = function grossRevenueChartInit() {
   var ECHART_GROSS_REVENUE = '.echart-gross-revenue-chart';
   var $echartsGrossRevenue = document.querySelector(ECHART_GROSS_REVENUE);
   var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
   if ($echartsGrossRevenue) {
     // Get options from data attribute
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsGrossRevenue, 'options');
@@ -2958,13 +2772,10 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
     var LEGEND_PREV_MONTH = "#".concat(userOptions.optionTwo);
     var $legendCurrentMonth = document.getElementById(LEGEND_MONTH_TARGET).querySelector(LEGEND_CURRENT_MONTH);
     var $legendPrevMonth = document.getElementById(LEGEND_MONTH_TARGET).querySelector(LEGEND_PREV_MONTH);
-
     var dates = function dates(month) {
       return _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getDates(window.dayjs().month(month).date(1), window.dayjs().month(Number(month) + 1).date(0), 1000 * 60 * 60 * 24 * 3);
     };
-
     var monthsnumber = [[20, 40, 20, 80, 50, 80, 120, 80, 50, 120, 110, 110], [60, 80, 60, 80, 65, 130, 120, 100, 30, 40, 30, 70], [100, 70, 80, 50, 120, 100, 130, 140, 90, 100, 40, 50], [80, 50, 60, 40, 60, 120, 100, 130, 60, 80, 50, 60], [70, 80, 100, 70, 90, 60, 80, 130, 40, 60, 50, 80], [90, 40, 80, 80, 100, 140, 100, 130, 90, 60, 70, 50], [80, 60, 80, 60, 40, 100, 120, 100, 30, 40, 30, 70], [20, 40, 20, 50, 70, 60, 110, 80, 90, 30, 50, 50], [60, 70, 30, 40, 80, 140, 80, 140, 120, 130, 100, 110], [90, 90, 40, 60, 40, 110, 90, 110, 60, 80, 60, 70], [50, 80, 50, 80, 50, 80, 120, 80, 50, 120, 110, 110], [60, 90, 60, 70, 40, 70, 100, 140, 30, 40, 30, 70], [20, 40, 20, 50, 30, 80, 120, 100, 30, 40, 30, 70]];
-
     var tooltipFormatter = function tooltipFormatter(params) {
       var currentDate = window.dayjs(params[0].axisValue);
       var tooltipItem = "";
@@ -2973,7 +2784,6 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
       });
       return "<div class='ms-1'>\n                ".concat(tooltipItem, "\n              </div>");
     };
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         title: {
@@ -3099,9 +2909,9 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
         }
       };
     };
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
 
-    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions); // Change chart options accordiong to the selected month
-
+    // Change chart options accordiong to the selected month
     var monthSelect = document.querySelector(SELECT_MONTH);
     var month = 0;
     var currentMonthData = monthsnumber[Number(month) + 1];
@@ -3139,7 +2949,6 @@ var grossRevenueChartInit = function grossRevenueChartInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (grossRevenueChartInit);
 
 /***/ }),
@@ -3158,19 +2967,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Traffic Channels                           */
-
 /* -------------------------------------------------------------------------- */
 
 var leadConversionInit = function leadConversionInit() {
   var $leadConversion = document.querySelector('.echart-lead-conversion');
-
   if ($leadConversion) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($leadConversion, 'options');
     var chart = window.echarts.init($leadConversion);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.7), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info, 0.6), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().secondary, 0.2), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning, 0.6)],
@@ -3272,11 +3078,9 @@ var leadConversionInit = function leadConversionInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (leadConversionInit);
 
 /***/ }),
@@ -3295,10 +3099,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Echarts Line Payment                           */
-
 /* -------------------------------------------------------------------------- */
 
 var linePaymentChartInit = function linePaymentChartInit() {
@@ -3309,11 +3112,9 @@ var linePaymentChartInit = function linePaymentChartInit() {
     failed: [1, 0, 2, 1, 2, 1, 1, 0, 0, 1, 0, 2]
   };
   var labels = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM'];
-
   if ($echartsLinePaymentChart) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsLinePaymentChart, 'options');
     var chart = window.echarts.init($echartsLinePaymentChart);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         tooltip: {
@@ -3430,7 +3231,6 @@ var linePaymentChartInit = function linePaymentChartInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     _utils__WEBPACK_IMPORTED_MODULE_0__["default"].resize(function () {
       if (window.innerWidth < 768) {
@@ -3444,7 +3244,6 @@ var linePaymentChartInit = function linePaymentChartInit() {
       }
     });
     var selectMenu = document.querySelector('#dashboard-chart-select');
-
     if (selectMenu) {
       selectMenu.addEventListener('change', function (e) {
         var value = e.currentTarget.value;
@@ -3459,7 +3258,6 @@ var linePaymentChartInit = function linePaymentChartInit() {
     }
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (linePaymentChartInit);
 
 /***/ }),
@@ -3478,10 +3276,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Session By Country Map                      */
-
 /* -------------------------------------------------------------------------- */
 
 var locationBySessionInit = function locationBySessionInit() {
@@ -4024,13 +3821,10 @@ var locationBySessionInit = function locationBySessionInit() {
   var total = 6961500;
   var maxZoomLevel = 5;
   var minZoomLevel = 1;
-
   if ($locationBySessionMap) {
     var _document$querySelect, _document$querySelect2, _document$querySelect3;
-
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($locationBySessionMap, 'options');
     var chart = window.echarts.init($locationBySessionMap);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         tooltip: {
@@ -4045,7 +3839,6 @@ var locationBySessionInit = function locationBySessionInit() {
           transitionDuration: 0,
           formatter: function formatter(params) {
             var _params$data, _params$data2;
-
             return "<strong>".concat((_params$data = params.data) === null || _params$data === void 0 ? void 0 : _params$data.name, " :</strong> ").concat((((_params$data2 = params.data) === null || _params$data2 === void 0 ? void 0 : _params$data2.value) / total * 100).toFixed(2), "%");
           }
         },
@@ -4085,7 +3878,6 @@ var locationBySessionInit = function locationBySessionInit() {
         }]
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     var zoomLevel = 1;
     (_document$querySelect = document.querySelector('.location-by-session-map-reset')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('click', function () {
@@ -4103,7 +3895,6 @@ var locationBySessionInit = function locationBySessionInit() {
       if (zoomLevel < maxZoomLevel) {
         zoomLevel = zoomLevel + 1;
       }
-
       chart.setOption({
         series: {
           zoom: zoomLevel
@@ -4114,7 +3905,6 @@ var locationBySessionInit = function locationBySessionInit() {
       if (zoomLevel > minZoomLevel) {
         zoomLevel = zoomLevel - 1;
       }
-
       chart.setOption({
         series: {
           zoom: zoomLevel
@@ -4123,7 +3913,6 @@ var locationBySessionInit = function locationBySessionInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (locationBySessionInit);
 
 /***/ }),
@@ -4143,19 +3932,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* -------------------------------------------------------------------------- */
-
 /*                                Product Share                               */
-
 /* -------------------------------------------------------------------------- */
 
 var marketShareEcommerceInit = function marketShareEcommerceInit() {
   var ECHART_PRODUCT_SHARE = ".echart-product-share";
   var $echartProductShare = document.querySelector(ECHART_PRODUCT_SHARE);
-
   if ($echartProductShare) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartProductShare, "options");
     var chart = window.echarts.init($echartProductShare);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning],
@@ -4220,11 +4005,9 @@ var marketShareEcommerceInit = function marketShareEcommerceInit() {
         }]
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (marketShareEcommerceInit);
 
 /***/ }),
@@ -4243,20 +4026,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Market Share                                */
-
 /* -------------------------------------------------------------------------- */
 
 var marketShareInit = function marketShareInit() {
   var ECHART_MARKET_SHARE = ".echart-market-share";
   var $echartMarketShare = document.querySelector(ECHART_MARKET_SHARE);
-
   if ($echartMarketShare) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartMarketShare, "options");
     var chart = window.echarts.init($echartMarketShare);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()[300]],
@@ -4321,11 +4101,9 @@ var marketShareInit = function marketShareInit() {
         }]
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (marketShareInit);
 
 /***/ }),
@@ -4344,24 +4122,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Market Share                                */
-
 /* -------------------------------------------------------------------------- */
 
 var mostLeadsInit = function mostLeadsInit() {
   var ECHART_MOST_LEADS = ".echart-most-leads";
   var $echartMostLeads = document.querySelector(ECHART_MOST_LEADS);
-
   if ($echartMostLeads) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartMostLeads, "options");
     var chart = window.echarts.init($echartMostLeads);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
-        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info // utils.getGrays()[300],
+        color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().warning, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info
+        // utils.getGrays()[300],
         ],
+
         tooltip: {
           trigger: "item",
           padding: [7, 10],
@@ -4426,11 +4203,9 @@ var mostLeadsInit = function mostLeadsInit() {
         }]
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (mostLeadsInit);
 
 /***/ }),
@@ -4449,25 +4224,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Echarts Real Time Users                        */
-
 /* -------------------------------------------------------------------------- */
 
 var realTimeUsersChartInit = function realTimeUsersChartInit() {
   var $echartsRealTimeUsers = document.querySelector('.echart-real-time-users');
-
   if ($echartsRealTimeUsers) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsRealTimeUsers, 'options');
     var chart = window.echarts.init($echartsRealTimeUsers);
     var data = [921, 950, 916, 913, 909, 962, 926, 936, 977, 976, 999, 981, 998, 1000, 900, 906, 973, 911, 994, 982, 917, 972, 952, 963, 991];
     var axisData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
-
     var tooltipFormatter = function tooltipFormatter(params) {
       return "\n      <div>\n          <h6 class=\"fs--1 text-700 mb-0\"><span class=\"fas fa-circle me-1 text-info\"></span>\n            Users : ".concat(params[0].value, "\n          </h6>\n      </div>\n      ");
     };
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         tooltip: {
@@ -4531,7 +4302,6 @@ var realTimeUsersChartInit = function realTimeUsersChartInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     var userCounterDom = document.querySelector('.real-time-user');
     setInterval(function () {
@@ -4552,7 +4322,6 @@ var realTimeUsersChartInit = function realTimeUsersChartInit() {
     }, 2000);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (realTimeUsersChartInit);
 
 /***/ }),
@@ -4571,16 +4340,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                     Echart Bar Report For This Week                        */
-
 /* -------------------------------------------------------------------------- */
 
 var reportForThisWeekInit = function reportForThisWeekInit() {
   var ECHART_BAR_REPORT_FOR_THIS_WEEK = ".echart-bar-report-for-this-week";
   var $echartBarReportForThisWeek = document.querySelector(ECHART_BAR_REPORT_FOR_THIS_WEEK);
-
   if ($echartBarReportForThisWeek) {
     var selectChart = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartBarReportForThisWeek, "chart");
     var legendLastWeek = document.getElementById(selectChart === null || selectChart === void 0 ? void 0 : selectChart.option1);
@@ -4588,7 +4355,6 @@ var reportForThisWeekInit = function reportForThisWeekInit() {
     var data = [["product", "This Week", "Last Week"], ["Sun", 43, 85], ["Mon", 83, 73], ["Tue", 86, 62], ["Wed", 72, 53], ["Thu", 80, 50], ["Fri", 50, 70], ["Sat", 80, 90]];
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartBarReportForThisWeek, "options");
     var chart = window.echarts.init($echartBarReportForThisWeek);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"]],
@@ -4691,7 +4457,6 @@ var reportForThisWeekInit = function reportForThisWeekInit() {
         }
       };
     };
-
     legendLastWeek && legendLastWeek.addEventListener("click", function () {
       legendLastWeek.classList.toggle("opacity-50");
       chart.dispatchAction({
@@ -4709,7 +4474,6 @@ var reportForThisWeekInit = function reportForThisWeekInit() {
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (reportForThisWeekInit);
 
 /***/ }),
@@ -4729,16 +4493,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* -------------------------------------------------------------------------- */
-
 /*                     Echarts Line Returing Customer Rate                    */
-
 /* -------------------------------------------------------------------------- */
-
 var returningCustomerRateInit = function returningCustomerRateInit() {
   var ECHART_LINE_RETURNING_CUSTOMER_RATE = '.echart-line-returning-customer-rate';
   var $echartsLineReturningCustomerRate = document.querySelector(ECHART_LINE_RETURNING_CUSTOMER_RATE);
   var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
   if ($echartsLineReturningCustomerRate) {
     // Get options from data attribute
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsLineReturningCustomerRate, 'options');
@@ -4750,11 +4510,9 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
     var $legendReturningMonth = document.getElementById(LEGEND_MONTH_TARGET).querySelector(LEGEND_RETURNING_MONTH);
     var chart = window.echarts.init($echartsLineReturningCustomerRate);
     var monthNumbers = [[20, 40, 20, 80, 50, 80, 120, 80, 50, 120, 110, 110], [60, 80, 60, 80, 65, 130, 120, 100, 30, 40, 30, 70], [100, 70, 80, 50, 120, 100, 130, 140, 90, 100, 40, 50], [80, 50, 60, 40, 60, 120, 100, 130, 60, 80, 50, 60], [70, 80, 100, 70, 90, 60, 80, 130, 40, 60, 50, 80], [90, 40, 80, 80, 100, 140, 100, 130, 90, 60, 70, 50], [80, 60, 80, 60, 40, 100, 120, 100, 30, 40, 30, 70], [20, 40, 20, 50, 70, 60, 110, 80, 90, 30, 50, 50], [60, 70, 30, 40, 80, 140, 80, 140, 120, 130, 100, 110], [90, 90, 40, 60, 40, 110, 90, 110, 60, 80, 60, 70], [50, 80, 50, 80, 50, 80, 120, 80, 50, 120, 110, 110], [60, 90, 60, 70, 40, 70, 100, 140, 30, 40, 30, 70], [20, 40, 20, 50, 30, 80, 120, 100, 30, 40, 30, 70]];
-
     var dates = function dates(month) {
       return _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getDates(window.dayjs().month(month).date(1), window.dayjs().month(Number(month) + 1).date(0), 1000 * 60 * 60 * 24 * 3);
     };
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         title: {
@@ -4808,11 +4566,9 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
             color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('400'),
             formatter: function formatter(value) {
               var date = new Date(value);
-
               if (date.getDate() === 1) {
                 return "".concat(months[date.getMonth()].substring(0, 3), " ").concat(date.getDate());
               }
-
               return "".concat(date.getDate());
             },
             margin: 15
@@ -4917,9 +4673,9 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
         }
       };
     };
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
 
-    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions); // Change chart options accordiong to the selected month
-
+    // Change chart options accordiong to the selected month
     var monthSelect = document.querySelector(SELECT_MONTH);
     monthSelect.addEventListener('change', function (e) {
       var month = e.currentTarget.value;
@@ -4952,7 +4708,6 @@ var returningCustomerRateInit = function returningCustomerRateInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (returningCustomerRateInit);
 
 /***/ }),
@@ -4971,26 +4726,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                          Echarts Sales Pos Location                        */
-
 /* -------------------------------------------------------------------------- */
 
 var salesByPosLocationInit = function salesByPosLocationInit() {
   var ECHART_RADAR_SALES_BY_POS_LOCATION = '.echart-radar-sales-by-pos-location';
   var $echartsRadarSalesByPosLocation = document.querySelector(ECHART_RADAR_SALES_BY_POS_LOCATION);
-
   function getformatter(params) {
     //const indicators = ['Marketing','Sales', 'Dev', 'Support', 'Tech', 'Admin']
     return "<strong > ".concat(params.name, " </strong>\n    <div class=\"fs--1 text-600\">\n      <strong >Marketing</strong>: ").concat(params.value[0], "  <br>\n      <strong>Sales</strong>: ").concat(params.value[1], "  <br>\n      <strong>Dev</strong>: ").concat(params.value[2], "  <br>\n      <strong>Support</strong>: ").concat(params.value[3], "  <br>\n      <strong>Tech</strong>: ").concat(params.value[4], "  <br>\n      <strong>Admin</strong>: ").concat(params.value[5], "  <br>\n    </div>");
   }
-
   if ($echartsRadarSalesByPosLocation) {
     // Get options from data attribute
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsRadarSalesByPosLocation, 'options');
     var chart = window.echarts.init($echartsRadarSalesByPosLocation);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         tooltip: {
@@ -5096,11 +4847,9 @@ var salesByPosLocationInit = function salesByPosLocationInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (salesByPosLocationInit);
 
 /***/ }),
@@ -5119,15 +4868,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Session By Device                           */
-
 /* -------------------------------------------------------------------------- */
 
 var sessionByBrowserChartInit = function sessionByBrowserChartInit() {
   var $sessionByBroswser = document.querySelector('.echart-session-by-browser');
-
   if ($sessionByBroswser) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($sessionByBroswser, 'options');
     var chart = window.echarts.init($sessionByBroswser);
@@ -5163,7 +4910,6 @@ var sessionByBrowserChartInit = function sessionByBrowserChartInit() {
         name: 'Mozilla'
       }]
     };
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().success, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().info],
@@ -5213,10 +4959,8 @@ var sessionByBrowserChartInit = function sessionByBrowserChartInit() {
         }]
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     var selectMenu = document.querySelector("[data-target='.echart-session-by-browser']");
-
     if (selectMenu) {
       selectMenu.addEventListener('change', function (e) {
         var value = e.currentTarget.value;
@@ -5229,7 +4973,6 @@ var sessionByBrowserChartInit = function sessionByBrowserChartInit() {
     }
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sessionByBrowserChartInit);
 
 /***/ }),
@@ -5248,10 +4991,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Session By Country Map                      */
-
 /* -------------------------------------------------------------------------- */
 
 var sessionByCountryMapInit = function sessionByCountryMapInit() {
@@ -5792,13 +5534,10 @@ var sessionByCountryMapInit = function sessionByCountryMapInit() {
     value: 13076.978
   }];
   var total = 6961500;
-
   if ($sessionByCountryMap) {
     var _document$querySelect;
-
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($sessionByCountryMap, 'options');
     var chart = window.echarts.init($sessionByCountryMap);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         tooltip: {
@@ -5813,7 +5552,6 @@ var sessionByCountryMapInit = function sessionByCountryMapInit() {
           transitionDuration: 0,
           formatter: function formatter(params) {
             var _params$data, _params$data2;
-
             return "<strong>".concat((_params$data = params.data) === null || _params$data === void 0 ? void 0 : _params$data.name, " :</strong> ").concat((((_params$data2 = params.data) === null || _params$data2 === void 0 ? void 0 : _params$data2.value) / total * 100).toFixed(2), "%");
           }
         },
@@ -5859,7 +5597,6 @@ var sessionByCountryMapInit = function sessionByCountryMapInit() {
         }]
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     (_document$querySelect = document.querySelector('.session-by-country-map-reset')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('click', function () {
       chart.dispatchAction({
@@ -5868,7 +5605,6 @@ var sessionByCountryMapInit = function sessionByCountryMapInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sessionByCountryMapInit);
 
 /***/ }),
@@ -5887,20 +5623,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Session By Country                          */
-
 /* -------------------------------------------------------------------------- */
 
 var sessionByCountryChartInit = function sessionByCountryChartInit() {
   var $sessionByCountry = document.querySelector('.echart-session-by-country');
   var data = [['CHINA', 'INDIA', 'USA', 'IRAN', 'BRAZIL', 'PAKISTAN'], [19.53, 17.32, 4.49, 3.46, 2.8, 1.7]];
-
   if ($sessionByCountry) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($sessionByCountry, 'options');
     var chart = window.echarts.init($sessionByCountry);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         tooltip: {
@@ -5919,7 +5652,6 @@ var sessionByCountryChartInit = function sessionByCountryChartInit() {
           position: function position(pos, params, dom, rect, size) {
             return (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.getPosition)(pos, params, dom, rect, size);
           } // formatter: tooltipFormatter
-
         },
         xAxis: {
           type: 'category',
@@ -5986,11 +5718,9 @@ var sessionByCountryChartInit = function sessionByCountryChartInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sessionByCountryChartInit);
 
 /***/ }),
@@ -6009,21 +5739,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Top Products                                */
-
 /* -------------------------------------------------------------------------- */
 
 var topProductsInit = function topProductsInit() {
   var ECHART_BAR_TOP_PRODUCTS = ".echart-bar-top-products";
   var $echartBarTopProducts = document.querySelector(ECHART_BAR_TOP_PRODUCTS);
-
   if ($echartBarTopProducts) {
     var data = [["product", "2019", "2018"], ["Boots4", 43, 85], ["Reign Pro", 83, 73], ["Slick", 86, 62], ["Falcon", 72, 53], ["Sparrow", 80, 50], ["Hideway", 50, 70], ["Freya", 80, 90]];
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartBarTopProducts, "options");
     var chart = window.echarts.init($echartBarTopProducts);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()["300"]],
@@ -6131,11 +5858,9 @@ var topProductsInit = function topProductsInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (topProductsInit);
 
 /***/ }),
@@ -6154,24 +5879,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Total Order                                 */
-
 /* -------------------------------------------------------------------------- */
 
 var totalOrderInit = function totalOrderInit() {
-  var ECHART_LINE_TOTAL_ORDER = '.echart-line-total-order'; //
+  var ECHART_LINE_TOTAL_ORDER = '.echart-line-total-order';
+
+  //
   // ─── TOTAL ORDER CHART ──────────────────────────────────────────────────────────
   //
-
   var $echartLineTotalOrder = document.querySelector(ECHART_LINE_TOTAL_ORDER);
-
   if ($echartLineTotalOrder) {
     // Get options from data attribute
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartLineTotalOrder, 'options');
-    var chart = window.echarts.init($echartLineTotalOrder); // Default options
+    var chart = window.echarts.init($echartLineTotalOrder);
 
+    // Default options
     var getDefaultOptions = function getDefaultOptions() {
       return {
         tooltip: {
@@ -6276,11 +6001,9 @@ var totalOrderInit = function totalOrderInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (totalOrderInit);
 
 /***/ }),
@@ -6299,25 +6022,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                      Echarts Total Sales E-commerce                        */
-
 /* -------------------------------------------------------------------------- */
 
 var totalSalesEcommerce = function totalSalesEcommerce() {
   var ECHART_LINE_TOTAL_SALES_ECOMM = ".echart-line-total-sales-ecommerce";
   var $echartsLineTotalSalesEcomm = document.querySelector(ECHART_LINE_TOTAL_SALES_ECOMM);
   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
   function getFormatter(params) {
     return params.map(function (_ref, index) {
       var value = _ref.value,
-          borderColor = _ref.borderColor;
+        borderColor = _ref.borderColor;
       return "<span class= \"fas fa-circle\" style=\"color: ".concat(borderColor, "\"></span>\n    <span class='text-600'>").concat(index === 0 ? 'Last Month' : 'Previous Year', ": ").concat(value, "</span>");
     }).join('<br/>');
   }
-
   if ($echartsLineTotalSalesEcomm) {
     // Get options from data attribute
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsLineTotalSalesEcomm, "options");
@@ -6326,7 +6046,6 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
     var totalSalesLastMonth = document.querySelector(TOTAL_SALES_LAST_MONTH);
     var totalSalesPreviousYear = document.querySelector(TOTAL_SALES_PREVIOUS_YEAR);
     var chart = window.echarts.init($echartsLineTotalSalesEcomm);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
@@ -6380,10 +6099,11 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
               var date = new Date(value);
               return "".concat(months[date.getMonth()], " ").concat(date.getDate());
             },
-            margin: 15 // showMaxLabel: false
-
+            margin: 15
+            // showMaxLabel: false
           }
         },
+
         yAxis: {
           type: "value",
           axisPointer: {
@@ -6461,7 +6181,6 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
     totalSalesLastMonth.addEventListener("click", function () {
       chart.dispatchAction({
@@ -6477,7 +6196,6 @@ var totalSalesEcommerce = function totalSalesEcommerce() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (totalSalesEcommerce);
 
 /***/ }),
@@ -6496,10 +6214,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Echarts Total Sales                            */
-
 /* -------------------------------------------------------------------------- */
 
 var totalSalesInit = function totalSalesInit() {
@@ -6507,21 +6224,18 @@ var totalSalesInit = function totalSalesInit() {
   var SELECT_MONTH = ".select-month";
   var $echartsLineTotalSales = document.querySelector(ECHART_LINE_TOTAL_SALES);
   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
   function getFormatter(params) {
     var _params$ = params[0],
-        name = _params$.name,
-        value = _params$.value;
+      name = _params$.name,
+      value = _params$.value;
     var date = new Date(name);
     return "".concat(months[0], " ").concat(date.getDate(), ", ").concat(value);
   }
-
   if ($echartsLineTotalSales) {
     // Get options from data attribute
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartsLineTotalSales, "options");
     var chart = window.echarts.init($echartsLineTotalSales);
     var monthsnumber = [[60, 80, 60, 80, 65, 130, 120, 100, 30, 40, 30, 70], [100, 70, 80, 50, 120, 100, 130, 140, 90, 100, 40, 50], [80, 50, 60, 40, 60, 120, 100, 130, 60, 80, 50, 60], [70, 80, 100, 70, 90, 60, 80, 130, 40, 60, 50, 80], [90, 40, 80, 80, 100, 140, 100, 130, 90, 60, 70, 50], [80, 60, 80, 60, 40, 100, 120, 100, 30, 40, 30, 70], [20, 40, 20, 50, 70, 60, 110, 80, 90, 30, 50, 50], [60, 70, 30, 40, 80, 140, 80, 140, 120, 130, 100, 110], [90, 90, 40, 60, 40, 110, 90, 110, 60, 80, 60, 70], [50, 80, 50, 80, 50, 80, 120, 80, 50, 120, 110, 110], [60, 90, 60, 70, 40, 70, 100, 140, 30, 40, 30, 70], [20, 40, 20, 50, 30, 80, 120, 100, 30, 40, 30, 70]];
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays()['100'],
@@ -6637,11 +6351,10 @@ var totalSalesInit = function totalSalesInit() {
         }
       };
     };
+    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
 
-    (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions); // Change chart options accordiong to the selected month
-
+    // Change chart options accordiong to the selected month
     var monthSelect = document.querySelector(SELECT_MONTH);
-
     if (monthSelect) {
       monthSelect.addEventListener("change", function (e) {
         var month = e.currentTarget.value;
@@ -6650,8 +6363,8 @@ var totalSalesInit = function totalSalesInit() {
           tooltip: {
             formatter: function formatter(params) {
               var _params$2 = params[0],
-                  name = _params$2.name,
-                  value = _params$2.value;
+                name = _params$2.name,
+                value = _params$2.value;
               var date = new Date(name);
               return "".concat(months[month], " ").concat(date.getDate(), ", ").concat(value);
             }
@@ -6673,7 +6386,6 @@ var totalSalesInit = function totalSalesInit() {
     }
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (totalSalesInit);
 
 /***/ }),
@@ -6692,19 +6404,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Traffic Channels                           */
-
 /* -------------------------------------------------------------------------- */
 
 var trafficChannelChartInit = function trafficChannelChartInit() {
   var $trafficChannels = document.querySelector('.echart-traffic-channels');
-
   if ($trafficChannels) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($trafficChannels, 'options');
     var chart = window.echarts.init($trafficChannels);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         color: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.8), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.6), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.4), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].rgbaColor(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors().primary, 0.2)],
@@ -6820,11 +6529,9 @@ var trafficChannelChartInit = function trafficChannelChartInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (trafficChannelChartInit);
 
 /***/ }),
@@ -6843,31 +6550,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _echarts_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./echarts-utils */ "./resources/js/charts/echarts/echarts-utils.js");
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Echarts Users By Time                          */
-
 /* -------------------------------------------------------------------------- */
 
 var usersByTimeChartInit = function usersByTimeChartInit() {
   var $echartUsersByTimeChart = document.querySelector('.echart-users-by-time');
   var hours = ['12 AM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM'];
   var data = [];
-
   for (var i = 0; i < 24; i += 1) {
     for (var j = 0; j < 7; j += 1) {
       data.push([j, i, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getRandomNumber(20, 300)]);
     }
   }
-
   var tooltipFormatter = function tooltipFormatter(params) {
     return "<div>\n          <p class='mb-0 text-600'>".concat(window.dayjs(params.name).format('MMM DD, YYYY'), "</p>\n          <div class=\"d-flex align-items-center\">\n            <p class=\"mb-0 text-600\">\n              ").concat(window.dayjs().hour(params.data[1]).format('hA'), " : <span class='text-800 fw-semi-bold'>").concat(params.data[2], "</span>\n            </p>\n          </div>\n        </div>");
   };
-
   if ($echartUsersByTimeChart) {
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartUsersByTimeChart, 'options');
     var chart = window.echarts.init($echartUsersByTimeChart);
-
     var getDefaultOptions = function getDefaultOptions() {
       return {
         gradientColor: [_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('info'), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColor('primary')],
@@ -6968,11 +6670,9 @@ var usersByTimeChartInit = function usersByTimeChartInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (usersByTimeChartInit);
 
 /***/ }),
@@ -6992,25 +6692,26 @@ __webpack_require__.r(__webpack_exports__);
 /* eslint-disable */
 
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Weekly Sales                                */
-
 /* -------------------------------------------------------------------------- */
 
 var weeklySalesInit = function weeklySalesInit() {
   var ECHART_BAR_WEEKLY_SALES = '.echart-bar-weekly-sales';
   var $echartBarWeeklySales = document.querySelector(ECHART_BAR_WEEKLY_SALES);
-
   if ($echartBarWeeklySales) {
     // Get options from data attribute
     var userOptions = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData($echartBarWeeklySales, 'options');
-    var data = [120, 200, 150, 80, 70, 110, 120]; // Max value of data
+    var data = [120, 200, 150, 80, 70, 110, 120];
 
-    var yMax = Math.max.apply(Math, data); // const dataBackground = data.map(() => yMax);
+    // Max value of data
+    var yMax = Math.max.apply(Math, data);
 
-    var chart = window.echarts.init($echartBarWeeklySales); // Default options
+    // const dataBackground = data.map(() => yMax);
+    var chart = window.echarts.init($echartBarWeeklySales);
 
+    // Default options
     var getDefaultOptions = function getDefaultOptions() {
       return {
         tooltip: {
@@ -7090,11 +6791,9 @@ var weeklySalesInit = function weeklySalesInit() {
         }
       };
     };
-
     (0,_echarts_utils__WEBPACK_IMPORTED_MODULE_1__.echartSetOption)(chart, userOptions, getDefaultOptions);
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (weeklySalesInit);
 
 /***/ }),
@@ -7111,10 +6810,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
+
 /*-----------------------------------------------
 |   Chat
 -----------------------------------------------*/
-
 var chatInit = function chatInit() {
   var Events = {
     CLICK: 'click',
@@ -7146,25 +6845,26 @@ var chatInit = function chatInit() {
   var $chatContact = document.querySelectorAll(Selector.CHAT_CONTACT);
   var $chatEmojiarea = document.querySelector(Selector.CHAT_EMOJIAREA);
   var $btnSend = document.querySelector(Selector.BTN_SEND);
-  var $currentChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA); // Set scrollbar position
+  var $currentChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA);
 
+  // Set scrollbar position
   var setScrollbarPosition = function setScrollbarPosition($chatArea) {
     if ($chatArea) {
       var scrollArea = $chatArea;
       scrollArea.scrollTop = $chatArea.scrollHeight;
     }
   };
-
   setTimeout(function () {
     setScrollbarPosition($currentChatArea);
   }, 700);
   document.querySelectorAll(Selector.CHAT_CONTACT).forEach(function (el) {
     el.addEventListener(Events.CLICK, function (e) {
       var $this = e.currentTarget;
-      $this.classList.add('active'); // Hide contact list sidebar on responsive
+      $this.classList.add('active');
+      // Hide contact list sidebar on responsive
+      window.innerWidth < 768 && !e.target.classList.contains('hover-actions') && ($chatSidebar.style.left = '-100%');
 
-      window.innerWidth < 768 && !e.target.classList.contains('hover-actions') && ($chatSidebar.style.left = '-100%'); // Remove unread-message class when read
-
+      // Remove unread-message class when read
       $this.classList.contains(ClassName.UNREAD_MESSAGE) && $this.classList.remove(ClassName.UNREAD_MESSAGE);
     });
   });
@@ -7175,27 +6875,26 @@ var chatInit = function chatInit() {
       var TargetChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA_ACTIVE);
       setScrollbarPosition(TargetChatArea);
     });
-  }); // change send button color on
+  });
+
+  // change send button color on
 
   if ($chatEmojiarea) {
     $chatEmojiarea.setAttribute('placeholder', 'Type your message');
     $chatEmojiarea.addEventListener(Events.KEYUP, function (e) {
       if (e.target.textContent.length <= 0) {
         $btnSend.classList.remove(ClassName.TEXT_PRIMARY);
-
         if (e.target.innerHTML === '<br>') {
           e.target.innerHTML = '';
         }
       } else {
         $btnSend.classList.add(ClassName.TEXT_PRIMARY);
       }
-
       var TargetChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA_ACTIVE);
       setScrollbarPosition(TargetChatArea);
     });
-  } // Open conversation info sidebar
-
-
+  }
+  // Open conversation info sidebar
   $chatEmojiarea && document.querySelectorAll(Selector.BTN_INFO).forEach(function (el) {
     el.addEventListener(Events.CLICK, function (e) {
       var $this = e.currentTarget;
@@ -7203,24 +6902,26 @@ var chatInit = function chatInit() {
       var $info = document.querySelector("".concat(Selector.CONVERSATION_INFO, "[data-").concat(DATA_KEY.INDEX, "='").concat(dataIndex, "']"));
       $info.classList.toggle(ClassName.SHOW);
     });
-  }); // Show contact list sidebar on responsive
+  });
 
+  // Show contact list sidebar on responsive
   document.querySelectorAll(Selector.CONTACTS_LIST_SHOW).forEach(function (el) {
     el.addEventListener(Events.CLICK, function () {
       $chatSidebar.style.left = 0;
     });
-  }); // Set scrollbar area height on resize
+  });
 
+  // Set scrollbar area height on resize
   _utils__WEBPACK_IMPORTED_MODULE_0__["default"].resize(function () {
     var TargetChatArea = document.querySelector(Selector.CHAT_CONTENT_SCROLL_AREA_ACTIVE);
     setScrollbarPosition(TargetChatArea);
-  }); // Emoji append in message text
+  });
 
+  // Emoji append in message text
   $chatEmojiarea && window.picker.on(Events.EMOJI, function (selection) {
     document.querySelector(Selector.EMOJIEAREA_EDITOR).innerHTML += selection.emoji;
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chatInit);
 
 /***/ }),
@@ -7236,19 +6937,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 /* -------------------------------------------------------------------------- */
-
 /*                                   choices                                   */
-
 /* -------------------------------------------------------------------------- */
-
 var choicesInit = function choicesInit() {
   if (window.Choices) {
     var elements = document.querySelectorAll('.js-choice');
@@ -7263,11 +6962,9 @@ var choicesInit = function choicesInit() {
           validationItem.querySelectorAll('.choices').forEach(function (choicesItem) {
             var singleSelect = choicesItem.querySelector('.choices__list--single');
             var multipleSelect = choicesItem.querySelector('.choices__list--multiple');
-
             if (choicesItem.querySelector('[required]')) {
               if (singleSelect) {
                 var _singleSelect$querySe;
-
                 if (((_singleSelect$querySe = singleSelect.querySelector('.choices__item--selectable')) === null || _singleSelect$querySe === void 0 ? void 0 : _singleSelect$querySe.getAttribute('data-value')) !== '') {
                   choicesItem.classList.remove('invalid');
                   choicesItem.classList.add('valid');
@@ -7275,9 +6972,8 @@ var choicesInit = function choicesInit() {
                   choicesItem.classList.remove('valid');
                   choicesItem.classList.add('invalid');
                 }
-              } //----- for multiple select only ----------
-
-
+              }
+              //----- for multiple select only ----------
               if (multipleSelect) {
                 if (choicesItem.getElementsByTagName('option').length) {
                   choicesItem.classList.remove('invalid');
@@ -7286,8 +6982,9 @@ var choicesInit = function choicesInit() {
                   choicesItem.classList.remove('valid');
                   choicesItem.classList.add('invalid');
                 }
-              } //------ select end ---------------
+              }
 
+              //------ select end ---------------
             }
           });
         };
@@ -7303,7 +7000,6 @@ var choicesInit = function choicesInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (choicesInit);
 
 /***/ }),
@@ -7319,9 +7015,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                              Config                                        */
-
 /* -------------------------------------------------------------------------- */
 var CONFIG = {
   isNavbarVerticalCollapsed: false,
@@ -7336,15 +7030,12 @@ Object.keys(CONFIG).forEach(function (key) {
     localStorage.setItem(key, CONFIG[key]);
   }
 });
-
 if (!!JSON.parse(localStorage.getItem('isNavbarVerticalCollapsed'))) {
   document.documentElement.classList.add('navbar-vertical-collapsed');
 }
-
 if (localStorage.getItem('theme') === 'dark') {
   document.documentElement.classList.add('dark');
 }
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CONFIG);
 
 /***/ }),
@@ -7360,17 +7051,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 /*-----------------------------------------------
 |   Cookie notice
 -----------------------------------------------*/
-
 var cookieNoticeInit = function cookieNoticeInit() {
   var Selector = {
     NOTICE: '.notice',
@@ -7390,37 +7081,30 @@ var cookieNoticeInit = function cookieNoticeInit() {
   var showNotice = true;
   notices.forEach(function (item) {
     var notice = new window.bootstrap.Toast(item);
-
     var options = _objectSpread({
       autoShow: false,
       autoShowDelay: 0,
       showOnce: false,
       cookieExpireTime: 3600000
     }, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(item, DataKeys.OPTIONS));
-
     var showOnce = options.showOnce,
-        autoShow = options.autoShow,
-        autoShowDelay = options.autoShowDelay;
-
+      autoShow = options.autoShow,
+      autoShowDelay = options.autoShowDelay;
     if (showOnce) {
       var hasNotice = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getCookie('notice');
       showNotice = hasNotice === null;
     }
-
     if (autoShow && showNotice) {
       setTimeout(function () {
         notice.show();
       }, autoShowDelay);
     }
-
     item.addEventListener(Events.HIDDEN_BS_TOAST, function (e) {
       var el = e.currentTarget;
-
       var toastOptions = _objectSpread({
         cookieExpireTime: 3600000,
         showOnce: false
       }, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, DataKeys.OPTIONS));
-
       toastOptions.showOnce && _utils__WEBPACK_IMPORTED_MODULE_0__["default"].setCookie('notice', false, toastOptions.cookieExpireTime);
     });
   });
@@ -7429,13 +7113,12 @@ var cookieNoticeInit = function cookieNoticeInit() {
     var currentTarget = _ref.currentTarget;
     var id = currentTarget.getAttribute('href');
     var notice = new window.bootstrap.Toast(document.querySelector(id));
-    /*eslint-disable-next-line*/
 
+    /*eslint-disable-next-line*/
     var el = notice._element;
     _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(el, ClassNames.HIDE) ? notice.show() : notice.hide();
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cookieNoticeInit);
 
 /***/ }),
@@ -7452,10 +7135,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                  Copy LinK                                 */
-
 /* -------------------------------------------------------------------------- */
 
 var copyLink = function copyLink() {
@@ -7487,7 +7169,6 @@ var copyLink = function copyLink() {
     });
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (copyLink);
 
 /***/ }),
@@ -7503,23 +7184,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 var _excluded = ["endValue"];
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 
 /* -------------------------------------------------------------------------- */
-
 /*                                  Count Up                                  */
-
 /* -------------------------------------------------------------------------- */
 
 var countupInit = function countupInit() {
@@ -7527,13 +7204,11 @@ var countupInit = function countupInit() {
     var countups = document.querySelectorAll('[data-countup]');
     countups.forEach(function (node) {
       var _utils$getData = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(node, 'countup'),
-          endValue = _utils$getData.endValue,
-          options = _objectWithoutProperties(_utils$getData, _excluded);
-
+        endValue = _utils$getData.endValue,
+        options = _objectWithoutProperties(_utils$getData, _excluded);
       var countUp = new window.countUp.CountUp(node, endValue, _objectSpread({
         duration: 5
       }, options));
-
       if (!countUp.error) {
         countUp.start();
       } else {
@@ -7542,7 +7217,6 @@ var countupInit = function countupInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (countupInit);
 
 /***/ }),
@@ -7560,14 +7234,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
 /* -------------------------------------------------------------------------- */
-
 /*                                  Detector                                  */
-
 /* -------------------------------------------------------------------------- */
 
 var detectorInit = function detectorInit() {
   var _window = window,
-      is = _window.is;
+    is = _window.is;
   var html = document.querySelector('html');
   is.opera() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'opera');
   is.mobile() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'mobile');
@@ -7583,7 +7255,6 @@ var detectorInit = function detectorInit() {
   is.windows() && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'windows');
   navigator.userAgent.match('CriOS') && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.addClass)(html, 'chrome');
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (detectorInit);
 
 /***/ }),
@@ -7600,21 +7271,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 /* -------------------------------------------------------------------------- */
-
 /*                                  Draggable                                 */
-
 /* -------------------------------------------------------------------------- */
 
 
@@ -7637,7 +7300,6 @@ var draggableInit = function draggableInit() {
   var columns = document.querySelectorAll(Selectors.KABNBAN_COLUMN);
   var columnContainers = document.querySelectorAll(Selectors.KANBAN_ITEMS_CONTAINER);
   var container = document.querySelector(Selectors.KANBAN_CONTAINER);
-
   if (!!columnContainers.length) {
     // Initialize Sortable
     var sortable = new window.Draggable.Sortable(columnContainers, {
@@ -7651,14 +7313,16 @@ var draggableInit = function draggableInit() {
         draggable: Selectors.KANBAN_ITEM,
         scrollableElements: [].concat(_toConsumableArray(columnContainers), [container])
       }
-    }); // Hide form when drag start
+    });
 
+    // Hide form when drag start
     sortable.on(Events.DRAG_START, function () {
       columns.forEach(function (column) {
         _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(column, ClassNames.FORM_ADDED) && column.classList.remove(ClassNames.FORM_ADDED);
       });
-    }); // Place forms and other contents bottom of the sortable container
+    });
 
+    // Place forms and other contents bottom of the sortable container
     sortable.on(Events.DRAG_STOP, function (_ref) {
       var el = _ref.data.source;
       var columnContainer = el.closest(Selectors.KANBAN_ITEMS_CONTAINER);
@@ -7667,7 +7331,6 @@ var draggableInit = function draggableInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (draggableInit);
 
 /***/ }),
@@ -7699,7 +7362,6 @@ var dropdownMenuInit = function dropdownMenuInit() {
     document.querySelectorAll(Selector.TABLE_RESPONSIVE).forEach(function (table) {
       table.addEventListener(Event.SHOWN_BS_DROPDOWN, function (e) {
         var t = e.currentTarget;
-
         if (t.scrollWidth > t.clientWidth) {
           t.style.paddingBottom = e.target.nextElementSibling.clientHeight + 'px';
         }
@@ -7709,9 +7371,10 @@ var dropdownMenuInit = function dropdownMenuInit() {
       });
     });
   }
-}; // Reference
-// https://github.com/twbs/bootstrap/issues/11037#issuecomment-274870381
+};
 
+// Reference
+// https://github.com/twbs/bootstrap/issues/11037#issuecomment-274870381
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dropdownMenuInit);
 
@@ -7728,25 +7391,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                           Open dropdown on hover                           */
-
 /* -------------------------------------------------------------------------- */
+
 var dropdownOnHover = function dropdownOnHover() {
   var navbarArea = document.querySelector("[data-top-nav-dropdowns]");
-
   if (navbarArea) {
     navbarArea.addEventListener("mouseover", function (e) {
       if (e.target.className.includes("dropdown-toggle") && window.innerWidth > 992) {
         var dropdownInstance = new window.bootstrap.Dropdown(e.target);
+
         /* eslint-disable no-underscore-dangle */
-
         dropdownInstance._element.classList.add('show');
-
         dropdownInstance._menu.classList.add('show');
-
         dropdownInstance._menu.setAttribute('data-bs-popper', 'none');
-
         e.target.parentNode.addEventListener("mouseleave", function () {
           dropdownInstance.hide();
         });
@@ -7754,7 +7412,6 @@ var dropdownOnHover = function dropdownOnHover() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dropdownOnHover);
 
 /***/ }),
@@ -7771,19 +7428,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 /* eslint-disable */
+
 
 /*-----------------------------------------------
 |   Dropzone
 -----------------------------------------------*/
 
 window.Dropzone ? window.Dropzone.autoDiscover = false : '';
-
 var dropzoneInit = function dropzoneInit() {
   var merge = window._.merge;
   var Selector = {
@@ -7824,7 +7478,6 @@ var dropzoneInit = function dropzoneInit() {
       filesizeBase: 1000,
       init: function init() {
         var thisDropzone = this;
-
         if (data.length) {
           data.forEach(function (v) {
             var mockFile = {
@@ -7835,13 +7488,11 @@ var dropzoneInit = function dropzoneInit() {
             thisDropzone.options.thumbnail.call(thisDropzone, mockFile, "".concat(v.url, "/").concat(v.name));
           });
         }
-
         thisDropzone.on(Events.ADDED_FILE, function addedfile() {
           if ('maxFiles' in userOptions) {
             if (userOptions.maxFiles === 1 && item.querySelectorAll(Selector.DZ_PREVIEW_COVER).length > 1) {
               item.querySelector(Selector.DZ_PREVIEW_COVER).remove();
             }
-
             if (userOptions.maxFiles === 1 && this.files.length > 1) {
               this.removeFile(this.files[0]);
             }
@@ -7851,14 +7502,11 @@ var dropzoneInit = function dropzoneInit() {
       error: function error(file, message) {
         if (file.previewElement) {
           file.previewElement.classList.add('dz-error');
-
           if (typeof message !== 'string' && message.error) {
             message = message.error;
           }
-
           var _iterator = _createForOfIteratorHelper(file.previewElement.querySelectorAll('[data-dz-errormessage]')),
-              _step;
-
+            _step;
           try {
             for (_iterator.s(); !(_step = _iterator.n()).done;) {
               var node = _step.value;
@@ -7871,34 +7519,30 @@ var dropzoneInit = function dropzoneInit() {
           }
         }
       }
-    }, userOptions); // eslint-disable-next-line
-
+    }, userOptions);
+    // eslint-disable-next-line
     item.querySelector(Selector.DZ_PREVIEW).innerHTML = '';
     var dropzone = new window.Dropzone(item, options);
     dropzone.on(Events.ADDED_FILE, function () {
       if (item.querySelector(Selector.DZ_PREVIEW_COVER)) {
         item.querySelector(Selector.DZ_PREVIEW_COVER).classList.remove(ClassName.DZ_FILE_COMPLETE);
       }
-
       item.classList.add(ClassName.DZ_FILE_PROCESSING);
     });
     dropzone.on(Events.REMOVED_FILE, function () {
       if (item.querySelector(Selector.DZ_PREVIEW_COVER)) {
         item.querySelector(Selector.DZ_PREVIEW_COVER).classList.remove(ClassName.DZ_PROCESSING);
       }
-
       item.classList.add(ClassName.DZ_FILE_COMPLETE);
     });
     dropzone.on(Events.COMPLETE, function () {
       if (item.querySelector(Selector.DZ_PREVIEW_COVER)) {
         item.querySelector(Selector.DZ_PREVIEW_COVER).classList.remove(ClassName.DZ_PROCESSING);
       }
-
       item.classList.add(ClassName.DZ_FILE_COMPLETE);
     });
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dropzoneInit);
 
 /***/ }),
@@ -7914,28 +7558,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                               from-validation                              */
-
 /* -------------------------------------------------------------------------- */
+
 var formValidationInit = function formValidationInit() {
   // Example starter JavaScript for disabling form submissions if there are invalid fields
-  "use strict"; // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  "use strict";
 
-  var forms = document.querySelectorAll(".needs-validation"); // Loop over them and prevent submission
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll(".needs-validation");
 
+  // Loop over them and prevent submission
   Array.prototype.slice.call(forms).forEach(function (form) {
     form.addEventListener("submit", function (event) {
       if (!form.checkValidity()) {
         event.preventDefault();
         event.stopPropagation();
       }
-
       form.classList.add("was-validated");
     }, false);
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (formValidationInit);
 
 /***/ }),
@@ -7952,16 +7595,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 /* -------------------------------------------------------------------------- */
-
 /*                                FullCalendar                                */
-
 /* -------------------------------------------------------------------------- */
 
-var merge = window._.merge;
 
+var merge = window._.merge;
 var renderCalendar = function renderCalendar(el, option) {
   var _document$querySelect;
-
   var options = merge({
     initialView: 'dayGridMonth',
     editable: true,
@@ -7984,7 +7624,6 @@ var renderCalendar = function renderCalendar(el, option) {
   });
   return calendar;
 };
-
 var fullCalendarInit = function fullCalendarInit() {
   var calendars = document.querySelectorAll('[data-calendar]');
   calendars.forEach(function (item) {
@@ -7992,7 +7631,6 @@ var fullCalendarInit = function fullCalendarInit() {
     renderCalendar(item, options);
   });
 };
-
 var fullCalendar = {
   renderCalendar: renderCalendar,
   fullCalendarInit: fullCalendarInit
@@ -8012,10 +7650,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                                 Glightbox                                */
-
 /* -------------------------------------------------------------------------- */
+
 var glightboxInit = function glightboxInit() {
   if (window.GLightbox) {
     window.GLightbox({
@@ -8023,7 +7660,6 @@ var glightboxInit = function glightboxInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (glightboxInit);
 
 /***/ }),
@@ -8047,7 +7683,6 @@ __webpack_require__.r(__webpack_exports__);
 function initMap() {
   var themeController = document.body;
   var $googlemaps = document.querySelectorAll(".googlemap");
-
   if ($googlemaps.length && window.google) {
     // Visit https://snazzymaps.com/ for more themes
     var mapStyles = {
@@ -8965,7 +8600,6 @@ function initMap() {
       var zoom = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "zoom");
       var mapElement = itm;
       var mapStyle = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "theme");
-
       if (_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "theme") === "streetview") {
         var pov = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "pov");
         var _mapOptions = {
@@ -8980,7 +8614,6 @@ function initMap() {
         };
         return new window.google.maps.StreetViewPanorama(mapElement, _mapOptions);
       }
-
       var mapOptions = {
         zoom: zoom,
         scrollwheel: _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(itm, "scrollwheel"),
@@ -9001,9 +8634,8 @@ function initMap() {
       });
       themeController && themeController.addEventListener("clickControl", function (_ref) {
         var _ref$detail = _ref.detail,
-            control = _ref$detail.control,
-            value = _ref$detail.value;
-
+          control = _ref$detail.control,
+          value = _ref$detail.value;
         if (control === "theme") {
           map.set("styles", value === "dark" ? mapStyles.Cobalt : mapStyles[mapStyle]);
         }
@@ -9012,7 +8644,6 @@ function initMap() {
     });
   }
 }
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (initMap);
 
 /***/ }),
@@ -9028,19 +8659,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                           Icon copy to clipboard                           */
-
 /* -------------------------------------------------------------------------- */
+
 var iconCopiedInit = function iconCopiedInit() {
   var iconList = document.getElementById("icon-list");
   var iconCopiedToast = document.getElementById("icon-copied-toast");
   var iconCopiedToastInstance = new window.bootstrap.Toast(iconCopiedToast);
-
   if (iconList) {
     iconList.addEventListener("click", function (e) {
       var el = e.target;
-
       if (el.tagName === "INPUT") {
         el.select();
         el.setSelectionRange(0, 99999);
@@ -9051,7 +8679,6 @@ var iconCopiedInit = function iconCopiedInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (iconCopiedInit);
 
 /***/ }),
@@ -9068,9 +8695,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 /* -------------------------------------------------------------------------- */
-
 /*                                   Kanbah                                   */
-
 /* -------------------------------------------------------------------------- */
 
 
@@ -9098,8 +8723,9 @@ var kanbanInit = function kanbanInit() {
   var addCardButtons = document.querySelectorAll(Selectors.BTN_ADD_CARD);
   var formHideButtons = document.querySelectorAll(Selectors.BTN_FORM_HIDE);
   var addListForm = document.querySelector(Selectors.ADD_LIST_FORM);
-  var collapseDismissButtons = document.querySelectorAll(Selectors.BTN_COLLAPSE_DISMISS); // Show add card form and place scrollbar bottom of the list
+  var collapseDismissButtons = document.querySelectorAll(Selectors.BTN_COLLAPSE_DISMISS);
 
+  // Show add card form and place scrollbar bottom of the list
   addCardButtons && addCardButtons.forEach(function (button) {
     button.addEventListener(Events.CLICK, function (_ref) {
       var el = _ref.currentTarget;
@@ -9112,30 +8738,31 @@ var kanbanInit = function kanbanInit() {
         top: scrollHeight
       });
     });
-  }); // Remove add card form
+  });
 
+  // Remove add card form
   formHideButtons.forEach(function (button) {
     button.addEventListener(Events.CLICK, function (_ref2) {
       var el = _ref2.currentTarget;
       el.closest(Selectors.KANBAN_COLUMN).classList.remove(ClassNames.FORM_ADDED);
     });
   });
-
   if (addListForm) {
     // Hide add list button when the form is going to show
     addListForm.addEventListener(Events.SHOW_BS_COLLAPSE, function (_ref3) {
       var el = _ref3.currentTarget;
       var nextElement = el.nextElementSibling;
       nextElement && nextElement.classList.add(ClassNames.D_NONE);
-    }); // Focus input field when the form is shown
+    });
 
+    // Focus input field when the form is shown
     addListForm.addEventListener(Events.SHOWN_BS_COLLAPSE, function (_ref4) {
       var el = _ref4.currentTarget;
       el.querySelector(Selectors.INPUT_ADD_LIST).focus();
     });
-  } // Hide add list form when the dismiss button is clicked
+  }
 
-
+  // Hide add list form when the dismiss button is clicked
   collapseDismissButtons.forEach(function (button) {
     button.addEventListener(Events.CLICK, function (_ref5) {
       var el = _ref5.currentTarget;
@@ -9146,7 +8773,6 @@ var kanbanInit = function kanbanInit() {
     });
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (kanbanInit);
 
 /***/ }),
@@ -9162,10 +8788,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                                   leaflet                                  */
-
 /* -------------------------------------------------------------------------- */
+
 var leafletActiveUserInit = function leafletActiveUserInit() {
   var points = [{
     lat: 53.958332,
@@ -10142,14 +9767,12 @@ var leafletActiveUserInit = function leafletActiveUserInit() {
     name: "299"
   }];
   var _window = window,
-      L = _window.L;
+    L = _window.L;
   var mapContainer = document.getElementById("map");
-
   if (L && mapContainer) {
     var getFilterColor = function getFilterColor() {
       return localStorage.getItem("theme") === "dark" ? ["invert:98%", "grayscale:69%", "bright:89%", "contrast:111%", "hue:205deg", "saturate:1000%"] : ["bright:101%", "contrast:101%", "hue:23deg", "saturate:225%"];
     };
-
     var tileLayerTheme = "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
     var tiles = L.tileLayer.colorFilter(tileLayerTheme, {
       attribution: null,
@@ -10171,8 +9794,8 @@ var leafletActiveUserInit = function leafletActiveUserInit() {
     });
     points.map(function (point) {
       var name = point.name,
-          location = point.location,
-          street = point.street;
+        location = point.location,
+        street = point.street;
       var icon = L.icon({
         iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAApCAYAAADAk4LOAAAACXBIWXMAAAFgAAABYAEg2RPaAAADpElEQVRYCZ1XS1LbQBBtybIdiMEJKSpUqihgEW/xDdARyAnirOIl3MBH8NK7mBvkBpFv4Gy9IRSpFIQiRPyNfqkeZkY9HwmFt7Lm06+7p/vN2MmyDIrQ6QebALAHAD4AbFuWfQeAAACGs5H/w5jlsJJw4wMA+GhMFuMA99jIDJJOP+ihZwDQFmNuowWO1wS3viDXpdEdZPEc0odruj0EgN5s5H8tJOEEX8R3rbkMtcU34NTqhe5nSQTJ7Tkk80s6/Gk28scGiULguFBffgdufdEwWoQ0uoXo8hdAlooVH0REjISfwZSlyHGh0V5n6aHAtKTxXI5g6nQnMH0P4bEgwtR18Yw8Pj8QZ4ARUAI0Hl+fQZZGisGEBVwHr7XKzox57DXZ/ij8Cdwe2u057z9/wygOxRl4S2vSUHx1oucaMQGAHTrgtdag9mK5aN+Wx/uAAQ9Zenp/SRce4TpaNbQK4+sTcGqeTB/aIXv3XN5oj2VKqii++U0JunpZ8urxee4hvjqVc2hHpBDXuKKT9XMgVYJ1/1fPGSeaikzgmWWkMIi9bVf8UhotXxzORn5gWFchI8QyttlzjS0qpsaIGY2MMsujV/AUSdcY0dDpB6/EiOPYzclR1CI5mOez3ekHvrFLxa7cR5pTscfrXjk0Vhm5V2PqLUWnH3R5GbPGpMVD7E1ckXesKBQ7AS/vmQ1c0+kHuxpBj98lTCm8pbc5QRJRdZ6qHb/wGryXq3Lxszv+5gySuwvxueXySwYvHEjuQ9ofTGKYlrmK1EsCHMd5SoD7mZ1HHFCBHLNbMEshvrugqWLn01hpVVJhFgVGkDvK7hR6n2B+d9C7xsqWsbkqHv4cCsWezEb+o2SR+SFweUBxfA5wH7kShjKt2vWL57Px3GhIFEezkb8pxvUWHYhotAfCk2AtkEcxoOttrxUWDR5svb1emSQKj0WXK1HYIgFREbiBqmoZcB2RkbE+byMZiosorVgAZF1ID7yQhEs38wa7nUqNDezdlavC2HbBGSQkGgZ8uJVBmzeiKCRRpEa9ilWghORVeGB7BxeSKF5xqbFBkxBrFKUk/JHA7ppENQaCnCjthK+3opCEYyANztXmZN858cDYWSUSHk3A311GAZDvo6deNKUk1EsqnJoQlkYBNlmxQZeaMgmxoUokICoHDce351RCCiuKoirJWEgNOYvQplM2VCLhUqF7jf94rW9kHVUjQeheV4riv0i4ZOzzz/2y/+0KAOAfr4EE4HpCFhwAAAAASUVORK5CYII=\n        "
       });
@@ -10194,16 +9817,14 @@ var leafletActiveUserInit = function leafletActiveUserInit() {
     var themeController = document.body;
     themeController.addEventListener("clickControl", function (_ref) {
       var _ref$detail = _ref.detail,
-          control = _ref$detail.control,
-          value = _ref$detail.value;
-
+        control = _ref$detail.control,
+        value = _ref$detail.value;
       if (control === "theme") {
         tiles.updateFilter(value === "dark" ? ["invert:98%", "grayscale:69%", "bright:89%", "contrast:111%", "hue:205deg", "saturate:1000%"] : ["bright:101%", "contrast:101%", "hue:23deg", "saturate:225%"]);
       }
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (leafletActiveUserInit);
 
 /***/ }),
@@ -10219,34 +9840,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 /* -------------------------------------------------------------------------- */
-
 /*                                 Data Table                                 */
-
 /* -------------------------------------------------------------------------- */
-
 /* eslint-disable no-param-reassign */
 
 var togglePaginationButtonDisable = function togglePaginationButtonDisable(button, disabled) {
   button.disabled = disabled;
   button.classList[disabled ? 'add' : 'remove']('disabled');
 };
-
 var listInit = function listInit() {
   if (window.List) {
     var lists = document.querySelectorAll('[data-list]');
-
     if (lists.length) {
       lists.forEach(function (el) {
         var options = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, 'list');
-
         if (options.pagination) {
           options = _objectSpread(_objectSpread({}, options), {}, {
             pagination: _objectSpread({
@@ -10254,18 +9870,18 @@ var listInit = function listInit() {
             }, options.pagination)
           });
         }
-
         var paginationButtonNext = el.querySelector('[data-list-pagination="next"]');
         var paginationButtonPrev = el.querySelector('[data-list-pagination="prev"]');
         var viewAll = el.querySelector('[data-list-view="*"]');
         var viewLess = el.querySelector('[data-list-view="less"]');
         var listInfo = el.querySelector('[data-list-info]');
         var listFilter = document.querySelector('[data-list-filter]');
-        var list = new window.List(el, options); //-------fallback-----------
+        var list = new window.List(el, options);
+
+        //-------fallback-----------
 
         list.on('updated', function (item) {
           var fallback = el.querySelector('.fallback') || document.getElementById(options.fallback);
-
           if (fallback) {
             if (item.matchingItems.length === 0) {
               fallback.classList.remove('d-none');
@@ -10273,7 +9889,9 @@ var listInit = function listInit() {
               fallback.classList.add('d-none');
             }
           }
-        }); // ---------------------------------------
+        });
+
+        // ---------------------------------------
 
         var totalItem = list.items.length;
         var itemsPerPage = list.page;
@@ -10284,21 +9902,18 @@ var listInit = function listInit() {
         btnDropdownClose && btnDropdownClose.addEventListener('search.close', function () {
           list.fuzzySearch('');
         });
-
         var updateListControls = function updateListControls() {
           listInfo && (listInfo.innerHTML = "".concat(list.i, " to ").concat(numberOfcurrentItems, " of ").concat(totalItem));
           paginationButtonPrev && togglePaginationButtonDisable(paginationButtonPrev, pageCount === 1);
           paginationButtonNext && togglePaginationButtonDisable(paginationButtonNext, pageCount === pageQuantity);
-
           if (pageCount > 1 && pageCount < pageQuantity) {
             togglePaginationButtonDisable(paginationButtonNext, false);
             togglePaginationButtonDisable(paginationButtonPrev, false);
           }
-        }; // List info
+        };
 
-
+        // List info
         updateListControls();
-
         if (paginationButtonNext) {
           paginationButtonNext.addEventListener('click', function (e) {
             e.preventDefault();
@@ -10309,7 +9924,6 @@ var listInit = function listInit() {
             updateListControls();
           });
         }
-
         if (paginationButtonPrev) {
           paginationButtonPrev.addEventListener('click', function (e) {
             e.preventDefault();
@@ -10320,12 +9934,10 @@ var listInit = function listInit() {
             updateListControls();
           });
         }
-
         var toggleViewBtn = function toggleViewBtn() {
           viewLess.classList.toggle('d-none');
           viewAll.classList.toggle('d-none');
         };
-
         if (viewAll) {
           viewAll.addEventListener('click', function () {
             list.show(1, totalItem);
@@ -10336,7 +9948,6 @@ var listInit = function listInit() {
             toggleViewBtn();
           });
         }
-
         if (viewLess) {
           viewLess.addEventListener('click', function () {
             list.show(1, itemsPerPage);
@@ -10346,9 +9957,8 @@ var listInit = function listInit() {
             updateListControls();
             toggleViewBtn();
           });
-        } // numbering pagination
-
-
+        }
+        // numbering pagination
         if (options.pagination) {
           el.querySelector('.pagination').addEventListener('click', function (e) {
             if (e.target.classList[0] === 'page') {
@@ -10357,7 +9967,6 @@ var listInit = function listInit() {
             }
           });
         }
-
         if (options.filter) {
           listFilter.addEventListener('change', function (e) {
             list.filter(function (item) {
@@ -10371,7 +9980,6 @@ var listInit = function listInit() {
     }
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (listInit);
 
 /***/ }),
@@ -10387,17 +9995,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 var lottieInit = function lottieInit() {
   var lotties = document.querySelectorAll(".lottie");
-
   if (lotties.length) {
     lotties.forEach(function (item) {
       var options = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(item, "options");
@@ -10412,7 +10018,6 @@ var lottieInit = function lottieInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (lottieInit);
 
 /***/ }),
@@ -10429,10 +10034,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                             Navbar Combo Layout                            */
-
 /* -------------------------------------------------------------------------- */
 
 var navbarComboInit = function navbarComboInit() {
@@ -10449,21 +10053,17 @@ var navbarComboInit = function navbarComboInit() {
   };
   var navbarVertical = document.querySelector(Selector.NAVBAR_VERTICAL);
   var navbarTopCombo = document.querySelector(Selector.NAVBAR_TOP_COMBO);
-
   var moveNavContent = function moveNavContent(windowWidth) {
     var navbarVerticalBreakpoint = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getBreakpoint(navbarVertical);
     var navbarTopBreakpoint = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getBreakpoint(navbarTopCombo);
-
     if (windowWidth < navbarTopBreakpoint) {
       var navbarCollapse = navbarTopCombo.querySelector(Selector.COLLAPSE);
       var navbarTopContent = navbarCollapse.innerHTML;
-
       if (navbarTopContent) {
         var targetID = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(navbarTopCombo, 'move-target');
         var targetElement = document.querySelector(targetID);
         navbarCollapse.innerHTML = '';
         targetElement.insertAdjacentHTML('afterend', "\n            <div data-move-container>\n              <div class='navbar-vertical-divider'>\n                <hr class='navbar-vertical-hr' />\n              </div>\n              ".concat(navbarTopContent, "\n            </div>\n          "));
-
         if (navbarVerticalBreakpoint < navbarTopBreakpoint) {
           var navbarNav = document.querySelector(Selector.DATA_MOVE_CONTAINER).querySelector(Selector.NAVBAR_NAV);
           _utils__WEBPACK_IMPORTED_MODULE_0__["default"].addClass(navbarNav, ClassName.FLEX_COLUMN);
@@ -10471,10 +10071,8 @@ var navbarComboInit = function navbarComboInit() {
       }
     } else {
       var moveableContainer = document.querySelector(Selector.DATA_MOVE_CONTAINER);
-
       if (moveableContainer) {
         var _navbarNav = moveableContainer.querySelector(Selector.NAVBAR_NAV);
-
         _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(_navbarNav, ClassName.FLEX_COLUMN) && _navbarNav.classList.remove(ClassName.FLEX_COLUMN);
         moveableContainer.querySelector(Selector.NAVBAR_VERTICAL_DIVIDER).remove();
         navbarTopCombo.querySelector(Selector.COLLAPSE).innerHTML = moveableContainer.innerHTML;
@@ -10482,13 +10080,11 @@ var navbarComboInit = function navbarComboInit() {
       }
     }
   };
-
   moveNavContent(window.innerWidth);
   _utils__WEBPACK_IMPORTED_MODULE_0__["default"].resize(function () {
     return moveNavContent(window.innerWidth);
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (navbarComboInit);
 
 /***/ }),
@@ -10504,19 +10100,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 /* -------------------------------------------------------------------------- */
-
 /*                         Navbar Darken on scroll                        */
-
 /* -------------------------------------------------------------------------- */
-
 var navbarDarkenOnScroll = function navbarDarkenOnScroll() {
   var Selector = {
     NAVBAR: '[data-navbar-darken-on-scroll]',
@@ -10536,12 +10130,10 @@ var navbarDarkenOnScroll = function navbarDarkenOnScroll() {
     NAVBAR_DARKEN_ON_SCROLL: 'navbar-darken-on-scroll'
   };
   var navbar = document.querySelector(Selector.NAVBAR);
-
   function removeNavbarBgClass() {
     navbar.classList.remove('bg-dark');
     navbar.classList.remove('bg-100');
   }
-
   var toggleThemeClass = function toggleThemeClass(theme) {
     if (theme === 'dark') {
       navbar.classList.remove('navbar-dark');
@@ -10551,12 +10143,9 @@ var navbarDarkenOnScroll = function navbarDarkenOnScroll() {
       navbar.classList.add('navbar-dark');
     }
   };
-
   function getBgClassName(name, defaultColorName) {
     var parent = document.documentElement;
-
     var allColors = _objectSpread(_objectSpread({}, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getColors(parent)), _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays(parent));
-
     var colorName = Object.keys(allColors).includes(name) ? name : defaultColorName;
     var color = allColors[colorName];
     var bgClassName = "bg-".concat(colorName);
@@ -10565,7 +10154,6 @@ var navbarDarkenOnScroll = function navbarDarkenOnScroll() {
       bgClassName: bgClassName
     };
   }
-
   if (navbar) {
     var theme = localStorage.getItem('theme');
     var defaultColorName = theme === 'dark' ? '100' : 'dark';
@@ -10574,13 +10162,11 @@ var navbarDarkenOnScroll = function navbarDarkenOnScroll() {
     var themeController = document.body;
     themeController.addEventListener('clickControl', function (_ref) {
       var _ref$detail = _ref.detail,
-          control = _ref$detail.control,
-          value = _ref$detail.value;
-
+        control = _ref$detail.control,
+        value = _ref$detail.value;
       if (control === 'theme') {
         toggleThemeClass(value);
         defaultColorName = value === 'dark' ? '100' : 'dark';
-
         if (navbar.classList.contains('bg-dark') || navbar.classList.contains('bg-100')) {
           removeNavbarBgClass();
           navbar.classList.add(getBgClassName(name, defaultColorName).bgClassName);
@@ -10591,24 +10177,22 @@ var navbarDarkenOnScroll = function navbarDarkenOnScroll() {
     var html = document.documentElement;
     var navbarCollapse = navbar.querySelector(Selector.NAVBAR_COLLAPSE);
     var colorRgb = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hexToRgb(getBgClassName(name, defaultColorName).color);
-
     var _window$getComputedSt = window.getComputedStyle(navbar),
-        backgroundImage = _window$getComputedSt.backgroundImage;
-
+      backgroundImage = _window$getComputedSt.backgroundImage;
     var transition = 'background-color 0.35s ease';
-    navbar.style.backgroundImage = 'none'; // Change navbar background color on scroll
-
+    navbar.style.backgroundImage = 'none';
+    // Change navbar background color on scroll
     window.addEventListener(Events.SCROLL, function () {
       var scrollTop = html.scrollTop;
       var alpha = scrollTop / windowHeight * 2;
       alpha >= 1 && (alpha = 1);
       navbar.style.backgroundColor = "rgba(".concat(colorRgb[0], ", ").concat(colorRgb[1], ", ").concat(colorRgb[2], ", ").concat(alpha, ")");
       navbar.style.backgroundImage = alpha > 0 || _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(navbarCollapse, 'show') ? backgroundImage : 'none';
-    }); // Toggle bg class on window resize
+    });
 
+    // Toggle bg class on window resize
     _utils__WEBPACK_IMPORTED_MODULE_0__["default"].resize(function () {
       var breakPoint = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getBreakpoint(navbar);
-
       if (window.innerWidth > breakPoint) {
         removeNavbarBgClass();
         navbar.style.backgroundImage = html.scrollTop ? backgroundImage : 'none';
@@ -10617,7 +10201,6 @@ var navbarDarkenOnScroll = function navbarDarkenOnScroll() {
         removeNavbarBgClass();
         navbar.style.backgroundImage = backgroundImage;
       }
-
       if (window.innerWidth <= breakPoint) {
         navbar.style.transition = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(navbarCollapse, 'show') ? transition : 'none';
       }
@@ -10636,7 +10219,6 @@ var navbarDarkenOnScroll = function navbarDarkenOnScroll() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (navbarDarkenOnScroll);
 
 /***/ }),
@@ -10653,10 +10235,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                 Navbar Top                                 */
-
 /* -------------------------------------------------------------------------- */
 
 var navbarTopDropShadow = function navbarTopDropShadow() {
@@ -10682,7 +10263,6 @@ var navbarTopDropShadow = function navbarTopDropShadow() {
   var $navbarVerticalCollapse = document.getElementById(Selector.NAVBAR_VERTICAL_COLLAPSE);
   var html = document.documentElement;
   var breakPoint = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getBreakpoint($navbarVertical);
-
   var setDropShadow = function setDropShadow($elem) {
     if ($elem.scrollTop > 0 && navDropShadowFlag) {
       $navbar && $navbar.classList.add(ClassNames.NAVBAR_GLASS_SHADOW);
@@ -10690,11 +10270,9 @@ var navbarTopDropShadow = function navbarTopDropShadow() {
       $navbar && $navbar.classList.remove(ClassNames.NAVBAR_GLASS_SHADOW);
     }
   };
-
   window.addEventListener(Events.SCROLL, function () {
     setDropShadow(html);
   });
-
   if ($navbarVerticalContent) {
     $navbarVerticalContent.addEventListener(Events.SCROLL, function () {
       if (window.outerWidth < breakPoint) {
@@ -10703,7 +10281,6 @@ var navbarTopDropShadow = function navbarTopDropShadow() {
       }
     });
   }
-
   if ($navbarVerticalCollapse) {
     $navbarVerticalCollapse.addEventListener(Events.SHOW_BS_COLLAPSE, function () {
       if (window.outerWidth < breakPoint) {
@@ -10712,7 +10289,6 @@ var navbarTopDropShadow = function navbarTopDropShadow() {
       }
     });
   }
-
   if ($navbarVerticalCollapse) {
     $navbarVerticalCollapse.addEventListener(Events.HIDDEN_BS_COLLAPSE, function () {
       if (_utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass($navbarVerticalCollapse, ClassNames.SHOW) && window.outerWidth < breakPoint) {
@@ -10720,12 +10296,10 @@ var navbarTopDropShadow = function navbarTopDropShadow() {
       } else {
         navDropShadowFlag = true;
       }
-
       setDropShadow(html);
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (navbarTopDropShadow);
 
 /***/ }),
@@ -10742,10 +10316,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                               Navbar Vertical                              */
-
 /* -------------------------------------------------------------------------- */
 
 var handleNavbarVerticalCollapsed = function handleNavbarVerticalCollapsed() {
@@ -10768,19 +10341,18 @@ var handleNavbarVerticalCollapsed = function handleNavbarVerticalCollapsed() {
   var navbarVerticalToggle = document.querySelector(Selector.NAVBAR_VERTICAL_TOGGLE);
   var html = document.querySelector(Selector.HTML);
   var navbarVerticalCollapse = document.querySelector(Selector.NAVBAR_VERTICAL_COLLAPSE);
-
   if (navbarVerticalToggle) {
     navbarVerticalToggle.addEventListener(Events.CLICK, function (e) {
       navbarVerticalToggle.blur();
-      html.classList.toggle(ClassNames.NAVBAR_VERTICAL_COLLAPSED); // Set collapse state on localStorage
+      html.classList.toggle(ClassNames.NAVBAR_VERTICAL_COLLAPSED);
 
+      // Set collapse state on localStorage
       var isNavbarVerticalCollapsed = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getItemFromStore('isNavbarVerticalCollapsed');
       _utils__WEBPACK_IMPORTED_MODULE_0__["default"].setItemToStore('isNavbarVerticalCollapsed', !isNavbarVerticalCollapsed);
       var event = new CustomEvent(Events.NAVBAR_VERTICAL_TOGGLE);
       e.currentTarget.dispatchEvent(event);
     });
   }
-
   if (navbarVerticalCollapse) {
     navbarVerticalCollapse.addEventListener(Events.MOUSE_OVER, function () {
       if (_utils__WEBPACK_IMPORTED_MODULE_0__["default"].hasClass(html, ClassNames.NAVBAR_VERTICAL_COLLAPSED)) {
@@ -10794,7 +10366,6 @@ var handleNavbarVerticalCollapsed = function handleNavbarVerticalCollapsed() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (handleNavbarVerticalCollapsed);
 
 /***/ }),
@@ -10809,22 +10380,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 /*-----------------------------------------------
 |   DomNode
 -----------------------------------------------*/
 var DomNode = /*#__PURE__*/function () {
   function DomNode(node) {
     _classCallCheck(this, DomNode);
-
     this.node = node;
   }
-
   _createClass(DomNode, [{
     key: "addClass",
     value: function addClass(className) {
@@ -10855,7 +10424,6 @@ var DomNode = /*#__PURE__*/function () {
           return this.node.dataset[this.camelize(key)];
         }
       }
-
       return null;
     }
   }, {
@@ -10887,8 +10455,9 @@ var DomNode = /*#__PURE__*/function () {
     key: "isValidNode",
     value: function isValidNode() {
       return !!this.node;
-    } // eslint-disable-next-line class-methods-use-this
+    }
 
+    // eslint-disable-next-line class-methods-use-this
   }, {
     key: "camelize",
     value: function camelize(str) {
@@ -10898,10 +10467,8 @@ var DomNode = /*#__PURE__*/function () {
       return "".concat(text.substr(0, 1).toLowerCase()).concat(text.substr(1));
     }
   }]);
-
   return DomNode;
 }();
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DomNode);
 
 /***/ }),
@@ -10932,14 +10499,11 @@ var plyrInit = function plyrInit() {
           active: true
         }
       };
-
       var options = window._.merge(defaultOptions, userOptions);
-
       return new window.Plyr(plyr, options);
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (plyrInit);
 
 /***/ }),
@@ -10955,17 +10519,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                                   Popover                                  */
-
 /* -------------------------------------------------------------------------- */
+
 var popoverInit = function popoverInit() {
   var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
   popoverTriggerList.map(function (popoverTriggerEl) {
     return new window.bootstrap.Popover(popoverTriggerEl);
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (popoverInit);
 
 /***/ }),
@@ -10982,10 +10544,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                         Bootstrap Animated Progress                        */
-
 /* -------------------------------------------------------------------------- */
 
 var progressAnimationToggle = function progressAnimationToggle() {
@@ -10998,7 +10559,6 @@ var progressAnimationToggle = function progressAnimationToggle() {
     });
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (progressAnimationToggle);
 
 /***/ }),
@@ -11015,10 +10575,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
+
 /*-----------------------------------------------
 |  Quantity
 -----------------------------------------------*/
-
 var quantityInit = function quantityInit() {
   var Selector = {
     DATA_QUANTITY_BTN: '[data-quantity] [data-type]',
@@ -11042,18 +10602,15 @@ var quantityInit = function quantityInit() {
       var numberInput = el.closest(Selector.DATA_QUANTITY).querySelector(Selector.DATA_QUANTITY_INPUT);
       var min = numberInput.getAttribute(Attributes.MIN);
       var value = parseInt(numberInput.value, 10);
-
       if (type === 'plus') {
         value += 1;
       } else {
         value = value > min ? value -= 1 : value;
       }
-
       numberInput.value = value;
     });
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (quantityInit);
 
 /***/ }),
@@ -11069,12 +10626,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 /* -------------------------------------------------------------------------- */
 
@@ -11095,11 +10652,9 @@ var ratingInit = function ratingInit() {
         done();
       }
     }, _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(rater, "rater"));
-
     return window.raterJs(options);
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ratingInit);
 
 /***/ }),
@@ -11116,17 +10671,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Scroll To Top                               */
-
 /* -------------------------------------------------------------------------- */
 
 var scrollToTop = function scrollToTop() {
   document.querySelectorAll('[data-anchor] > a, [data-scroll-to]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       var _utils$getData;
-
       e.preventDefault();
       var el = e.target;
       var id = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(el, 'scroll-to') || el.getAttribute('href');
@@ -11139,7 +10692,6 @@ var scrollToTop = function scrollToTop() {
     });
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollToTop);
 
 /***/ }),
@@ -11155,14 +10707,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                                 Scrollbars                                 */
-
 /* -------------------------------------------------------------------------- */
 // import utils from './utils';
+
 var scrollInit = function scrollInit() {
   var dropdownElements = Array.from(document.querySelectorAll('[data-hide-on-body-scroll]'));
-
   if (window.innerWidth < 1200) {
     window.addEventListener('scroll', function () {
       dropdownElements.forEach(function (dropdownElement) {
@@ -11172,7 +10722,6 @@ var scrollInit = function scrollInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollInit);
 
 /***/ }),
@@ -11188,10 +10737,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                                 Scrollbars                                 */
-
 /* -------------------------------------------------------------------------- */
+
 var scrollbarInit = function scrollbarInit() {
   Array.prototype.forEach.call(document.querySelectorAll(".scrollbar-overlay"), function (el) {
     return new window.OverlayScrollbars(el, {
@@ -11202,7 +10750,6 @@ var scrollbarInit = function scrollbarInit() {
     });
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollbarInit);
 
 /***/ }),
@@ -11238,7 +10785,6 @@ var searchInit = function searchInit() {
     SHOW_BS_DROPDOWN: 'show.bs.dropdown',
     SEARCH_CLOSE: 'search.close'
   };
-
   var hideSearchSuggestion = function hideSearchSuggestion(searchArea) {
     var el = searchArea.querySelector(Selectors.SEARCH_TOGGLE);
     var dropdownMenu = searchArea.querySelector(Selectors.DROPDOWN_MENU);
@@ -11246,18 +10792,14 @@ var searchInit = function searchInit() {
     el.classList.remove(ClassName.SHOW);
     dropdownMenu.classList.remove(ClassName.SHOW);
   };
-
   var searchAreas = document.querySelectorAll(Selectors.SEARCH_BOX);
-
   var hideAllSearchAreas = function hideAllSearchAreas() {
     searchAreas.forEach(hideSearchSuggestion);
   };
-
   searchAreas.forEach(function (searchArea) {
     var input = searchArea.querySelector(Selectors.SEARCH_INPUT);
     var btnDropdownClose = searchArea.querySelector(Selectors.SEARCH_DISMISS);
     var dropdownMenu = searchArea.querySelector(Selectors.DROPDOWN_MENU);
-
     if (input) {
       input.addEventListener(Events.FOCUS, function () {
         hideAllSearchAreas();
@@ -11267,7 +10809,6 @@ var searchInit = function searchInit() {
         dropdownMenu.classList.add(ClassName.SHOW);
       });
     }
-
     document.addEventListener(Events.CLICK, function (_ref) {
       var target = _ref.target;
       !searchArea.contains(target) && hideSearchSuggestion(searchArea);
@@ -11285,7 +10826,6 @@ var searchInit = function searchInit() {
     });
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (searchInit);
 
 /***/ }),
@@ -11301,17 +10841,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 /*-----------------------------------------------
 |  Swiper
 -----------------------------------------------*/
-
 var swiperInit = function swiperInit() {
   var swipers = document.querySelectorAll('[data-swiper]');
   var navbarVerticalToggle = document.querySelector('.navbar-vertical-toggle');
@@ -11319,7 +10859,6 @@ var swiperInit = function swiperInit() {
     var options = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(swiper, 'swiper');
     var thumbsOptions = options.thumb;
     var thumbsInit;
-
     if (thumbsOptions) {
       var thumbImages = swiper.querySelectorAll('img');
       var slides = '';
@@ -11329,17 +10868,14 @@ var swiperInit = function swiperInit() {
       var thumbs = document.createElement('div');
       thumbs.setAttribute('class', 'swiper-container thumb');
       thumbs.innerHTML = "<div class='swiper-wrapper'>".concat(slides, "</div>");
-
       if (thumbsOptions.parent) {
         var parent = document.querySelector(thumbsOptions.parent);
         parent.parentNode.appendChild(thumbs);
       } else {
         swiper.parentNode.appendChild(thumbs);
       }
-
       thumbsInit = new window.Swiper(thumbs, thumbsOptions);
     }
-
     var swiperNav = swiper.querySelector('.swiper-nav');
     var newSwiper = new window.Swiper(swiper, _objectSpread(_objectSpread({}, options), {}, {
       navigation: {
@@ -11350,7 +10886,6 @@ var swiperInit = function swiperInit() {
         swiper: thumbsInit
       }
     }));
-
     if (navbarVerticalToggle) {
       navbarVerticalToggle.addEventListener('navbar.vertical.toggle', function () {
         newSwiper.update();
@@ -11358,7 +10893,6 @@ var swiperInit = function swiperInit() {
     }
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (swiperInit);
 
 /***/ }),
@@ -11378,17 +10912,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config */ "./resources/js/config.js");
 
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                Theme Control                               */
-
 /* -------------------------------------------------------------------------- */
-
 /* eslint-disable no-param-reassign */
-
 /* eslint-disable */
-
-
 
 var initialDomSetup = function initialDomSetup(element) {
   if (!element) return;
@@ -11397,11 +10926,9 @@ var initialDomSetup = function initialDomSetup(element) {
   element.querySelectorAll('[data-theme-control]').forEach(function (el) {
     var inputDataAttributeValue = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getData)(el, 'theme-control');
     var localStorageValue = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getItemFromStore)(inputDataAttributeValue);
-
     if (inputDataAttributeValue === 'navbarStyle' && !hasDataUrl && (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getItemFromStore)('navbarPosition') === 'top') {
       el.setAttribute('disabled', true);
     }
-
     if (el.type === 'checkbox') {
       if (inputDataAttributeValue === 'theme') {
         localStorageValue === 'dark' && el.setAttribute('checked', true);
@@ -11414,12 +10941,10 @@ var initialDomSetup = function initialDomSetup(element) {
     }
   });
 };
-
 var changeTheme = function changeTheme(element) {
   element.querySelectorAll('[data-theme-control = "theme"]').forEach(function (el) {
     var inputDataAttributeValue = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getData)(el, 'theme-control');
     var localStorageValue = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getItemFromStore)(inputDataAttributeValue);
-
     if (el.type === 'checkbox') {
       localStorageValue === 'dark' ? el.checked = true : el.checked = false;
     } else {
@@ -11427,24 +10952,19 @@ var changeTheme = function changeTheme(element) {
     }
   });
 };
-
 var themeControl = function themeControl() {
   var themeController = new _node__WEBPACK_IMPORTED_MODULE_1__["default"](document.body);
   var navbarVertical = document.querySelector('.navbar-vertical');
   initialDomSetup(themeController.node);
   themeController.on('click', function (e) {
     var target = new _node__WEBPACK_IMPORTED_MODULE_1__["default"](e.target);
-
     if (target.data('theme-control')) {
       var control = target.data('theme-control');
       var value = e.target[e.target.type === 'radio' ? 'value' : 'checked'];
-
       if (control === 'theme') {
         typeof value === 'boolean' && (value = value ? 'dark' : 'light');
       }
-
       (0,_utils__WEBPACK_IMPORTED_MODULE_0__.setItemToStore)(control, value);
-
       switch (control) {
         case 'theme':
           {
@@ -11459,27 +10979,22 @@ var themeControl = function themeControl() {
             changeTheme(themeController.node);
             break;
           }
-
         case 'navbarStyle':
           {
             navbarVertical.classList.remove('navbar-card');
             navbarVertical.classList.remove('navbar-inverted');
             navbarVertical.classList.remove('navbar-vibrant');
-
             if (value !== 'transparent') {
               navbarVertical.classList.add("navbar-".concat(value));
             }
-
             break;
           }
-
         case 'navbarPosition':
           {
             var pageUrl = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getData)(target.node, 'page-url');
             !!pageUrl ? window.location.replace(pageUrl) : window.location.reload();
             break;
           }
-
         case 'reset':
           {
             Object.keys(_config__WEBPACK_IMPORTED_MODULE_2__["default"]).forEach(function (key) {
@@ -11488,14 +11003,12 @@ var themeControl = function themeControl() {
             window.location.reload();
             break;
           }
-
         default:
           window.location.reload();
       }
     }
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (themeControl);
 
 /***/ }),
@@ -11512,16 +11025,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                   Tinymce                                  */
-
 /* -------------------------------------------------------------------------- */
 
 var tinymceInit = function tinymceInit() {
   if (window.tinymce) {
     var tinymces = document.querySelectorAll('.tinymce');
-
     if (tinymces.length) {
       window.tinymce.init({
         selector: '.tinymce',
@@ -11540,11 +11051,9 @@ var tinymceInit = function tinymceInit() {
         theme_advanced_toolbar_align: 'center'
       });
     }
-
     var themeController = document.body;
     themeController && themeController.addEventListener('clickControl', function (_ref) {
       var control = _ref.detail.control;
-
       if (control === 'theme') {
         window.tinyMCE.editors.forEach(function (el) {
           el.dom.addStyle(".mce-content-body{color: ".concat(_utils__WEBPACK_IMPORTED_MODULE_0__["default"].getGrays().black, " !important;}"));
@@ -11553,7 +11062,6 @@ var tinymceInit = function tinymceInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tinymceInit);
 
 /***/ }),
@@ -11569,17 +11077,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                                    Toast                                   */
-
 /* -------------------------------------------------------------------------- */
+
 var toastInit = function toastInit() {
   var toastElList = [].slice.call(document.querySelectorAll('.toast'));
   toastElList.map(function (toastEl) {
     return new window.bootstrap.Toast(toastEl);
   });
   var liveToastBtn = document.getElementById('liveToastBtn');
-
   if (liveToastBtn) {
     var liveToast = new window.bootstrap.Toast(document.getElementById('liveToast'));
     liveToastBtn.addEventListener('click', function () {
@@ -11587,7 +11093,6 @@ var toastInit = function toastInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toastInit);
 
 /***/ }),
@@ -11603,9 +11108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                                   Tooltip                                  */
-
 /* -------------------------------------------------------------------------- */
 var tooltipInit = function tooltipInit() {
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -11615,7 +11118,6 @@ var tooltipInit = function tooltipInit() {
     });
   });
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tooltipInit);
 
 /***/ }),
@@ -11633,12 +11135,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 /* eslint-disable no-param-reassign */
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                                   Treeview                                   */
-
 /* -------------------------------------------------------------------------- */
-
 var treeviewInit = function treeviewInit() {
   var Events = {
     CHANGE: 'change',
@@ -11666,21 +11166,17 @@ var treeviewInit = function treeviewInit() {
     TREEVIEW_ROW_EVEN: 'treeview-row-even'
   };
   var treeviews = document.querySelectorAll(Selector.TREEVIEW);
-
   var makeStriped = function makeStriped(treeview) {
     var tags = Array.from(treeview.querySelectorAll(Selector.TREEVIEW_ROW));
     var uTags = tags.filter(function (tag) {
       var result = true;
-
       while (tag.parentElement) {
         if (tag.parentElement.classList.contains(ClassName.COLLAPSE_HIDDEN)) {
           result = false;
           break;
         }
-
         tag = tag.parentElement;
       }
-
       return result;
     });
     uTags.forEach(function (tag, index) {
@@ -11693,17 +11189,14 @@ var treeviewInit = function treeviewInit() {
       }
     });
   };
-
   if (treeviews.length) {
     treeviews.forEach(function (treeview) {
       var options = _utils__WEBPACK_IMPORTED_MODULE_0__["default"].getData(treeview, 'options');
       var striped = options === null || options === void 0 ? void 0 : options.striped;
       var select = options === null || options === void 0 ? void 0 : options.select;
-
       if (striped) {
         makeStriped(treeview);
       }
-
       var collapseElementList = Array.from(treeview.querySelectorAll(Selector.TREEVIEW_LIST));
       var collapseListItem = Array.from(treeview.querySelectorAll(Selector.TREEVIEW_LIST_ITEM));
       collapseListItem.forEach(function (item) {
@@ -11713,15 +11206,12 @@ var treeviewInit = function treeviewInit() {
       });
       collapseElementList.forEach(function (collapse) {
         var collapseId = collapse.id;
-
         if (!striped) {
           collapse.classList.add(ClassName.TREEVIEW_BORDER);
         }
-
         collapse.addEventListener(Events.SHOW_BS_COLLAPSE, function (e) {
           e.target.classList.remove(ClassName.COLLAPSE_HIDDEN);
           e.target.classList.add(ClassName.COLLAPSE_SHOW);
-
           if (striped) {
             makeStriped(treeview);
           } else {
@@ -11731,29 +11221,23 @@ var treeviewInit = function treeviewInit() {
         collapse.addEventListener(Events.HIDE_BS_COLLAPSE, function (e) {
           e.target.classList.add(ClassName.COLLAPSE_HIDDEN);
           e.target.classList.remove(ClassName.COLLAPSE_SHOW);
-
           if (striped) {
             makeStriped(treeview);
           } else {
             var childs = e.path[2].querySelectorAll(Selector.CHILD_SELECTOR);
-
             if (!e.path[2].classList.contains(ClassName.TREEVIEW) && childs.length === 0) {
               e.path[2].classList.remove(ClassName.TREEVIEW_BORDER_TRANSPARENT);
             }
           }
         });
-
         if (collapse.dataset.show === 'true') {
           var parents = [collapse];
-
           while (collapse.parentElement) {
             if (collapse.parentElement.classList.contains(ClassName.TREEVIEW_LIST)) {
               parents.unshift(collapse.parentElement);
             }
-
             collapse = collapse.parentElement;
           }
-
           parents.forEach(function (collapseEl) {
             // eslint-disable-next-line no-new
             new window.bootstrap.Collapse(collapseEl, {
@@ -11761,7 +11245,6 @@ var treeviewInit = function treeviewInit() {
             });
           });
         }
-
         if (select) {
           var inputElement = treeview.querySelector("input[data-target='#".concat(collapseId, "']"));
           inputElement.addEventListener(Events.CHANGE, function (e) {
@@ -11775,7 +11258,6 @@ var treeviewInit = function treeviewInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (treeviewInit);
 
 /***/ }),
@@ -11792,15 +11274,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./resources/js/utils.js");
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                 Typed Text                                 */
-
 /* -------------------------------------------------------------------------- */
 
 var typedTextInit = function typedTextInit() {
   var typedTexts = document.querySelectorAll('.typed-text');
-
   if (typedTexts.length && window.Typed) {
     typedTexts.forEach(function (typedText) {
       return new window.Typed(typedText, {
@@ -11812,7 +11292,6 @@ var typedTextInit = function typedTextInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (typedTextInit);
 
 /***/ }),
@@ -11828,9 +11307,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                                    Utils                                   */
-
 /* -------------------------------------------------------------------------- */
 var docReady = function docReady(fn) {
   // see if DOM is already available
@@ -11840,22 +11317,18 @@ var docReady = function docReady(fn) {
     setTimeout(fn, 1);
   }
 };
-
 var resize = function resize(fn) {
   return window.addEventListener('resize', fn);
 };
-
 var isIterableArray = function isIterableArray(array) {
   return Array.isArray(array) && !!array.length;
 };
-
 var camelize = function camelize(str) {
   var text = str.replace(/[-_\s.]+(.)?/g, function (_, c) {
     return c ? c.toUpperCase() : '';
   });
   return "".concat(text.substr(0, 1).toLowerCase()).concat(text.substr(1));
 };
-
 var getData = function getData(el, data) {
   try {
     return JSON.parse(el.dataset[camelize(data)]);
@@ -11863,33 +11336,31 @@ var getData = function getData(el, data) {
     return el.dataset[camelize(data)];
   }
 };
-/* ----------------------------- Colors function ---------------------------- */
 
+/* ----------------------------- Colors function ---------------------------- */
 
 var hexToRgb = function hexToRgb(hexValue) {
   var hex;
-  hexValue.indexOf('#') === 0 ? hex = hexValue.substring(1) : hex = hexValue; // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-
+  hexValue.indexOf('#') === 0 ? hex = hexValue.substring(1) : hex = hexValue;
+  // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.replace(shorthandRegex, function (m, r, g, b) {
     return r + r + g + g + b + b;
   }));
   return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null;
 };
-
 var rgbaColor = function rgbaColor() {
   var color = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '#fff';
   var alpha = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.5;
   return "rgba(".concat(hexToRgb(color), ", ").concat(alpha, ")");
 };
-/* --------------------------------- Colors --------------------------------- */
 
+/* --------------------------------- Colors --------------------------------- */
 
 var getColor = function getColor(name) {
   var dom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.documentElement;
   return getComputedStyle(dom).getPropertyValue("--falcon-".concat(name)).trim();
 };
-
 var getColors = function getColors(dom) {
   return {
     primary: getColor('primary', dom),
@@ -11902,7 +11373,6 @@ var getColors = function getColors(dom) {
     dark: getColor('dark', dom)
   };
 };
-
 var getSoftColors = function getSoftColors(dom) {
   return {
     primary: getColor('soft-primary', dom),
@@ -11915,7 +11385,6 @@ var getSoftColors = function getSoftColors(dom) {
     dark: getColor('soft-dark', dom)
   };
 };
-
 var getGrays = function getGrays(dom) {
   return {
     white: getColor('white', dom),
@@ -11933,16 +11402,13 @@ var getGrays = function getGrays(dom) {
     black: getColor('black', dom)
   };
 };
-
 var hasClass = function hasClass(el, className) {
   !el && false;
   return el.classList.value.includes(className);
 };
-
 var addClass = function addClass(el, className) {
   el.classList.add(className);
 };
-
 var getOffset = function getOffset(el) {
   var rect = el.getBoundingClientRect();
   var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
@@ -11952,7 +11418,6 @@ var getOffset = function getOffset(el) {
     left: rect.left + scrollLeft
   };
 };
-
 function isScrolledIntoView(el) {
   var rect = el.getBoundingClientRect();
   var windowHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -11961,7 +11426,6 @@ function isScrolledIntoView(el) {
   var horInView = rect.left <= windowWidth && rect.left + rect.width >= 0;
   return vertInView && horInView;
 }
-
 var breakpoints = {
   xs: 0,
   sm: 576,
@@ -11970,33 +11434,28 @@ var breakpoints = {
   xl: 1200,
   xxl: 1540
 };
-
 var getBreakpoint = function getBreakpoint(el) {
   var classes = el && el.classList.value;
   var breakpoint;
-
   if (classes) {
     breakpoint = breakpoints[classes.split(' ').filter(function (cls) {
       return cls.includes('navbar-expand-');
     }).pop().split('-').pop()];
   }
-
   return breakpoint;
 };
-/* --------------------------------- Cookie --------------------------------- */
 
+/* --------------------------------- Cookie --------------------------------- */
 
 var setCookie = function setCookie(name, value, expire) {
   var expires = new Date();
   expires.setTime(expires.getTime() + expire);
   document.cookie = name + '=' + value + ';expires=' + expires.toUTCString();
 };
-
 var getCookie = function getCookie(name) {
   var keyValue = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
   return keyValue ? keyValue[2] : keyValue;
 };
-
 var settings = {
   tinymce: {
     theme: 'oxide'
@@ -12005,36 +11464,34 @@ var settings = {
     borderColor: 'rgba(255, 255, 255, 0.8)'
   }
 };
+
 /* -------------------------- Chart Initialization -------------------------- */
 
 var newChart = function newChart(chart, config) {
   var ctx = chart.getContext('2d');
   return new window.Chart(ctx, config);
 };
-/* ---------------------------------- Store --------------------------------- */
 
+/* ---------------------------------- Store --------------------------------- */
 
 var getItemFromStore = function getItemFromStore(key, defaultValue) {
   var store = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : localStorage;
-
   try {
     return JSON.parse(store.getItem(key)) || defaultValue;
   } catch (_unused) {
     return store.getItem(key) || defaultValue;
   }
 };
-
 var setItemToStore = function setItemToStore(key, payload) {
   var store = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : localStorage;
   return store.setItem(key, payload);
 };
-
 var getStoreSpace = function getStoreSpace() {
   var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : localStorage;
   return parseFloat((escape(encodeURIComponent(JSON.stringify(store))).length / (1024 * 1024)).toFixed(2));
 };
-/* get Dates between */
 
+/* get Dates between */
 
 var getDates = function getDates(startDate, endDate) {
   var interval = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1000 * 60 * 60 * 24;
@@ -12046,39 +11503,31 @@ var getDates = function getDates(startDate, endDate) {
     return new Date(startDate.valueOf() + interval * i);
   });
 };
-
 var getPastDates = function getPastDates(duration) {
   var days;
-
   switch (duration) {
     case 'week':
       days = 7;
       break;
-
     case 'month':
       days = 30;
       break;
-
     case 'year':
       days = 365;
       break;
-
     default:
       days = duration;
   }
-
   var date = new Date();
   var endDate = date;
   var startDate = new Date(new Date().setDate(date.getDate() - (days - 1)));
   return getDates(startDate, endDate);
 };
+
 /* Get Random Number */
-
-
 var getRandomNumber = function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 };
-
 var utils = {
   docReady: docReady,
   resize: resize,
@@ -12122,9 +11571,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                                 step wizard                                */
-
 /* -------------------------------------------------------------------------- */
 var wizardInit = function wizardInit() {
   var wizards = document.querySelectorAll('.theme-wizard');
@@ -12141,14 +11588,13 @@ var wizardInit = function wizardInit() {
     var prevButton = wizard.querySelector('.previous button');
     var cardFooter = wizard.querySelector('.theme-wizard .card-footer');
     var count = 0;
-
     var validatePattern = function validatePattern(pattern, value) {
       var regexPattern = new RegExp(pattern);
       return regexPattern.test(String(value).toLowerCase());
     };
+    prevButton.classList.add('d-none');
 
-    prevButton.classList.add('d-none'); // on button click tab change
-
+    // on button click tab change
     nextButton.addEventListener('click', function () {
       if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
         form.classList.add('was-validated');
@@ -12163,10 +11609,10 @@ var wizardInit = function wizardInit() {
       var tab = new window.bootstrap.Tab(tabToggleButtonEl[count]);
       tab.show();
     });
-
     if (tabToggleButtonEl.length) {
       tabToggleButtonEl.forEach(function (item, index) {
         /* eslint-disable */
+
         item.addEventListener('show.bs.tab', function (e) {
           if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
             e.preventDefault();
@@ -12175,34 +11621,30 @@ var wizardInit = function wizardInit() {
             /* eslint-enable */
           }
 
-          count = index; // can't go back tab
-
+          count = index;
+          // can't go back tab
           if (count === tabToggleButtonEl.length - 1) {
             tabToggleButtonEl.forEach(function (tab) {
               tab.setAttribute('data-bs-toggle', 'modal');
               tab.setAttribute('data-bs-target', '#error-modal');
             });
-          } //add done class
-
-
+          }
+          //add done class
           for (var i = 0; i < count; i = i + 1) {
             tabToggleButtonEl[i].classList.add('done');
-          } //remove done class
-
-
+          }
+          //remove done class
           for (var j = count; j < tabToggleButtonEl.length; j = j + 1) {
             tabToggleButtonEl[j].classList.remove('done');
-          } // card footer remove at last step
-
-
+          }
+          // card footer remove at last step
           if (count > tabToggleButtonEl.length - 2) {
             item.classList.add('done');
             cardFooter.classList.add('d-none');
           } else {
             cardFooter.classList.remove('d-none');
-          } // prev-button removing
-
-
+          }
+          // prev-button removing
           if (count > 0) {
             prevButton.classList.remove('d-none');
           } else {
@@ -12211,8 +11653,9 @@ var wizardInit = function wizardInit() {
         });
       });
     }
-  }); // control wizard progressbar
+  });
 
+  // control wizard progressbar
   if (tabPillEl.length) {
     var dividedProgressbar = 100 / tabPillEl.length;
     tabProgressBar.querySelector('.progress-bar').style.width = dividedProgressbar + '%';
@@ -12223,7 +11666,6 @@ var wizardInit = function wizardInit() {
     });
   }
 };
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (wizardInit);
 
 /***/ })
@@ -12459,12 +11901,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
 /*                            Theme Initialization                            */
-
 /* -------------------------------------------------------------------------- */
-
 (0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_detector__WEBPACK_IMPORTED_MODULE_2__["default"]);
 (0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_navbar_vertical__WEBPACK_IMPORTED_MODULE_1__["default"]);
 (0,_utils__WEBPACK_IMPORTED_MODULE_0__.docReady)(_charts_echarts_total_order__WEBPACK_IMPORTED_MODULE_49__["default"]);

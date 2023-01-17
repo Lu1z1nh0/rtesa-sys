@@ -116,10 +116,9 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _joeattardi_emoji_button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @joeattardi/emoji-button */ "./node_modules/@joeattardi/emoji-button/dist/index.js");
 
+
 /* -------------------------------------------------------------------------- */
-
 /*                                Emoji Button                                */
-
 /* -------------------------------------------------------------------------- */
 
 var picker = new _joeattardi_emoji_button__WEBPACK_IMPORTED_MODULE_0__.EmojiButton({

@@ -13,9 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* -------------------------------------------------------------------------- */
-
 /*                              Config                                        */
-
 /* -------------------------------------------------------------------------- */
 var CONFIG = {
   isNavbarVerticalCollapsed: false,
@@ -30,15 +28,12 @@ Object.keys(CONFIG).forEach(function (key) {
     localStorage.setItem(key, CONFIG[key]);
   }
 });
-
 if (!!JSON.parse(localStorage.getItem('isNavbarVerticalCollapsed'))) {
   document.documentElement.classList.add('navbar-vertical-collapsed');
 }
-
 if (localStorage.getItem('theme') === 'dark') {
   document.documentElement.classList.add('dark');
 }
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CONFIG);
 
 /***/ }),
@@ -49,7 +44,7 @@ if (localStorage.getItem('theme') === 'dark') {
   \***********************************/
 /***/ (() => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Undefined variable.\n    ╷\n142 │       values: $utilities-border-colors\n    │               ^^^^^^^^^^^^^^^^^^^^^^^^\n    ╵\n  node_modules/bootstrap/scss/_utilities.scss 142:15  @import\n  resources/scss/_bootstrap.scss 2:9                  @import\n  resources/scss/theme.scss 22:9                      root stylesheet\n    at processResult (/Users/officedepot643/Desktop/rtesa-sys/node_modules/webpack/lib/NormalModule.js:758:19)\n    at /Users/officedepot643/Desktop/rtesa-sys/node_modules/webpack/lib/NormalModule.js:860:5\n    at /Users/officedepot643/Desktop/rtesa-sys/node_modules/loader-runner/lib/LoaderRunner.js:399:11\n    at /Users/officedepot643/Desktop/rtesa-sys/node_modules/loader-runner/lib/LoaderRunner.js:251:18\n    at context.callback (/Users/officedepot643/Desktop/rtesa-sys/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at /Users/officedepot643/Desktop/rtesa-sys/node_modules/sass-loader/dist/index.js:62:7\n    at Function.call$2 (/Users/officedepot643/Desktop/rtesa-sys/node_modules/sass/sass.dart.js:101511:16)\n    at render_closure1.call$2 (/Users/officedepot643/Desktop/rtesa-sys/node_modules/sass/sass.dart.js:86499:12)\n    at _RootZone.runBinary$3$3 (/Users/officedepot643/Desktop/rtesa-sys/node_modules/sass/sass.dart.js:30152:18)\n    at _FutureListener.handleError$1 (/Users/officedepot643/Desktop/rtesa-sys/node_modules/sass/sass.dart.js:28681:21)");
+throw new Error("Module build failed (from ./node_modules/laravel-mix/node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Undefined variable.\n    ╷\n142 │       values: $utilities-border-colors\n    │               ^^^^^^^^^^^^^^^^^^^^^^^^\n    ╵\n  node_modules/bootstrap/scss/_utilities.scss 142:15  @import\n  resources/scss/_bootstrap.scss 2:9                  @import\n  resources/scss/theme.scss 22:9                      root stylesheet\n    at processResult (/Users/officedepot643/Desktop/rtesa-sys/node_modules/webpack/lib/NormalModule.js:758:19)\n    at /Users/officedepot643/Desktop/rtesa-sys/node_modules/webpack/lib/NormalModule.js:860:5\n    at /Users/officedepot643/Desktop/rtesa-sys/node_modules/loader-runner/lib/LoaderRunner.js:400:11\n    at /Users/officedepot643/Desktop/rtesa-sys/node_modules/loader-runner/lib/LoaderRunner.js:252:18\n    at context.callback (/Users/officedepot643/Desktop/rtesa-sys/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at Object.loader (/Users/officedepot643/Desktop/rtesa-sys/node_modules/sass-loader/dist/index.js:69:5)");
 
 /***/ }),
 

@@ -20,6 +20,11 @@ class CMSSeeder extends Seeder
         ]);
 
         CMS::create([
+            'variable' => 'numWhatURL',
+            'parametro' => '77361910',
+        ]);
+
+        CMS::create([
             'variable' => 'numFijo',
             'parametro' => '2566-7777',
         ]);
@@ -57,11 +62,6 @@ class CMSSeeder extends Seeder
         CMS::create([
             'variable' => 'horarioBod',
             'parametro' => 'Lun-Vie: 8:00 - 5:00 p.m. | Sáb: 8:00 - 12:00 m.d.',
-        ]);
-
-        CMS::create([
-            'variable' => 'corrContacto',
-            'parametro' => 'info@rtelsalvador.com',
         ]);
 
         CMS::create([

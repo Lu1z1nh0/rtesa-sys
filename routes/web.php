@@ -21,9 +21,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Inicio
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
+*/
+Route::get('/', 'CMSController@index');
 
 //Formulario de Contacto ¿En uso?
 Route::get('/contactanos', function () {

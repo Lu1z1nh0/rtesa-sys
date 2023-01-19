@@ -13,7 +13,7 @@
                 <p class="mb-0 text-600 opacity-85"><a href="{{url('/terminos-y-condiciones')}}">Términos y Condiciones de Uso</a> <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> <a href="{{url('/politica-de-privacidad')}}">Política de Privacidad</a></p>
               </div>
               <div class="col-12 col-sm-auto text-center">
-                <p class="mb-0 text-600 opacity-85">Powered by <a class="text-white opacity-85" href="http://markcoweb.com/" title="Ir a">MarkCoWeb</a></p>
+                <p class="mb-0 text-600 opacity-85">Powered by <a class="text-white opacity-85" href="https://markcoweb.com" title="Ir a">MarkCoWeb</a></p>
               </div>
             </div>
           </div>

@@ -211,7 +211,13 @@
       <section class="bg-dark pt-8 pb-4 light">
 
         <div class="container">
-          <div class="position-absolute btn-back-to-top bg-dark"><a class="text-600" href="#banner" data-bs-offset-top="0" data-scroll-to="#banner"><span class="fas fa-chevron-up" data-fa-transform="rotate-45"></span></a></div>
+
+          <div class="position-absolute btn-back-to-top bg-dark">
+            <a class="text-600" href="#banner" data-bs-offset-top="0" data-scroll-to="#banner">
+              <span class="fas fa-chevron-up" data-fa-transform="rotate-45"></span>
+            </a>
+          </div>
+
           <div class="row">
 
             <div class="col-lg-4">
@@ -221,42 +227,37 @@
                 <p class="mt-2" style="">SÍGUENOS: &nbsp;&nbsp;</p>
                   <a class="icon-item bg-white text-facebook" href="{{ $cmsVars[3]['parametro'] }}" title="Ir a" target="_blank"><span class="fab fa-facebook-square"></span></a> 
                   <a class="icon-item bg-white text-instagram" href="{{{ $cmsVars[4]['parametro'] }}}" title="Ir a" target="_blank"><span class="fab fa-instagram-square"></span></a> 
-            </div>
-            </div>
-
-            <div class="col ps-lg-6 ps-xl-8">
-              <div class="row mt-5 mt-lg-0">
-
-                <div class="col-6 col-md-4">
-                  <h5 class="text-uppercase text-white opacity-85 mb-3">Enlaces</h5>
-                  <ul class="list-unstyled">
-                    <li class="mb-1"><a class="link-600" href="{{url('/')}}">Inicio</a></li>
-                    <li class="mb-1"><a class="link-600" href="#servsection">Servicios</a></li>
-                    <li class="mb-1"><a class="link-600" href="#ussection">Nosotros</a></li>
-                    <li class="mb-1"><a class="link-600" href="#contactsection">Contáctanos</a></li>
-                  </ul>
-                </div>
-
-                <div class="col mt-5 mt-md-0">
-                  <h5 class="text-uppercase text-white opacity-85 mb-3">Ubicación y Horario de Atención</h5>
-                  <ul class="list-unstyled">
-                    
-                    <li class="mb-3">
-                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d969.0502442360397!2d-89.22328017082137!3d13.706274302313108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc3988d90a90bb588!2zMTPCsDQyJzIyLjYiTiA4OcKwMTMnMjEuOCJX!5e0!3m2!1ses-419!2ssv!4v1663794422515!5m2!1ses-419!2ssv" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </li>
-                    <li>
-                      <p class="text-600 opacity-85"><b>Oficina:</b> {{ $cmsVars[5]['parametro'] }} </p> 
-                      <p class="text-600 opacity-75"> {{ $cmsVars[6]['parametro'] }} </p> 
-                      <p class="text-600 opacity-85"><b>Bódega:</b> {{ $cmsVars[7]['parametro'] }}</p> 
-                      <p class="text-600 opacity-75"> {{ $cmsVars[8]['parametro'] }} </p> 
-                    </li>
-                  </ul>
-                </div>
-
               </div>
             </div>
 
+            <div class="col-lg-2 offset-lg-2 mt-5 mt-lg-0">
+              <h5 class="text-uppercase text-white opacity-85 mb-3">Enlaces</h5>
+              <ul class="list-unstyled">
+                <li class="mb-1"><a class="link-600" href="{{url('/')}}">Inicio</a></li>
+                <li class="mb-1"><a class="link-600" href="#servsection">Servicios</a></li>
+                <li class="mb-1"><a class="link-600" href="#ussection">Nosotros</a></li>
+                <li class="mb-1"><a class="link-600" href="#contactsection">Contáctanos</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-4 mt-5 mt-md-0">
+              <h5 class="text-uppercase text-white opacity-85 mb-3">Ubicación y Horario de Atención</h5>
+              <ul class="list-unstyled">
+                
+                <li class="mb-3">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d969.0502442360397!2d-89.22328017082137!3d13.706274302313108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc3988d90a90bb588!2zMTPCsDQyJzIyLjYiTiA4OcKwMTMnMjEuOCJX!5e0!3m2!1ses-419!2ssv!4v1663794422515!5m2!1ses-419!2ssv" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </li>
+                <li>
+                  <p class="text-600 opacity-85"><b>Oficina:</b> {{ $cmsVars[5]['parametro'] }} </p> 
+                  <p class="text-600 opacity-75"> {{ $cmsVars[6]['parametro'] }} </p> 
+                  <p class="text-600 opacity-85"><b>Bódega:</b> {{ $cmsVars[7]['parametro'] }}</p> 
+                  <p class="text-600 opacity-75"> {{ $cmsVars[8]['parametro'] }} </p> 
+                </li>
+              </ul>
+            </div>
+
           </div>
+
         </div>
         <!-- end of .container-->
 

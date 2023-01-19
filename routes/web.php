@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });
 */
-Route::get('/', 'CMSController@index');
+Route::get('/', '\App\Http\Controllers\CMSController@index');
 
 //Formulario de Contacto ¿En uso?
 Route::get('/contactanos', function () {
@@ -93,8 +93,14 @@ Route::view('/dashboard/stock', 'stock/index')->middleware('auth');
 //Vista de clientes
 Route::view('/dashboard/clientes', 'clientes/index')->middleware('auth');
 
-//Vista de clientes
+//Vista de aspirantes a clientes
 Route::view('/dashboard/aspirantes', 'aspirantes/index')->middleware('auth');
+
+//Vista de configuración CMS
+Route::view('/dashboard/config', 'config/index')->middleware('auth');
+
+//Vista de suscriptores
+Route::view('/dashboard/suscriptores', 'boletin/index')->middleware('auth');
 
 /*-------------------------------------------------------------------------- */
 

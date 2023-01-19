@@ -20,13 +20,22 @@ class CMSController extends Controller
      */
     public function index()
     {
-        //$cmsVars = DB::select('select * from cms');
-
-        $cmsVars = DB::table('cms')->select('variable', 'parametro')->get()->toArray();
+        $cmsVars = CMS::get()->toArray();
 
         return view('welcome',compact('cmsVars'));
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll()
+    {
+        $cmsVars = CMS::get()->toArray();
+
+        return view('welcome',compact('cmsVars'));
+    }
 
     /**
      * Display the specified resource.
@@ -40,6 +49,8 @@ class CMSController extends Controller
 
         return view('welcome', compact('cmsVars'));
     }
+
+
 
 
 

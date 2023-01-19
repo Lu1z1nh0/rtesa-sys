@@ -25,6 +25,13 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });
 */
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//CMS página de Inicio
 Route::get('/', '\App\Http\Controllers\CMSController@index');
 
 //Formulario de Contacto ¿En uso?
@@ -124,6 +131,13 @@ Route::view('/dashboard/producto-detalle-test', 'productos/detalle-producto')->m
 
 
 //Iniciar Sesión
+
+
+Route::get('/iniciar-sesion', '\App\Http\Controllers\SessionsController@iniSesion');
+Route::get('/cerrar-sesion', '\App\Http\Controllers\SessionsController@cerrarSesion');
+
+
+/*
 Route::post('/iniciar-sesion', function () {
 
     $credentials = request()->only('correo','password');
@@ -140,6 +154,7 @@ Route::post('/iniciar-sesion', function () {
     return redirect('/iniciar-sesion');
     
 }); 
+*/
 
 
 
@@ -147,8 +162,5 @@ Route::post('/iniciar-sesion', function () {
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

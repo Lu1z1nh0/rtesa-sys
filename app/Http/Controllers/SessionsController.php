@@ -8,8 +8,8 @@ use App\Models\User;
 class SessionsController extends Controller
 {
 
-    public function __constructor(){
-
+    public function __constructor()
+    {
        $this->middleware('guest',['except' => 'destroy']);
     }
 
@@ -20,24 +20,22 @@ class SessionsController extends Controller
     */
     public function index()
     {
-        //
+        //nada
     }
 
     /*
     |--------------------------------------------------------------------------
-    | Inicio de Sesion
+    | Inicio de Sesión
     |--------------------------------------------------------------------------
     */
-    public function create()
+    public function iniSesion()
     {
-
         return view('login');
-
     }
 
     /*
     |--------------------------------------------------------------------------
-    | Autenticando User
+    | Autenticación Usuario
     |--------------------------------------------------------------------------
     */
     public function store(Request $request)
@@ -64,10 +62,10 @@ class SessionsController extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | Cerrar Sesion
+    | Cerrar Sesión
     |--------------------------------------------------------------------------
     */
-    public function destroy()
+    public function cerrarSesion()
     {
         $result = (new BitacoraUsuarioController)->guardarUsuarioEvento(2);
 
@@ -76,73 +74,75 @@ class SessionsController extends Controller
         return redirect()->route('welcome');
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | Registro de Usuario
+    |--------------------------------------------------------------------------
+    */
     public function registrarse(Request $request)
-        {
+    {
+        $roles = Rol::all();
+        $estados = EstadoUsuario::all();
 
-         $roles = Rol::all();
-         $estados = EstadoUsuario::all();
+        return view('usuario.registrarse',['roles'=>$roles,'estados'=>$estados]);
+    }
 
-         return view('usuario.registrarse',['roles'=>$roles,'estados'=>$estados]);
-
+    public function registrarseGuardar(Request $request)
+    {
+        $nombres = $request->nombres;
+        $apellidos = $request->apellidos;
+        $correo = $request->correo;
+        $idRol = 1;
+        //echo substr($correo, strpos($correo,'@'));
+        if (substr($correo, strpos($correo,'@'))=='@ues.edu.sv') {
+            $idEstado=1;
+        }else{
+            $idEstado=2;
         }
 
-  public function registrarseGuardar(Request $request)
-        {
-            $nombres = $request->nombres;
-            $apellidos = $request->apellidos;
-            $correo = $request->correo;
-            $idRol = 1;
-            //echo substr($correo, strpos($correo,'@'));
-            if (substr($correo, strpos($correo,'@'))=='@ues.edu.sv') {
-                $idEstado=1;
-            }else{
-                $idEstado=2;
-            }
+        $pass=bcrypt($request->password);
+        // echo $nombres.$apellidos.$correo.$idRol.$idEstado;
 
-            $pass=bcrypt($request->password);
-            // echo $nombres.$apellidos.$correo.$idRol.$idEstado;
+        $cantidad = count(User::where('email', $request->correo)->get());
 
-            $cantidad = count(User::where('email', $request->correo)->get());
+        if ($cantidad==0) {
+            if ($request->password==$request->password2) {
+                $user = new User;
+                $user->nombre_usuario = $nombres;
+                $user->apellido_usuario = $apellidos;
+                $user->email = $correo;
+                $user->rol_id = $idRol;
+                $user->estado_id = $idEstado;
+                $user->password = $pass;
+                $resultado=$user->save();
 
-            if ($cantidad==0) {
-                if ($request->password==$request->password2) {
-                    $user = new User;
-                    $user->nombre_usuario = $nombres;
-                    $user->apellido_usuario = $apellidos;
-                    $user->email = $correo;
-                    $user->rol_id = $idRol;
-                    $user->estado_id = $idEstado;
-                    $user->password = $pass;
-                    $resultado=$user->save();
-
-                    if ($resultado==1) {
-                        return redirect('login');
-                    }else{
-                        echo "<script>alert('Error al guardar los cambios.');</script>";
-                        $roles = Rol::all();
-                        $estados = EstadoUsuario::all();
-
-                        return view('usuario.nuevoUsuario',['roles'=>$roles,'estados'=>$estados]);
-                    }
+                if ($resultado==1) {
+                    return redirect('login');
                 }else{
-                    $msj="La contraseña actual o la nueva contraseña no coinciden.";
-                    return back()->withErrors([
-                      'mensaje' => $msj
-                    ]);
+                    echo "<script>alert('Error al guardar los cambios.');</script>";
+                    $roles = Rol::all();
+                    $estados = EstadoUsuario::all();
+
+                    return view('usuario.nuevoUsuario',['roles'=>$roles,'estados'=>$estados]);
                 }
             }else{
-                // echo "<script>alert('Ya existe un usuario con el correo $correo.');</script>";
-                // $roles = Rol::all();
-                // $estados = EstadoUsuario::all();
-
-                // return view('usuario.nuevoUsuario',['roles'=>$roles,'estados'=>$estados]);
-                $msj="Ya existe un usuario con el correo $correo.";
-                    return back()->withErrors([
-                      'mensaje' => $msj
-                    ]);
+                $msj="La contraseña actual o la nueva contraseña no coinciden.";
+                return back()->withErrors([
+                  'mensaje' => $msj
+                ]);
             }
+        }else{
+            // echo "<script>alert('Ya existe un usuario con el correo $correo.');</script>";
+            // $roles = Rol::all();
+            // $estados = EstadoUsuario::all();
 
+            // return view('usuario.nuevoUsuario',['roles'=>$roles,'estados'=>$estados]);
+            $msj="Ya existe un usuario con el correo $correo.";
+                return back()->withErrors([
+                  'mensaje' => $msj
+                ]);
         }
+    }
 
 
 

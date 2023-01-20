@@ -40,7 +40,7 @@
                   <div class="col-auto fs--1 text-600"><span class="mb-0 undefined">o</span> <span><a href="{{url('/registrarse')}}">Crear una cuenta</a></span></div>
                 </div>
 
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('iniciar-sesion.store') }}">
 
                   @csrf
                   <div class="mb-3">
@@ -49,13 +49,7 @@
 
                   <div class="mb-3">
                     <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password" required/>
-                    @if ($errors->has('email'))
-                        <br>
-                        <span class="help-block">
-                            <!-- <strong>{{ $errors->first('password') }}</strong> -->
-                            <center><strong>Usuario ó Contraseña incorrectos.</strong></center>
-                        </span>
-                    @endif
+
                   </div>
 
                   <div class="row flex-between-center">

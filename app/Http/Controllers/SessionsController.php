@@ -20,7 +20,9 @@ class SessionsController extends Controller
     */
     public function index()
     {
-        //nada
+        echo "<script>console.log('iniSesion');</script>";
+
+        return view('login');
     }
 
     /*
@@ -30,6 +32,8 @@ class SessionsController extends Controller
     */
     public function iniSesion()
     {
+        echo "<script>console.log('iniSesion');</script>";
+
         return view('login');
     }
 
@@ -38,13 +42,27 @@ class SessionsController extends Controller
     | Autenticación Usuario
     |--------------------------------------------------------------------------
     */
+
+    /**
+     * Store a new user.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
 
+       //dd($request);
+       echo "<script>console.log('request: ".$request."');</script>";
 
-       // dd($request);
-       $exist= User::where('correo','=',$request->correo)->where('delete','=',true)->get();
+       $correo = $request->input('correo');
+       $pass = $request->input('password');
 
+       echo "<script>console.log('correo, password: ".$correo.", ".$pass."');</script>";
+
+       //$exist = User::where('correo','=',$request->correo)->where('delete','=',true)->get();
+
+       /*
        if(count($exist))
            return back()->withErrors([
                'mensaje' => 'Credenciales incorrectas, favor verificar!'
@@ -55,9 +73,10 @@ class SessionsController extends Controller
                 'mensaje' => 'Credenciales incorrectas, favor verificar!'
             ]);
         }
+        */
 
         //$result = (new BitacoraController)->guardarUsuarioEvento(1);
-        return redirect()->route('welcome');
+        return redirect()->route('dashboard.admin');
     }
 
     /*

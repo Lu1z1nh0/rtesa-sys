@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Iniciar Sesión
+//Route::get('/iniciar-sesion', '\App\Http\Controllers\SessionsController@iniSesion');
+Route::resource('/iniciar-sesion', App\Http\Controllers\SessionsController::class);
+Route::get('/cerrar-sesion', '\App\Http\Controllers\SessionsController@cerrarSesion');
+
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Rutas publicas
@@ -28,11 +37,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-//CMS página de Inicio
+//Página de Inicio carga datos (CMS)
 Route::get('/', '\App\Http\Controllers\CMSController@index');
+//Route::get('/', 'App\Http\Controllers\HomeController@index');
+
 
 //Formulario de Contacto ¿En uso?
 Route::get('/contactanos', function () {
@@ -53,7 +61,7 @@ Route::get('/terminos-y-condiciones', function () {
 });
 
 //Iniciar Sesión
-Route::view('/iniciar-sesion', 'login')->name('/iniciar-sesion')->middleware('guest');
+//Route::view('/iniciar-sesion', 'login')->name('/iniciar-sesion')->middleware('guest');
 
 //Registrarse
 Route::view('/registrarse', 'register')->name('/registrarse')->middleware('guest');
@@ -74,10 +82,10 @@ Route::get('/combo-navbar', function () { return view('navbar-combo'); });
 |--------------------------------------------------------------------------
 */
 
-Auth::routes();
-
 //Administrador Dashboard
-Route::view('/dashboard', 'admin')->middleware('auth');
+//Route::view('/dashboard', 'admin')->middleware('auth');
+//Route::resource('dashboard', 'App\Http\Controllers\HomeController@admin');
+Route::resource('dashboard', App\Http\Controllers\HomeController::class);
 
 //Vista de aprobación aspirantes
 Route::view('/aprobacion', 'aprobacion')->middleware('auth');
@@ -130,11 +138,7 @@ Route::view('/dashboard/producto-detalle-test', 'productos/detalle-producto')->m
 
 
 
-//Iniciar Sesión
 
-
-Route::get('/iniciar-sesion', '\App\Http\Controllers\SessionsController@iniSesion');
-Route::get('/cerrar-sesion', '\App\Http\Controllers\SessionsController@cerrarSesion');
 
 
 /*

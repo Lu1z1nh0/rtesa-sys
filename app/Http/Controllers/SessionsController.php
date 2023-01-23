@@ -1,6 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+//use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Rol;
 use App\Models\User;
@@ -20,7 +23,7 @@ class SessionsController extends Controller
     */
     public function index()
     {
-        echo "<script>console.log('iniSesion');</script>";
+        echo "<script>console.log('index');</script>";
 
         return view('login');
     }
@@ -52,31 +55,30 @@ class SessionsController extends Controller
     public function store(Request $request)
     {
 
-       //dd($request);
-       echo "<script>console.log('request: ".$request."');</script>";
-
        $correo = $request->input('correo');
        $pass = $request->input('password');
 
-       echo "<script>console.log('correo, password: ".$correo.", ".$pass."');</script>";
+       //echo "<script>console.log('correo, password: ".$.", ".$."');</script>";
 
-       //$exist = User::where('correo','=',$request->correo)->where('delete','=',true)->get();
+       $existe = User::select('correo')->where('correo','=',$correo)->get();
 
-       /*
-       if(count($exist))
-           return back()->withErrors([
-               'mensaje' => 'Credenciales incorrectas, favor verificar!'
-           ]);
+       if(!$existe){
 
-        if(!auth()->attempt(request(['correo','password']))){
+            return back()->withErrors([
+               'mensaje' => '¡Credenciales incorrectas, favor verificar!'
+            ]);
+
+       } elseif (!(Hash::check($pass, User::find(1)->password))) {
+
             return back()->withErrors([
                 'mensaje' => 'Credenciales incorrectas, favor verificar!'
             ]);
-        }
-        */
+
+       } 
 
         //$result = (new BitacoraController)->guardarUsuarioEvento(1);
-        return redirect()->route('dashboard.admin');
+        return redirect()->route('dashboard.admin'); 
+        //return redirect()->action('HomeController@admin');
     }
 
     /*

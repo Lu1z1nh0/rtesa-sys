@@ -13,13 +13,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
 
 //Iniciar Sesión
 //Route::get('/iniciar-sesion', '\App\Http\Controllers\SessionsController@iniSesion');
 Route::resource('/iniciar-sesion', App\Http\Controllers\SessionsController::class);
 Route::get('/cerrar-sesion', '\App\Http\Controllers\SessionsController@cerrarSesion');
 
-
+//Administrador Dashboard
+//Route::view('/dashboard', 'admin')->middleware('auth');
+//Route::resource('dashboard', 'App\Http\Controllers\HomeController@admin');
+Route::resource('dashboard', 'App\Http\Controllers\HomeController');
 
 
 
@@ -35,7 +40,7 @@ Route::get('/cerrar-sesion', '\App\Http\Controllers\SessionsController@cerrarSes
 });
 */
 
-Auth::routes();
+
 
 //Página de Inicio carga datos (CMS)
 Route::get('/', '\App\Http\Controllers\CMSController@index');
@@ -82,10 +87,7 @@ Route::get('/combo-navbar', function () { return view('navbar-combo'); });
 |--------------------------------------------------------------------------
 */
 
-//Administrador Dashboard
-//Route::view('/dashboard', 'admin')->middleware('auth');
-//Route::resource('dashboard', 'App\Http\Controllers\HomeController@admin');
-Route::resource('dashboard', App\Http\Controllers\HomeController::class);
+
 
 //Vista de aprobación aspirantes
 Route::view('/aprobacion', 'aprobacion')->middleware('auth');

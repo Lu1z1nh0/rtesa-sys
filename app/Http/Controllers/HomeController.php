@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+/**
+ * Class HomeController
+ * @package App\Http\Controllers
+ */
 class HomeController extends Controller
 {
     /**
@@ -44,6 +49,8 @@ class HomeController extends Controller
      */
     public function admin()
     {
+        echo "<script>console.log('Llega controlador HomeController: si');</script>";
+
         return view('admin');
     }
 

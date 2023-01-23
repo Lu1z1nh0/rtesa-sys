@@ -49,6 +49,19 @@
 
                   <div class="mb-3">
                     <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password" required/>
+                    
+                    <!--
+                    @if($errors->any())
+                    <div class="alert alert-danger" >
+                      <ul>
+                        @foreach($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                        @endforeach
+                      </ul>
+
+                    </div>
+                    @endif
+                    -->
 
                   </div>
 

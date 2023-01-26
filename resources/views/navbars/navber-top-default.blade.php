@@ -46,7 +46,7 @@
 
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{url('/dashboard')}}">Opciones</a>
-          <a class="dropdown-item" href="{{url('/')}}">Cerrar Sesión</a>
+          <a class="dropdown-item" href="{{ route('login.destroy') }}">Cerrar Sesión</a>
         </div>
       </div>
     </li>

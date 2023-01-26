@@ -68,6 +68,4 @@ class User extends Authenticatable
 
     public function rolName(){ return  Rol::find($this->rol_id)->nombre; }
 
-
-
 }

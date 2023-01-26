@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+//use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +19,24 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
+//Página de Inicio y carga datos (CMS)
+Route::get('/', function () { return view('welcome'); })->middleware('auth');
+Route::get('/', [HomeController::class, 'create'])->middleware('guest')->name('home.index');
+
 
 //Iniciar Sesión
-//Route::get('/iniciar-sesion', '\App\Http\Controllers\SessionsController@iniSesion');
-Route::resource('/iniciar-sesion', App\Http\Controllers\SessionsController::class);
-Route::get('/cerrar-sesion', '\App\Http\Controllers\SessionsController@cerrarSesion');
+//Carga vista
+Route::get('/iniciar-sesion', [SessionsController::class, 'create'])->middleware('guest')->name('login.index');
+//Inicio de sesión
+Route::post('/iniciar-sesion', [SessionsController::class, 'store'])->name('login.store');
 
-//Administrador Dashboard
-//Route::view('/dashboard', 'admin')->middleware('auth');
-//Route::resource('dashboard', 'App\Http\Controllers\HomeController@admin');
-Route::resource('dashboard', 'App\Http\Controllers\HomeController');
+
+//Cerrar Sesión
+Route::get('/cerrar-sesion', [SessionsController::class, 'destroy'])->middleware('auth')->name('login.destroy');
+
+
+//Dashboard Admin y SuperAdmin
+Route::get('/dashboard', [AdminController::class, 'index'])->middleware('isAdmin')->name('admin.index');
 
 
 
@@ -33,19 +45,6 @@ Route::resource('dashboard', 'App\Http\Controllers\HomeController');
 | Rutas publicas
 |--------------------------------------------------------------------------
 */
-
-//Inicio
-/*Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
-
-
-//Página de Inicio carga datos (CMS)
-Route::get('/', '\App\Http\Controllers\CMSController@index');
-//Route::get('/', 'App\Http\Controllers\HomeController@index');
-
 
 //Formulario de Contacto ¿En uso?
 Route::get('/contactanos', function () {
@@ -136,33 +135,6 @@ Route::view('/dashboard/tienda', 'productos/productos-grid')->middleware('auth')
 Route::view('/dashboard/producto-detalle-test', 'productos/detalle-producto')->middleware('auth');
 
 /*-------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-/*
-Route::post('/iniciar-sesion', function () {
-
-    $credentials = request()->only('correo','password');
-    //return = request()->only('email', 'password');
-    dump($credentials);
-
-    if (Auth::attempt($credentials)) {
-        request()->session()->regenerate();
-
-        //return 'Has iniciado sesión exitosamente';
-        return redirect('/dashboard');    
-    }
-
-    return redirect('/iniciar-sesion');
-    
-}); 
-*/
-
-
 
 
 

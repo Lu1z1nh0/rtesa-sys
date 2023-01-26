@@ -36,7 +36,7 @@ return new class extends Migration
             //relacionar con la tabla estado_producto
             $table->integer('estado_producto_id')->unsigned();
             $table->foreign('estado_producto_id')->references('id')->on('estado_producto');
-            $table->string('ficha_tecnica_herf', 60)->nullable();
+            $table->string('ficha_tecnica_href', 60)->nullable();
             $table->string('imagen_1_src', 60)->nullable();
             $table->string('imagen_2_src', 60)->nullable();
             $table->string('imagen_3_src', 60)->nullable();

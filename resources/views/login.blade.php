@@ -40,7 +40,7 @@
                   <div class="col-auto fs--1 text-600"><span class="mb-0 undefined">o</span> <span><a href="{{url('/registrarse')}}">Crear una cuenta</a></span></div>
                 </div>
 
-                <form method="POST" action="{{ route('iniciar-sesion.store') }}">
+                <form method="POST" action="">
 
                   @csrf
                   <div class="mb-3">
@@ -49,6 +49,10 @@
 
                   <div class="mb-3">
                     <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password" required/>
+                    
+                    @error('message')        
+                      <p class="border border-red-500 rounded-md bg-red-100 w-fulltext-red-600 p-2 my-2">* {{ $message }}</p>
+                    @enderror
                     
                     <!--
                     @if($errors->any())
@@ -68,7 +72,7 @@
                   <div class="row flex-between-center">
                     <div class="col-auto">
                       <div class="form-check mb-0">
-                        <input class="form-check-input" type="checkbox" id="basic-checkbox" checked="checked" />
+                        <input class="form-check-input" type="checkbox" id="basic-checkbox" value="1" checked="checked" />
                         <label class="form-check-label mb-0" for="basic-checkbox">Recuerdame</label>
                       </div>
                     </div>

@@ -2,7 +2,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Rol;
 
 class IsAdmin
 {
@@ -13,9 +15,23 @@ class IsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        $token= $request->token;
+
+        if(auth()->check()){
+            if(auth()->user()->rol_id == 1 || auth()->user()->rol_id == 3) {
+                return $next($request);
+            }
+        }
+        return redirect()->to('/');
+    }
+
+
+
+
+        /*
+        return redirect()->to('/');
+        $token = $request->token;
 
         $User= User::where('remember_token','=',$token)->first();
 
@@ -25,5 +41,14 @@ class IsAdmin
             };
 
         return $next($request);
-    }
+        */
+
+
 }
+
+
+
+
+        
+
+

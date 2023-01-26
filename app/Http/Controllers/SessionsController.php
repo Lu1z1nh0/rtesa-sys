@@ -2,8 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-//use Illuminate\Validation\ValidationException;
+
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Rol;
 use App\Models\User;
@@ -11,89 +12,127 @@ use App\Models\User;
 class SessionsController extends Controller
 {
 
-    public function __constructor()
-    {
-       $this->middleware('guest',['except' => 'destroy']);
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | No tiene uso
-    |--------------------------------------------------------------------------
-    */
-    public function index()
-    {
-        echo "<script>console.log('index');</script>";
-
+    public function create() {
+        
         return view('login');
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Inicio de Sesión
-    |--------------------------------------------------------------------------
-    */
-    public function iniSesion()
-    {
-        echo "<script>console.log('iniSesion');</script>";
+    public function store() {
+        
+        if(auth()->attempt(request(['correo', 'password'])) == false) {
 
-        return view('login');
+            return back()->withErrors([
+                'mensaje' => '¡Credenciales incorrectas, favor verificar!',
+            ]);
+
+        } else {
+
+            if(auth()->user()->rol_id == 1 || auth()->user()->rol_id == 3) {
+                return redirect()->route('admin.index');
+            } else {
+                return redirect()->to('/');
+            }
+
+        }
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Autenticación Usuario
-    |--------------------------------------------------------------------------
-    */
+    public function destroy() {
+
+        auth()->logout();
+
+        return redirect()->to('/');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
-     * Store a new user.
+     * Handle an authentication attempt.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function authenticate(Request $request)
     {
+        $credenciales = $request->validate([
+            'correo' => ['required', 'correo'],
+            'password' => ['required'],
+        ]);
 
        $correo = $request->input('correo');
        $pass = $request->input('password');
-
-       //echo "<script>console.log('correo, password: ".$.", ".$."');</script>";
-
-       $existe = User::select('correo')->where('correo','=',$correo)->get();
-
-       if(!$existe){
-
-            return back()->withErrors([
-               'mensaje' => '¡Credenciales incorrectas, favor verificar!'
-            ]);
-
-       } elseif (!(Hash::check($pass, User::find(1)->password))) {
-
-            return back()->withErrors([
-                'mensaje' => 'Credenciales incorrectas, favor verificar!'
-            ]);
-
-       } 
-
-        //$result = (new BitacoraController)->guardarUsuarioEvento(1);
-        return redirect()->route('dashboard.admin'); 
-        //return redirect()->action('HomeController@admin');
+       $remember = $request->input('recuerdame'); //debe ser bool, 1 o 0
+ 
+        if (Auth::attempt(['correo' => $correo, 'password' => $pass, 'estado' => 'activo'], $remember)) {
+            $request->session()->regenerate();
+ 
+            //$result = (new BitacoraController)->guardarUsuarioEvento(1);
+            return redirect()->intended('dashboard');
+        }
+ 
+        return back()->withErrors([
+            'correo' => '¡Credenciales incorrectas, favor verificar!',
+        ])->onlyInput('correo');
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Cerrar Sesión
-    |--------------------------------------------------------------------------
-    */
-    public function cerrarSesion()
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
     {
-        $result = (new BitacoraUsuarioController)->guardarUsuarioEvento(2);
+        //$result = (new BitacoraController)->guardarUsuarioEvento(2);
 
-        auth()->logout();
-
-        return redirect()->route('welcome');
+        Auth::logout();
+     
+        $request->session()->invalidate();
+     
+        $request->session()->regenerateToken();
+     
+        return redirect('/');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -164,26 +203,6 @@ class SessionsController extends Controller
                 ]);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

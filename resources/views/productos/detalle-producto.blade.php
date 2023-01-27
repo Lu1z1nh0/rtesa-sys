@@ -11,18 +11,12 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h5>Canister</h5><a class="fs--1 mb-2 d-block">Carro & Accesorios</a>
-                    <p class="fs--1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only five
-                        centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
-                        more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
-                        Ipsum.</p>
+                    <h5>{{ $producto->nombre }}</h5><a class="fs--1 mb-2 d-block">{{ $producto->categoria->nombre }}</a>
+                    <p class="fs--1">{{ $producto->descripcion }}</p>
                     <h4 class="d-flex align-items-center"><span class="text-warning me-2">87.99$</span><span
                             class="me-1 fs--1 text-500">
                         </span></h4>
-                    <p class="fs--1">Stock: <strong class="text-success">Disponible</strong></p>
+                    <p class="fs--1">Stock: <strong class="text-success">{{ $producto->estadoProducto->estado }}</strong></p>
                     <div class="row">
                         <div class="col-auto pe-0">
                             <div class="input-group input-group-sm" data-quantity="data-quantity">
@@ -56,14 +50,7 @@
                             <div class="tab-pane fade show active" id="tab-description" role="tabpanel"
                                 aria-labelledby="description-tab">
                                 <div class="mt-3">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                        It has survived not only five centuries, but also the leap into electronic
-                                        typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                                        the release of Letraset sheets containing Lorem Ipsum passages, and more recently
-                                        with desktop publishing software like Aldus PageMaker including versions of Lorem
-                                        Ipsum.</p>
+                                    <p>{{ $producto->descripcion }}</p>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="tab-specifications" role="tabpanel"

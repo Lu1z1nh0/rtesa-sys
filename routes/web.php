@@ -95,9 +95,8 @@ Route::view('/aprobacion', 'aprobacion')->middleware('auth');
 Route::view('/dashboard/categorias', 'categorias/index')->middleware('auth');
 Route::view('/dashboard/categorias/crear', 'categorias/form')->middleware('auth');
 
-//Vista mantenimiento productos
-Route::view('/dashboard/productos', 'productos/index')->middleware('auth');
-Route::view('/dashboard/productos/crear', 'productos/form')->middleware('auth');
+//vista de mantenimiento de productos - prueba de vista publica - con controllador de productos
+Route::resource('/dashboard/productos', App\Http\Controllers\ProductoController::class)->middleware('auth');
 
 //Vista de marcas
 Route::view('/dashboard/marcas', 'marcas/index')->middleware('auth');
@@ -131,8 +130,7 @@ Route::view('/dashboard/suscriptores', 'boletin/index')->middleware('auth');
 Route::view('/aspirantes-completar', 'aspirante_info')->middleware('auth');
 
 //Vista Tienda y Producto
-Route::view('/dashboard/tienda', 'productos/productos-grid')->middleware('auth');
-Route::view('/dashboard/producto-detalle-test', 'productos/detalle-producto')->middleware('auth');
+Route::resource('/dashboard/tienda', App\Http\Controllers\TiendaController::class)->middleware('auth');
 
 /*-------------------------------------------------------------------------- */
 

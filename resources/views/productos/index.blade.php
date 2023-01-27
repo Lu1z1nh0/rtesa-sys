@@ -1,6 +1,15 @@
 @extends('layouts.default')
 
 @section('dashboard')
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/date-1.2.0/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/date-1.2.0/datatables.min.js">
+    </script>
     {{-- Titulo --}}
     <div class="card mb-3">
         <div class="bg-holder d-none d-lg-block bg-card"
@@ -28,7 +37,15 @@
                 <div class="card-body position-relative">
                     <h6>Productos Activos</h6>
                     <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-warning"
-                        data-countup='{"endValue":58.386,"decimalPlaces":2,"suffix":"k"}'>45</div>
+                        data-countup='{"endValue":58.386,"decimalPlaces":2,"suffix":"k"}'>
+                        {{-- contar los productos activos de la base de datos --}}
+                        <?php
+                        $productosActivos = DB::table('producto')
+                            ->where('estado_producto_id', '1')
+                            ->get();
+                        echo count($productosActivos);
+                        ?>    
+                    </div>
                 </div>
             </div>
         </div>
@@ -41,7 +58,14 @@
                 <div class="card-body position-relative">
                     <h6>Producos Inactivos</h6>
                     <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info"
-                        data-countup='{"endValue":23.434,"decimalPlaces":2,"suffix":"k"}'>32</div>
+                        data-countup='{"endValue":23.434,"decimalPlaces":2,"suffix":"k"}'>
+                    {{-- contar los productos activos de la base de datos --}}
+                    <?php
+                    $productosInactivos = DB::table('producto')
+                        ->where('estado_producto_id', '2')
+                        ->get();
+                    echo count($productosInactivos);
+                    ?> </div>
                 </div>
             </div>
         </div>
@@ -49,13 +73,13 @@
     {{-- Tabla de productos --}}
     <div class="row mb-3 justify-content-md-center">
         <div class="col">
-            <a href="{{url('/dashboard/productos/crear')}}">
+            <a href="{{ route('productos.create') }}">
                 <button class="btn btn-primary me-1 mb-1" type="button"><i class="fas fa-plus"></i> Agregar nueva producto
                 </button>
             </a>
         </div>
     </div>
-    <div class="row mb-3">
+    {{-- <div class="row mb-3">
         <div class="col-lg-6">
             <label class="form-label" for="exampleFormControlInput1">Buscar Producto</label>
             <input class="form-control" type="text" placeholder="Alternador" />
@@ -64,7 +88,7 @@
             <button class="btn btn-primary me-1 mb-1 mt-2" type="button"><i class="fas fa-search"></i> Buscar Producto
             </button>
         </div>
-    </div>
+    </div> --}}
     <div class="card mb-3">
         <div class="card-header">
             <div class="row flex-between-end">
@@ -75,12 +99,11 @@
         </div>
         <div class="card-body pt-0">
             <div class="table-responsive scrollbar">
-                <table class="table">
+                <table id="table_productos" class="table display">
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripción</th>
-                            <th scope="col">Precio</th>
                             <th scope="col">Marca</th>
                             <th scope="col">SKU</th>
                             <th scope="col">OEM</th>
@@ -92,57 +115,46 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Canister</td>
-                            <td>El canister es un sistema que almacena los vapores de la gasolina que se producen en el
-                                depósito de combustible mediante una serie de válvulas y tuberías. Estos vapores se acumulan
-                                en un depósito para ser quemados posteriormente tras la admisión.</td>
-                            <td>87.99$</td>
-                            <td>Toyoya</td>
-                            <td>KSFBW-01</td>
-                            <td>Nijapan</td>
-                            <td>Carro</td>
-                            <td>143545</td>
-                            <td>435345</td>
-                            <td>534535</td>
-                            <td class="text-end">
-                                <div>
-                                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Edit"><span class="text-500 fas fa-edit"></span></button>
-                                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Delete"><span
-                                            class="text-500 fas fa-trash-alt"></span></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Alternador</td>
-                            <td>elemento del circuito eléctrico del automóvil que tiene como misión transformar la energía
-                                mecánica en energía eléctrica, proporcionando así un suministro eléctrico durante la marcha
-                                del vehículo.</td>
-                            <td>90.99$</td>
-                            <td>BOSCH</td>
-                            <td>KSFBW-02</td>
-                            <td>BOSCH</td>
-                            <td>Carro</td>
-                            <td>999233</td>
-                            <td>434344</td>
-                            <td>136557</td>
-                            <td class="text-end">
-                                <div>
-                                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Edit"><span class="text-500 fas fa-edit"></span></button>
-                                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Delete"><span
-                                            class="text-500 fas fa-trash-alt"></span></button>
-                                </div>
-                            </td>
-                        </tr>
-
-
+                        @foreach ($productos as $producto)
+                            <tr>
+                                <td>{{ $producto->nombre }}</td>
+                                <td>{{ $producto->descripcion }}</td>
+                                <td>{{ $producto->marca->nombre }}</td>
+                                <td>{{ $producto->sku }}</td>
+                                <td>{{ $producto->OEM }}</td>
+                                <td>{{ $producto->categoria->nombre }}</td>
+                                <td>{{ $producto->ref_1 }}</td>
+                                <td>{{ $producto->ref_2 }}</td>
+                                <td>{{ $producto->ref_3 }}</td>
+                                <td class="text-end">
+                                    <form action="{{ route('productos.destroy', $producto->id) }}"
+                                        method="POST">
+                                        {{-- <a href="{{ route('productos.edit', $producto->id) }}">
+                                            <button class="btn p-0" type="button" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Edit"><span
+                                                class="text-500 fas fa-edit"></span></button></a> --}}
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn p-0 ms-2" type="submit" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Delete"><span
+                                                class="text-500 fas fa-trash-alt"></span></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#table_productos').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'excel', 'pdf'
+                ]
+            });
+        });
+    </script>
 @endsection

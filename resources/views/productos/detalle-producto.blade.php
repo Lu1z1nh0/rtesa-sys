@@ -1,13 +1,21 @@
 @extends('layouts.default')
 
 @section('dashboard')
+    <?php
+    //hacer un if para ver si el producto tiene imagen o no
+    if ($producto->imagen_1_src != null) {
+        $imagen = "../../../assets/img/products/{$producto->imagen_1_src}";
+    } else {
+        $imagen = '../../../assets/img/products/default.webp';
+    }
+    ?>
     <div class="card mb-3">
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-6 mb-lg-0">
                     <div class="product-slider" id="galleryTop">
                         <div class="swiper-slide h-100"><img class="rounded-1 fit-cover h-100 w-100"
-                                src="../../../assets/img/products/default.webp" alt="" /></div>
+                                src="{{ $imagen }}" alt="" /></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -16,7 +24,8 @@
                     <h4 class="d-flex align-items-center"><span class="text-warning me-2">87.99$</span><span
                             class="me-1 fs--1 text-500">
                         </span></h4>
-                    <p class="fs--1">Stock: <strong class="text-success">{{ $producto->estadoProducto->estado }}</strong></p>
+                    <p class="fs--1">Stock: <strong class="text-success">{{ $producto->estadoProducto->estado }}</strong>
+                    </p>
                     <div class="row">
                         <div class="col-auto pe-0">
                             <div class="input-group input-group-sm" data-quantity="data-quantity">

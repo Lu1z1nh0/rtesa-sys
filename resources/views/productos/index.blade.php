@@ -129,10 +129,10 @@
                                 <td class="text-end">
                                     <form action="{{ route('productos.destroy', $producto->id) }}"
                                         method="POST">
-                                        {{-- <a href="{{ route('productos.edit', $producto->id) }}">
+                                        <a href="{{ route('productos.edit', $producto->id) }}">
                                             <button class="btn p-0" type="button" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Edit"><span
-                                                class="text-500 fas fa-edit"></span></button></a> --}}
+                                                class="text-500 fas fa-edit"></span></button></a>
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn p-0 ms-2" type="submit" data-bs-toggle="tooltip"

@@ -45,3 +45,7 @@ mix.js("resources/js/config.js", "public/assets/js")
     .options({
         processCssUrls: false,
     });
+
+
+
+

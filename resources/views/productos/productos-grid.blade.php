@@ -42,19 +42,19 @@
                             <?php
                             //hacer un if para ver si el producto tiene imagen o no
                             if ($producto->imagen_1_src != null) {
-                                $imagen = `../../../assets/img/products/{{ $producto->imagen }}`;
+                                $imagen = "../../../assets/img/products/{$producto->imagen_1_src}";
                             } else {
-                                $imagen = '../../../assets/img/products/default.webp';
+                                $imagen = "../../../assets/img/products/default.webp";
                             }
                             ?>
                             <div class="position-relative rounded-top overflow-hidden"><a class="d-block"
-                                    href="/dashboard/producto-detalle-test"><img
-                                        class="img-fluid rounded-top" src="{{ $imagen }}"
+                                href="{{ route('tienda.show', $producto->id) }}"><img
+                                        class="img-fluid rounded-top object-fit-cover" src="{{ $imagen }}"
                                         alt="" /></a>
                             </div>
                             <div class="p-3">
                                 <h5 class="fs-0"><a class="text-dark"
-                                        href="../../../app/e-commerce/product/product-details.html">{{ $producto->nombre }}</a></h5>
+                                    href="{{ route('tienda.show', $producto->id) }}">{{ $producto->nombre }}</a></h5>
                                 <p class="fs--1 mb-3"><a class="text-500" href="#!">{{ $producto->categoria->nombre }}</a></p>
                                 <h5 class="fs-md-2 text-warning mb-0 d-flex align-items-center mb-3"> 87.99$
                                     <del class="ms-2 fs--1 text-500">97.99$ </del>

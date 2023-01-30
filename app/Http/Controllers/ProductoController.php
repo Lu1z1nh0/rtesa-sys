@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File; 
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Categoria;
@@ -39,12 +40,12 @@ class ProductoController extends Controller
     {
         $producto = new Producto();
         //relacionar con el modelo de categoria
-        $categorias = Categoria::all();
+        $categorias = Categoria::pluck('nombre', 'id');
         //relaciomar con el modelo de marca
-        $marcas = Marca::all();
+        $marcas = Marca::pluck('nombre', 'id');
         //relacionar con el modelo de estado producto
-        $estadoProductos = EstadoProducto::all();
-        return view('productos.form', compact('categorias', 'marcas', 'estadoProductos'));
+        $estadoProductos = EstadoProducto::pluck('estado', 'id');
+        return view('productos.create', compact('producto', 'categorias', 'marcas', 'estadoProductos'));
     }
 
     /**
@@ -78,7 +79,7 @@ class ProductoController extends Controller
         $reg->sku = $request->get('sku');
         $reg->descripcion = $request->get('descripcion');
         $reg->marca_id = $request->get('marca_id');
-        $reg->oem = $request->get('oem');
+        $reg->OEM = $request->get('OEM');
         $reg->ref_1 = $request->get('ref_1');
         $reg->ref_2 = $request->get('ref_2');
         $reg->ref_3 = $request->get('ref_3');
@@ -145,7 +146,7 @@ class ProductoController extends Controller
         $categorias = Categoria::pluck('nombre', 'id');
         $marcas = Marca::pluck('nombre', 'id');
         $estadoProductos = EstadoProducto::pluck('estado', 'id');
-        return view('productos.formEdit', compact('producto', 'categorias', 'marcas', 'estadoProductos'));
+        return view('productos.edit', compact('producto', 'categorias', 'marcas', 'estadoProductos'));
 
     }
 
@@ -172,7 +173,54 @@ class ProductoController extends Controller
             'etiqueta_destacado' => 'required',
         ]);
 
-        $producto->update($request->all());
+        //almacenar datos
+        $producto->nombre = $request->get('nombre');
+        $producto->categoria_id = $request->get('categoria_id');
+        $producto->sku = $request->get('sku');
+        $producto->descripcion = $request->get('descripcion');
+        $producto->marca_id = $request->get('marca_id');
+        $producto->OEM = $request->get('OEM');
+        $producto->ref_1 = $request->get('ref_1');
+        $producto->ref_2 = $request->get('ref_2');
+        $producto->ref_3 = $request->get('ref_3');
+        $producto->lote = $request->get('lote');
+        $producto->fecha_ingreso = $request->get('fecha_ingreso');
+        $producto->existencia = $request->get('existencia');
+        $producto->existencia_limite = $request->get('existencia_limite');
+        $producto->estado_producto_id = $request->get('estado_producto_id');
+        //subir archivos pdf
+        if ($request->hasFile('ficha_tecnica_herf')) {
+            $file = $request->file('ficha_tecnica_herf');
+            $file->move(public_path() . '/assets/pdf/productos/', $file->getClientOriginalName());
+            $producto->ficha_tecnica_herf = $file->getClientOriginalName();
+        }
+        //subir archivos imagenes
+        if ($request->hasFile('imagen_1_src')) {
+            $file = $request->file('imagen_1_src');
+            $file->move(public_path() . '/assets/img/products/', $file->getClientOriginalName());
+            $producto->imagen_1_src = $file->getClientOriginalName();
+        }
+        if ($request->hasFile('imagen_2_src')) {
+            $file = $request->file('imagen_2_src');
+            $file->move(public_path() . '/assets/img/products/', $file->getClientOriginalName());
+            $producto->imagen_2_src = $file->getClientOriginalName();
+        }
+        if ($request->hasFile('imagen_3_src')) {
+            $file = $request->file('imagen_3_src');
+            $file->move(public_path() . '/assets/img/products/', $file->getClientOriginalName());
+            $producto->imagen_3_src = $file->getClientOriginalName();
+        }
+        if ($request->hasFile('imagen_4_src')) {
+            $file = $request->file('imagen_4_src');
+            $file->move(public_path() . '/assets/img/products/', $file->getClientOriginalName());
+            $producto->imagen_4_src = $file->getClientOriginalName();
+        }
+        $producto->etiqueta_destacado = $request->get('etiqueta_destacado');
+        $producto->garantia = $request->get('garantia');
+
+        $producto->update();
+
+        // $producto->update($request->all());
 
         return redirect()->route('productos.index');
     }
@@ -186,6 +234,18 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         $producto = Producto::find($id)->delete();
+        //buscar imagenes del producto por su id para eliminarlas
+        // $filename = public_path() . '/assets/img/products/' . $producto->imagen_1_src;
+        // File::delete($filename);
+        // $filename = public_path() . '/assets/img/products/' . $producto->imagen_2_src;
+        // File::delete($filename);
+        // $filename = public_path() . '/assets/img/products/' . $producto->imagen_3_src;
+        // File::delete($filename);
+        // $filename = public_path() . '/assets/img/products/' . $producto->imagen_4_src;
+        // File::delete($filename);
+        // $filename = public_path() . '/assets/pdf/productos/' . $producto->ficha_tecnica_herf;
+        // File::delete($filename);
+         
 
         return redirect()->route('productos.index');
     }

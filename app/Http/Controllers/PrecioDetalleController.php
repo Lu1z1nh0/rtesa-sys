@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PrecioDetalle;
+use App\Models\Precio;
+use App\Models\Producto;
 
 class PrecioDetalleController extends Controller
 {
@@ -16,7 +18,12 @@ class PrecioDetalleController extends Controller
     public function index()
     {
         //paginate
-        $precios = PrecioDetalle::paginate(10);
+        $precioDetalles = PrecioDetalle::paginate(10);
+        //relacionar con precio
+        $precios = Precio::all();
+        //relacionar con producto
+        $productos = Producto::all();
+        return view('precios_detalle.index', compact('precioDetalles', 'precios', 'productos'));
         
     }
 
@@ -27,7 +34,13 @@ class PrecioDetalleController extends Controller
      */
     public function create()
     {
-        //
+        //paginate
+        $precioDetalle = new PrecioDetalle();
+        //relacionar con precio
+        $precios = Precio::pluck('precio_Monto', 'id');
+        //relacionar con producto
+        $productos = Producto::pluck('nombre', 'id');
+        return view('precios_detalle.create', compact('precioDetalle', 'precios', 'productos'));
     }
 
     /**
@@ -39,6 +52,18 @@ class PrecioDetalleController extends Controller
     public function store(Request $request)
     {
         //
+        //validar campos
+        $request->validate([
+            'precio_id' => 'required',
+            'producto_id' => 'required',
+        ]);
+        //almacenar datos
+        $reg = new PrecioDetalle();
+        $reg->producto_id = $request->get('producto_id');
+        $reg->precio_id = $request->get('precio_id');
+        $reg->save();
+        //redireccionar
+        return redirect()->route('precios_detalle.index');
     }
 
     /**
@@ -60,7 +85,12 @@ class PrecioDetalleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $precioDetalle = PrecioDetalle::find($id);
+        //relacionar con precio
+        $precios = Precio::pluck('precio_Monto', 'id');
+        //relacionar con producto
+        $productos = Producto::pluck('nombre', 'id');
+        return view('precios_detalle.edit', compact('precioDetalle', 'precios', 'productos'));
     }
 
     /**
@@ -70,9 +100,26 @@ class PrecioDetalleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, PrecioDetalle $precioDetalle)
     {
-        //
+        //poner todo en trycatch
+        try {
+            //validar campos
+            $request->validate([
+                'precio_id' => 'required',
+                'producto_id' => 'required',
+            ]);
+            //almacenar datos
+            $precioDetalle->producto_id = $request->get('producto_id');
+            $precioDetalle->precio_id = $request->get('precio_id');
+            $precioDetalle->update();
+            //redireccionar
+            return redirect()->route('precios_detalle.index');
+        } catch (\Throwable $th) {
+            //throw $th;
+            echo $th;
+            return redirect()->route('precios_detalle.index');
+        }
     }
 
     /**
@@ -83,6 +130,7 @@ class PrecioDetalleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $precioDetalle = PrecioDetalle::find($id)->delete();
+        return redirect()->route('precios_detalle.index');
     }
 }

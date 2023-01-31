@@ -98,6 +98,12 @@ Route::view('/dashboard/categorias/crear', 'categorias/form')->middleware('auth'
 //vista de mantenimiento de productos - prueba de vista publica - con controllador de productos
 Route::resource('/dashboard/productos', App\Http\Controllers\ProductoController::class)->middleware('auth');
 
+//vista de precio detalles de productos - prueba de vista publica - con controllador de productos
+Route::resource('/dashboard/precios_detalle', App\Http\Controllers\PrecioDetalleController::class)->middleware('auth');
+
+//vista de precio de productos - prueba de vista publica - con controllador de productos
+Route::resource('/dashboard/precios', App\Http\Controllers\PrecioController::class)->middleware('auth');
+
 //Vista de marcas
 Route::view('/dashboard/marcas', 'marcas/index')->middleware('auth');
 Route::view('/dashboard/marcas/crear', 'marcas/form')->middleware('auth');

@@ -17,6 +17,7 @@ class PrecioController extends Controller
     {
         //paginate
         $precios = Precio::paginate(10);
+        return view('precios.index', compact('precios'));
     }
 
     /**
@@ -26,7 +27,8 @@ class PrecioController extends Controller
      */
     public function create()
     {
-        //
+        $precio = new Precio();
+        return view('precios.create_precio', compact('precio'));
     }
 
     /**
@@ -37,7 +39,22 @@ class PrecioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validar campos
+        $request->validate([
+            'precio_Tipo' => 'required',
+            'precio_Monto' => 'required',
+            'estado' => 'required'
+        ]);
+
+        //crear nuevo precio
+        $reg = new Precio();
+        $reg->precio_Tipo = $request->get('precio_Tipo');
+        $reg->precio_Monto = $request->get('precio_Monto');
+        $reg->estado = $request->get('estado');
+        $reg->save();
+        
+        //redireccionar
+        return redirect()->route('precios.index');
     }
 
     /**
@@ -59,7 +76,8 @@ class PrecioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $precio = Precio::find($id);
+        return view('precios.edit', compact('precio'));
     }
 
     /**
@@ -69,9 +87,21 @@ class PrecioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Precio $precio)
     {
-        //
+        //validar campos
+        $request->validate([
+            'precio_Tipo' => 'required',
+            'precio_Monto' => 'required',
+            'estado' => 'required'
+        ]);
+
+        $precio->precio_Tipo = $request->get('precio_Tipo');
+        $precio->precio_Monto = $request->get('precio_Monto');
+        $precio->estado = $request->get('estado');
+        $precio->update();
+
+        return redirect()->route('precios.index');
     }
 
     /**
@@ -82,6 +112,7 @@ class PrecioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $precio = Precio::find($id)->delete();
+        return redirect()->route('precios.index');
     }
 }

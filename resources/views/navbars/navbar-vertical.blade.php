@@ -86,6 +86,22 @@
                   </a>
 
                   <!-- parent pages-->
+                  <a class="nav-link {{ 'dashboard/precios_detalle' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/precios_detalle')}}" role="button" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                      <span class="nav-link-icon"><span class="fas fa-tag"></span></span>
+                      <span class="nav-link-text ps-1">Precios para productos</span>
+                    </div>
+                  </a>
+
+                  <!-- parent pages-->
+                  <a class="nav-link {{ 'dashboard/precios' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/precios')}}" role="button" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                      <span class="nav-link-icon"><span class="fas fa-dollar-sign"></span></span>
+                      <span class="nav-link-text ps-1">Tipos de precio</span>
+                    </div>
+                  </a>
+
+                  <!-- parent pages-->
                   <a class="nav-link {{ 'dashboard/categorias' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/categorias')}}" role="button" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center">
                       <span class="nav-link-icon"><span class="fas fa-list-ul"></span></span>

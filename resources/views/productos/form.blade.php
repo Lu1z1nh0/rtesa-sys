@@ -87,6 +87,29 @@
         {{ Form::label('imagen_4_src', 'Imagen del producto extra', ['class' => 'form-label']) }}
         {{ Form::file('imagen_4_src', $producto->imagen_4_src, ['class' => 'form-control', 'placeholder' => '']) }}
     </div>
+    <div class="mt-4">
+        <h4>Tabla de precios</h4>
+    </div>
+    <div class="col-lg-6">
+        <div class="mb-3">
+            {{ Form::label('precio_id_1', 'Precio 1', ['class' => 'form-label']) }}
+            {{ Form::select('precio_id_1', $precios, $preciosDetalle->precio_id, ['class' => 'form-control', 'placeholder' => 'Selecione un precio', 'required']) }}
+        </div>
+        {{-- <div class="mb-3">
+            {{ Form::label('precio_id_3', 'Precio 3', ['class' => 'form-label']) }}
+            {{ Form::select('precio_id_3', $precios, $preciosDetalle->precio_id, ['class' => 'form-control', 'placeholder' => 'Selecione un precio']) }}
+        </div> --}}
+    </div>
+    {{-- <div class="col-lg-6">
+        <div class="mb-3">
+            {{ Form::label('precio_id_2', 'Precio 2', ['class' => 'form-label']) }}
+            {{ Form::select('precio_id_2', $precios, $preciosDetalle->precio_id, ['class' => 'form-control', 'placeholder' => 'Selecione un precio']) }}
+        </div>
+        <div class="mb-3">
+            {{ Form::label('precio_id_4', 'Precio 4', ['class' => 'form-label']) }}
+            {{ Form::select('precio_id_4', $precios, $preciosDetalle->precio_id, ['class' => 'form-control', 'placeholder' => 'Selecione un precio']) }}
+        </div>
+    </div> --}}
 </div>
 <div class="col-lg-3 mt-4">
     <button class="btn btn-primary me-1 mb-1" type="submit">Confirmar producto</button>

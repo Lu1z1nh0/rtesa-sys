@@ -40,7 +40,7 @@ class PrecioDetalleController extends Controller
         $precios = Precio::pluck('precio_Monto', 'id');
         //relacionar con producto
         $productos = Producto::pluck('nombre', 'id');
-        return view('precios_detalle.create', compact('precioDetalle', 'precios', 'productos'));
+        return view('productos.create', compact('precioDetalle', 'precios', 'productos'));
     }
 
     /**

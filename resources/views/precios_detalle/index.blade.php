@@ -26,15 +26,6 @@
             </div>
         </div>
     </div>
-    {{-- Tabla de precios --}}
-    <div class="row mb-3 justify-content-md-center">
-        <div class="col">
-            <a href="{{ route('precios_detalle.create') }}">
-                <button class="btn btn-primary me-1 mb-1" type="button"><i class="fas fa-plus"></i> Asignar precio a un producto
-                </button>
-            </a>
-        </div>
-    </div>
     <div class="card mb-3">
         <div class="card-header">
             <div class="row flex-between-end">

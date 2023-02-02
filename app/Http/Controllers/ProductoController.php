@@ -9,6 +9,8 @@ use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Marca;
 use App\Models\EstadoProducto;
+use App\Models\PrecioDetalle;
+use App\Models\Precio;
 
 class ProductoController extends Controller
 {
@@ -45,7 +47,12 @@ class ProductoController extends Controller
         $marcas = Marca::pluck('nombre', 'id');
         //relacionar con el modelo de estado producto
         $estadoProductos = EstadoProducto::pluck('estado', 'id');
-        return view('productos.create', compact('producto', 'categorias', 'marcas', 'estadoProductos'));
+
+        //crear un nuevo modelo de precio detalle
+        $preciosDetalle = New PrecioDetalle();
+        //relacionar con el modelo de precio
+        $precios = Precio::pluck('precio_Monto', 'id');
+        return view('productos.create', compact('producto', 'categorias', 'marcas', 'estadoProductos', 'precios', 'preciosDetalle'));
     }
 
     /**
@@ -119,6 +126,16 @@ class ProductoController extends Controller
         $reg->garantia = $request->get('garantia');
 
         $reg->save();
+
+        //guardar precio
+        $precioDetalle = new PrecioDetalle();
+        $precioDetalle->producto_id = $reg->id;
+        $precioDetalle->precio_id = $request->get('precio_id_1');
+        // $precioDetalle->precio_id = $request->get('precio_id_2');
+        // $precioDetalle->precio_id = $request->get('precio_id_3');
+        // $precioDetalle->precio_id = $request->get('precio_id_4');
+        $precioDetalle->save();
+
         return redirect()->route('productos.index');
     }
 
@@ -146,7 +163,15 @@ class ProductoController extends Controller
         $categorias = Categoria::pluck('nombre', 'id');
         $marcas = Marca::pluck('nombre', 'id');
         $estadoProductos = EstadoProducto::pluck('estado', 'id');
-        return view('productos.edit', compact('producto', 'categorias', 'marcas', 'estadoProductos'));
+
+
+        $preciosDetalle = PrecioDetalle::find($id);
+        //relacionar con el modelo de precio
+        $precios = Precio::pluck('precio_Monto', 'id');
+
+        
+
+        return view('productos.edit', compact('producto', 'categorias', 'marcas', 'estadoProductos', 'precios', 'preciosDetalle'));
 
     }
 
@@ -157,7 +182,7 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, Producto $producto, PrecioDetalle $precioDetalle)
     {
         request()->validate([
             'nombre' => 'required',
@@ -219,6 +244,10 @@ class ProductoController extends Controller
         $producto->garantia = $request->get('garantia');
 
         $producto->update();
+
+        $precioDetalle->producto_id = $request->id;
+        $precioDetalle->precio_id = $request->get('precio_id_1');
+        $precioDetalle->update();
 
         // $producto->update($request->all());
 

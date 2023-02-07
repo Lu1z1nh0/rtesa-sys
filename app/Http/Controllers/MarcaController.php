@@ -28,7 +28,9 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        //
+        //paginate
+        $marca = new Marca();
+        return view('marcas.create', compact('marca'));
     }
 
     /**
@@ -39,7 +41,24 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validar campos
+        $request->validate([
+            'nombre' => 'required',
+            'estado' => 'required',
+        ]);
+        //almacenar datos
+        $reg = new Marca();
+        $reg->nombre = $request->get('nombre');
+        $reg->estado = $request->get('estado');
+        //subir archivos imagenes
+        if ($request->hasFile('logo_src')) {
+            $file = $request->file('logo_src');
+            $file->move(public_path() . '/assets/img/logos/', $file->getClientOriginalName());
+            $reg->logo_src = '/assets/img/logos/' . $file->getClientOriginalName();
+        }
+        $reg->save();
+        //redireccionar
+        return redirect()->route('marcas.index');
     }
 
     /**
@@ -61,7 +80,9 @@ class MarcaController extends Controller
      */
     public function edit($id)
     {
-        //
+        //paginate
+        $marca = Marca::find($id);
+        return view('marcas.edit', compact('marca'));
     }
 
     /**
@@ -71,9 +92,24 @@ class MarcaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Marca $marca)
     {
-        //
+        //validar campos
+        $request->validate([
+            'nombre' => 'required',
+            'estado' => 'required',
+        ]);
+        //almacenar datos
+        $marca->nombre = $request->get('nombre');
+        $marca->estado = $request->get('estado');
+        if ($request->hasFile('logo_src')) {
+            $file = $request->file('logo_src');
+            $file->move(public_path() . '/assets/img/logos/', $file->getClientOriginalName());
+            $marca->logo_src = '/assets/img/logos/' . $file->getClientOriginalName();
+        }
+        $marca->update();
+        //redireccionar
+        return redirect()->route('marcas.index');
     }
 
     /**
@@ -84,6 +120,13 @@ class MarcaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $marca = Marca::find($id);
+        if ($marca->logo_src){
+            if (file_exists('/assets/img/logos/'.$marca->logo_src)){
+                unlink('/assets/img/logos/'.$marca->logo_src);
+            }
+        }
+        $marca->delete();
+        return redirect()->route('marcas.index');
     }
 }

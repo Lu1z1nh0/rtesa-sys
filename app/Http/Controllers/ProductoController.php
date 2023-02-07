@@ -99,28 +99,28 @@ class ProductoController extends Controller
         if ($request->hasFile('ficha_tecnica_herf')) {
             $file = $request->file('ficha_tecnica_herf');
             $file->move(public_path() . '/assets/pdf/productos/', $file->getClientOriginalName());
-            $reg->ficha_tecnica_herf = $file->getClientOriginalName();
+            $reg->ficha_tecnica_herf = '/assets/pdf/productos/' . $file->getClientOriginalName();
         }
         //subir archivos imagenes
         if ($request->hasFile('imagen_1_src')) {
             $file = $request->file('imagen_1_src');
             $file->move(public_path() . '/assets/img/products/', $file->getClientOriginalName());
-            $reg->imagen_1_src = $file->getClientOriginalName();
+            $reg->imagen_1_src = '/assets/img/products/' . $file->getClientOriginalName();
         }
         if ($request->hasFile('imagen_2_src')) {
             $file = $request->file('imagen_2_src');
             $file->move(public_path() . '/assets/img/products/', $file->getClientOriginalName());
-            $reg->imagen_2_src = $file->getClientOriginalName();
+            $reg->imagen_2_src = '/assets/img/products/' . '/assets/img/products/' . $file->getClientOriginalName();
         }
         if ($request->hasFile('imagen_3_src')) {
             $file = $request->file('imagen_3_src');
             $file->move(public_path() . '/assets/img/products/', $file->getClientOriginalName());
-            $reg->imagen_3_src = $file->getClientOriginalName();
+            $reg->imagen_3_src = '/assets/img/products/' . $file->getClientOriginalName();
         }
         if ($request->hasFile('imagen_4_src')) {
             $file = $request->file('imagen_4_src');
             $file->move(public_path() . '/assets/img/products/', $file->getClientOriginalName());
-            $reg->imagen_4_src = $file->getClientOriginalName();
+            $reg->imagen_4_src = '/assets/img/products/' . $file->getClientOriginalName();
         }
         $reg->etiqueta_destacado = $request->get('etiqueta_destacado');
         $reg->garantia = $request->get('garantia');
@@ -128,13 +128,13 @@ class ProductoController extends Controller
         $reg->save();
 
         //guardar precio
-        $precioDetalle = new PrecioDetalle();
-        $precioDetalle->producto_id = $reg->id;
-        $precioDetalle->precio_id = $request->get('precio_id_1');
+        // $precioDetalle = new PrecioDetalle();
+        // $precioDetalle->producto_id = $reg->id;
+        // $precioDetalle->precio_id = $request->get('precio_id_1');
         // $precioDetalle->precio_id = $request->get('precio_id_2');
         // $precioDetalle->precio_id = $request->get('precio_id_3');
         // $precioDetalle->precio_id = $request->get('precio_id_4');
-        $precioDetalle->save();
+        // $precioDetalle->save();
 
         return redirect()->route('productos.index');
     }
@@ -245,9 +245,9 @@ class ProductoController extends Controller
 
         $producto->update();
 
-        $precioDetalle->producto_id = $request->id;
-        $precioDetalle->precio_id = $request->get('precio_id_1');
-        $precioDetalle->update();
+        // $precioDetalle->producto_id = $request->id;
+        // $precioDetalle->precio_id = $request->get('precio_id_1');
+        // $precioDetalle->update();
 
         // $producto->update($request->all());
 

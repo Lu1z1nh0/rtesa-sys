@@ -69,25 +69,44 @@
     </div>
     <div class="mb-3">
         {{ Form::label('ficha_tecnica_herf', 'Ficha tecnica del producto', ['class' => 'form-label']) }}
-        {{ Form::file('ficha_tecnica_herf', $producto->ficha_tecnica_herf, ['class' => 'form-control', 'placeholder' => '']) }}
+        {{ Form::hidden('ficha_tecnica_herf', $producto->ficha_tecnica_herf, ['id' => 'ficha_tecnica_herf']) }}
+        {{ Form::file('ficha_tecnica_herf', ['class' => 'form-control', 'placeholder' => '']) }}
     </div>
     <div class="mb-3">
         {{ Form::label('imagen_1_src', 'Imagen del producto principal', ['class' => 'form-label']) }}
-        {{ Form::file('imagen_1_src', $producto->imagen_1_src, ['class' => 'form-control', 'placeholder' => '']) }}
+        {{ Form::hidden('imagen_1_src', $producto->imagen_1_src, ['id' => 'imagen_1_src']) }}
+        {{ Form::file('imagen_1_src', ['class' => 'form-control', 'placeholder' => '']) }}
+        {{-- mostrar imagen del producto con una etiqueta img comprobar si hay imagen para mostrar --}}
+        @if ($producto->imagen_1_src)
+            <img src="{{ $producto->imagen_1_src }}" alt="" width="100px">
+        @endif
+        
     </div>
     <div class="mb-3">
         {{ Form::label('imagen_2_src', 'Imagen del producto extra', ['class' => 'form-label']) }}
-        {{ Form::file('imagen_2_src', $producto->imagen_2_src, ['class' => 'form-control', 'placeholder' => '']) }}
+        {{ Form::hidden('imagen_2_src', $producto->imagen_2_src, ['id' => 'imagen_2_src']) }}
+        {{ Form::file('imagen_2_src', ['class' => 'form-control', 'placeholder' => '']) }}
+        @if ($producto->imagen_2_src)
+            <img src="{{ $producto->imagen_2_src }}" alt="" width="100px">
+        @endif
     </div>
     <div class="mb-3">
         {{ Form::label('imagen_3_src', 'Imagen del producto extra', ['class' => 'form-label']) }}
-        {{ Form::file('imagen_3_src', $producto->imagen_3_src, ['class' => 'form-control', 'placeholder' => '']) }}
+        {{ Form::hidden('imagen_3_src', $producto->imagen_3_src, ['id' => 'imagen_3_src']) }}
+        {{ Form::file('imagen_3_src', ['class' => 'form-control', 'placeholder' => '']) }}
+        @if ($producto->imagen_3_src)
+            <img src="{{ $producto->imagen_3_src }}" alt="" width="100px">
+        @endif
     </div>
     <div class="mb-3">
         {{ Form::label('imagen_4_src', 'Imagen del producto extra', ['class' => 'form-label']) }}
-        {{ Form::file('imagen_4_src', $producto->imagen_4_src, ['class' => 'form-control', 'placeholder' => '']) }}
+        {{ Form::hidden('imagen_4_src', $producto->imagen_4_src, ['id' => 'imagen_4_src']) }}
+        {{ Form::file('imagen_4_src', ['class' => 'form-control', 'placeholder' => '']) }}
+        @if ($producto->imagen_4_src)
+            <img src="{{ $producto->imagen_4_src }}" alt="" width="100px">
+        @endif
     </div>
-    <div class="mt-4">
+    {{-- <div class="mt-4">
         <h4>Tabla de precios</h4>
     </div>
     <div class="col-lg-6">
@@ -95,11 +114,11 @@
             {{ Form::label('precio_id_1', 'Precio 1', ['class' => 'form-label']) }}
             {{ Form::select('precio_id_1', $precios, $preciosDetalle->precio_id, ['class' => 'form-control', 'placeholder' => 'Selecione un precio', 'required']) }}
         </div>
-        {{-- <div class="mb-3">
+        <div class="mb-3">
             {{ Form::label('precio_id_3', 'Precio 3', ['class' => 'form-label']) }}
             {{ Form::select('precio_id_3', $precios, $preciosDetalle->precio_id, ['class' => 'form-control', 'placeholder' => 'Selecione un precio']) }}
-        </div> --}}
-    </div>
+        </div>
+    </div> --}}
     {{-- <div class="col-lg-6">
         <div class="mb-3">
             {{ Form::label('precio_id_2', 'Precio 2', ['class' => 'form-label']) }}

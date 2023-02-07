@@ -9,10 +9,9 @@
         <div class="card-body position-relative mt-4">
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>🏷️ Precios 🏷️</h3>
-                    <p class="mt-2">Administracion de precios <b>para Thompson.</b> Aqui podras encontrar todos los
-                        precios de los productos, podras tener un control de los precios de los productos, editar,
-                        agregar e eliminar.
+                    <h3>🗂️ Categorias de productos 🗂️</h3>
+                    <p class="mt-2">Administracion de categorias <b>para Thompson.</b> Aqui podras encontrar todas las
+                        categorias que pertencen a los productos, podras ordenarlos por nombre y por cantidad.
                 </div>
             </div>
         </div>
@@ -20,11 +19,13 @@
     {{-- formuarlio --}}
     <div class="card mb-3">
         <div class="mb-4 card-body">
-            <h1>Agregar nuevo precio</h1>
-            <form method="POST" action="{{ route('precios.store') }}" role="form" 
-                enctype="multipart/form-data">
+            <h1>Editar una categoria existente</h1>
+            <form method="POST" action="{{ route('categorias.update', $categoria->id) }}"  role="form" enctype="multipart/form-data">
+                {{ method_field('PATCH') }}
                 @csrf
-                @include('precios.form')
+
+                @include('categorias.form')
+
             </form>
         </div>
     </div>

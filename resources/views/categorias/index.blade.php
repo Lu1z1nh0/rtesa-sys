@@ -1,6 +1,15 @@
 @extends('layouts.default')
 
 @section('dashboard')
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/date-1.2.0/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-colvis-2.3.3/b-html5-2.3.3/b-print-2.3.3/date-1.2.0/datatables.min.js">
+    </script>
     {{-- Titulo --}}
     <div class="card mb-3">
         <div class="bg-holder d-none d-lg-block bg-card"
@@ -27,7 +36,13 @@
                 <div class="card-body position-relative">
                     <h6>Categorias</h6>
                     <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-warning"
-                        data-countup='{"endValue":58.386,"decimalPlaces":2,"suffix":"k"}'>6</div>
+                        data-countup='{"endValue":58.386,"decimalPlaces":2,"suffix":"k"}'>
+                        <?php
+                        $categoriasActivas = DB::table('categoria')
+                            ->where('estado', 'Activo')
+                            ->get();
+                        echo count($categoriasActivas);
+                        ?>  </div>
                 </div>
             </div>
         </div>
@@ -40,27 +55,23 @@
                 <div class="card-body position-relative">
                     <h6>Productos</h6>
                     <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info"
-                        data-countup='{"endValue":23.434,"decimalPlaces":2,"suffix":"k"}'>25</div>
+                        data-countup='{"endValue":23.434,"decimalPlaces":2,"suffix":"k"}'>
+                        <?php
+                        $productos = DB::table('producto')
+                            ->get();
+                        echo count($productos);
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     {{-- Tabla de categorias --}}
     <div class="mb-3">
-        <a href="{{url('/dashboard/categorias/crear')}}">
+        <a href="{{ route('categorias.create') }}">
             <button class="btn btn-primary me-1 mb-1" type="button"><i class="fas fa-plus"></i> Agregar nueva categoría
             </button>
         </a>
-    </div>
-    <div class="row mb-3">
-        <div class="col-lg-6">
-            <label class="form-label" for="exampleFormControlInput1">Buscar Categoría</label>
-            <input class="form-control" type="text" placeholder="Fajas" />
-        </div>
-        <div class="col-lg-6 d-flex align-items-end">
-            <button class="btn btn-primary me-1 mb-1 mt-2" type="button"><i class="fas fa-search"></i> Buscar Categoría
-            </button>
-        </div>
     </div>
     <div class="card mb-3">
         <div class="card-header">
@@ -72,97 +83,47 @@
         </div>
         <div class="card-body pt-0">
             <div class="table-responsive scrollbar">
-                <table class="table">
+                <table id="table_categorias" class="table display">
                     <thead>
                         <tr>
                             <th scope="col">Nombre Categoria</th>
-                            <th scope="col">Descripcion</th>
+                            <th scope="col">Estado</th>
                             <th class="text-end" scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Fajas</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                            <td class="text-end">
-                                <div>
-                                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Edit"><span class="text-500 fas fa-edit"></span></button>
-                                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Delete"><span
-                                            class="text-500 fas fa-trash-alt"></span></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Silicones</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                            <td class="text-end">
-                                <div>
-                                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Edit"><span class="text-500 fas fa-edit"></span></button>
-                                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Delete"><span
-                                            class="text-500 fas fa-trash-alt"></span></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Pegamentos</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                            <td class="text-end">
-                                <div>
-                                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Edit"><span class="text-500 fas fa-edit"></span></button>
-                                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Delete"><span
-                                            class="text-500 fas fa-trash-alt"></span></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Lubricantes</td>
-                            <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                            <td class="text-end">
-                                <div>
-                                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Edit"><span class="text-500 fas fa-edit"></span></button>
-                                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Delete"><span
-                                            class="text-500 fas fa-trash-alt"></span></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Limpiadores</td>
-                            <td>jLorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                            <td class="text-end">
-                                <div>
-                                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Edit"><span class="text-500 fas fa-edit"></span></button>
-                                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Delete"><span
-                                            class="text-500 fas fa-trash-alt"></span></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Soportes</td>
-                            <td>jLorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                            <td class="text-end">
-                                <div>
-                                    <button class="btn p-0" type="button" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Edit"><span
-                                            class="text-500 fas fa-edit"></span></button>
-                                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="Delete"><span
-                                            class="text-500 fas fa-trash-alt"></span></button>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach ($categorias as $categoria)
+                            <tr>
+                                <td>{{ $categoria->nombre }}</td>
+                                <td>{{ $categoria->estado }}</td>
+                                <td class="text-end">
+                                    <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST">
+                                        <a href="{{ route('categorias.edit', $categoria->id) }}">
+                                            <button class="btn p-0" type="button" data-bs-toggle="tooltip"
+                                                data-bs-placement="top" title="Edit"><span
+                                                    class="text-500 fas fa-edit"></span></button></a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn p-0 ms-2" type="submit" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" title="Delete"><span
+                                                class="text-500 fas fa-trash-alt"></span></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#table_categorias').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'excel', 'pdf'
+                ]
+            });
+        });
+    </script>
 @endsection

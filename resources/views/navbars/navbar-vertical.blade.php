@@ -118,12 +118,12 @@
                   </a>
 
                   <!-- parent pages-->
-                  <a class="nav-link {{ 'dashboard/stock' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/stock')}}" role="button" aria-expanded="false">
+                  {{-- <a class="nav-link {{ 'dashboard/stock' == request()->path() ? 'active' : '' }}" href="{{url('/dashboard/stock')}}" role="button" aria-expanded="false">
                     <div class="d-flex align-items-center">
                       <span class="nav-link-icon"><span class="fas fa-box"></span></span>
                       <span class="nav-link-text ps-1">Stock</span>
                     </div>
-                  </a>
+                  </a> --}}
                 </li>
 
                 <!-- Clientes -->

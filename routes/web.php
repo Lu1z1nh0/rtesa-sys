@@ -92,8 +92,7 @@ Route::get('/combo-navbar', function () { return view('navbar-combo'); });
 Route::view('/aprobacion', 'aprobacion')->middleware('auth');
 
 //Vista de categorias
-Route::view('/dashboard/categorias', 'categorias/index')->middleware('auth');
-Route::view('/dashboard/categorias/crear', 'categorias/form')->middleware('auth');
+Route::resource('/dashboard/categorias', App\Http\Controllers\CategoriaController::class)->middleware('auth');
 
 //vista de mantenimiento de productos - prueba de vista publica - con controllador de productos
 Route::resource('/dashboard/productos', App\Http\Controllers\ProductoController::class)->middleware('auth');
@@ -105,8 +104,7 @@ Route::resource('/dashboard/precios_detalle', App\Http\Controllers\PrecioDetalle
 Route::resource('/dashboard/precios', App\Http\Controllers\PrecioController::class)->middleware('auth');
 
 //Vista de marcas
-Route::view('/dashboard/marcas', 'marcas/index')->middleware('auth');
-Route::view('/dashboard/marcas/crear', 'marcas/form')->middleware('auth');
+Route::resource('/dashboard/marcas', App\Http\Controllers\MarcaController::class)->middleware('auth');
 
 //Vista de stock
 Route::view('/dashboard/stock', 'stock/index')->middleware('auth');

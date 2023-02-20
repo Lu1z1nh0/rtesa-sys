@@ -37,7 +37,10 @@
     <link href="{{asset('css/theme.css')}}" rel="stylesheet" id="style-default">
     <link href="{{asset('css/user-rtl.css')}}" rel="stylesheet" id="user-style-rtl"> 
     <link href="{{asset('css/user.css')}}" rel="stylesheet" id="user-style-default">
-    
+    @notifyCss
+    @include('notify::components.notify')
+    <x:notify-messages />
+    @notifyJs
     <script>
       var isRTL = JSON.parse(localStorage.getItem('isRTL'));
       if (isRTL) {
@@ -101,7 +104,6 @@
     {{-- <script src="{{url('vendors/list.js/list.min.js')}}"></script>   --}}
     <script src="{{url('/vendors/overlayscrollbars/OverlayScrollbars.min.js')}}"></script>
     <script src="{{asset('js/theme.js')}}"></script> 
-
   </body>
 
 </html>

@@ -57,6 +57,7 @@ class MarcaController extends Controller
             $reg->logo_src = '/assets/img/logos/' . $file->getClientOriginalName();
         }
         $reg->save();
+        notify()->success('Welcome to Laravel Notify ⚡️');
         //redireccionar
         return redirect()->route('marcas.index');
     }
